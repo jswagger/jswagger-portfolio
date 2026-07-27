@@ -1,0 +1,48 @@
+:root{
+  --bg: #0f1724;
+  --surface: #0b1220;
+  --text: #e6eef8;
+  --muted: #98a0b3;
+  --accent: #7dd3fc;
+}
+
+/* Basic container */
+.container{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Header / navbar */
+.site-header{
+  background: var(--surface);
+  color: var(--text);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.site-header .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 16px;
+}
+.brand{
+  font-weight:700;
+  letter-spacing:0.4px;
+}
+.nav a{
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:12px;
+  font-size:14px;
+}
+.nav a:hover{color:var(--accent)}
+
+/* Projects */
+.projects{padding:40px 0}
+.projects h2{margin-bottom:16px}
+.projects ul{list-style:none;padding:0;display:flex;gap:12px;flex-wrap:wrap}
+.project{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:8px;flex:1 1 calc(50% - 12px);min-width:220px}
+.project h3{margin:0 0 6px 0}
+.project p{margin:0 0 8px 0;color:var(--muted)}
+.project-link{font-size:13px;color:var(--accent);text-decoration:none}
