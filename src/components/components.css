@@ -46,3 +46,8 @@
 .project h3{margin:0 0 6px 0}
 .project p{margin:0 0 8px 0;color:var(--muted)}
 .project-link{font-size:13px;color:var(--accent);text-decoration:none}
+
+/* Hero and avatar tweaks */
+.hero{display:flex;flex-direction:column;align-items:center;gap:16px;padding:28px 0}
+.hero .base{max-width:480px;width:100%;height:auto;border-radius:10px}
+.avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.06)}
