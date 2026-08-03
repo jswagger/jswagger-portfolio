@@ -1,35 +1,48 @@
 import React from 'react'
 
-const sampleProjects = [
+const projects = [
   {
-    id: 1,
-    title: 'Personal Website',
-    description: 'A simple portfolio built with React and Vite',
-    link: '#'
+    title: 'Enterprise web platform',
+    description: 'Delivered scalable application architecture and frontend execution for business-critical workflows with a strong emphasis on maintainability.',
+    tags: ['React', 'AWS', 'Architecture']
   },
   {
-    id: 2,
-    title: 'Open-source Library',
-    description: 'Small utility library published to npm',
-    link: '#'
+    title: 'Geospatial and operations systems',
+    description: 'Built and improved systems that combine geospatial data, operational workflows, and dependable user experiences.',
+    tags: ['GIS', 'Python', 'SQL']
+  },
+  {
+    title: 'Legacy modernization initiatives',
+    description: 'Led refactoring and optimization efforts that improved performance, reduced complexity, and increased team confidence in long-standing systems.',
+    tags: ['C#', '.NET', 'Refactoring']
   }
 ]
 
 export default function Projects() {
   return (
-    <section id="projects" className="projects container">
-      <h2>Projects</h2>
-      <ul>
-        {sampleProjects.map((p) => (
-          <li key={p.id} className="project">
-            <h3>{p.title}</h3>
-            <p>{p.description}</p>
-            <a className="project-link" href={p.link} aria-label={`Open ${p.title}`}>
-              View
-            </a>
-          </li>
+    <section className="content-section" id="work">
+      <div className="section-heading">
+        <p className="section-label">Work</p>
+        <h2>Selected work shaped by architectural thinking and practical delivery.</h2>
+      </div>
+      <div className="project-list">
+        {projects.map((project) => (
+          <a key={project.title} className="project-card" href="#contact">
+            <div>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className="tag-row">
+                {project.tags.map((tag) => (
+                  <span key={tag} className="tag">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <span aria-hidden="true">→</span>
+          </a>
         ))}
-      </ul>
+      </div>
     </section>
   )
 }
