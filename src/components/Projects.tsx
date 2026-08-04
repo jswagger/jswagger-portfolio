@@ -1,22 +1,5 @@
 import React from 'react'
-
-const projects = [
-  {
-    title: 'Enterprise web platform',
-    description: 'Delivered scalable application architecture and frontend execution for business-critical workflows with a strong emphasis on maintainability.',
-    tags: ['React', 'AWS', 'Architecture']
-  },
-  {
-    title: 'Geospatial and operations systems',
-    description: 'Built and improved systems that combine geospatial data, operational workflows, and dependable user experiences.',
-    tags: ['GIS', 'Python', 'SQL']
-  },
-  {
-    title: 'Legacy modernization initiatives',
-    description: 'Led refactoring and optimization efforts that improved performance, reduced complexity, and increased team confidence in long-standing systems.',
-    tags: ['C#', '.NET', 'Refactoring']
-  }
-]
+import { projects } from '../data/portfolioContent'
 
 export default function Projects() {
   return (

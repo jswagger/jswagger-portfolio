@@ -11,11 +11,12 @@ export default function Hero() {
       <div className="hero-content">
         <div className="hero-copy-block">
           <div className="hero-badge">Senior Software Developer • 10+ years</div>
-          <h1>Innovative developer building scalable systems with clarity and purpose.</h1>
+          <h1>Building dependable software with clarity, context, and craft.</h1>
           <p className="hero-copy">
-            I specialize in scalable web systems, enterprise architecture, and geospatial
-            solutions. Known for bringing clean code principles, architectural rigor,
-            and strategic simplicity to complex problems.
+            I create web systems and enterprise solutions that are grounded in thoughtful
+            architecture, practical tradeoffs, and a strong bias for reliability. I use
+            modern tools responsibly, but I never compromise on quality, maintainability,
+            or user experience.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#work">

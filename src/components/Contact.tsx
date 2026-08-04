@@ -5,11 +5,11 @@ export default function Contact() {
     <section className="content-section" id="contact">
       <div className="contact-card">
         <p className="section-label">Contact</p>
-        <h2>Let&apos;s build something thoughtful together.</h2>
+        <h2>Let&apos;s build something thoughtful, resilient, and well considered.</h2>
         <p>
           I am currently open to conversations around architecture, systems work,
-          and product delivery. If you are looking for a seasoned developer who
-          values clarity, rigor, and practical outcomes, I would love to connect.
+          and product delivery. If you value clear thinking, disciplined execution,
+          and software that holds up in the real world, I would love to connect.
         </p>
         <div className="contact-actions">
           <a className="button button-primary" href="mailto:jeremy.swagger@gmail.com">

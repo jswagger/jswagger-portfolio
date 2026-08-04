@@ -1,35 +1,29 @@
 import React from 'react'
-
-const highlights = [
-  { label: 'Experience', value: '10+ years' },
-  { label: 'Location', value: 'Florida, USA' },
-  { label: 'Specialties', value: 'Enterprise architecture & GIS systems' },
-  { label: 'Philosophy', value: 'Keep it simple, keep it testable' }
-]
+import { highlights } from '../data/portfolioContent'
 
 export default function About() {
   return (
     <section className="content-section" id="about">
       <div className="section-heading">
         <p className="section-label">About</p>
-        <h2>Bringing architectural rigor and strategic simplicity to complex systems.</h2>
+        <h2>Bringing architectural rigor, clear thinking, and practical delivery to complex systems.</h2>
       </div>
       <div className="about-grid">
         <div className="about-copy">
           <p>
             Over the past decade, I have built mission-critical applications across
-            utilities, e-commerce, and fintech. My focus has consistently been on
-            delivering systems that are scalable, testable, and resilient under
+            utilities, e-commerce, and fintech. My work has consistently focused on
+            creating systems that are resilient, testable, and dependable under
             real-world pressure.
           </p>
           <p>
-            I care deeply about clean code and architectural soundness, but I also
-            believe the best technical decisions come from understanding context.
-            That is why my approach is grounded in clarity, constraints, and
-            thoughtful tradeoffs.
+            I believe the best solutions come from understanding the full context first:
+            the people involved, the constraints at play, and the long-term impact of
+            the technical decisions being made. That is why my approach is grounded in
+            clarity, strong fundamentals, and thoughtful tradeoffs.
           </p>
           <p>
-            My work spans full-stack development, system optimization, enterprise
+            My experience spans full-stack development, system optimization, enterprise
             architecture, and geospatial solutions, with a strong foundation in
             JavaScript/React, Python, C#, and AWS.
           </p>
