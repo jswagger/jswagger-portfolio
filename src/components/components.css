@@ -245,7 +245,7 @@ main {
 }
 
 .hero-section {
-  padding-top: 40px;
+  padding-top: 0px;
   max-width: 1180px;
   margin: 0 auto;
 }
@@ -253,10 +253,7 @@ main {
 .hero-banner {
   position: relative;
   margin-bottom: 24px;
-  border-radius: 28px;
   overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: 0 20px 40px var(--shadow);
   isolation: isolate;
 }
 
