@@ -1,8 +1,35 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 export default function Contact() {
+  const [isRevealed, setIsRevealed] = useState(false)
+  const sectionRef = useRef<HTMLElement | null>(null)
+
+  useEffect(() => {
+    const node = sectionRef.current
+    if (!node) return
+
+    if (typeof window === 'undefined' || typeof window.IntersectionObserver === 'undefined') {
+      setIsRevealed(true)
+      return
+    }
+
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsRevealed(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.2 },
+    )
+
+    observer.observe(node)
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="content-section" id="contact">
+    <section className="content-section" id="contact" ref={sectionRef} data-reveal={isRevealed}>
       <div className="contact-card">
         <p className="section-label">Contact</p>
         <h2>Let&apos;s build something thoughtful, resilient, and well considered.</h2>

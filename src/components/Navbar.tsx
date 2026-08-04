@@ -3,11 +3,23 @@ import { applyTheme, getInitialTheme, type ThemeMode } from '../theme'
 
 export default function Navbar() {
   const [theme, setTheme] = useState<ThemeMode>('light')
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     const initialTheme = getInitialTheme()
     setTheme(initialTheme)
     applyTheme(initialTheme)
+  }, [])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 24)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const setThemeMode = (nextTheme: ThemeMode) => {
@@ -17,7 +29,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="site-header">
+    <header className={`site-header${isScrolled ? ' is-scrolled' : ''}`}>
       <div className="container">
         <a className="brand" href="#top">
           jswagger
@@ -30,7 +42,7 @@ export default function Navbar() {
             <a href="#contact">Contact</a>
           </nav>
           <div className="theme-switch" role="group" aria-label="Theme switcher">
-            <label className="theme-option">
+            <label className="theme-option theme-option-bounce">
               <input
                 type="radio"
                 name="theme"
@@ -40,7 +52,7 @@ export default function Navbar() {
               />
               <span>Light</span>
             </label>
-            <label className="theme-option">
+            <label className="theme-option theme-option-bounce">
               <input
                 type="radio"
                 name="theme"
