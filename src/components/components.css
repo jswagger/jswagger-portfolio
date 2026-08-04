@@ -7,11 +7,36 @@
   --accent: #2f855a;
   --accent-soft: #eaf7ef;
   --border: #dfe8e0;
+  --shadow: rgba(20, 34, 26, 0.12);
+  --chip-bg: #ffffff;
+  --button-secondary-bg: #ffffff;
+  transition: background-color 280ms ease, color 280ms ease, border-color 280ms ease,
+    box-shadow 280ms ease, fill 280ms ease, stroke 280ms ease;
+}
+
+:root[data-theme='dark'] {
+  --bg: #07110c;
+  --surface: #0f1c15;
+  --surface-muted: #13261d;
+  --text: #f4f7f2;
+  --text-muted: #aab7af;
+  --accent: #69d39a;
+  --accent-soft: #183d2b;
+  --border: #233a2e;
+  --shadow: rgba(0, 0, 0, 0.35);
+  --chip-bg: #13261d;
+  --button-secondary-bg: #13261d;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
+}
+
+body,
+body * {
+  transition: background-color 280ms ease, color 280ms ease, border-color 280ms ease,
+    box-shadow 280ms ease, fill 280ms ease, stroke 280ms ease;
 }
 
 #root {
@@ -35,7 +60,7 @@ main {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(246, 248, 246, 0.95);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -54,6 +79,12 @@ main {
   color: var(--text);
 }
 
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
 .nav {
   display: flex;
   gap: 16px;
@@ -66,6 +97,39 @@ main {
 }
 
 .nav a:hover {
+  color: var(--accent);
+}
+
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+.theme-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.theme-option input {
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.theme-option:has(input:checked) {
+  background: var(--accent-soft);
   color: var(--accent);
 }
 
@@ -101,9 +165,9 @@ main {
   width: min(100%, 420px);
   padding: 14px;
   border-radius: 30px;
-  background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(239, 246, 241, 0.9));
+  background: linear-gradient(145deg, var(--surface), var(--surface-muted));
   border: 1px solid var(--border);
-  box-shadow: 0 20px 40px rgba(20, 34, 26, 0.12);
+  box-shadow: 0 20px 40px var(--shadow);
 }
 
 .hero-photo-card img {
@@ -203,7 +267,7 @@ main {
 }
 
 .button-secondary {
-  background: white;
+  background: var(--button-secondary-bg);
   color: var(--text);
   border: 1px solid var(--border);
 }
@@ -218,7 +282,7 @@ main {
 .chip {
   padding: 8px 12px;
   border-radius: 999px;
-  background: white;
+  background: var(--chip-bg);
   color: var(--text-muted);
   border: 1px solid var(--border);
   font-size: 0.9rem;
@@ -259,11 +323,11 @@ main {
 .stat-card,
 .info-card,
 .contact-card {
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 8px 24px rgba(20, 34, 26, 0.04);
+  box-shadow: 0 8px 24px var(--shadow);
 }
 
 .stat-label {
@@ -304,7 +368,7 @@ main {
   padding: 22px;
   border: 1px solid var(--border);
   border-radius: 20px;
-  background: white;
+  background: var(--surface);
   color: inherit;
   text-decoration: none;
 }
@@ -376,6 +440,11 @@ main {
 
   .nav {
     gap: 10px;
+  }
+
+  .nav-group {
+    flex-direction: column;
+    align-items: flex-end;
   }
 }
 
