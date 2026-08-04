@@ -31,8 +31,9 @@ export default function Navbar() {
   return (
     <header className={`site-header${isScrolled ? ' is-scrolled' : ''}`}>
       <div className="container">
-        <a className="brand" href="#top">
-          jswagger
+        <a className="brand" href="#top" aria-label="Go to home">
+          <img className="brand-mark" src="/favicon.png?v=4" alt="" aria-hidden="true" />
+          <span>jeremy swagger</span>
         </a>
         <div className="nav-group">
           <nav className="nav" aria-label="Primary navigation">

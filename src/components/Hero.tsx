@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import heroImage from '../assets/berchtesgaden.jpg'
+import heroImage from '../assets/hello-placeholder.PNG'
 import portraitImage from '../assets/profile-2026.png'
 import textureImage from '../assets/hello-there-5.png'
 
@@ -18,6 +18,12 @@ export default function Hero() {
 
   return (
     <section className="hero-section" id="top">
+      <div className="hero-banner" aria-label="Featured banner">
+        <img className="hero-banner-image" src={heroImage} alt="Featured hero banner" />
+        <div className="hero-banner-overlay">
+          <span className="hero-banner-pill">Thoughtful systems • Reliable delivery</span>
+        </div>
+      </div>
       <div className="hero-content">
         <div className="hero-copy-block">
           <div className="hero-badge">Senior Software Developer • 10+ years</div>
@@ -61,7 +67,6 @@ export default function Hero() {
           >
             <img className="hero-texture" src={textureImage} alt="Decorative background texture" />
             <img className="hero-portrait" src={portraitImage} alt="Jeremy Swagger portrait" />
-            <img className="hero-nature" src={heroImage} alt="Scenic landscape view" />
           </div>
         </div>
       </div>

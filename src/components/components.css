@@ -127,10 +127,45 @@ main {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   margin: 0;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--text);
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 24px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
+}
+
+.brand-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 8px 20px var(--shadow);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.brand-icon-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px var(--shadow);
+}
+
+.brand-icon-link img {
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 
 .nav-group {
@@ -210,9 +245,68 @@ main {
 }
 
 .hero-section {
-  padding-top: 112px;
+  padding-top: 40px;
   max-width: 1180px;
   margin: 0 auto;
+}
+
+.hero-banner {
+  position: relative;
+  margin-bottom: 24px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 40px var(--shadow);
+  isolation: isolate;
+}
+
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(7, 17, 12, 0.72) 0%, rgba(7, 17, 12, 0.16) 55%, rgba(7, 17, 12, 0.38) 100%);
+  pointer-events: none;
+}
+
+.hero-banner-image {
+  display: block;
+  width: 100%;
+  height: min(32vw, 280px);
+  object-fit: cover;
+}
+
+.hero-banner-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 24px;
+}
+
+.hero-banner-pill {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
+
+.hero-banner-overlay h2 {
+  margin: 0;
+  max-width: 480px;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  line-height: 1.2;
+  color: white;
 }
 
 .hero-content {
