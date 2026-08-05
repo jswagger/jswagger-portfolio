@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="hero-banner" aria-label="Featured banner">
         <img className="hero-banner-image" src={heroImage} alt="Featured hero banner" />
         <div className="hero-banner-overlay">
-          <span className="hero-banner-pill">Thoughtful systems • Reliable delivery</span>
+          <span className="hero-banner-pill">Thoughtful engineering • Reliable solutions</span>
         </div>
       </div>
       <div className="hero-content">
@@ -29,10 +29,7 @@ export default function Hero() {
           <div className="hero-badge">Senior Software Developer • 10+ years</div>
           <h1>Building dependable software with clarity, context, and craft.</h1>
           <p className="hero-copy">
-            I create web systems and enterprise solutions that are grounded in thoughtful
-            architecture, practical tradeoffs, and a strong bias for reliability. I use
-            modern tools responsibly, but I never compromise on quality, maintainability,
-            or user experience.
+            I architect robust enterprise solutions where stability meets velocity.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#work">

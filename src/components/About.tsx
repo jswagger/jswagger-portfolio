@@ -38,16 +38,17 @@ export default function About() {
       <div className="about-grid">
         <div className="about-copy">
           <p>
-            Over the past decade, I have built mission-critical applications across
-            utilities, e-commerce, and fintech. My work has consistently focused on
-            creating systems that are resilient, testable, and dependable under
-            real-world pressure.
+            For over a decade, I have engineered mission-critical web applications, 
+            enterprise systems, and technical support frameworks. My career is defined 
+            by building resilient, highly testable architecture that stands up to intense, 
+            real-world production pressure.
           </p>
           <p>
-            I believe the best solutions come from understanding the full context first:
-            the people involved, the constraints at play, and the long-term impact of
-            the technical decisions being made. That is why my approach is grounded in
-            clarity, strong fundamentals, and thoughtful tradeoffs.
+            More than a coder, I am a full-cycle solution architect who uncovers edge cases, 
+            protects against regression, and uses contextual guardrails to keep both 
+            AI agents and human teams tightly aligned. I balance macro-level project ROI 
+            with micro-level code health, ensuring every technical decision serves the 
+            product vision through proactive, iterative communication.
           </p>
           <p>
             My experience spans full-stack development, system optimization, enterprise
