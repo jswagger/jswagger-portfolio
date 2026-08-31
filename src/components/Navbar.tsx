@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { applyTheme, getInitialTheme, type ThemeMode } from '../theme'
 
 export default function Navbar() {
-  const [theme, setTheme] = useState<ThemeMode>('light')
+  const [theme, setTheme] = useState<ThemeMode>('dark')
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {

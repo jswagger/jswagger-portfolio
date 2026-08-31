@@ -101,3 +101,58 @@ Manual and automated tests
 ### Repository - Integrated ###
 
 - Specific non-logic details co-located with modules and classes
+
+
+## Software Factory ##
+
+Software Factory Pipeline Steps
+
+### STEP 1: Setup Ticket Context ###
+Type: Setup
+Description: Extracts ticket ID, loads Acceptance Criteria/Repositories/Dev Notes, branch creation
+Model / Effort: Haiku / Low
+
+### STEP 2: Planning ###
+Type: Plan
+Description: Scans affected repos, produces a contract-complete implementation plan
+Model / Effort: Sonnet / High
+
+### STEP 3: Implementation ###
+Type: Build
+Description: Per-repo sub-agents build the plan, run tests, flag risks
+Model / Effort: Haiku / Low
+
+### STEP 4: Check-In 1 ###
+Type: Checkpoint
+Description: Conditional — pauses only if risks/open questions were flagged
+Model / Effort: —
+
+### STEP 5: Review Phase 1 — Code Cleanliness ###
+Type: Review
+Description: Scans for best practices, triggers Auto-fixes
+Model / Effort: Haiku / Low
+
+### STEP 6: Review Phase 2 — Efficiency ###
+Type: Review
+Description: Scans for efficiency and performance, triggers Auto-fixes
+Model / Effort: Haiku / High
+
+### STEP 7: Check-In 2 ###
+Type: Checkpoint
+Description: Conditional — Cleanliness + Efficiency summary
+Model / Effort: —
+
+### STEP 8: Review Phase 3 — Requirements Verification ###
+Type: Review
+Description: Scans code changes against Acceptance Criteria
+Model / Effort: Sonnet / Low
+
+### STEP 9: Check-In 3 ###
+Type: Checkpoint
+Description: Summary of Acceptance Criteria review
+Model / Effort: —
+
+### STEP 10: Review Phase 4 — Regression Inspector ###
+Type: Review
+Description: Detailed scan for regressions and new bugs, triggers Auto-fixes
+Model / Effort: Sonnet / High

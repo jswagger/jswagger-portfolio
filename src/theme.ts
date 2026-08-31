@@ -2,7 +2,7 @@ export type ThemeMode = 'light' | 'dark'
 
 export function getInitialTheme(): ThemeMode {
   if (typeof window === 'undefined') {
-    return 'light'
+    return 'dark'
   }
 
   const storedTheme = window.localStorage.getItem('theme')
@@ -15,7 +15,7 @@ export function getInitialTheme(): ThemeMode {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   }
 
-  return 'light'
+  return 'dark'
 }
 
 export function applyTheme(theme: ThemeMode): void {
