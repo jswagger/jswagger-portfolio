@@ -42,28 +42,17 @@ export default function Navbar() {
             <a href="#work">Work</a>
             <a href="#contact">Contact</a>
           </nav>
-          <div className="theme-switch" role="group" aria-label="Theme switcher">
-            <label className="theme-option theme-option-bounce">
-              <input
-                type="radio"
-                name="theme"
-                value="light"
-                checked={theme === 'light'}
-                onChange={() => setThemeMode('light')}
-              />
-              <span>Light</span>
-            </label>
-            <label className="theme-option theme-option-bounce">
-              <input
-                type="radio"
-                name="theme"
-                value="dark"
-                checked={theme === 'dark'}
-                onChange={() => setThemeMode('dark')}
-              />
-              <span>Dark</span>
-            </label>
-          </div>
+          <button
+            type="button"
+            className="theme-toggle theme-option-bounce"
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            onClick={() => setThemeMode(theme === 'dark' ? 'light' : 'dark')}
+          >
+            <span aria-hidden="true" className="theme-symbol">
+              {theme === 'dark' ? '☼' : '☾'}
+            </span>
+          </button>
         </div>
       </div>
     </header>
