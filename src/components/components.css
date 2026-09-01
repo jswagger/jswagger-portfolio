@@ -661,23 +661,36 @@ main {
 }
 
 .project-card {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  align-items: flex-start;
-  padding: 22px;
   border: 1px solid var(--border);
   border-radius: 20px;
   background: var(--surface);
   color: inherit;
-  text-decoration: none;
   box-shadow: 0 8px 24px var(--shadow);
+  overflow: hidden;
 }
 
 .project-card:hover {
   border-color: var(--accent);
-  transform: translateY(-2px);
   box-shadow: 0 16px 32px var(--shadow);
+}
+
+.project-card-toggle {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.project-card-main {
+  flex: 1;
 }
 
 .project-card-topline {
@@ -721,8 +734,47 @@ main {
   line-height: 1.7;
 }
 
+.project-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--text-muted);
+  transition: transform 180ms ease;
+}
+
+.project-chevron.is-open {
+  transform: rotate(90deg);
+}
+
+.project-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 22px;
+  border-top: 1px solid transparent;
+  transform: translateY(-6px);
+  transition:
+    max-height 420ms ease,
+    opacity 260ms ease,
+    padding 260ms ease,
+    border-color 260ms ease,
+    transform 260ms ease;
+  transition-delay: 60ms;
+}
+
+.project-details.is-open {
+  max-height: 1000px;
+  opacity: 1;
+  padding: 0 22px 22px;
+  border-top-color: var(--border);
+  transform: translateY(0);
+  transition-delay: 80ms;
+}
+
 .project-section {
-  margin-top: 18px;
+  padding-top: 18px;
 }
 
 .project-section h4 {
@@ -748,7 +800,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 12px;
+  margin-top: 18px;
 }
 
 .tag {
@@ -764,13 +816,14 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .project-card {
-    flex-direction: column;
-  }
-
+  .project-card-toggle,
   .project-card-topline {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .project-chevron {
+    align-self: center;
   }
 }
 

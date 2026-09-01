@@ -21,8 +21,8 @@ export const services: ServiceItem[] = [
 export const projects: ProjectItem[] = [
     {
     title: 'Engineering Solutions',
-    roleType: 'development', // Add this
-    roleSummary: 'Built full-stack features and spatial processing systems', // Add this
+    roleType: 'Development',
+    roleSummary: 'Building full-stack features', // Add this
     leadershipItems: [], // Empty for dev-focused role
     sections: [
       {
@@ -47,11 +47,11 @@ export const projects: ProjectItem[] = [
     },
     {
     title: 'UI Focus Group Leader',
-    roleType: 'leadership',
+    roleType: 'Leadership',
     roleSummary: 'Led UI modernization initiatives across the engineering team',
     leadershipItems: [ // Add this
-      'Organized monthly focus group meetings',
-      'Drove React and TypeScript modernization'
+      'Organize monthly focus group meetings',
+      'Drive React and TypeScript modernization'
     ],
     sections: [
       {
@@ -85,8 +85,8 @@ export const projects: ProjectItem[] = [
   },
       {
     title: 'Mentorship',
-        roleType: 'leadership',
-    roleSummary: 'Mentored engineers through code reviews and pair programming',
+        roleType: 'Leadership',
+    roleSummary: 'Mentor engineers through code reviews and pair programming',
     leadershipItems: [
       'Provided guidance and mentorship to engineers',
     ],

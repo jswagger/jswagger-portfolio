@@ -15,7 +15,7 @@ export interface ProjectSection {
 
 export interface ProjectItem {
   title: string
-  roleType: 'development' | 'leadership'
+  roleType: 'Development' | 'Leadership'
   roleSummary: string
   leadershipItems: string[]
   sections: ProjectSection[]
