@@ -612,6 +612,49 @@ main {
   color: var(--text);
 }
 
+.experience-identity {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.identity-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px 20px;
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.identity-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.identity-block h3,
+.identity-block h4 {
+  margin: 0;
+  color: var(--text);
+}
+
+.identity-block h3 {
+  font-size: clamp(1.2rem, 2vw, 1.75rem);
+}
+
+.identity-block h4 {
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+}
+
+.role-header {
+  margin: 8px 0 16px;
+}
+
 .project-list {
   display: grid;
   gap: 16px;
@@ -628,21 +671,77 @@ main {
   background: var(--surface);
   color: inherit;
   text-decoration: none;
+  box-shadow: 0 8px 24px var(--shadow);
 }
 
 .project-card:hover {
   border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px var(--shadow);
+}
+
+.project-card-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
 .project-card h3 {
-  margin: 0 0 8px;
+  margin: 0;
   color: var(--text);
 }
 
-.project-card p {
+.role-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.role-pill.leadership {
+  background: rgba(150, 104, 68, 0.12);
+}
+
+.role-pill.development {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.project-summary {
   margin: 0;
   color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.project-section {
+  margin-top: 18px;
+}
+
+.project-section h4 {
+  margin: 0 0 8px;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.project-section ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-muted);
   line-height: 1.6;
+}
+
+.project-section li + li {
+  margin-top: 6px;
 }
 
 .tag-row {
@@ -658,6 +757,21 @@ main {
   background: var(--accent-soft);
   color: var(--accent);
   font-size: 0.8rem;
+}
+
+@media (max-width: 800px) {
+  .experience-identity {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    flex-direction: column;
+  }
+
+  .project-card-topline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .contact-card {

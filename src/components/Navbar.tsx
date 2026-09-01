@@ -38,7 +38,7 @@ export default function Navbar() {
         <div className="nav-group">
           <nav className="nav" aria-label="Primary navigation">
             <a href="#about">About</a>
-            <a href="#services">Services</a>
+            <a href="#strengths">Strengths</a>
             <a href="#work">Work</a>
             <a href="#contact">Contact</a>
           </nav>

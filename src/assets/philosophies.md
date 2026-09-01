@@ -156,3 +156,33 @@ Model / Effort: —
 Type: Review
 Description: Detailed scan for regressions and new bugs, triggers Auto-fixes
 Model / Effort: Sonnet / High
+
+## Mentorship ##
+### Code Reviews ###
+	- Review Pull Requests in a timely manner
+	- Always pair positive encouragement with constructive criticism
+	- Provide examples to explain concepts
+	
+### Pair Programming ###
+	- Always available to discuss topics
+	- Walking through components and explaining the flow
+	- Discussing options between different solutions
+	- Incorporating best practices throughout
+
+
+## UI Focus Group Leader (2023 - Present) ##
+### Monthly Meetings ###
+	- Review progress on major initiatives
+	- Celebrate wins
+	- Discuss strategies for solving difficult problems related to UI codebase and front end practices
+	- Encourage collaboration and teamwork
+	- Assign actions items - tackle initiatives as a team
+### Technical Debt Cleanup ###
+	- Removing legacy React functions
+	- Refactoring React Class components to Functional components
+### Modernization Initiatives ###
+	- React version upgrade
+	- File conversions from JavaScript to TypeScript
+	- Adding type definitions
+	- Refactoring old component structure to fit modern recommendations
+

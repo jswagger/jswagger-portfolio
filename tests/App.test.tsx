@@ -8,6 +8,14 @@ describe('App', () => {
     expect(screen.getByText(/Building dependable software with clarity, context, and craft/i)).toBeTruthy()
   })
 
+  it('renders a Strengths section with the expected tagline', () => {
+    render(<App />)
+
+    expect(screen.getAllByText(/Strengths/i).length).toBeGreaterThan(0)
+    expect(screen.getAllByRole('link', { name: /Strengths/i }).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/What I bring to the table/i).length).toBeGreaterThan(0)
+  })
+
   it('adds a compact header state after scrolling', async () => {
     const { container } = render(<App />)
     const header = container.querySelector('header')

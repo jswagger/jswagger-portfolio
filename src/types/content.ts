@@ -8,8 +8,16 @@ export interface ServiceItem {
   description: string
 }
 
+export interface ProjectSection {
+  label: string
+  items: string[]
+}
+
 export interface ProjectItem {
   title: string
-  description: string
+  roleType: 'development' | 'leadership'
+  roleSummary: string
+  leadershipItems: string[]
+  sections: ProjectSection[]
   tags: string[]
 }

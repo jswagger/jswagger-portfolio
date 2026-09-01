@@ -30,10 +30,10 @@ export default function Services() {
   }, [])
 
   return (
-    <section className="content-section section-muted" id="services" ref={sectionRef} data-reveal={isRevealed}>
+    <section className="content-section section-muted" id="strengths" ref={sectionRef} data-reveal={isRevealed}>
       <div className="section-heading">
-        <p className="section-label">Services</p>
-        <h2>Support for teams that value dependable delivery, thoughtful systems, and clear execution.</h2>
+        <p className="section-label">Strengths</p>
+        <h2>What I bring to the table</h2>
       </div>
       <div className="card-grid">
         {services.map((service) => (
