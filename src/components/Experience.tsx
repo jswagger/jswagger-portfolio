@@ -37,83 +37,81 @@ export default function Experience() {
         <h2>Experience</h2>
       </div>
 
-      <div className="experience-identity">
-        <div className="identity-block">
-          <span className="identity-label">Employer</span>
-          <h3>Software Solutions Integrated</h3>
+      <div className="experience-container">
+
+        <div className="experience-identity">
+            <h3>Software Solutions Integrated (2022 - Present)</h3>
+            <br></br>
+            <h4>Senior Software Developer</h4>
         </div>
-        <div className="identity-block">
-          <span className="identity-label">Title</span>
-          <h4>Senior Software Developer</h4>
+
+        <div className="role-header">
+          <span className="identity-label">Roles</span>
         </div>
-      </div>
 
-      <div className="role-header">
-        <span className="identity-label">Roles</span>
-      </div>
+        <div className="project-list">
+          {projects.map((project) => {
+            const isExpanded = expandedProject === project.title
 
-      <div className="project-list">
-        {projects.map((project) => {
-          const isExpanded = expandedProject === project.title
+            return (
+              <article key={project.title} className="project-card">
+                <button
+                  type="button"
+                  className="project-card-toggle"
+                  onClick={() => setExpandedProject((current) => (current === project.title ? null : project.title))}
+                  aria-expanded={isExpanded}
+                >
+                  <div className="project-card-main">
+                    <div className="project-card-topline">
+                      <h3>{project.title}</h3>
+                      <span className={`role-pill ${project.roleType === 'Leadership' ? 'Leadership' : 'Development'}`}>
+                        {project.roleType === 'Leadership' ? 'Leadership' : 'Development'}
+                      </span>
+                    </div>
 
-          return (
-            <article key={project.title} className="project-card">
-              <button
-                type="button"
-                className="project-card-toggle"
-                onClick={() => setExpandedProject((current) => (current === project.title ? null : project.title))}
-                aria-expanded={isExpanded}
-              >
-                <div className="project-card-main">
-                  <div className="project-card-topline">
-                    <h3>{project.title}</h3>
-                    <span className={`role-pill ${project.roleType === 'Leadership' ? 'Leadership' : 'Development'}`}>
-                      {project.roleType === 'Leadership' ? 'Leadership' : 'Development'}
-                    </span>
+                    <p className="project-summary">{project.roleSummary}</p>
                   </div>
 
-                  <p className="project-summary">{project.roleSummary}</p>
-                </div>
+                  <span className={`project-chevron ${isExpanded ? 'is-open' : ''}`} aria-hidden="true">
+                    →
+                  </span>
+                </button>
 
-                <span className={`project-chevron ${isExpanded ? 'is-open' : ''}`} aria-hidden="true">
-                  →
-                </span>
-              </button>
+                <div className={`project-details ${isExpanded ? 'is-open' : ''}`}>
+                  {project.leadershipItems.length > 0 && (
+                    <div className="project-section">
+                      <h4>Leadership</h4>
+                      <ul>
+                        {project.leadershipItems.map((item) => (
+                          <li key={`${project.title}-leadership-${item}`}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
-              <div className={`project-details ${isExpanded ? 'is-open' : ''}`}>
-                {project.leadershipItems.length > 0 && (
-                  <div className="project-section">
-                    <h4>Leadership</h4>
-                    <ul>
-                      {project.leadershipItems.map((item) => (
-                        <li key={`${project.title}-leadership-${item}`}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {project.sections.map((section) => (
-                  <div key={section.label} className="project-section">
-                    <h4>{section.label}</h4>
-                    <ul>
-                      {section.items.map((item) => (
-                        <li key={`${section.label}-${item}`}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-
-                <div className="tag-row">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="tag">
-                      {tag}
-                    </span>
+                  {project.sections.map((section) => (
+                    <div key={section.label} className="project-section">
+                      <h4>{section.label}</h4>
+                      <ul>
+                        {section.items.map((item) => (
+                          <li key={`${section.label}-${item}`}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
+
+                  <div className="tag-row">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </article>
-          )
-        })}
+              </article>
+            )
+          })}
+        </div>
       </div>
     </section>
   )
