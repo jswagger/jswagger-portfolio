@@ -113,7 +113,34 @@ export const projects: ProjectItem[] = [
   }
 ]
 
-
+export const projectsGIS: ProjectItem[] = [
+    {
+    title: 'Geospatial Solutions',
+    roleType: 'Development',
+    roleSummary: 'Building full-stack features', // Add this
+    leadershipItems: [], // Empty for dev-focused role
+    sections: [
+      {
+        label: 'Front-end Development',
+        items: [
+          'Building new React components',
+          'Designing UI patterns and workflows',
+          'Creating and maintaining type definitions and unit tests'
+        ]
+      },
+      {
+        label: 'Back-end Development',
+        items: [
+          'Creating spatial processing methods',
+          'Designing new API endpoints and workflows',
+          'Adjusting database structure, procedures, and schema',
+          'AWS Lambda function development and maintenance'
+        ]
+      }
+    ],
+    tags: ['React', 'Python', 'AWS', 'GIS', 'SQL', 'C#']
+    }
+]
 
 
 // export const projects: ProjectItem[] = [

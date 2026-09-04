@@ -127,35 +127,35 @@ Type: Checkpoint
 Description: Conditional — pauses only if risks/open questions were flagged
 Model / Effort: —
 
-### STEP 5: Review Phase 1 — Code Cleanliness ###
-Type: Review
-Description: Scans for best practices, triggers Auto-fixes
-Model / Effort: Haiku / Low
-
-### STEP 6: Review Phase 2 — Efficiency ###
-Type: Review
-Description: Scans for efficiency and performance, triggers Auto-fixes
-Model / Effort: Haiku / High
-
-### STEP 7: Check-In 2 ###
-Type: Checkpoint
-Description: Conditional — Cleanliness + Efficiency summary
-Model / Effort: —
-
-### STEP 8: Review Phase 3 — Requirements Verification ###
+### STEP 5: Review Phase 1 — Requirements Verification ###
 Type: Review
 Description: Scans code changes against Acceptance Criteria
 Model / Effort: Sonnet / Low
 
-### STEP 9: Check-In 3 ###
-Type: Checkpoint
-Description: Summary of Acceptance Criteria review
-Model / Effort: —
-
-### STEP 10: Review Phase 4 — Regression Inspector ###
+### STEP 6: Review Phase 2 — Regression Inspector ###
 Type: Review
 Description: Detailed scan for regressions and new bugs, triggers Auto-fixes
 Model / Effort: Sonnet / High
+
+### STEP 7: Review Phase 3 - Security Auditor ###
+Type: Checkpoint
+Description: Scans for security gaps
+Model / Effort: Sonnet / Low
+
+### STEP 8: Review Phase 4 — Efficiency ###
+Type: Review
+Description: Scans for efficiency and performance, triggers Auto-fixes
+Model / Effort: Haiku / High
+
+### STEP 9: Review Phase 5 — Code Cleanliness ###
+Type: Review
+Description: Scans for best practices, triggers Auto-fixes
+Model / Effort: Haiku / Low
+
+### STEP 10: Final Check-In ###
+Type: Checkpoint
+Description: Summary of Acceptance Criteria review
+Model / Effort: —
 
 ## Mentorship ##
 ### Code Reviews ###
