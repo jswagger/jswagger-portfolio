@@ -117,28 +117,56 @@ export const projectsGIS: ProjectItem[] = [
     {
     title: 'Geospatial Solutions',
     roleType: 'Development',
-    roleSummary: 'Building full-stack features', // Add this
+    roleSummary: 'Created and configured spatial components', // Add this
     leadershipItems: [], // Empty for dev-focused role
     sections: [
       {
         label: 'Front-end Development',
         items: [
-          'Building new React components',
-          'Designing UI patterns and workflows',
-          'Creating and maintaining type definitions and unit tests'
+          'Utilized ESRI ArcGIS API for JavaScript',
+          'Designed geospatial editing workflows',
+          'Built mapping interactions'
         ]
       },
       {
         label: 'Back-end Development',
         items: [
-          'Creating spatial processing methods',
-          'Designing new API endpoints and workflows',
-          'Adjusting database structure, procedures, and schema',
-          'AWS Lambda function development and maintenance'
+          'Utilized Python libraries to manipulate spatial data',
+          'Added new spatial processing methods',
+          'Initiated improvement of test coverage for geospatial workflows',
         ]
       }
     ],
-    tags: ['React', 'Python', 'AWS', 'GIS', 'SQL', 'C#']
+    tags: ['React', 'Python', 'GIS', 'SQL', 'ArcGIS API for JavaScript']
+    }
+]
+
+
+export const projectsLSC: ProjectItem[] = [
+    {
+    title: 'GIS Data and Deliverable Management',
+    roleType: 'Leadership',
+    roleSummary: 'Led a team of GIS analysts in providing geospatial deliverables', // Add this
+    leadershipItems: [], // Empty for dev-focused role
+    sections: [
+      {
+        label: 'Front-end Development',
+        items: [
+          'Utilized ESRI ArcGIS API for JavaScript',
+          'Designed geospatial editing workflows',
+          'Built mapping interactions'
+        ]
+      },
+      {
+        label: 'Back-end Development',
+        items: [
+          'Utilized Python libraries to manipulate spatial data',
+          'Added new spatial processing methods',
+          'Initiated improvement of test coverage for geospatial workflows',
+        ]
+      }
+    ],
+    tags: ['React', 'Python', 'GIS', 'SQL', 'ArcGIS API for JavaScript']
     }
 ]
 

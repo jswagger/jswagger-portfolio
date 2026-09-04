@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { projects, projectsGIS } from '../data/portfolioContent'
+import { projects, projectsGIS, projectsLSC } from '../data/portfolioContent'
 
 export default function Experience() {
   const [isRevealed, setIsRevealed] = useState(false)
@@ -40,7 +40,7 @@ export default function Experience() {
       <div className="experience-container">
 
         <div className="experience-identity">
-            <h3>Software Solutions Integrated (2022 - Present)</h3>
+            <h2>Software Solutions Integrated (2022 - Present)</h2>
             <br></br>
             <h4>Senior Software Developer</h4>
         </div>
@@ -113,10 +113,10 @@ export default function Experience() {
           })}
         </div>
       </div>
-            <div className="experience-container">
+      <div className="experience-container">
 
         <div className="experience-identity">
-            <h3>GIS, inc. (2018 - 2022)</h3>
+            <h2>GIS, inc. (2018 - 2022)</h2>
             <br></br>
             <h4>Geospatial Software Developer</h4>
         </div>
@@ -189,7 +189,82 @@ export default function Experience() {
           })}
         </div>
       </div>
+      <div className="experience-container">
 
+        <div className="experience-identity">
+            <h2>Lake Superior Consulting (2011 - 2018)</h2>
+            <br></br>
+            <h4>GIS Supervisor</h4>
+        </div>
+
+        <div className="role-header">
+          <span className="identity-label">Roles</span>
+        </div>
+
+        <div className="project-list">
+          {projectsLSC.map((project) => {
+            const isExpanded = expandedProject === project.title
+
+            return (
+              <article key={project.title} className="project-card">
+                <button
+                  type="button"
+                  className="project-card-toggle"
+                  onClick={() => setExpandedProject((current) => (current === project.title ? null : project.title))}
+                  aria-expanded={isExpanded}
+                >
+                  <div className="project-card-main">
+                    <div className="project-card-topline">
+                      <h3>{project.title}</h3>
+                      <span className={`role-pill ${project.roleType === 'Leadership' ? 'Leadership' : 'Development'}`}>
+                        {project.roleType === 'Leadership' ? 'Leadership' : 'Development'}
+                      </span>
+                    </div>
+
+                    <p className="project-summary">{project.roleSummary}</p>
+                  </div>
+
+                  <span className={`project-chevron ${isExpanded ? 'is-open' : ''}`} aria-hidden="true">
+                    →
+                  </span>
+                </button>
+
+                <div className={`project-details ${isExpanded ? 'is-open' : ''}`}>
+                  {project.leadershipItems.length > 0 && (
+                    <div className="project-section">
+                      <h4>Leadership</h4>
+                      <ul>
+                        {project.leadershipItems.map((item) => (
+                          <li key={`${project.title}-leadership-${item}`}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {project.sections.map((section) => (
+                    <div key={section.label} className="project-section">
+                      <h4>{section.label}</h4>
+                      <ul>
+                        {section.items.map((item) => (
+                          <li key={`${section.label}-${item}`}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+
+                  <div className="tag-row">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            )
+          })}
+        </div>
+      </div>
     </section>
   )
 }
