@@ -1,11 +1,15 @@
-import heroImage from '../assets/hello-placeholder.PNG'
+import heroImage from '../assets/PortfolioBanner.PNG'
 import portraitImage from '../assets/profile-2026.png'
 
 const skills = ['JavaScript/React', 'Python', 'C#', 'AWS', 'Node.js', 'SQL']
 
 export default function Hero() {
   return (
-    <section className="hero-section" id="top">
+    <section
+      className="hero-section"
+      id="top"
+      style={{ backgroundImage: `url(${heroImage})` }}
+    >
       <div className="hero-content">
         <div className="hero-copy-block">
           <div className="hero-badge">Senior Software Developer • 10+ years</div>
@@ -21,9 +25,6 @@ export default function Hero() {
               Let&apos;s talk
             </a>
           </div>
-        </div>
-        <div className="hero-visual">
-          <img className="hero-portrait" src={portraitImage} alt="Jeremy Swagger portrait" />
         </div>
       </div>
     </section>

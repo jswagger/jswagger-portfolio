@@ -262,13 +262,25 @@ main {
 }
 
 .hero-section {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding-top: 0;
   max-width: 1320px;
   min-height: 100vh;
   margin: 0 auto;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(27, 38, 59, 0.6);
+  pointer-events: none;
 }
 
 .hero-banner {
@@ -328,6 +340,8 @@ main {
 }
 
 .hero-content {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.9fr);
   gap: clamp(28px, 4vw, 64px);
