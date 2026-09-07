@@ -262,8 +262,12 @@ main {
 }
 
 .hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding-top: 0;
   max-width: 1320px;
+  min-height: 100vh;
   margin: 0 auto;
 }
 
@@ -343,7 +347,7 @@ main {
 
 .hero-portrait {
   display: block;
-  width: min(100%, 520px);
+  width: min(100%, 320px);
   object-fit: cover;
   aspect-ratio: 1;
   object-position: center;
@@ -355,9 +359,6 @@ main {
 .section-label {
   display: inline-block;
   margin-bottom: 16px;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: var(--accent-soft);
   color: var(--accent);
   font-size: 0.8rem;
   font-weight: 700;

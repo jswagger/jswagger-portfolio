@@ -6,12 +6,6 @@ const skills = ['JavaScript/React', 'Python', 'C#', 'AWS', 'Node.js', 'SQL']
 export default function Hero() {
   return (
     <section className="hero-section" id="top">
-      <div className="hero-banner" aria-label="Featured banner">
-        <img className="hero-banner-image" src={heroImage} alt="Featured hero banner" />
-        <div className="hero-banner-overlay">
-          <span className="hero-banner-pill">Thoughtful engineering • Reliable solutions</span>
-        </div>
-      </div>
       <div className="hero-content">
         <div className="hero-copy-block">
           <div className="hero-badge">Senior Software Developer • 10+ years</div>
@@ -26,13 +20,6 @@ export default function Hero() {
             <a className="button button-secondary" href="#contact">
               Let&apos;s talk
             </a>
-          </div>
-          <div className="chip-row" aria-label="Technologies I work with">
-            {skills.map((skill) => (
-              <span key={skill} className="chip">
-                {skill}
-              </span>
-            ))}
           </div>
         </div>
         <div className="hero-visual">
