@@ -12,17 +12,14 @@ export default function Hero() {
     >
       <div className="hero-content">
         <div className="hero-copy-block">
-          <div className="hero-badge">Senior Software Developer • 10+ years</div>
-          <h1>Building dependable software with clarity, context, and craft.</h1>
+          <h1>Jeremy Swagger</h1>
+          <h2>Thoughtful Engineering, Reliable Software</h2>
           <p className="hero-copy">
-            I architect robust enterprise solutions where stability meets velocity.
+            Senior Software Engineer focused on solving complex problems and building solutions that last.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#work">
               View recent work
-            </a>
-            <a className="button button-secondary" href="#contact">
-              Let&apos;s talk
             </a>
           </div>
         </div>

@@ -350,6 +350,14 @@ main {
   margin: 0 auto;
 }
 
+.hero-content h2 {
+  margin: 0 0 20px;
+  font-size: clamp(2rem, 2vw, 4rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+  color: var(--text);
+}
+
 .hero-copy-block {
   max-width: 760px;
 }
@@ -390,11 +398,17 @@ main {
   color: var(--text);
 }
 
-.hero-copy,
 .about-copy p,
 .info-card p,
 .contact-card p {
   font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 720px;
+}
+
+.hero-copy {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
   line-height: 1.75;
   color: var(--text-muted);
   max-width: 720px;
@@ -835,6 +849,10 @@ main {
   .hero-section,
   .content-section {
     padding: 64px 20px;
+  }
+
+  .hero-section {
+    background-position: calc(50% - 375px) center;
   }
 
   .site-header .container {

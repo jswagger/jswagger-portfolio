@@ -33,7 +33,6 @@ export default function Navbar() {
       <div className="container">
         <a className="brand" href="#top" aria-label="Go to home">
           <img className="brand-mark" src="/favicon.png?v=4" alt="" aria-hidden="true" />
-          <span>jeremy swagger</span>
         </a>
         <div className="nav-group">
           <nav className="nav" aria-label="Primary navigation">
