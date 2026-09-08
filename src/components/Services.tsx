@@ -32,7 +32,7 @@ export default function Services() {
   return (
     <section className="content-section section-muted" id="strengths" ref={sectionRef} data-reveal={isRevealed}>
       <div className="section-heading">
-        <p className="section-label">Strengths</p>
+        <h1 className="section-label">Strengths</h1>
         <h2>What I bring to the table</h2>
       </div>
       <div className="card-grid">

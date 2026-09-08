@@ -352,9 +352,9 @@ main {
 
 .hero-content h2 {
   margin: 0 0 20px;
-  font-size: clamp(2rem, 2vw, 4rem);
+  font-size: clamp(1.75rem, 2vw, 4rem);
   line-height: 0.96;
-  letter-spacing: -0.06em;
+  letter-spacing: 0.04em;
   color: var(--text);
 }
 
@@ -378,29 +378,29 @@ main {
 }
 
 .hero-badge,
-.section-label {
+h1 {
   display: inline-block;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   color: var(--accent);
-  font-size: 0.8rem;
+  font-size: clamp(3rem, 2vw, 6rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.hero-section h1,
 .section-heading h2,
 .contact-card h2 {
   margin: 0 0 20px;
-  font-size: clamp(2.8rem, 2vw, 6rem);
+  font-size: clamp(1.75rem, 2vw, 6rem);
   line-height: 0.96;
-  letter-spacing: -0.06em;
+  letter-spacing: 0.04em;
   color: var(--text);
 }
 
 .about-copy p,
 .info-card p,
-.contact-card p {
+.contact-card p,
+.section-heading p {
   font-size: 1.05rem;
   line-height: 1.75;
   color: var(--text-muted);
@@ -524,6 +524,23 @@ main {
   margin-bottom: 28px;
 }
 
+.case-studies-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 1080px;
+  margin: 0 auto 28px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px var(--shadow);
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.case-studies-banner[data-reveal='true'] {
+  animation: fade-up 720ms ease both;
+}
+
 .case-studies-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -531,6 +548,7 @@ main {
 }
 
 .case-study-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -559,6 +577,7 @@ main {
   display: grid;
   gap: 12px;
   padding: 20px;
+  padding-right: 64px;
 }
 
 .case-study-card h3 {
@@ -573,9 +592,26 @@ main {
   line-height: 1.6;
 }
 
-.case-study-card-link {
+.case-study-card-arrow {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: var(--accent-soft);
   color: var(--accent);
-  font-weight: 700;
+  font-size: 1.1rem;
+  transition: transform 220ms ease, background-color 220ms ease, color 220ms ease;
+}
+
+.case-study-card:hover .case-study-card-arrow {
+  background: var(--accent);
+  color: white;
+  transform: translate(4px, -4px);
 }
 
 .about-grid {

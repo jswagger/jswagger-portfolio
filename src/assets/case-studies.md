@@ -2,10 +2,29 @@
 ### Description ###
 Integrating the power of AWS Bedrock
 
+### Problem: ###
+
+### Approach: ###
+
+### Strategy: ###
+
+### Result: ###
+
+### Value Added: ###
+
 ## UI Modernization ##
 ### Description ###
 Lifting the codebase
 
+### Problem: ###
+
+### Approach: ###
+
+### Strategy: ###
+
+### Result: ###
+
+### Value Added: ###
 
 ## Enterprise Enrollment Process ##
 ### Description ###
