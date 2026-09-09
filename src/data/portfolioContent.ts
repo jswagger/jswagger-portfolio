@@ -24,19 +24,28 @@ export const services: ServiceItem[] = [
 
 export const projects: ProjectItem[] = [
     {
-    title: 'Engineering Solutions',
+    title: 'Front End Engineering',
     roleType: 'Development',
     roleSummary: 'Building full-stack features', // Add this
     leadershipItems: [], // Empty for dev-focused role
     sections: [
       {
-        label: 'Front-end Development',
+        label: 'UI Development',
         items: [
           'Building new React components',
           'Designing UI patterns and workflows',
           'Creating and maintaining type definitions and unit tests'
         ]
       },
+    ],
+    tags: ['React', 'TypeScript', 'CSS']
+  },
+  {
+    title: 'Back End Engineering',
+    roleType: 'Development',
+    roleSummary: 'Building full-stack features', // Add this
+    leadershipItems: [], // Empty for dev-focused role
+    sections: [
       {
         label: 'Back-end Development',
         items: [
@@ -47,7 +56,7 @@ export const projects: ProjectItem[] = [
         ]
       }
     ],
-    tags: ['React', 'Python', 'AWS', 'GIS', 'SQL', 'C#']
+    tags: ['Python', 'AWS', 'GIS', 'SQL', 'C#']
     },
     {
     title: 'UI Focus Group Leader',
@@ -62,17 +71,8 @@ export const projects: ProjectItem[] = [
         label: 'Monthly Meetings',
         items: [
           'Review progress on major initiatives',
-          'Celebrate wins',
           'Discuss strategies for solving difficult problems related to UI codebase and front end practices',
           'Encourage collaboration and teamwork',
-          'Assign actions items - tackle initiatives as a team'
-        ]
-      },
-      {
-        label: 'Technical Debt Cleanup',
-        items: [
-          'Removing legacy React functions',
-          'Refactoring React Class components to Functional components'
         ]
       },
       {
@@ -87,22 +87,13 @@ export const projects: ProjectItem[] = [
     ],
     tags: ['UI Leadership', 'React', 'Modernization']    
   },
-      {
+  {
     title: 'Mentorship',
-        roleType: 'Leadership',
+    roleType: 'Development',
     roleSummary: 'Mentor engineers through code reviews and pair programming',
     leadershipItems: [
-      'Provided guidance and mentorship to engineers',
     ],
     sections: [
-      {
-        label: 'Code Reviews',
-        items: [
-          'Review Pull Requests in a timely manner',
-          'Always pair positive encouragement with constructive criticism',
-          'Provide examples to explain concepts'
-        ]
-      },
       {
         label: 'Pair Programming',
         items: [
@@ -114,12 +105,30 @@ export const projects: ProjectItem[] = [
       }
     ],
     tags: ['Mentorship', 'Code Reviews', 'Pair Programming']
+  },
+    {
+    title: 'QA Liason',
+    roleType: 'Development',
+    roleSummary: 'Coolaborate with Quality Assurance team',
+    leadershipItems: [
+    ],
+    sections: [
+      {
+        label: 'Pair Programming',
+        items: [
+          'Discuss automated testing ideas',
+          'Assist with test creation',
+          'Implement code changes to support improved testing'
+        ]
+      }
+    ],
+    tags: ['Quality Assurance', 'Teamwork', 'Test Automation']
   }
 ]
 
 export const projectsGIS: ProjectItem[] = [
     {
-    title: 'Geospatial Solutions',
+    title: 'Front End Enginering',
     roleType: 'Development',
     roleSummary: 'Created and configured spatial components', // Add this
     leadershipItems: [], // Empty for dev-focused role
@@ -131,7 +140,16 @@ export const projectsGIS: ProjectItem[] = [
           'Designed geospatial editing workflows',
           'Built mapping interactions'
         ]
-      },
+      }
+    ],
+    tags: ['React', 'GIS', 'ArcGIS API for JavaScript']
+    },
+    {
+    title: 'Backend enginering',
+    roleType: 'Development',
+    roleSummary: 'Created and configured spatial components', // Add this
+    leadershipItems: [], // Empty for dev-focused role
+    sections: [
       {
         label: 'Back-end Development',
         items: [
@@ -141,7 +159,24 @@ export const projectsGIS: ProjectItem[] = [
         ]
       }
     ],
-    tags: ['React', 'Python', 'GIS', 'SQL', 'ArcGIS API for JavaScript']
+    tags: ['Python', 'GIS', 'SQL']
+    },
+    {
+    title: 'Unit Test Educator',
+    roleType: 'Development',
+    roleSummary: 'Brought focus and initiation of consistent testing', // Add this
+    leadershipItems: [], // Empty for dev-focused role
+    sections: [
+      {
+        label: 'Unit Test Management',
+        items: [
+          'Created and organized unit tests suites across Python classes',
+          'Added new sets of test to cover existing React components',
+          'Initiated a focus and best practice of including unit test creation with ticket work',
+        ]
+      }
+    ],
+    tags: ['Python', 'React']
     }
 ]
 
