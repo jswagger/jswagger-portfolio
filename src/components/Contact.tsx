@@ -29,9 +29,9 @@ export default function Contact() {
   }, [])
 
   return (
-    <section className="content-section" id="contact" ref={sectionRef} data-reveal={isRevealed}>
+    <section className="full-section" id="contact" ref={sectionRef} data-reveal={isRevealed}>
       <div className="contact-card">
-        <h2 className="section-label">Contact</h2>
+        <h1 className="section-label">Contact</h1>
         <h2>Let&apos;s build something thoughtful, resilient, and well considered.</h2>
         <p>
           I am currently open to conversations around architecture, systems work,

@@ -59,18 +59,18 @@ Since this was a feature that did not immediately benefit users enrolling, we ne
 
 
 ### Strategy: ###
-This is a workflow that includes many areas, including UI interaction, verification in AWS Cognito, SMS verification, and email interaction.
+This is a workflow that includes many areas, including UI interaction, verification in AWS Cognito, SMS verification, and email interaction. So I took it piece by piece, and incrementally created, tested, and integrated each section. New React components were created and connected to our login process, in order to utilize app authentication. Next I created a specific user pool in Cognito to house the users outside of the app, to allow approvals by leadership individuals, who might have different access to the app than the original customer. Once that was in place, I began testing Cognito's SMS verification process, and adjusted the configuration to meet our needs. Afterwards, it was time for email verification, and I utilized an existing app API endpoint and supporting fuctions to send prompt emails to targeted decision makers. Lastly, I created a new Enrollment table in our SQL Server database to track responses.
 
 - React components
+- .Net API's
 - AWS Cognito
-
-
+- SQL Server
 
 ### Result: ###
-Users were able to successfully enroll in data sharing, allowing improved visibilty for analytics. Since this feature was built with intentionality and quality-driven, very few changes have been required in the last 5 years.
+Users were able to successfully enroll in data sharing, allowing improved visibilty for analytics. Since this feature was built with intentionality and quality-driven, very few changes have been required in over 5 years.
 
 ### Value Added: ###
-
+This is now an important gate check for multiple pieces of functionality that require customers to reach this legal agreement.
 
 ## Code Quality Automation ##
 ### Description ###
@@ -90,8 +90,9 @@ I now have multiple review agents, skills, helper scripts, and configuration fil
 
 - Regression Inspector - Reads code changes, analyzes their affect, reads surrounding code, and reports likely bugs and changes that pose high-risk of hitting edge cases.
 
-- Requirements Verification - 
-- Efficiency Inspector - 
-- Code Cleanliness Inspector - 
+- Requirements Verification - Checks ticket acceptance criteria to be sure that all expected functionality has been completed
+- Efficiency Inspector - Analyzes structures and strategies like for loops, to identify areas with opportunity to increase performance
+- Code Cleanliness Inspector - Looks for adherence to SOLID principles, avoidence of deep nesting, and general complexity of functions
 
 ### Value Added: ###
+This has resulted in an improvement of code quality, prevention of bugs, and a general performance increase my development workflow

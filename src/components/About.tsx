@@ -32,7 +32,7 @@ export default function About() {
   return (
     <section className="content-section" id="about" ref={sectionRef} data-reveal={isRevealed}>
       <div className="section-heading">
-        <h2 className="section-label">About</h2>
+        <h1 className="section-label">About</h1>
         <h2>agentic engineering + proven architectural strategies</h2>
       </div>
       <div className="about-grid">

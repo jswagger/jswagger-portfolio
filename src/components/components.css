@@ -416,10 +416,33 @@ h1 {
 
 .hero-actions,
 .contact-actions {
+  font-size: clamp(.8rem, 1.6vw, 1.2rem);
+  line-height: 2;
+  color: var(--text-muted);
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 28px;
+}
+
+.hero-work-arrow {
+  right: 20px;
+  bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 1.1rem;
+  transition: transform 220ms ease, background-color 220ms ease, color 220ms ease;
+}
+
+.hero-work-arrow:hover {
+  background: var(--accent);
+  color: white;
 }
 
 .button {
@@ -512,6 +535,10 @@ h1 {
 .content-section {
   max-width: 1380px;
   margin: 0 auto;
+}
+
+.full-section {
+  width: 100%;
 }
 
 .section-muted {
@@ -631,14 +658,15 @@ h1 {
   gap: 16px;
 }
 
+.full-section-card {
+  padding: 20px;
+}
+
 .stat-card,
 .info-card,
 .contact-card {
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 8px 24px var(--shadow);
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
@@ -910,8 +938,9 @@ h1 {
   }
 }
 
-.contact-card {
-  max-width: 100%;
+.contact-card,
+.full-section-card {
+  width: calc(100% - 40px);
 }
 
 @media (max-width: 900px) {

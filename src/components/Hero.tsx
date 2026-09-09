@@ -18,8 +18,11 @@ export default function Hero() {
             Senior Software Engineer focused on solving complex problems and building solutions that last.
           </p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#work">
               View recent work
+            <a href="#case-studies">
+              <span className="hero-work-arrow" aria-hidden="true">
+              →
+              </span>
             </a>
           </div>
         </div>
