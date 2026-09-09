@@ -9,6 +9,10 @@ export const highlights: Highlight[] = [
 
 export const services: ServiceItem[] = [
   {
+    title: 'Commitment to Quality',
+    description: 'With every task and project, I strive to do my best work, every time. I am passionate about following best practices in code and in processes. This keeps my output consistent and clear, as I deliver with confidence every time.'
+  },
+  {
     title: 'UI leadership and modernization',
     description: 'I lead front-end improvement initiatives with an eye toward maintainability, accessibility, and modern patterns. From refactoring legacy React to improving team standards, I help organizations turn technical debt into a healthier long-term foundation.'
   },

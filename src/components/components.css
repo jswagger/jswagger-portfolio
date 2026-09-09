@@ -663,15 +663,13 @@ h1 {
 }
 
 .stat-card,
-.info-card,
-.contact-card {
+.info-card {
   background: var(--surface);
   padding: 20px;
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
 .info-card:hover,
-.contact-card:hover,
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 32px var(--shadow);
@@ -693,7 +691,7 @@ h1 {
 }
 
 .card-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .info-card h3 {
@@ -769,6 +767,7 @@ h1 {
 .project-list {
   display: grid;
   gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .project-card {
@@ -940,7 +939,14 @@ h1 {
 
 .contact-card,
 .full-section-card {
+  padding-bottom: 10px;
   width: calc(100% - 40px);
+}
+
+.full-section-card,
+.contact-card {
+  max-width: 1368px;
+  margin: auto;
 }
 
 @media (max-width: 900px) {
