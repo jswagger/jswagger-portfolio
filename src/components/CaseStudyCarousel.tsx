@@ -69,25 +69,27 @@ export default function CaseStudyCarousel({ items }: CaseStudyCarouselProps) {
             )
           })}
         </div>
-      </div>
 
-      <div className="case-carousel-caption">
-        <h3>{activeItem.title}</h3>
-        <p>{activeItem.description}</p>
-      </div>
+        <div className="case-carousel-overlay">
+          <div className="case-carousel-caption">
+            <h3>{activeItem.title}</h3>
+            <p>{activeItem.description}</p>
+          </div>
 
-      <div className="case-carousel-nav">
-        <button type="button" onClick={() => move(-1)} aria-label="Previous case study" disabled={activeIndex === 0}>
-          ❮
-        </button>
-        <button
-          type="button"
-          onClick={() => move(1)}
-          aria-label="Next case study"
-          disabled={activeIndex === items.length - 1}
-        >
-          ❯
-        </button>
+          <div className="case-carousel-nav">
+            <button type="button" onClick={() => move(-1)} aria-label="Previous case study" disabled={activeIndex === 0}>
+              ❮
+            </button>
+            <button
+              type="button"
+              onClick={() => move(1)}
+              aria-label="Next case study"
+              disabled={activeIndex === items.length - 1}
+            >
+              ❯
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   )

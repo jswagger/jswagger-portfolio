@@ -552,9 +552,9 @@ h1 {
 }
 
 .case-carousel {
-  --card-w: clamp(140px, 16vw, 200px);
-  --card-h: clamp(200px, 24vw, 290px);
-  --arc-radius: 620px;
+  --card-w: clamp(160px, 18vw, 230px);
+  --card-h: clamp(230px, 26vw, 320px);
+  --arc-radius: 680px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -564,7 +564,7 @@ h1 {
   position: relative;
   width: 100%;
   max-width: 1080px;
-  height: clamp(280px, 34vw, 380px);
+  height: clamp(540px, 44vw, 660px);
   border-radius: 20px;
   border: 1px solid var(--border);
   box-shadow: 0 8px 24px var(--shadow);
@@ -575,7 +575,7 @@ h1 {
 .case-carousel-track {
   position: absolute;
   left: 50%;
-  top: 8%;
+  top: 18%;
   width: var(--card-w);
   height: var(--card-h);
   transform: translateX(-50%);
@@ -615,21 +615,37 @@ h1 {
   cursor: pointer;
 }
 
+.case-carousel-overlay {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  z-index: 20;
+  width: min(560px, 86%);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
 .case-carousel-caption {
-  max-width: 560px;
-  margin-top: 20px;
+  width: 100%;
   text-align: center;
+  padding: 16px 24px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(3px);
 }
 
 .case-carousel-caption h3 {
   margin: 0 0 8px;
-  color: var(--text);
+  color: #fff;
   font-size: 1.25rem;
 }
 
 .case-carousel-caption p {
   margin: 0;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.6;
 }
 
@@ -637,24 +653,24 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 20px;
 }
 
 .case-carousel-nav button {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(3px);
+  color: #fff;
   font-size: 1rem;
   cursor: pointer;
-  transition: border-color 220ms ease, color 220ms ease, transform 220ms ease;
+  transition: border-color 220ms ease, color 220ms ease, transform 220ms ease, background-color 220ms ease;
 }
 
 .case-carousel-nav button:hover:not(:disabled) {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: #fff;
+  background: rgba(0, 0, 0, 0.5);
   transform: translateY(-2px);
 }
 
