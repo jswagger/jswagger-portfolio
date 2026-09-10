@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { services } from '../data/portfolioContent'
+import InfoCardTilt from './InfoCardTilt'
 
 export default function Services() {
   const [isRevealed, setIsRevealed] = useState(false)
@@ -37,11 +38,13 @@ export default function Services() {
           <h2>What I bring to the table</h2>
         </div>
         <div className="card-grid">
-          {services.map((service) => (
-            <article key={service.title} className="info-card">
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-            </article>
+          {services.map((service, index) => (
+            <InfoCardTilt
+              key={service.title}
+              title={service.title}
+              description={service.description}
+              tone={(index % 3) + 1}
+            />
           ))}
         </div>
       </div>

@@ -1,12 +1,13 @@
 import { useRef } from 'react'
 import heroImage from '../assets/PortfolioBanner.PNG'
 import portraitImage from '../assets/profile-2026.png'
-import HeroCursor from './HeroCursor'
+import useHeroSpotlight from '../hooks/useHeroSpotlight'
 
 const skills = ['JavaScript/React', 'Python', 'C#', 'AWS', 'Node.js', 'SQL']
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null)
+  useHeroSpotlight(sectionRef)
 
   return (
     <section
@@ -17,14 +18,14 @@ export default function Hero() {
     >
       <div className="hero-content">
         <div className="hero-copy-block">
-          <h1 data-cursor-scale>Jeremy Swagger</h1>
-          <h2 data-cursor-scale="small">Thoughtful Engineering, Reliable Software</h2>
+          <h1>Jeremy Swagger</h1>
+          <h2>Thoughtful Engineering, Reliable Software</h2>
           <p className="hero-copy">
             Senior Software Engineer focused on solving complex problems and building solutions that last.
           </p>
           <div className="hero-actions">
               View recent work
-            <a href="#case-studies" data-cursor-scale="small">
+            <a href="#case-studies">
               <span className="hero-work-arrow" aria-hidden="true">
               →
               </span>
@@ -32,8 +33,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      <HeroCursor containerRef={sectionRef} />
     </section>
   )
 }
