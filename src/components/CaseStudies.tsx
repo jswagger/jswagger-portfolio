@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import agvanceImage from '../assets/Agvance.webp'
+import CaseStudyCarousel from './CaseStudyCarousel'
 
 const caseStudies = [
   {
@@ -14,14 +14,19 @@ const caseStudies = [
     title: 'Enterprise Enrollment Process',
     description: 'Creating a clean, painless workflow for managing legal customer licensing and data enrollment.',
   },
+  {
+    title: 'Code Quality Automation',
+    description: 'Building AI-driven review skills that hunt bugs and enforce quality before pull requests are opened.',
+  },
+  {
+    title: 'Geospatial Mapping Platform',
+    description: 'Building interactive ArcGIS-powered mapping tools that turn raw field data into clear, actionable spatial insight.',
+  },
 ]
 
 export default function CaseStudies() {
   const [isRevealed, setIsRevealed] = useState(false)
   const sectionRef = useRef<HTMLElement | null>(null)
-
-  const [isBannerRevealed, setIsBannerRevealed] = useState(false)
-  const bannerRef = useRef<HTMLImageElement | null>(null)
 
   useEffect(() => {
     const node = sectionRef.current
@@ -36,30 +41,6 @@ export default function CaseStudies() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsRevealed(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.2 },
-    )
-
-    observer.observe(node)
-
-    return () => observer.disconnect()
-  }, [])
-
-  useEffect(() => {
-    const node = bannerRef.current
-    if (!node) return
-
-    if (typeof window === 'undefined' || typeof window.IntersectionObserver === 'undefined') {
-      setIsBannerRevealed(true)
-      return
-    }
-
-    const observer = new window.IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsBannerRevealed(true)
           observer.disconnect()
         }
       },
@@ -87,28 +68,7 @@ export default function CaseStudies() {
           with software people depend on every day.
         </p>
       </div>
-      <img
-        className="case-studies-banner"
-        src={agvanceImage}
-        alt="Agvance"
-        ref={bannerRef}
-        data-reveal={isBannerRevealed}
-        loading="lazy"
-      />
-      <div className="case-studies-grid">
-        {caseStudies.map((caseStudy) => (
-          <a className="case-study-card" href="#" key={caseStudy.title}>
-            <div className="case-study-card-image" aria-hidden="true" />
-            <div className="case-study-card-content">
-              <h3>{caseStudy.title}</h3>
-              <p>{caseStudy.description}</p>
-            </div>
-            <span className="case-study-card-arrow" aria-hidden="true">
-              →
-            </span>
-          </a>
-        ))}
-      </div>
+      <CaseStudyCarousel items={caseStudies} />
     </section>
   )
 }
