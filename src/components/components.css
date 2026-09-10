@@ -283,6 +283,52 @@ main {
   pointer-events: none;
 }
 
+.hero-section.hero-cursor-active,
+.hero-section.hero-cursor-active * {
+  cursor: none;
+}
+
+.hero-cursor-ring,
+.hero-cursor-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 30;
+}
+
+.hero-cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  transform: translate(-50%, -50%);
+  transition: left 300ms ease, top 300ms ease, transform 300ms ease, opacity 300ms ease,
+    background-color 300ms ease, border-color 300ms ease;
+}
+
+.hero-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  transition: left 100ms ease, top 100ms ease, opacity 200ms ease;
+}
+
+.hero-cursor-ring.is-grown {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: transparent;
+  transform: translate(-50%, -50%) scale(4);
+}
+
+.hero-cursor-ring.is-grown-small {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: transparent;
+  transform: translate(-50%, -50%) scale(2);
+}
+
 .hero-banner {
   position: relative;
   margin-bottom: 24px;
