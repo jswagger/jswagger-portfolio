@@ -39,34 +39,36 @@ export default function ProjectAccordion({ projects }: ProjectAccordionProps) {
             </button>
 
             <div className="project-details">
-              {project.leadershipItems.length > 0 && (
-                <div className="project-section">
-                  <h4>Leadership</h4>
-                  <ul>
-                    {project.leadershipItems.map((item) => (
-                      <li key={`${project.title}-leadership-${item}`}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              <div className="project-details-inner">
+                {project.leadershipItems.length > 0 && (
+                  <div className="project-section">
+                    <h4>Leadership</h4>
+                    <ul>
+                      {project.leadershipItems.map((item) => (
+                        <li key={`${project.title}-leadership-${item}`}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
-              {project.sections.map((section) => (
-                <div key={section.label} className="project-section">
-                  <h4>{section.label}</h4>
-                  <ul>
-                    {section.items.map((item) => (
-                      <li key={`${section.label}-${item}`}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-
-              <div className="tag-row">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="tag">
-                    {tag}
-                  </span>
+                {project.sections.map((section) => (
+                  <div key={section.label} className="project-section">
+                    <h4>{section.label}</h4>
+                    <ul>
+                      {section.items.map((item) => (
+                        <li key={`${section.label}-${item}`}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
+
+                <div className="tag-row">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </article>

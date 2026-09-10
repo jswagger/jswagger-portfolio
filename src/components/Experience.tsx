@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { projects, projectsGIS, projectsLSC } from '../data/portfolioContent'
-import ProjectAccordion from './ProjectAccordion'
+import { experience } from '../data/portfolioContent'
+import ExperienceAccordion from './ExperienceAccordion'
 
 export default function Experience() {
   const [isRevealed, setIsRevealed] = useState(false)
@@ -37,45 +37,11 @@ export default function Experience() {
       </div>
 
       <div className="experience-container">
-        <div className="experience-identity">
-          <h2>Software Solutions Integrated (2022 - Present)</h2>
-          <br />
-          <h4>Senior Software Developer</h4>
-        </div>
-
         <div className="role-header">
-          <span className="identity-label">Roles</span>
+          <span className="identity-label">Companies</span>
         </div>
 
-        <ProjectAccordion projects={projects} />
-      </div>
-
-      <div className="experience-container">
-        <div className="experience-identity">
-          <h2>GIS, inc. (2018 - 2022)</h2>
-          <br />
-          <h4>Geospatial Software Developer</h4>
-        </div>
-
-        <div className="role-header">
-          <span className="identity-label">Roles</span>
-        </div>
-
-        <ProjectAccordion projects={projectsGIS} />
-      </div>
-
-      <div className="experience-container">
-        <div className="experience-identity">
-          <h2>Lake Superior Consulting (2011 - 2018)</h2>
-          <br />
-          <h4>GIS Supervisor</h4>
-        </div>
-
-        <div className="role-header">
-          <span className="identity-label">Roles</span>
-        </div>
-
-        <ProjectAccordion projects={projectsLSC} />
+        <ExperienceAccordion experiences={experience} />
       </div>
     </section>
   )

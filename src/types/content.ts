@@ -21,3 +21,14 @@ export interface ProjectItem {
   sections: ProjectSection[]
   tags: string[]
 }
+
+// Condensed, single-accordion view of a company's experience. The full
+// role-by-role detail this summarizes lives in ProjectItem[] (see
+// `projects`, `projectsGIS`, `projectsLSC` in portfolioContent.ts).
+export interface CompanyExperience {
+  company: string
+  dateRange: string
+  jobTitle: string
+  highlights: string[]
+  tags: string[]
+}

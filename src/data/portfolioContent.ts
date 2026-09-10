@@ -1,4 +1,4 @@
-import type { Highlight, ProjectItem, ServiceItem } from '../types/content'
+import type { CompanyExperience, Highlight, ProjectItem, ServiceItem } from '../types/content'
 
 export const highlights: Highlight[] = [
   { label: 'Experience', value: '10+ years' },
@@ -22,6 +22,47 @@ export const services: ServiceItem[] = [
   }
 ]
 
+// Condensed, one-item-per-company view used by the single Experience
+// accordion. Full role-by-role detail is preserved below in `projects`,
+// `projectsGIS`, and `projectsLSC`.
+export const experience: CompanyExperience[] = [
+  {
+    company: 'Software Solutions Integrated',
+    dateRange: '2022 - Present',
+    jobTitle: 'Senior Software Developer',
+    highlights: [
+      'Built full-stack features: new React components and UI workflows, plus back-end API endpoints, database schema changes, and AWS Lambda functions',
+      'Led the UI Focus Group, driving React and TypeScript modernization, JS-to-TS conversions, and legacy component refactors',
+      'Mentored engineers through pair programming and code reviews, and partnered with QA to strengthen automated test coverage'
+    ],
+    tags: ['React', 'TypeScript', 'Python', 'AWS', 'GIS', 'SQL', 'C#']
+  },
+  {
+    company: 'GIS, inc.',
+    dateRange: '2018 - 2022',
+    jobTitle: 'Geospatial Software Developer',
+    highlights: [
+      'Built geospatial front-end features with the ArcGIS API for JavaScript, including editing workflows and mapping interactions',
+      'Developed back-end spatial processing methods and manipulated spatial data using Python',
+      'Championed unit testing practices, organizing test suites and embedding test creation into standard ticket work'
+    ],
+    tags: ['React', 'Python', 'GIS', 'SQL', 'ArcGIS API for JavaScript']
+  },
+  {
+    company: 'Lake Superior Consulting',
+    dateRange: '2011 - 2018',
+    jobTitle: 'GIS Supervisor',
+    highlights: [
+      'Led a team of GIS analysts delivering geospatial data and deliverables to clients',
+      'Directed front-end mapping workflows using the ArcGIS API for JavaScript',
+      'Directed back-end spatial data processing and Python-based automation'
+    ],
+    tags: ['Angular', 'Python', 'GIS', 'Arcpy', 'ArcGIS API for JavaScript']
+  }
+]
+
+// Full role-by-role detail behind each company above, kept for reference
+// and possible future use (e.g. a detail view or resume export).
 export const projects: ProjectItem[] = [
     {
     title: 'Front End Engineering',
