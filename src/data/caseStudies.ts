@@ -1,6 +1,6 @@
 import type { CaseStudyDetail } from '../types/content'
 import aiCardImage from '../assets/AIcardimage.png'
-import uiCardImage from '../assets/UIcardimage2.png'
+import uiCardImage from '../assets/UICardImage2.png'
 
 export const caseStudies: CaseStudyDetail[] = [
   {
