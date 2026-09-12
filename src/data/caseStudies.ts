@@ -1,6 +1,9 @@
 import type { CaseStudyDetail } from '../types/content'
 import aiCardImage from '../assets/AIcardimage.png'
-import uiCardImage from '../assets/UICardImage2.png'
+import uiCardImage from '../assets/UICardImage3.png'
+import enrollmentCardImage from '../assets/EnrollmentCardImage.png'
+import codeQualityCardImage from '../assets/CodeQualityCardImage.png'
+import geospatialCardImage from '../assets/GeospatialCardImage.png'
 
 export const caseStudies: CaseStudyDetail[] = [
   {
@@ -89,6 +92,7 @@ export const caseStudies: CaseStudyDetail[] = [
     tagline: 'Managing Legal Customer Licensing',
     summary: 'Creating a clean, painless workflow for managing legal customer licensing and data enrollment.',
     tags: ['React', '.NET APIs', 'AWS Cognito', 'SQL Server'],
+    image: enrollmentCardImage,
     sections: [
       {
         heading: 'Problem',
@@ -127,6 +131,7 @@ export const caseStudies: CaseStudyDetail[] = [
     tagline: 'Improving logic quality before pull requests',
     summary: 'Building AI-driven review skills that hunt bugs and enforce quality before pull requests are opened.',
     tags: ['Claude AI', 'Git', 'Automation'],
+    image: codeQualityCardImage,
     sections: [
       {
         heading: 'Problem',
@@ -171,6 +176,7 @@ export const caseStudies: CaseStudyDetail[] = [
     tagline: 'Turning raw field data into actionable maps',
     summary: 'Building interactive ArcGIS-powered mapping tools that turn raw field data into clear, actionable spatial insight.',
     tags: ['React', 'ArcGIS API for JavaScript', 'Python', 'GIS'],
+    image: geospatialCardImage,
     sections: [
       {
         heading: 'Problem',

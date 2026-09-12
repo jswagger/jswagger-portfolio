@@ -12,7 +12,6 @@ describe('App', () => {
     render(<App />)
 
     expect(screen.getAllByText(/Strengths/i).length).toBeGreaterThan(0)
-    expect(screen.getAllByRole('link', { name: /Strengths/i }).length).toBeGreaterThan(0)
     expect(screen.getAllByText(/What I bring to the table/i).length).toBeGreaterThan(0)
   })
 

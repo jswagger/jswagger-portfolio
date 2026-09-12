@@ -23,16 +23,21 @@ export default function Hero() {
           <p className="hero-copy">
             Senior Software Engineer focused on solving complex problems and building solutions that last.
           </p>
-          <div className="hero-actions">
-              View recent work
-            <a href="#case-studies">
-              <span className="hero-work-arrow" aria-hidden="true">
-              →
-              </span>
-            </a>
-          </div>
         </div>
       </div>
+
+      <a href="#case-studies" className="hero-scroll-indicator" aria-label="Scroll to selected work">
+        <svg viewBox="0 0 40 64" width="40" height="64" fill="none" aria-hidden="true">
+          <rect x="1.5" y="1.5" width="37" height="61" rx="18.5" className="hero-scroll-indicator-pill" />
+          <path
+            d="M20 22 L20 42 M13 35 L20 42 L27 35"
+            className="hero-scroll-indicator-arrow"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </a>
     </section>
   )
 }
