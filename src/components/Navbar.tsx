@@ -88,7 +88,7 @@ export default function Navbar() {
           </button>
           <button
             type="button"
-            className="theme-toggle theme-option-bounce"
+            className="theme-toggle theme-toggle-header theme-option-bounce"
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             onClick={() => setThemeMode(theme === 'dark' ? 'light' : 'dark')}
@@ -106,6 +106,18 @@ export default function Navbar() {
             {link.label}
           </a>
         ))}
+        <button
+          type="button"
+          className="theme-toggle theme-toggle-dropdown theme-option-bounce"
+          aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          onClick={() => setThemeMode(theme === 'dark' ? 'light' : 'dark')}
+        >
+          <span aria-hidden="true" className="theme-symbol">
+            {theme === 'dark' ? '☼' : '☾'}
+          </span>
+          <span>{theme === 'dark' ? 'Light mode' : 'Dark mode'}</span>
+        </button>
       </div>
     </header>
   )

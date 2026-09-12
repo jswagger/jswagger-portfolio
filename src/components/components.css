@@ -139,7 +139,7 @@ main {
 }
 
 .site-header.is-scrolled .brand,
-.site-header.is-scrolled .theme-toggle {
+.site-header.is-scrolled .theme-toggle-header {
   opacity: 0;
   pointer-events: none;
   transform: scale(0.9);
@@ -315,6 +315,10 @@ main {
 .nav-dropdown a:hover {
   background: var(--accent-bg);
   color: var(--accent);
+}
+
+.theme-toggle-dropdown {
+  display: none;
 }
 
 .theme-switch {
@@ -1381,6 +1385,33 @@ h1 {
     display: inline-flex;
     opacity: 1;
     transform: scale(1);
+  }
+
+  .theme-toggle-header {
+    display: none;
+  }
+
+  .theme-toggle-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: transparent;
+    backdrop-filter: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .theme-toggle-dropdown:hover {
+    background: var(--accent-bg);
+    color: var(--accent);
+  }
+
+  .theme-toggle-dropdown .theme-symbol {
+    font-size: 1.1rem;
   }
 }
 
