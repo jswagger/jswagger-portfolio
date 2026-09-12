@@ -4,16 +4,18 @@ interface CaseStudyCarouselItem {
   title: string
   description: string
   href?: string
+  image?: string
 }
 
 interface CaseStudyCarouselProps {
   items: CaseStudyCarouselItem[]
+  onSelect: (item: CaseStudyCarouselItem) => void
 }
 
 const ANGLE_STEP = 26
 const WHEEL_THROTTLE_MS = 600
 
-export default function CaseStudyCarousel({ items }: CaseStudyCarouselProps) {
+export default function CaseStudyCarousel({ items, onSelect }: CaseStudyCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(Math.floor(items.length / 2))
   const stageRef = useRef<HTMLDivElement | null>(null)
 
@@ -56,12 +58,19 @@ export default function CaseStudyCarousel({ items }: CaseStudyCarouselProps) {
                 key={item.title}
                 href={item.href ?? '#'}
                 className={`case-carousel-card ${isActive ? 'is-active' : ''}`}
-                style={{ transform: `rotate(${rotation}deg)` }}
+                style={{
+                  transform: `rotate(${rotation}deg)`,
+                  ...(item.image
+                    ? { backgroundImage: `url(${item.image})` }
+                    : undefined),
+                }}
                 aria-current={isActive}
                 aria-label={item.title}
                 onClick={(event) => {
-                  if (!isActive) {
-                    event.preventDefault()
+                  event.preventDefault()
+                  if (isActive) {
+                    onSelect(item)
+                  } else {
                     setActiveIndex(index)
                   }
                 }}
@@ -74,6 +83,9 @@ export default function CaseStudyCarousel({ items }: CaseStudyCarouselProps) {
           <div className="case-carousel-caption">
             <h3>{activeItem.title}</h3>
             <p>{activeItem.description}</p>
+            <button type="button" className="case-carousel-view-button" onClick={() => onSelect(activeItem)}>
+              View case study →
+            </button>
           </div>
 
           <div className="case-carousel-nav">

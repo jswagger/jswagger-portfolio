@@ -6,7 +6,7 @@ interface ExperienceAccordionProps {
 }
 
 export default function ExperienceAccordion({ experiences }: ExperienceAccordionProps) {
-  const [activeCompany, setActiveCompany] = useState<string | null>(experiences[0]?.company ?? null)
+  const [activeCompany, setActiveCompany] = useState<string | null>(null)
 
   return (
     <div className="project-list project-accordion">
@@ -22,7 +22,7 @@ export default function ExperienceAccordion({ experiences }: ExperienceAccordion
             <button
               type="button"
               className="project-card-toggle"
-              onClick={() => setActiveCompany(entry.company)}
+              onClick={() => setActiveCompany(isActive ? null : entry.company)}
               aria-expanded={isActive}
             >
               <span className="project-card-shadow" aria-hidden="true" />

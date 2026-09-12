@@ -22,6 +22,21 @@ export interface ProjectItem {
   tags: string[]
 }
 
+export interface CaseStudySection {
+  heading: string
+  paragraphs?: string[]
+  bullets?: string[]
+}
+
+export interface CaseStudyDetail {
+  title: string
+  tagline: string
+  summary: string
+  tags: string[]
+  sections: CaseStudySection[]
+  image?: string
+}
+
 // Condensed, single-accordion view of a company's experience. The full
 // role-by-role detail this summarizes lives in ProjectItem[] (see
 // `projects`, `projectsGIS`, `projectsLSC` in portfolioContent.ts).

@@ -1,31 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import CaseStudyCarousel from './CaseStudyCarousel'
+import CaseStudyModal from './CaseStudyModal'
+import { caseStudies } from '../data/caseStudies'
+import type { CaseStudyDetail } from '../types/content'
 
-const caseStudies = [
-  {
-    title: 'AI Report Summarization',
-    description: 'Integrating the power of AWS Bedrock to turn complex reports into clear, useful summaries.',
-  },
-  {
-    title: 'UI Modernization',
-    description: 'Lifting a legacy codebase with thoughtful React patterns and a more maintainable interface.',
-  },
-  {
-    title: 'Enterprise Enrollment Process',
-    description: 'Creating a clean, painless workflow for managing legal customer licensing and data enrollment.',
-  },
-  {
-    title: 'Code Quality Automation',
-    description: 'Building AI-driven review skills that hunt bugs and enforce quality before pull requests are opened.',
-  },
-  {
-    title: 'Geospatial Mapping Platform',
-    description: 'Building interactive ArcGIS-powered mapping tools that turn raw field data into clear, actionable spatial insight.',
-  },
-]
+const caseStudySummaries = caseStudies.map(({ title, summary, image }) => ({
+  title,
+  description: summary,
+  image,
+}))
 
 export default function CaseStudies() {
   const [isRevealed, setIsRevealed] = useState(false)
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudyDetail | null>(null)
   const sectionRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
@@ -68,7 +55,14 @@ export default function CaseStudies() {
           with software people depend on every day.
         </p>
       </div>
-      <CaseStudyCarousel items={caseStudies} />
+      <CaseStudyCarousel
+        items={caseStudySummaries}
+        onSelect={(item) => {
+          const detail = caseStudies.find((caseStudy) => caseStudy.title === item.title)
+          if (detail) setSelectedCaseStudy(detail)
+        }}
+      />
+      <CaseStudyModal caseStudy={selectedCaseStudy} onClose={() => setSelectedCaseStudy(null)} />
     </section>
   )
 }
