@@ -33,7 +33,7 @@
 
 3.  🔄 **Improved User Interaction Flow**: The Event Info panel and Rec Info panel now close much faster upon saving. This allows us to depend on the IOT messaging, and more concisely shows individual status updates.
 
-4.  ⚡ **CPU Performance**: Previously, for `Rec Changed` and `Event Changed` messaging, we often plateaued at 100% as messages were being received. Spikes are overall much lower now, which allows the UI to process more consistently.
+4.  ⚡ **CPU Performance**: Previously, for `Rec Changed` and `Event Changed` IOT messaging, we often plateaued at 100% as messages were being received. Spikes are overall much lower now, which allows the UI to process more consistently.
 
 	#### Rec Changed Messaging (Original)
 	<img src="RecChangedCPU-Original.png" alt="CPU Performance" width="500">
