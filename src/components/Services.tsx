@@ -34,8 +34,8 @@ export default function Services() {
     <section className="full-section section-muted" id="strengths" ref={sectionRef} data-reveal={isRevealed}>
       <div className="full-section-card">
         <div className="section-heading">
-          <h1 className="section-label">Strengths</h1>
-          <h2>What I bring to the table</h2>
+          <h2 className="section-label">Strengths</h2>
+          <h3>What I bring to the table</h3>
         </div>
         <div className="card-grid">
           {services.map((service, index) => (

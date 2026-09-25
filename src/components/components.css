@@ -489,7 +489,9 @@ main {
   margin: 0 auto;
 }
 
-.hero-content h2 {
+.hero-content h3 {
+  font-family: var(--heading);
+  font-weight: 500;
   margin: 0 0 20px;
   font-size: clamp(1.75rem, 2vw, 4rem);
   line-height: 0.96;
@@ -517,7 +519,7 @@ main {
 }
 
 .hero-badge,
-h1 {
+.section-label {
   display: inline-block;
   margin-bottom: 24px;
   color: var(--accent);
@@ -528,8 +530,10 @@ h1 {
   text-transform: uppercase;
 }
 
-.section-heading h2,
-.contact-card h2 {
+.section-heading h3,
+.contact-card h3 {
+  font-family: var(--heading);
+  font-weight: 500;
   margin: 0 0 20px;
   font-size: clamp(1.75rem, 2vw, 6rem);
   line-height: 0.96;

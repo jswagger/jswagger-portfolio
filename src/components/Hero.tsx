@@ -18,8 +18,8 @@ export default function Hero() {
     >
       <div className="hero-content">
         <div className="hero-copy-block">
-          <h1>Jeremy Swagger</h1>
-          <h2>Thoughtful Engineering, Reliable Software</h2>
+          <h1 className="section-label">Jeremy Swagger</h1>
+          <h3>Thoughtful Engineering, Reliable Software</h3>
           <p className="hero-copy">
             Senior Software Engineer focused on solving complex problems and building solutions that last.
           </p>

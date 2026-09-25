@@ -33,7 +33,7 @@ export default function Experience() {
   return (
     <section className="content-section" id="work" ref={sectionRef} data-reveal={isRevealed}>
       <div className="section-heading">
-        <h1>Experience</h1>
+        <h2 className="section-label">Experience</h2>
       </div>
 
       <div className="experience-container">

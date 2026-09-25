@@ -47,8 +47,8 @@ export default function CaseStudies() {
       data-reveal={isRevealed}
     >
       <div className="section-heading">
-        <h1 className="section-label">Selected Work</h1>
-        <h2>Evolving Software That Already Matters</h2>
+        <h2 className="section-label">Selected Work</h2>
+        <h3>Evolving Software That Already Matters</h3>
         <p>
           For nearly a decade, I've worked within a mature enterprise application—adding new
           capabilities, modernizing its technology, and solving the complex problems that come
