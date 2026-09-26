@@ -1,3 +1,6 @@
+import strengthBadlandsImage from '../assets/strength-badlands.jpg'
+import strengthWaterfallImage from '../assets/strength-waterfall.jpg'
+import strengthRiverImage from '../assets/strength-river.jpg'
 import type { CompanyExperience, Highlight, ProjectItem, ServiceItem, StrengthStat } from '../types/content'
 
 export const highlights: Highlight[] = [
@@ -18,16 +21,19 @@ export const services: ServiceItem[] = [
   {
     title: 'Commitment to Quality',
     icon: 'quality',
+    image: strengthWaterfallImage,
     description: 'With every task and project, I strive to do my best work, every time. I am passionate about following best practices in code and in processes. This keeps my output consistent and clear, as I deliver with confidence every time.'
   },
   {
     title: 'UI leadership and modernization',
     icon: 'interface',
+    image: strengthBadlandsImage,
     description: 'I lead front-end improvement initiatives with an eye toward maintainability, accessibility, and modern patterns. From refactoring legacy React to improving team standards, I help organizations turn technical debt into a healthier long-term foundation.'
   },
   {
     title: 'Mentorship and team enablement',
     icon: 'mentorship',
+    image: strengthRiverImage,
     description: 'I help engineers and product teams move forward with clarity by pairing thoughtful guidance with practical execution. I focus on building trust, reducing friction, and creating systems that make complex work feel sustainable.'
   }
 ]
@@ -37,14 +43,10 @@ export const capabilityWords: string[] = [
   'design.',
   'build.',
   'modernize.',
-  'map.',
   'automate.',
-  'test.',
-  'debug.',
   'optimize.',
   'mentor.',
   'collaborate.',
-  'ship.',
   'deliver.',
 ]
 
