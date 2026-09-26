@@ -5,13 +5,17 @@ interface InfoCardProps {
   icon: ServiceIcon
   title: string
   description: string
-  tone: number
+  image: string
 }
 
-export default function InfoCard({ icon, title, description, tone }: InfoCardProps) {
+export default function InfoCard({ icon, title, description, image }: InfoCardProps) {
   return (
     <div className="info-card">
-      <div className={`info-card-bg info-card-bg-tone-${tone}`} aria-hidden="true" />
+      <div
+        className="info-card-bg"
+        style={{ backgroundImage: `url(${image})` }}
+        aria-hidden="true"
+      />
       <div className="info-card-glow" aria-hidden="true" />
       <div className="info-card-body">
         <span className="info-card-icon">

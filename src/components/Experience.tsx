@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { capabilityWords, experience } from '../data/portfolioContent'
+import { experience } from '../data/portfolioContent'
 import ExperienceAccordion from './ExperienceAccordion'
-import ScrollWords from './ScrollWords'
 
 export default function Experience() {
   const [isRevealed, setIsRevealed] = useState(false)
@@ -44,8 +43,6 @@ export default function Experience() {
 
         <ExperienceAccordion experiences={experience} />
       </div>
-
-      <ScrollWords lead="I can" words={capabilityWords} />
     </section>
   )
 }

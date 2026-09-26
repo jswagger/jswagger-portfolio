@@ -33,27 +33,32 @@ export default function About() {
     <section className="content-section" id="about" ref={sectionRef} data-reveal={isRevealed}>
       <div className="section-heading">
         <h2 className="section-label">About</h2>
-        <h3>Agentic engineering meets proven architectural strategies</h3>
+        <h3>
+          I’m a Senior Software Engineer with over 10 years of experience in building and
+          modernizing enterprise software.
+        </h3>
       </div>
       <div className="about-grid">
         <div className="about-copy">
           <p>
-            For over a decade, I have engineered mission-critical web applications, 
-            enterprise systems, and technical support frameworks. My career is defined 
-            by building resilient, highly testable architecture that stands up to intense, 
-            real-world production pressure.
+            When I’m not working on my computer, you can usually find me spending time with my
+            family, enjoying the outdoors, or planning our next adventure. I love to travel and
+            explore new places, whether it involves hiking a new trail, wandering through an
+            unfamiliar town, or finding a beautiful spot to spend the day. Having lived in Croatia
+            and now calling Florida home, I have developed a strong appreciation for both European
+            charm and seaside life.
           </p>
           <p>
-            More than a coder, I am a full-cycle solution architect who uncovers edge cases, 
-            protects against regression, and uses contextual guardrails to keep both 
-            AI agents and human teams tightly aligned. I balance macro-level project ROI 
-            with micro-level code health, ensuring every technical decision serves the 
-            product vision through proactive, iterative communication.
+            Family time is my favorite kind of time. I enjoy discovering new places together and
+            making the most of wherever we are.
           </p>
           <p>
-            My experience spans full-stack development, system optimization, enterprise
-            architecture, and geospatial solutions, with a strong foundation in
-            JavaScript/React, Python, C#, and AWS.
+            I’m also a big fan of green tea, engaging conversations, and learning something new,
+            wherever I can find it.
+          </p>
+          <p>
+            I bring that same curiosity into my work. I like understanding how things fit
+            together, asking good questions, and continually learning how to make things better.
           </p>
         </div>
         <div className="stats-list">

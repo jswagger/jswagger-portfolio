@@ -14,18 +14,20 @@ const toSentence = (lead: string, words: string[]) => {
 
 export default function ScrollWords({ lead, words }: ScrollWordsProps) {
   return (
-    <div className="scroll-words">
-      <p className="sr-only">{toSentence(lead, words)}</p>
-      <p className="scroll-words-lead" aria-hidden="true">
-        {lead}&nbsp;
-      </p>
-      <ul aria-hidden="true" style={{ '--count': words.length } as CSSProperties}>
-        {words.map((word, index) => (
-          <li key={word} style={{ '--i': index } as CSSProperties}>
-            {word}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <section className="scroll-words-section">
+      <div className="scroll-words">
+        <p className="sr-only">{toSentence(lead, words)}</p>
+        <p className="scroll-words-lead" aria-hidden="true">
+          {lead}&nbsp;
+        </p>
+        <ul aria-hidden="true" style={{ '--count': words.length } as CSSProperties}>
+          {words.map((word, index) => (
+            <li key={word} style={{ '--i': index } as CSSProperties}>
+              {word}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   )
 }

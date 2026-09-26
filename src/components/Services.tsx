@@ -40,13 +40,13 @@ export default function Services() {
         </div>
         <StrengthStats stats={strengthStats} />
         <div className="card-grid">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <InfoCard
               key={service.title}
               icon={service.icon}
               title={service.title}
               description={service.description}
-              tone={(index % 3) + 1}
+              image={service.image}
             />
           ))}
         </div>

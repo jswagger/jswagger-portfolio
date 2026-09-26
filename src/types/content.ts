@@ -16,6 +16,7 @@ export interface ServiceItem {
   title: string
   description: string
   icon: ServiceIcon
+  image: string
 }
 
 export interface ProjectSection {
