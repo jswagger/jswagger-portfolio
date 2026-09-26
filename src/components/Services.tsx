@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { services } from '../data/portfolioContent'
+import { services, strengthStats } from '../data/portfolioContent'
 import InfoCard from './InfoCard'
+import StrengthStats from './StrengthStats'
 
 export default function Services() {
   const [isRevealed, setIsRevealed] = useState(false)
@@ -37,6 +38,7 @@ export default function Services() {
           <h2 className="section-label">Strengths</h2>
           <h3>What I bring to the table</h3>
         </div>
+        <StrengthStats stats={strengthStats} />
         <div className="card-grid">
           {services.map((service, index) => (
             <InfoCard

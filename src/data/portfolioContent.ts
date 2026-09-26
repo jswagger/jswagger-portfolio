@@ -1,10 +1,17 @@
-import type { CompanyExperience, Highlight, ProjectItem, ServiceItem } from '../types/content'
+import type { CompanyExperience, Highlight, ProjectItem, ServiceItem, StrengthStat } from '../types/content'
 
 export const highlights: Highlight[] = [
   { label: 'Experience', value: '10+ years' },
   { label: 'Location', value: 'Florida, USA' },
   { label: 'Specialties', value: 'Enterprise architecture & GIS systems' },
   { label: 'Approach', value: 'Context-first, quality-driven' }
+]
+
+export const strengthStats: StrengthStat[] = [
+  { value: 10, suffix: '+', emphasis: 'Years', label: 'of experience' },
+  { value: 350, suffix: '+', emphasis: 'Legacy files', label: 'modernized' },
+  { value: 95, suffix: '%', emphasis: 'Fewer', label: 'API calls' },
+  { value: 7, suffix: '+', emphasis: 'Engineers', label: 'mentored' },
 ]
 
 export const services: ServiceItem[] = [

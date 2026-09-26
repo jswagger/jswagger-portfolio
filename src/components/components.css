@@ -558,12 +558,30 @@ main {
   max-width: 720px;
 }
 
+.contact-card p.contact-email {
+  margin: 12px 0 0;
+}
+
+.contact-email a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 200ms ease;
+}
+
+.contact-email a:hover,
+.contact-email a:focus-visible {
+  text-decoration-color: currentColor;
+}
+
 .contact-actions {
   font-size: clamp(.8rem, 1.6vw, 1.2rem);
   line-height: 2;
   color: var(--text-muted);
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 12px;
   margin-top: 28px;
 }
@@ -1305,8 +1323,9 @@ main {
 }
 
 .contact-card {
-  padding: 48px 20px 72px;
-  width: calc(100% - 40px);
+  box-sizing: border-box;
+  padding: 48px 20px 72px clamp(20px, 5vw, 80px);
+  width: 100%;
 }
 
 .full-section-card {
@@ -1695,10 +1714,10 @@ main {
 
 /* Sticky "I can" word list, adapted from Jhey Tompkins' "you can scroll" demo */
 .scroll-words {
-  --words-lightness: 78%;
-  --words-chroma: 0.13;
-  --words-hue-start: 205;
-  --words-hue-end: 265;
+  --words-lightness: 76%;
+  --words-chroma: 0.07;
+  --words-hue-start: 235;
+  --words-hue-end: 260;
   display: flex;
   max-width: 900px;
   margin: 0 auto;
@@ -1710,7 +1729,7 @@ main {
 }
 
 :root[data-theme='light'] .scroll-words {
-  --words-lightness: 45%;
+  --words-lightness: 40%;
 }
 
 .scroll-words-lead {
@@ -1778,5 +1797,40 @@ main {
       --brightness: 1;
       --end-opacity: 1;
     }
+  }
+}
+
+.strength-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  padding-block: 88px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.strength-stat-number {
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+}
+
+.strength-stat-title {
+  margin-top: 10px;
+  color: var(--text-muted);
+}
+
+.strength-stat-title strong {
+  display: block;
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+@media (max-width: 800px) {
+  .strength-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 32px;
   }
 }

@@ -38,9 +38,12 @@ export default function Contact() {
           and product delivery. If you value clear thinking, disciplined execution,
           and software that holds up in the real world, I would love to connect.
         </p>
+        <p className="contact-email">
+          <a href="mailto:jeremy.swagger@gmail.com">jeremy.swagger@gmail.com</a>
+        </p>
         <div className="contact-actions">
           <a className="button button-primary" href="mailto:jeremy.swagger@gmail.com">
-            jeremy.swagger@gmail.com
+            Get in touch
           </a>
           <a
             className="social-icon-link"
