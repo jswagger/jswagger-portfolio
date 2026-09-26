@@ -25,6 +25,22 @@ export const services: ServiceItem[] = [
   }
 ]
 
+// Verbs cycled through beside the sticky "I can" in the Experience section.
+export const capabilityWords: string[] = [
+  'design.',
+  'build.',
+  'modernize.',
+  'map.',
+  'automate.',
+  'test.',
+  'debug.',
+  'optimize.',
+  'mentor.',
+  'collaborate.',
+  'ship.',
+  'deliver.',
+]
+
 // Condensed, one-item-per-company view used by the single Experience
 // accordion. Full role-by-role detail is preserved below in `projects`,
 // `projectsGIS`, and `projectsLSC`.
