@@ -34,19 +34,17 @@ export default function About() {
       <div className="section-heading">
         <h2 className="section-label">About</h2>
         <h3>
-          I’m a Senior Software Engineer with over 10 years of experience in building and
-          modernizing enterprise software.
+          When I’m not building software, I’m usually building a life I enjoy with the people I
+          love.
         </h3>
       </div>
       <div className="about-grid">
         <div className="about-copy">
           <p>
-            When I’m not working on my computer, you can usually find me spending time with my
-            family, enjoying the outdoors, or planning our next adventure. I love to travel and
-            explore new places, whether it involves hiking a new trail, wandering through an
-            unfamiliar town, or finding a beautiful spot to spend the day. Having lived in Croatia
-            and now calling Florida home, I have developed a strong appreciation for both European
-            charm and seaside life.
+            I love to travel and explore new places, whether that means hiking a new trail,
+            wandering through an unfamiliar town, or finding a beautiful spot to spend the day.
+            Having lived in Croatia and now calling Florida home, I’ve developed a strong
+            appreciation for both European charm and life by the sea.
           </p>
           <p>
             Family time is my favorite kind of time. I enjoy discovering new places together and

@@ -899,10 +899,18 @@ main {
   padding-inline: clamp(20px, 5vw, 80px);
 }
 
+.stats-list {
+  align-content: start;
+  gap: 0;
+}
+
 .stat-card {
-  background: var(--surface);
-  padding: 20px;
-  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  padding-block: 22px;
+  border-top: 1px solid var(--border);
+}
+
+.stat-card:last-child {
+  border-bottom: 1px solid var(--border);
 }
 
 .project-card:hover {
@@ -912,16 +920,18 @@ main {
 
 .stat-label {
   display: block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 6px;
 }
 
 .stat-card strong {
-  font-size: 1.1rem;
+  display: block;
+  font-size: clamp(1.3rem, 1.8vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
   color: var(--text);
 }
 

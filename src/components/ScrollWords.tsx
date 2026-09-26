@@ -14,7 +14,7 @@ const toSentence = (lead: string, words: string[]) => {
 
 export default function ScrollWords({ lead, words }: ScrollWordsProps) {
   return (
-    <section className="scroll-words-section">
+    <section className="scroll-words-section section-muted">
       <div className="scroll-words">
         <p className="sr-only">{toSentence(lead, words)}</p>
         <p className="scroll-words-lead" aria-hidden="true">
