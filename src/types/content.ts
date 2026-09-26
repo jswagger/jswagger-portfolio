@@ -3,9 +3,12 @@ export interface Highlight {
   value: string
 }
 
+export type ServiceIcon = 'quality' | 'interface' | 'mentorship'
+
 export interface ServiceItem {
   title: string
   description: string
+  icon: ServiceIcon
 }
 
 export interface ProjectSection {

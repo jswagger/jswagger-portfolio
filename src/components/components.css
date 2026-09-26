@@ -902,46 +902,44 @@ main {
 }
 
 .info-card {
-  perspective: 800px;
-  cursor: pointer;
-}
-
-.info-card-inner {
+  --info-card-highlight: #8fb8de;
   position: relative;
   display: flex;
   align-items: flex-start;
-  min-height: 260px;
+  aspect-ratio: 2 / 3;
   padding: 28px;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 24px;
   border: 1px solid var(--border);
   box-shadow: 0 8px 24px var(--shadow);
-  transform-style: preserve-3d;
-  transition: transform 1s cubic-bezier(0.445, 0.05, 0.55, 0.95), box-shadow 600ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: box-shadow 200ms linear;
 }
 
-.info-card:hover .info-card-inner {
-  transition: transform 600ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 600ms cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 20px 45px var(--shadow), 0 0 0 1px var(--accent);
+.info-card:hover {
+  box-shadow: 0 20px 45px var(--shadow), 0 0 0 1px var(--info-card-highlight);
 }
 
 .info-card-bg {
   position: absolute;
-  inset: -20px;
+  inset: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0.55;
+  opacity: 0.9;
   pointer-events: none;
-  transition: transform 1s cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 600ms ease;
+  transform: scale(1) translateZ(0);
+  transition: filter 200ms linear, transform 200ms linear;
 }
 
 .info-card:hover .info-card-bg {
-  opacity: 0.9;
-  transition: transform 600ms cubic-bezier(0.23, 1, 0.32, 1), opacity 600ms ease;
+  transform: scale(1.05) translateZ(0);
+}
+
+.card-grid:hover > .info-card:not(:hover) .info-card-bg {
+  filter: brightness(0.5) saturate(0.5) contrast(1.2) blur(20px);
 }
 
 .info-card-bg-tone-1 {
-  background-image: linear-gradient(145deg, var(--accent), var(--surface-muted));
+  background-image: linear-gradient(145deg, var(--info-card-highlight), var(--surface-muted));
 }
 
 .info-card-bg-tone-2 {
@@ -949,7 +947,7 @@ main {
 }
 
 .info-card-bg-tone-3 {
-  background-image: linear-gradient(145deg, var(--accent-soft), var(--accent));
+  background-image: linear-gradient(145deg, var(--accent-soft), var(--info-card-highlight));
 }
 
 :root[data-theme='light'] .info-card-bg-tone-1 {
@@ -978,9 +976,28 @@ main {
   width: 100%;
 }
 
+.info-card-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(4px);
+  color: #fff;
+}
+
+.info-card-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
 .info-card-body h3 {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: 1.6rem;
+  line-height: 1.2;
   color: #fff;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
@@ -1004,6 +1021,8 @@ main {
 }
 
 .experience-container {
+    --accent: #8fb8de;
+    --accent-soft: #324b5f;
     box-sizing: border-box;
     background: var(--surface-secondary);
     border-radius: 20px;
@@ -1012,6 +1031,11 @@ main {
     height: 100%;
     padding: 24px;
     margin: 0 auto 20px;
+}
+
+:root[data-theme='light'] .experience-container {
+  --accent: #1f4570;
+  --accent-soft: #5f8bb8;
 }
 
 .experience-container h2 {
@@ -1080,6 +1104,7 @@ main {
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 20px;
+  background: linear-gradient(135deg, var(--surface-muted), var(--accent-soft));
   color: #fff;
   box-shadow: 0 8px 24px var(--shadow);
   cursor: pointer;
@@ -1088,26 +1113,6 @@ main {
 
 .project-accordion .project-card:hover {
   box-shadow: 0 16px 32px var(--shadow);
-}
-
-.project-accordion .project-card:nth-child(5n+1) {
-  background: linear-gradient(135deg, var(--accent), var(--surface-muted));
-}
-
-.project-accordion .project-card:nth-child(5n+2) {
-  background: linear-gradient(135deg, var(--surface-muted), var(--accent-soft));
-}
-
-.project-accordion .project-card:nth-child(5n+3) {
-  background: linear-gradient(135deg, var(--accent-soft), var(--accent));
-}
-
-.project-accordion .project-card:nth-child(5n+4) {
-  background: linear-gradient(135deg, var(--surface-muted), var(--surface));
-}
-
-.project-accordion .project-card:nth-child(5n+5) {
-  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
 }
 
 .project-card-shadow {
@@ -1326,6 +1331,11 @@ main {
 
   .project-card {
     flex-direction: column;
+  }
+
+  .info-card {
+    aspect-ratio: auto;
+    min-height: 260px;
   }
 
   .info-card p.info-card-description {

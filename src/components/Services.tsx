@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { services } from '../data/portfolioContent'
-import InfoCardTilt from './InfoCardTilt'
+import InfoCard from './InfoCard'
 
 export default function Services() {
   const [isRevealed, setIsRevealed] = useState(false)
@@ -39,8 +39,9 @@ export default function Services() {
         </div>
         <div className="card-grid">
           {services.map((service, index) => (
-            <InfoCardTilt
+            <InfoCard
               key={service.title}
+              icon={service.icon}
               title={service.title}
               description={service.description}
               tone={(index % 3) + 1}
