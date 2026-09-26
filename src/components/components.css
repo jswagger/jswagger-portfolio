@@ -317,10 +317,6 @@ main {
   color: var(--accent);
 }
 
-.theme-toggle-dropdown {
-  display: none;
-}
-
 .theme-switch {
   display: inline-flex;
   align-items: center;
@@ -355,6 +351,34 @@ main {
   align-items: center;
   justify-content: center;
   color: var(--accent);
+}
+
+/* Menu row version of the theme toggle; must follow .theme-toggle to override it */
+.theme-toggle-dropdown {
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  height: auto;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: transparent;
+  backdrop-filter: none;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.95rem;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-align: left;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.theme-toggle-dropdown:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.theme-toggle-dropdown .theme-symbol {
+  font-size: 1rem;
 }
 
 .theme-option-bounce:active {
@@ -1398,29 +1422,6 @@ main {
 
   .theme-toggle-header {
     display: none;
-  }
-
-  .theme-toggle-dropdown {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    height: auto;
-    padding: 8px 12px;
-    border-radius: 10px;
-    background: transparent;
-    backdrop-filter: none;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-  }
-
-  .theme-toggle-dropdown:hover {
-    background: var(--accent-bg);
-    color: var(--accent);
-  }
-
-  .theme-toggle-dropdown .theme-symbol {
-    font-size: 1.1rem;
   }
 }
 
