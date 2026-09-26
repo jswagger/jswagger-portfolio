@@ -3,6 +3,13 @@ export interface Highlight {
   value: string
 }
 
+export interface StrengthStat {
+  value: number
+  suffix: string
+  emphasis: string
+  label: string
+}
+
 export type ServiceIcon = 'quality' | 'interface' | 'mentorship'
 
 export interface ServiceItem {
