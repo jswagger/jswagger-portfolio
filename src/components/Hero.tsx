@@ -21,7 +21,7 @@ export default function Hero() {
           <h1 className="section-label">Jeremy Swagger</h1>
           <h3>Thoughtful Engineering, Reliable Software</h3>
           <p className="hero-copy">
-            Senior Software Engineer focused on solving complex problems and building solutions that last.
+            Senior Software Engineer solving complex problems and building software that lasts.
           </p>
         </div>
       </div>

@@ -32,7 +32,7 @@ export default function Contact() {
     <section className="full-section section-muted" id="contact" ref={sectionRef} data-reveal={isRevealed}>
       <div className="contact-card">
         <h2 className="section-label">Contact</h2>
-        <h3>Let&apos;s build something thoughtful, resilient, and well considered.</h3>
+        <h3>Let's build something thoughtful, resilient, and well engineered.</h3>
         <p>
           I am currently open to conversations around architecture, systems work,
           and product delivery. If you value clear thinking, disciplined execution,

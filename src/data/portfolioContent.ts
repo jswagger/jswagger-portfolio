@@ -19,22 +19,22 @@ export const strengthStats: StrengthStat[] = [
 
 export const services: ServiceItem[] = [
   {
-    title: 'Commitment to Quality',
+    title: 'Built with Intention',
     icon: 'quality',
     image: strengthWaterfallImage,
-    description: 'With every task and project, I strive to do my best work, every time. I am passionate about following best practices in code and in processes. This keeps my output consistent and clear, as I deliver with confidence every time.'
+    description: 'Quality goes beyond making code work. I focus on writing clear, maintainable code while following sound engineering practices. My goal is to create lasting solutions, not quick fixes. I pay attention to the details that make software reliable, consistent, and built to last.'
   },
   {
-    title: 'UI leadership and modernization',
+    title: 'Modernize with Purpose',
     icon: 'interface',
     image: strengthBadlandsImage,
-    description: 'I lead front-end improvement initiatives with an eye toward maintainability, accessibility, and modern patterns. From refactoring legacy React to improving team standards, I help organizations turn technical debt into a healthier long-term foundation.'
+    description: 'I lead front-end improvement initiatives focused on maintainability, accessibility, and modern best practices. By refactoring legacy React components and enhancing team standards, I turn technical debt into a solid foundation for sustainable future development.'
   },
   {
-    title: 'Mentorship and team enablement',
+    title: 'Strengthen the Team',
     icon: 'mentorship',
     image: strengthRiverImage,
-    description: 'I help engineers and product teams move forward with clarity by pairing thoughtful guidance with practical execution. I focus on building trust, reducing friction, and creating systems that make complex work feel sustainable.'
+    description: 'I support engineers and product teams by bringing clarity through collaboration, guidance, and practical execution. I share knowledge, build trust, and improve team practices, making complex projects easier to navigate and more sustainable over time.'
   }
 ]
 

@@ -50,9 +50,7 @@ export default function CaseStudies() {
         <h2 className="section-label">Selected Work</h2>
         <h3>Evolving Software That Already Matters</h3>
         <p>
-          For nearly a decade, I've worked within a mature enterprise application—adding new
-          capabilities, modernizing its technology, and solving the complex problems that come
-          with software people depend on every day.
+          For nearly a decade, I have played a key role in evolving a mature enterprise system by expanding its capabilities, modernizing its technology, and addressing the complex challenges associated with software that people rely on every day. Real-world systems. Meaningful constraints. Measurable improvements.
         </p>
       </div>
       <CaseStudyCarousel

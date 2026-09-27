@@ -33,10 +33,7 @@ export default function About() {
     <section className="content-section" id="about" ref={sectionRef} data-reveal={isRevealed}>
       <div className="section-heading">
         <h2 className="section-label">About</h2>
-        <h3>
-          When I’m not building software, I’m usually building a life I enjoy with the people I
-          love.
-        </h3>
+        <h3>Curious by nature. Always looking for what’s next.</h3>
       </div>
       <div className="about-grid">
         <div className="about-copy">

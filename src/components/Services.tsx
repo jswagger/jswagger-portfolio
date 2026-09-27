@@ -36,7 +36,12 @@ export default function Services() {
       <div className="full-section-card">
         <div className="section-heading">
           <h2 className="section-label">Strengths</h2>
-          <h3>What I bring to the table</h3>
+          <h3>Where experience makes a difference.
+
+          </h3>
+          <p>
+            Experience has taught me that great software is built with intention, improved through collaboration, and designed to last.
+          </p>
         </div>
         <StrengthStats stats={strengthStats} />
         <div className="card-grid">

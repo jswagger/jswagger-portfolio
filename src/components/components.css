@@ -776,6 +776,10 @@ main {
   margin-bottom: 28px;
 }
 
+.case-studies-section .section-heading p {
+  max-width: 880px;
+}
+
 .case-carousel {
   --card-w: clamp(190px, 22vw, 280px);
   --card-h: clamp(270px, 31vw, 390px);
@@ -969,8 +973,9 @@ main {
   display: flex;
   align-items: flex-start;
   aspect-ratio: 3 / 4;
-  padding: 28px;
+  padding: 22px;
   overflow: hidden;
+  container-type: inline-size;
   border-radius: 24px;
   border: 1px solid var(--border);
   box-shadow: 0 8px 24px var(--shadow);
@@ -1034,8 +1039,9 @@ main {
 
 .info-card-body h3 {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: min(8cqi, 1.9rem);
   line-height: 1.2;
+  white-space: nowrap;
   color: #fff;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
@@ -1053,7 +1059,7 @@ main {
 
 .info-card:hover .info-card-description {
   margin-top: 10px;
-  max-height: 260px;
+  max-height: 340px;
   opacity: 1;
   transform: translateY(0);
 }
@@ -1062,6 +1068,12 @@ main {
   background:
     linear-gradient(rgba(17, 24, 37, 0.7), rgba(17, 24, 37, 0.7)),
     url('../assets/experience-canyon.jpg') center / cover no-repeat;
+}
+
+/* The canyon overlay stays dark in both themes, so keep the intro light. */
+#work .section-heading h3 {
+  margin-bottom: 40px;
+  color: #f6f5f1;
 }
 
 .experience-container {
