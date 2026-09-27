@@ -33,27 +33,28 @@ export default function About() {
     <section className="content-section" id="about" ref={sectionRef} data-reveal={isRevealed}>
       <div className="section-heading">
         <h2 className="section-label">About</h2>
-        <h3>Curious by nature. Always looking for what’s next.</h3>
+        <h3>Always curious. Always learning.</h3>
       </div>
       <div className="about-grid">
         <div className="about-copy">
           <p>
-            I love to travel and explore new places, whether that means hiking a new trail,
+            I love to travel and explore new places, whether that involves hiking a new trail,
             wandering through an unfamiliar town, or finding a beautiful spot to spend the day.
-            Having lived in Croatia and now calling Florida home, I’ve developed a strong
-            appreciation for both European charm and life by the sea.
+            Having lived in Croatia and now calling Florida home, I have developed a strong
+            appreciation for both European charm and seaside life.
           </p>
           <p>
-            Family time is my favorite kind of time. I enjoy discovering new places together and
-            making the most of wherever we are.
+            Family is at the center of my life. Some of my favorite moments are the simple ones:
+            discovering new places together, enjoying the outdoors, and making the most of wherever
+            we are.
           </p>
           <p>
-            I’m also a big fan of green tea, engaging conversations, and learning something new,
-            wherever I can find it.
+            I’m also a big fan of green tea, engaging conversations, and learning something new
+            whenever I can.
           </p>
           <p>
-            I bring that same curiosity into my work. I like understanding how things fit
-            together, asking good questions, and continually learning how to make things better.
+            My curiosity drives everything I do; I enjoy understanding how things fit together,
+            asking thoughtful questions, and finding ways to improve things.
           </p>
         </div>
         <div className="stats-list">
