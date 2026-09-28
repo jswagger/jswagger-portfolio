@@ -33,10 +33,30 @@ export interface ProjectItem {
   tags: string[]
 }
 
+export interface CaseStudyMetricRow {
+  version: string
+  value: string
+  numericValue: number
+}
+
+export interface CaseStudyMetric {
+  label: string
+  rows: CaseStudyMetricRow[]
+  improvement: string
+}
+
+export interface CaseStudyImage {
+  src: string
+  alt: string
+  caption?: string
+}
+
 export interface CaseStudySection {
   heading: string
   paragraphs?: string[]
   bullets?: string[]
+  metrics?: CaseStudyMetric[]
+  images?: CaseStudyImage[]
 }
 
 export interface CaseStudyDetail {
@@ -47,6 +67,9 @@ export interface CaseStudyDetail {
   tags: string[]
   sections: CaseStudySection[]
   image?: string
+  heroImage?: string
+  heroSubtitle?: string
+  heroPosition?: string
 }
 
 // Condensed, single-accordion view of a company's experience. The full

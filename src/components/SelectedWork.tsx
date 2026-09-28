@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import Navbar from './Navbar'
-import CaseStudyHeroBlobs from './CaseStudyHeroBlobs'
-import CaseStudyHeroMark from './CaseStudyHeroMark'
+import CaseStudyMetricChart from './CaseStudyMetricChart'
 import { caseStudies } from '../data/caseStudies'
 
 export default function SelectedWork() {
@@ -23,10 +22,16 @@ export default function SelectedWork() {
     <main className="case-study-page">
       <Navbar />
 
-      <div className="case-study-hero">
-        <CaseStudyHeroBlobs />
-        <div className="case-study-hero-mask">
-          <CaseStudyHeroMark />
+      <div
+        className="case-study-hero case-study-hero-photo"
+        style={{
+          backgroundImage: `url(${caseStudy.heroImage ?? caseStudy.image})`,
+          ...(caseStudy.heroPosition ? { backgroundPosition: caseStudy.heroPosition } : {}),
+        }}
+      >
+        <div className="case-study-hero-photo-content">
+          <h1>{caseStudy.title}</h1>
+          {caseStudy.heroSubtitle && <p>{caseStudy.heroSubtitle}</p>}
         </div>
         <Link to="/#case-studies" className="case-study-page-back" aria-label="Back to selected work">
           ←
@@ -36,8 +41,6 @@ export default function SelectedWork() {
       <div className="case-study-page-frame">
         <article className="case-study-page-article">
           <div className="case-study-page-header">
-            <p className="case-study-page-tagline">{caseStudy.tagline}</p>
-            <h1>{caseStudy.title}</h1>
             <div className="case-study-page-tags">
               {caseStudy.tags.map((tag) => (
                 <span key={tag} className="case-study-page-tag">
@@ -58,6 +61,23 @@ export default function SelectedWork() {
                       <li key={index}>{bullet}</li>
                     ))}
                   </ul>
+                )}
+                {section.metrics && (
+                  <div className="case-study-metrics">
+                    {section.metrics.map((metric) => (
+                      <CaseStudyMetricChart key={metric.label} metric={metric} />
+                    ))}
+                  </div>
+                )}
+                {section.images && (
+                  <div className="case-study-images">
+                    {section.images.map((image) => (
+                      <figure key={image.src}>
+                        <img src={image.src} alt={image.alt} />
+                        {image.caption && <figcaption>{image.caption}</figcaption>}
+                      </figure>
+                    ))}
+                  </div>
                 )}
               </section>
             ))}

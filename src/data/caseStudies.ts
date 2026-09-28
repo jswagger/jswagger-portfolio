@@ -1,18 +1,28 @@
 import type { CaseStudyDetail } from '../types/content'
 import aiCardImage from '../assets/AIcardimage.png'
+import reportingHeroImage from '../assets/ReportingHeroImage.jpg'
 import uiCardImage from '../assets/UICardImage3.png'
+import uiModernizationHeroImage from '../assets/UIModernizationHeroImage.jpg'
 import enrollmentCardImage from '../assets/EnrollmentCardImage.png'
+import enrollmentHeroImage from '../assets/EnrollmentHeroImage.jpg'
 import codeQualityCardImage from '../assets/CodeQualityCardImage.png'
+import mappingHeroImage from '../assets/MappingHeroImage.jpg'
 import geospatialCardImage from '../assets/GeospatialCardImage.png'
+import performanceOverhaulHeroImage from '../assets/PerformanceOverhaulHeroImage.jpg'
+import recChangedCpuOriginal from '../assets/RecChangedCPU-Original.png'
+import recChangedCpuNew from '../assets/RecChangedCPU.png'
 
 export const caseStudies: CaseStudyDetail[] = [
   {
-    title: 'AI Report Summarization',
+    title: 'Smarter Reporting',
     slug: 'ai-report-summarization',
     tagline: 'Integrating the power of AWS Bedrock',
     summary: 'Integrating the power of AWS Bedrock to turn complex reports into clear, useful summaries.',
     tags: ['AWS Bedrock', 'Python', 'React', 'Amazon S3'],
     image: aiCardImage,
+    heroImage: reportingHeroImage,
+    heroPosition: 'center 55%',
+    heroSubtitle: 'Applying AI to turn dense reports into clear, useful insights.',
     sections: [
       {
         heading: 'Problem',
@@ -43,12 +53,15 @@ export const caseStudies: CaseStudyDetail[] = [
     ]
   },
   {
-    title: 'UI Modernization',
+    title: 'Modernizing a Legacy UI',
     slug: 'ui-modernization',
     tagline: 'Lifting the codebase',
     summary: 'Lifting a legacy codebase with thoughtful React patterns and a more maintainable interface.',
     tags: ['React', 'TypeScript', 'Vite'],
     image: uiCardImage,
+    heroImage: uiModernizationHeroImage,
+    heroPosition: 'center 55%',
+    heroSubtitle: 'Bringing a legacy interface forward without disrupting the workflows behind it.',
     sections: [
       {
         heading: 'Problem',
@@ -90,12 +103,15 @@ export const caseStudies: CaseStudyDetail[] = [
     ]
   },
   {
-    title: 'Enterprise Enrollment Process',
+    title: 'Enrollment, Simplified',
     slug: 'enterprise-enrollment-process',
     tagline: 'Managing Legal Customer Licensing',
     summary: 'Creating a clean, painless workflow for managing legal customer licensing and data enrollment.',
     tags: ['React', '.NET APIs', 'AWS Cognito', 'SQL Server'],
     image: enrollmentCardImage,
+    heroImage: enrollmentHeroImage,
+    heroPosition: 'center 78%',
+    heroSubtitle: 'Simplifying a complex workflow without sacrificing the capabilities users relied on.',
     sections: [
       {
         heading: 'Problem',
@@ -130,12 +146,15 @@ export const caseStudies: CaseStudyDetail[] = [
     ]
   },
   {
-    title: 'Code Quality Automation',
+    title: 'Mapping at Scale',
     slug: 'code-quality-automation',
     tagline: 'Improving logic quality before pull requests',
     summary: 'Building AI-driven review skills that hunt bugs and enforce quality before pull requests are opened.',
     tags: ['Claude AI', 'Git', 'Automation'],
     image: codeQualityCardImage,
+    heroImage: mappingHeroImage,
+    heroPosition: 'center 20%',
+    heroSubtitle: 'Building a high-performance geospatial platform for visualizing complex data at scale.',
     sections: [
       {
         heading: 'Problem',
@@ -176,41 +195,74 @@ export const caseStudies: CaseStudyDetail[] = [
     ]
   },
   {
-    title: 'Geospatial Mapping Platform',
-    slug: 'geospatial-mapping-platform',
-    tagline: 'Turning raw field data into actionable maps',
-    summary: 'Building interactive ArcGIS-powered mapping tools that turn raw field data into clear, actionable spatial insight.',
-    tags: ['React', 'ArcGIS API for JavaScript', 'Python', 'GIS'],
+    title: 'Performance Overhaul',
+    slug: 'farm-editing-performance-overhaul',
+    tagline: 'Cutting load times by 75% and eliminating race conditions',
+    summary: 'Overhauling event and rec editing performance by taming IOT messaging, cutting load times by ~75%, and eliminating status race conditions.',
+    tags: ['React', 'IOT Messaging', 'Performance'],
     image: geospatialCardImage,
+    heroImage: performanceOverhaulHeroImage,
+    heroPosition: 'center 55%',
+    heroSubtitle: 'Identifying and eliminating performance bottlenecks across a demanding editing workflow.',
     sections: [
       {
         heading: 'Problem',
         paragraphs: [
-          'Field teams were collecting large volumes of spatial data, but customers had no intuitive way to explore it visually or understand how it related to their own land and operations.'
+          "Farm event editing was slow and unreliable. Loading a batch of events took over a minute and a half, the UI called far more actions and API requests than it needed to, and competing IOT status messages (Event Changed, Event Status Changed) regularly raced each other, leaving stale or duplicate statuses visible in the UI."
         ]
       },
       {
         heading: 'Approach',
         paragraphs: [
-          'I focused on building mapping tools around the ArcGIS API for JavaScript that could take raw, disparate spatial datasets and present them as an interactive, layered map experience, prioritizing performance with large feature sets and a workflow that felt natural to non-GIS users.'
+          'I profiled a batch of 100 events end-to-end to establish a real baseline for load time, actions called, and API requests, then worked through the messaging and state-update paths to find where redundant calls and competing updates were coming from.'
         ]
       },
       {
         heading: 'Strategy',
         paragraphs: [
-          'On the front end, I built reusable React components for map layers, feature selection, and editing workflows, so new spatial data types could be added without rebuilding core map interactions. On the back end, I used Python to process and normalize incoming spatial data before it reached the map, keeping heavy geometry work off the client and the UI responsive.'
+          'I removed the redundant Event Summary call and improved handling of the Event Changed and Event Status Changed messaging streams so they no longer competed for the same UI state.',
+          'I introduced logic to collapse duplicate updates for the same Event or Rec: when Processing Surfaces and Complete messages land in the same debounce grouping, only the most recent update is applied, so an outdated status can no longer overwrite a newer one.',
+          "I also sped up how the Event Info and Rec Info panels close after saving, so the UI can depend on the IOT messaging itself to reflect status, rather than waiting on a separate confirmation round-trip."
         ]
       },
       {
         heading: 'Result',
-        paragraphs: [
-          'Customers gained a fast, interactive map for exploring their field data, with editing and analysis workflows that scaled to large datasets without sacrificing performance.'
+        paragraphs: ['Re-running the same batch of 100 events after these changes showed a substantial, measurable improvement across every metric tracked:'],
+        metrics: [
+          {
+            label: '⏱️ Load Times',
+            rows: [
+              { version: 'Original', value: '1:35', numericValue: 95 },
+              { version: 'New', value: '0:24', numericValue: 24 }
+            ],
+            improvement: '~75% Faster'
+          },
+          {
+            label: '⚡ Actions Called',
+            rows: [
+              { version: 'Original', value: '3,492', numericValue: 3492 },
+              { version: 'New', value: '1,074', numericValue: 1074 }
+            ],
+            improvement: '~69% Fewer'
+          },
+          {
+            label: '🌐 API Requests',
+            rows: [
+              { version: 'Original', value: '167', numericValue: 167 },
+              { version: 'New', value: '8', numericValue: 8 }
+            ],
+            improvement: '~95% Fewer'
+          }
         ]
       },
       {
         heading: 'Value Added',
         paragraphs: [
-          'This mapping platform became a core, reusable piece of the product, giving customers a visual entry point into their data and giving the team a foundation to build future spatial features on top of.'
+          'CPU usage during Rec Changed and Event Changed messaging previously plateaued at 100% under load; spikes are now substantially lower, letting the UI process incoming messages more consistently instead of stalling.'
+        ],
+        images: [
+          { src: recChangedCpuOriginal, alt: 'CPU usage during Rec Changed messaging, original version, plateauing at 100%', caption: 'Rec Changed Messaging (Original)' },
+          { src: recChangedCpuNew, alt: 'CPU usage during Rec Changed messaging, new version, with lower spikes', caption: 'Rec Changed Messaging (New)' }
         ]
       }
     ]
