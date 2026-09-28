@@ -8,6 +8,7 @@ import geospatialCardImage from '../assets/GeospatialCardImage.png'
 export const caseStudies: CaseStudyDetail[] = [
   {
     title: 'AI Report Summarization',
+    slug: 'ai-report-summarization',
     tagline: 'Integrating the power of AWS Bedrock',
     summary: 'Integrating the power of AWS Bedrock to turn complex reports into clear, useful summaries.',
     tags: ['AWS Bedrock', 'Python', 'React', 'Amazon S3'],
@@ -43,6 +44,7 @@ export const caseStudies: CaseStudyDetail[] = [
   },
   {
     title: 'UI Modernization',
+    slug: 'ui-modernization',
     tagline: 'Lifting the codebase',
     summary: 'Lifting a legacy codebase with thoughtful React patterns and a more maintainable interface.',
     tags: ['React', 'TypeScript', 'Vite'],
@@ -89,6 +91,7 @@ export const caseStudies: CaseStudyDetail[] = [
   },
   {
     title: 'Enterprise Enrollment Process',
+    slug: 'enterprise-enrollment-process',
     tagline: 'Managing Legal Customer Licensing',
     summary: 'Creating a clean, painless workflow for managing legal customer licensing and data enrollment.',
     tags: ['React', '.NET APIs', 'AWS Cognito', 'SQL Server'],
@@ -128,6 +131,7 @@ export const caseStudies: CaseStudyDetail[] = [
   },
   {
     title: 'Code Quality Automation',
+    slug: 'code-quality-automation',
     tagline: 'Improving logic quality before pull requests',
     summary: 'Building AI-driven review skills that hunt bugs and enforce quality before pull requests are opened.',
     tags: ['Claude AI', 'Git', 'Automation'],
@@ -173,6 +177,7 @@ export const caseStudies: CaseStudyDetail[] = [
   },
   {
     title: 'Geospatial Mapping Platform',
+    slug: 'geospatial-mapping-platform',
     tagline: 'Turning raw field data into actionable maps',
     summary: 'Building interactive ArcGIS-powered mapping tools that turn raw field data into clear, actionable spatial insight.',
     tags: ['React', 'ArcGIS API for JavaScript', 'Python', 'GIS'],

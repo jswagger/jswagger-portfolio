@@ -1,19 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import CaseStudyCarousel from './CaseStudyCarousel'
-import CaseStudyModal from './CaseStudyModal'
 import { caseStudies } from '../data/caseStudies'
-import type { CaseStudyDetail } from '../types/content'
 
-const caseStudySummaries = caseStudies.map(({ title, summary, image }) => ({
+const caseStudySummaries = caseStudies.map(({ title, summary, image, slug }) => ({
   title,
   description: summary,
   image,
+  href: `/work/${slug}`,
 }))
 
 export default function CaseStudies() {
   const [isRevealed, setIsRevealed] = useState(false)
-  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudyDetail | null>(null)
   const sectionRef = useRef<HTMLElement | null>(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const node = sectionRef.current
@@ -56,12 +56,9 @@ export default function CaseStudies() {
       <CaseStudyCarousel
         items={caseStudySummaries}
         onSelect={(item) => {
-          const detail = caseStudies.find((caseStudy) => caseStudy.title === item.title)
-          if (!detail) return
-          setSelectedCaseStudy(detail)
+          if (item.href) navigate(item.href)
         }}
       />
-      <CaseStudyModal caseStudy={selectedCaseStudy} onClose={() => setSelectedCaseStudy(null)} />
     </section>
   )
 }

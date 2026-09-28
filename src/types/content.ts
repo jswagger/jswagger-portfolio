@@ -41,6 +41,7 @@ export interface CaseStudySection {
 
 export interface CaseStudyDetail {
   title: string
+  slug: string
   tagline: string
   summary: string
   tags: string[]

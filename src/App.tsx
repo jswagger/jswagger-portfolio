@@ -1,32 +1,15 @@
-import React from 'react'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import './components/components.css'
-import Navbar from './components/Navbar'
-import SectionIndicator from './components/SectionIndicator'
-import Hero from './components/Hero'
-import ScrollWords from './components/ScrollWords'
-import CaseStudies from './components/CaseStudies'
-import About from './components/About'
-import Services from './components/Services'
-import Experience from './components/Experience'
-import Contact from './components/Contact'
-import { capabilityWords } from './data/portfolioContent'
+import HomePage from './components/HomePage'
+import SelectedWork from './components/SelectedWork'
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <SectionIndicator />
-      <main id="home">
-        <Hero />
-        <ScrollWords lead="I can" words={capabilityWords} />
-        <CaseStudies />
-        <Services />
-        <About />
-        <Experience />
-        <Contact />
-      </main>
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/work/:slug" element={<SelectedWork />} />
+    </Routes>
   )
 }
 

@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { applyTheme, getInitialTheme, type ThemeMode } from '../theme'
 
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#work', label: 'Work' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#about', label: 'About' },
+  { href: '/#work', label: 'Work' },
+  { href: '/#contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
@@ -63,7 +64,7 @@ export default function Navbar() {
   return (
     <header className={`site-header${isScrolled ? ' is-scrolled' : ''}`} ref={headerRef}>
       <div className="container">
-<a className="brand" href="#top" aria-label="Go to home">
+<Link className="brand" to="/#top" aria-label="Go to home">
 
 <svg className="brand-mark" viewBox="0 0 32 32" style={{ width: '32px', height: '32px' }}>
   <rect width="32" height="32" rx="6" fill="#111825" />
@@ -75,13 +76,13 @@ export default function Navbar() {
   </g>
 </svg>
 
-</a>
+</Link>
         <div className="nav-group">
           <nav className="nav" aria-label="Primary navigation">
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href}>
+              <Link key={link.href} to={link.href}>
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
           <button
@@ -112,9 +113,9 @@ export default function Navbar() {
 
       <div id="nav-dropdown-menu" className={`nav-dropdown${isMenuOpen ? ' is-open' : ''}`}>
         {navLinks.map((link) => (
-          <a key={link.href} href={link.href} onClick={() => setIsMenuOpen(false)}>
+          <Link key={link.href} to={link.href} onClick={() => setIsMenuOpen(false)}>
             {link.label}
-          </a>
+          </Link>
         ))}
         <button
           type="button"

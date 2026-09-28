@@ -1,22 +1,23 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import App from '../src/App'
 import { describe, it, expect } from 'vitest'
 
 describe('App', () => {
   it('renders the hero heading for the landing page', () => {
-    render(<App />)
+    render(<App />, { wrapper: MemoryRouter })
     expect(screen.getByText(/Building dependable software with clarity, context, and craft/i)).toBeTruthy()
   })
 
   it('renders a Strengths section with the expected tagline', () => {
-    render(<App />)
+    render(<App />, { wrapper: MemoryRouter })
 
     expect(screen.getAllByText(/Strengths/i).length).toBeGreaterThan(0)
     expect(screen.getAllByText(/What I bring to the table/i).length).toBeGreaterThan(0)
   })
 
   it('adds a compact header state after scrolling', async () => {
-    const { container } = render(<App />)
+    const { container } = render(<App />, { wrapper: MemoryRouter })
     const header = container.querySelector('header')
 
     expect(header?.classList.contains('is-scrolled')).toBe(false)
@@ -34,7 +35,7 @@ describe('App', () => {
   })
 
   it('applies a parallax transform when the hero image is moved', () => {
-    const { container } = render(<App />)
+    const { container } = render(<App />, { wrapper: MemoryRouter })
     const heroPhotoCard = container.querySelector('.hero-photo-card')
 
     expect(heroPhotoCard).not.toBeNull()
