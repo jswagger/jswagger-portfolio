@@ -13,7 +13,6 @@ const caseStudySummaries = caseStudies.map(({ title, summary, image }) => ({
 export default function CaseStudies() {
   const [isRevealed, setIsRevealed] = useState(false)
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudyDetail | null>(null)
-  const [cardRect, setCardRect] = useState<DOMRect | null>(null)
   const sectionRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
@@ -56,18 +55,13 @@ export default function CaseStudies() {
       </div>
       <CaseStudyCarousel
         items={caseStudySummaries}
-        onSelect={(item, rect) => {
+        onSelect={(item) => {
           const detail = caseStudies.find((caseStudy) => caseStudy.title === item.title)
           if (!detail) return
-          setCardRect(rect)
           setSelectedCaseStudy(detail)
         }}
       />
-      <CaseStudyModal
-        caseStudy={selectedCaseStudy}
-        originRect={cardRect}
-        onClose={() => setSelectedCaseStudy(null)}
-      />
+      <CaseStudyModal caseStudy={selectedCaseStudy} onClose={() => setSelectedCaseStudy(null)} />
     </section>
   )
 }

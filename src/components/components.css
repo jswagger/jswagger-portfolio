@@ -1497,8 +1497,6 @@ main {
   padding: 24px;
 }
 
-/* Dim layer lives on a pseudo-element so it can fade out on close without
-   fading the morph surface that shrinks back into the card. */
 .case-study-modal-backdrop::before {
   content: '';
   position: absolute;
@@ -1506,11 +1504,6 @@ main {
   z-index: -1;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
-  animation: case-study-fade-in 300ms ease both;
-}
-
-.case-study-modal-backdrop.is-closing::before {
-  animation: case-study-fade-out 500ms 125ms ease forwards;
 }
 
 .case-study-modal-frame {
@@ -1519,68 +1512,16 @@ main {
   width: min(720px, 100%);
 }
 
-/* Surface that grows out of the clicked card; its keyframes are computed in
-   CaseStudyModal from the card's position. */
-.case-study-modal-morph {
-  position: absolute;
-  inset: 0;
-  transform-origin: 0 0;
-  border-radius: 24px;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-}
-
-.case-study-modal-image {
-  position: absolute;
-  inset: 0;
-  border-radius: calc(22px * var(--card-scale));
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Laid out at the card's unscaled size and scaled up like the active card, so
-   the title bar lines up exactly with the real one when the modal unmounts. */
-.case-study-modal-image-card {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: calc(100% / var(--card-scale));
-  height: calc(100% / var(--card-scale));
-  border-radius: 22px;
-  overflow: hidden;
-  transform: scale(var(--card-scale));
-  transform-origin: 0 100%;
-}
-
 .case-study-modal {
   position: relative;
   width: 100%;
   max-height: min(84vh, 900px);
   overflow-y: auto;
   padding: 40px clamp(24px, 4vw, 48px);
-  animation: case-study-fade-in 250ms 400ms cubic-bezier(0.23, 1, 0.32, 1) both;
-}
-
-.is-closing .case-study-modal {
-  animation: case-study-fade-out 250ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-@keyframes case-study-fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .case-study-modal {
-    animation-delay: 0ms;
-  }
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
 .case-study-modal-close {
@@ -1675,15 +1616,6 @@ main {
   margin-top: 6px;
 }
 
-@keyframes case-study-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 @media (max-width: 640px) {
   .case-study-modal-backdrop {
     padding: 0;
@@ -1694,11 +1626,8 @@ main {
     width: 100%;
   }
 
-  .case-study-modal-morph {
-    border-radius: 24px 24px 0 0;
-  }
-
   .case-study-modal {
+    border-radius: 24px 24px 0 0;
     max-height: 92vh;
     padding: 28px 20px 32px;
   }
