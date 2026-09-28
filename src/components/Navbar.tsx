@@ -8,7 +8,11 @@ const navLinks = [
   { href: '/#contact', label: 'Contact' },
 ]
 
-export default function Navbar() {
+interface NavbarProps {
+  showBrand?: boolean
+}
+
+export default function Navbar({ showBrand = true }: NavbarProps) {
   const [theme, setTheme] = useState<ThemeMode>('dark')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -64,6 +68,7 @@ export default function Navbar() {
   return (
     <header className={`site-header${isScrolled ? ' is-scrolled' : ''}`} ref={headerRef}>
       <div className="container">
+{showBrand ? (
 <Link className="brand" to="/#top" aria-label="Go to home">
 
 <svg className="brand-mark" viewBox="0 0 32 32" style={{ width: '32px', height: '32px' }}>
@@ -77,6 +82,9 @@ export default function Navbar() {
 </svg>
 
 </Link>
+) : (
+<span className="brand" aria-hidden="true" />
+)}
         <div className="nav-group">
           <nav className="nav" aria-label="Primary navigation">
             {navLinks.map((link) => (

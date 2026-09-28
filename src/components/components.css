@@ -1497,6 +1497,7 @@ main {
   min-height: 70vh;
   overflow: hidden;
   isolation: isolate;
+  animation: hero-clip-reveal 1.1s cubic-bezier(0.29, 0.8, 0.8, 0.98) both;
 }
 
 .case-study-hero-photo {
@@ -1507,6 +1508,8 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #111825;
+  animation: hero-bg-zoom 4s 0.2s cubic-bezier(0, 0.71, 0.4, 0.97) both;
+  will-change: transform;
 }
 
 .case-study-hero-photo::before {
@@ -1523,6 +1526,46 @@ main {
   max-width: 1000px;
   padding: 0 clamp(24px, 5vw, 64px);
   text-align: center;
+  opacity: 0;
+  animation: hero-content-fade 0.75s 0.9s linear forwards;
+}
+
+@keyframes hero-clip-reveal {
+  from {
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes hero-bg-zoom {
+  from {
+    transform: scale(1.25);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes hero-content-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-study-hero,
+  .case-study-hero-photo,
+  .case-study-hero-photo-content {
+    animation: none;
+    clip-path: none;
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .case-study-hero-photo-content h1 {
@@ -1561,18 +1604,28 @@ main {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: 0 8px 20px rgba(17, 24, 37, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   color: #111825;
   font-weight: 600;
   font-size: 1.1rem;
   text-decoration: none;
-  transition: color 200ms ease, transform 200ms ease, background 200ms ease;
+  transition: color 200ms ease, transform 200ms ease, background 200ms ease, box-shadow 200ms ease;
+}
+
+.case-study-page-back-header {
+  position: fixed;
+  top: 12px;
+  left: clamp(20px, 3vw, 48px);
+  z-index: 11;
 }
 
 .case-study-page-back:hover {
   color: var(--accent);
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 10px 24px rgba(17, 24, 37, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.5);
   transform: translateX(-4px);
 }
 
@@ -1693,6 +1746,275 @@ main {
   font-weight: 600;
   color: var(--accent);
   font-size: 0.9rem;
+}
+
+/* Conceptual workflow visual (CaseStudyWorkflowVisual). Reveal is staged in
+   sequence: step nodes, then the connecting line, then their systems, then
+   the architecture callout, then the outcome metric. */
+.workflow-visual {
+  margin: 8px 0 12px;
+  padding: clamp(28px, 4vw, 48px) clamp(20px, 4vw, 40px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 5vw, 48px);
+}
+
+.workflow-visual-headline {
+  margin: 0;
+  max-width: 640px;
+  color: var(--text-h);
+  font-family: var(--heading);
+  font-weight: 600;
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.workflow-visual-flow {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.workflow-visual-line {
+  position: absolute;
+  top: 7px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: var(--border);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 650ms cubic-bezier(0.29, 0.8, 0.8, 0.98);
+  transition-delay: 500ms;
+}
+
+.workflow-visual[data-reveal='true'] .workflow-visual-line {
+  transform: scaleX(1);
+}
+
+.workflow-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 500ms ease, transform 500ms ease;
+  transition-delay: calc(var(--step-index) * 90ms);
+}
+
+.workflow-visual[data-reveal='true'] .workflow-step {
+  opacity: 1;
+  transform: none;
+}
+
+.workflow-step-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.workflow-step-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-bg);
+}
+
+.workflow-step-label {
+  font-family: var(--heading);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--text-h);
+}
+
+.workflow-step-systems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 450ms ease, transform 450ms ease;
+  transition-delay: calc(1150ms + var(--step-index) * 90ms);
+}
+
+.workflow-visual[data-reveal='true'] .workflow-step-systems {
+  opacity: 1;
+  transform: none;
+}
+
+.system-node {
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-secondary);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.architecture-callout {
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface-secondary);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 550ms ease, transform 550ms ease;
+  transition-delay: 1650ms;
+}
+
+.workflow-visual[data-reveal='true'] .architecture-callout {
+  opacity: 1;
+  transform: none;
+}
+
+.architecture-callout-question {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.architecture-callout-explanation {
+  margin: 0 0 20px;
+  max-width: 640px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.architecture-callout-diagram {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(24px, 4vw, 48px);
+}
+
+.architecture-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.architecture-branch-label {
+  font-family: var(--heading);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--text-h);
+}
+
+.architecture-branch-system {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.architecture-branch-arrow {
+  color: var(--text-muted);
+}
+
+.outcome-metric {
+  padding-top: clamp(8px, 2vw, 16px);
+  border-top: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 550ms ease, transform 550ms ease;
+  transition-delay: 2050ms;
+}
+
+.workflow-visual[data-reveal='true'] .outcome-metric {
+  opacity: 1;
+  transform: none;
+}
+
+.outcome-metric-value {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--accent);
+  line-height: 1.1;
+}
+
+.outcome-metric-label {
+  margin-top: 4px;
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.outcome-metric-description {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.workflow-visual-caption {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .workflow-visual-flow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+  }
+
+  .workflow-visual-line {
+    top: 7px;
+    bottom: 7px;
+    left: 50%;
+    right: auto;
+    width: 2px;
+    height: auto;
+    transform: scaleY(0);
+    transform-origin: top center;
+  }
+
+  .workflow-visual[data-reveal='true'] .workflow-visual-line {
+    transform: scaleY(1);
+  }
+
+  .architecture-callout-diagram {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workflow-step,
+  .workflow-step-systems,
+  .workflow-visual-line,
+  .architecture-callout,
+  .outcome-metric {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .case-study-images {

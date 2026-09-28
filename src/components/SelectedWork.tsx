@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import Navbar from './Navbar'
 import CaseStudyMetricChart from './CaseStudyMetricChart'
+import CaseStudyWorkflowVisual from './CaseStudyWorkflowVisual'
 import { caseStudies } from '../data/caseStudies'
 
 export default function SelectedWork() {
@@ -20,7 +21,14 @@ export default function SelectedWork() {
 
   return (
     <main className="case-study-page">
-      <Navbar />
+      <Navbar showBrand={false} />
+      <Link
+        to="/#case-studies"
+        className="case-study-page-back case-study-page-back-header"
+        aria-label="Back to selected work"
+      >
+        ←
+      </Link>
 
       <div
         className="case-study-hero case-study-hero-photo"
@@ -33,9 +41,6 @@ export default function SelectedWork() {
           <h1>{caseStudy.title}</h1>
           {caseStudy.heroSubtitle && <p>{caseStudy.heroSubtitle}</p>}
         </div>
-        <Link to="/#case-studies" className="case-study-page-back" aria-label="Back to selected work">
-          ←
-        </Link>
       </div>
 
       <div className="case-study-page-frame">
@@ -49,6 +54,8 @@ export default function SelectedWork() {
               ))}
             </div>
           </div>
+
+          {caseStudy.workflowVisual && <CaseStudyWorkflowVisual data={caseStudy.workflowVisual} />}
 
           <div className="case-study-page-body">
             {caseStudy.sections.map((section) => (

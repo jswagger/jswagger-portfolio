@@ -59,6 +59,36 @@ export interface CaseStudySection {
   images?: CaseStudyImage[]
 }
 
+export interface WorkflowVisualStep {
+  label: string
+  systems: string[]
+}
+
+export interface WorkflowVisualBranch {
+  label: string
+  systems: string[]
+}
+
+export interface WorkflowVisualArchitecture {
+  question: string
+  explanation: string
+  branches: WorkflowVisualBranch[]
+}
+
+export interface WorkflowVisualOutcome {
+  value: string
+  label: string
+  description: string
+}
+
+export interface WorkflowVisualData {
+  headline: string
+  steps: WorkflowVisualStep[]
+  architecture: WorkflowVisualArchitecture
+  outcome: WorkflowVisualOutcome
+  caption: string
+}
+
 export interface CaseStudyDetail {
   title: string
   slug: string
@@ -70,6 +100,7 @@ export interface CaseStudyDetail {
   heroImage?: string
   heroSubtitle?: string
   heroPosition?: string
+  workflowVisual?: WorkflowVisualData
 }
 
 // Condensed, single-accordion view of a company's experience. The full

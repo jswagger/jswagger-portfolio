@@ -112,6 +112,31 @@ export const caseStudies: CaseStudyDetail[] = [
     heroImage: enrollmentHeroImage,
     heroPosition: 'center 78%',
     heroSubtitle: 'Simplifying a complex workflow without sacrificing the capabilities users relied on.',
+    workflowVisual: {
+      headline: 'One simple experience. Multiple systems.',
+      steps: [
+        { label: 'Enroll', systems: ['React'] },
+        { label: 'Verify', systems: ['AWS Cognito', 'SMS Verification'] },
+        { label: 'Review', systems: ['Email / API'] },
+        { label: 'Approve', systems: ['Leadership Review'] },
+        { label: 'Share', systems: ['SQL Server'] },
+      ],
+      architecture: {
+        question: 'Why a separate user pool?',
+        explanation:
+          "Enrollment users needed to be verified and approved independently from the application's existing user population.",
+        branches: [
+          { label: 'Application Users', systems: ['AWS Cognito'] },
+          { label: 'Enrollment Users', systems: ['Separate User Pool', 'Leadership Review'] },
+        ],
+      },
+      outcome: {
+        value: '5+ Years',
+        label: 'Reliable, low-maintenance operation',
+        description: 'Very few changes have been required since implementation.',
+      },
+      caption: 'Conceptual representation of the workflow and supporting systems.',
+    },
     sections: [
       {
         heading: 'Problem',
