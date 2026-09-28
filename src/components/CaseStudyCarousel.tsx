@@ -9,7 +9,7 @@ interface CaseStudyCarouselItem {
 
 interface CaseStudyCarouselProps {
   items: CaseStudyCarouselItem[]
-  onSelect: (item: CaseStudyCarouselItem) => void
+  onSelect: (item: CaseStudyCarouselItem, cardRect: DOMRect) => void
 }
 
 interface CarouselSlot {
@@ -33,6 +33,8 @@ const SLOT_APPEARANCES: SlotAppearance[] = [
   { scale: 0.24, opacity: 0.45, brightness: 0.35 },
   { scale: 0.12, opacity: 0, brightness: 0.35 },
 ]
+// The active card's display scale, so the case study modal can match it.
+export const ACTIVE_CARD_SCALE = SLOT_APPEARANCES[0].scale
 const RENDER_RANGE = SLOT_APPEARANCES.length - 1
 const INTERACTIVE_RANGE = 2
 
@@ -73,7 +75,7 @@ const getSlotStyle = ({ offset, item }: CarouselSlot): CSSProperties => {
 interface CarouselCardProps {
   slot: CarouselSlot
   onActivate: () => void
-  onSelect: () => void
+  onSelect: (cardRect: DOMRect) => void
 }
 
 function CarouselCard({ slot, onActivate, onSelect }: CarouselCardProps) {
@@ -92,7 +94,7 @@ function CarouselCard({ slot, onActivate, onSelect }: CarouselCardProps) {
       onClick={(event) => {
         event.preventDefault()
         if (isActive) {
-          onSelect()
+          onSelect(event.currentTarget.getBoundingClientRect())
         } else {
           onActivate()
         }
@@ -119,7 +121,7 @@ export default function CaseStudyCarousel({ items, onSelect }: CaseStudyCarousel
                 key={slot.position}
                 slot={slot}
                 onActivate={() => setActivePosition(slot.position)}
-                onSelect={() => onSelect(slot.item)}
+                onSelect={(cardRect) => onSelect(slot.item, cardRect)}
               />
             ))}
           </div>
