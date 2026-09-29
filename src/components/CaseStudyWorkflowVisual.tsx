@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState, type RefObject } from 'react'
 import type { WorkflowVisualData } from '../types/content'
 import WorkflowStep from './WorkflowStep'
-import ArchitectureCallout from './ArchitectureCallout'
-import OutcomeMetric from './OutcomeMetric'
 
 interface CaseStudyWorkflowVisualProps {
   data: WorkflowVisualData
@@ -51,12 +49,6 @@ export default function CaseStudyWorkflowVisual({ data }: CaseStudyWorkflowVisua
           <WorkflowStep key={step.label} step={step} index={index} />
         ))}
       </div>
-
-      <ArchitectureCallout architecture={data.architecture} />
-
-      <OutcomeMetric outcome={data.outcome} />
-
-      <p className="workflow-visual-caption">{data.caption}</p>
     </section>
   )
 }

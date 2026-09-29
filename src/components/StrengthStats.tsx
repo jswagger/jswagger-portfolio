@@ -89,7 +89,7 @@ function StatCounter({ stat, index, isActive }: StatCounterProps) {
         {stat.suffix} {stat.emphasis} {stat.label}
       </p>
       <div className="strength-stat-number" aria-hidden="true">
-        {value}
+        {value.toLocaleString()}
         {stat.suffix}
       </div>
       <div className="strength-stat-title" aria-hidden="true">
@@ -106,7 +106,7 @@ export default function StrengthStats({ stats }: StrengthStatsProps) {
   return (
     <div className="strength-stats" ref={containerRef}>
       {stats.map((stat, index) => (
-        <StatCounter key={stat.emphasis} stat={stat} index={index} isActive={isActive} />
+        <StatCounter key={stat.label} stat={stat} index={index} isActive={isActive} />
       ))}
     </div>
   )

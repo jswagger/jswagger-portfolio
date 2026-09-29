@@ -1169,7 +1169,7 @@ main {
 
 :root[data-theme='light'] .experience-container {
   --accent: #1f4570;
-  --accent-soft: #5f8bb8;
+  --accent-soft: #415a77;
 }
 
 .experience-container h2 {
@@ -1245,19 +1245,15 @@ main {
   transition: box-shadow 260ms ease;
 }
 
-/* A solid lighter blue (this component's own --accent-soft override) instead
-   of the gradient, so the bars read as a distinct blue rather than blending
-   into the --surface-secondary square behind them. Dark title text keeps
-   contrast solid against this lighter fill. */
+/* A solid darker slate blue (this component's own --accent-soft override)
+   instead of the gradient, so the bars read as a distinct fill rather than
+   blending into the --surface-secondary square behind them. White text
+   (inherited from the base rule) keeps contrast solid against this darker
+   fill. */
 :root[data-theme='light'] .project-accordion .project-card {
   background: var(--accent-soft);
   border-color: transparent;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
-  color: var(--text);
-}
-
-:root[data-theme='light'] .project-card-sub {
-  color: var(--text-muted);
 }
 
 .project-accordion .project-card:hover {
@@ -1643,9 +1639,19 @@ main {
 }
 
 .case-study-page-frame {
+  box-sizing: border-box;
   width: min(1100px, 100%);
   margin: 0 auto;
   padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 40px) 0;
+}
+
+.case-study-page-intro {
+  max-width: 640px;
+  margin: 0 auto clamp(32px, 5vw, 48px);
+  text-align: center;
+  color: var(--text);
+  font-size: clamp(1.1rem, 1.7vw, 1.3rem);
+  line-height: 1.7;
 }
 
 .case-study-page-back {
@@ -2171,6 +2177,15 @@ main {
   text-align: center;
 }
 
+.case-study-diagram-image {
+  max-width: 720px;
+  margin: -64px auto 32px;
+}
+
+.case-study-diagram-image img {
+  border: none;
+}
+
 @media (max-width: 640px) {
   .case-study-page {
     padding-bottom: 64px;
@@ -2439,6 +2454,13 @@ main {
   display: block;
   font-size: 1.15rem;
   color: var(--text);
+}
+
+/* Most case-study stats have no emphasis word, so a bold one (e.g. "Years")
+   stands out as an inconsistency next to the plain ones - keep this page's
+   emphasis words the same weight as the rest of the label. */
+.case-study-page-frame .strength-stat-title strong {
+  font-weight: 400;
 }
 
 @media (max-width: 800px) {

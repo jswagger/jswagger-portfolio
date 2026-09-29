@@ -5,6 +5,7 @@ import uiCardImage from '../assets/UICardImage3.png'
 import uiModernizationHeroImage from '../assets/UIModernizationHeroImage.jpg'
 import enrollmentCardImage from '../assets/EnrollmentCardImage.png'
 import enrollmentHeroImage from '../assets/EnrollmentHeroImage.jpg'
+import enrollmentArchitectureDiagram from '../assets/EnrollmentArchitectureDiagram.png'
 import codeQualityCardImage from '../assets/CodeQualityCardImage.png'
 import mappingHeroImage from '../assets/MappingHeroImage.jpg'
 import geospatialCardImage from '../assets/GeospatialCardImage.png'
@@ -103,7 +104,7 @@ export const caseStudies: CaseStudyDetail[] = [
     ]
   },
   {
-    title: 'Enrollment, Simplified',
+    title: 'AI360 Enrollment Process',
     slug: 'enterprise-enrollment-process',
     tagline: 'Managing Legal Customer Licensing',
     summary: 'Creating a clean, painless workflow for managing legal customer licensing and data enrollment.',
@@ -111,7 +112,9 @@ export const caseStudies: CaseStudyDetail[] = [
     image: enrollmentCardImage,
     heroImage: enrollmentHeroImage,
     heroPosition: 'center 78%',
-    heroSubtitle: 'Simplifying a complex workflow without sacrificing the capabilities users relied on.',
+    heroSubtitle: 'Building a secure, end-to-end customer enrollment workflow that became a foundational part of the AI360 platform.',
+    intro:
+      'AI360 previously had no formal process for managing customer enrollment and agreement acceptance. I helped design and implement a multi-step workflow that introduced identity verification, agreement acceptance, and enrollment state into the existing platform; creating a foundation that downstream features could reliably depend on.',
     workflowVisual: {
       headline: 'One simple experience. Multiple systems.',
       steps: [
@@ -137,11 +140,22 @@ export const caseStudies: CaseStudyDetail[] = [
       },
       caption: 'Conceptual representation of the workflow and supporting systems.',
     },
+    stats: [
+      { value: 6, suffix: '+', emphasis: 'Years', label: 'In production' },
+      { value: 10000, suffix: '+', emphasis: '', label: 'Customers enrolled' },
+      { value: 15, suffix: '+', emphasis: '', label: 'Downstream features dependent on enrollment state' },
+      { value: 8, suffix: '', emphasis: '', label: 'API calls per enrollment' },
+    ],
+    diagramImage: {
+      src: enrollmentArchitectureDiagram,
+      alt: 'Diagram of the enrollment platform connecting field devices, applicators, grain storage, mobile and desktop apps, and farm equipment through a central hub.',
+    },
     sections: [
       {
         heading: 'Problem',
         paragraphs: [
-          'Administrators needed a way to manage customers that legally agreed to have their farm field data used for analysis in a community database.'
+          'AI360 needed a formal way to enroll customers in an agreement governing data sharing. Before this workflow existed, there was no system process for tracking enrollment status. The solution needed to guide customers through verification and agreement acceptance while giving administrators a clear way to initiate and track the process.',
+          'Because enrollment status would ultimately control access to multiple existing workflows, the solution had to integrate cleanly with the broader application rather than operate as an isolated form.'
         ]
       },
       {
@@ -171,7 +185,7 @@ export const caseStudies: CaseStudyDetail[] = [
     ]
   },
   {
-    title: 'Mapping at Scale',
+    title: 'AI Assisted Code Review',
     slug: 'code-quality-automation',
     tagline: 'Improving logic quality before pull requests',
     summary: 'Building AI-driven review skills that hunt bugs and enforce quality before pull requests are opened.',
@@ -179,7 +193,7 @@ export const caseStudies: CaseStudyDetail[] = [
     image: codeQualityCardImage,
     heroImage: mappingHeroImage,
     heroPosition: 'center 20%',
-    heroSubtitle: 'Building a high-performance geospatial platform for visualizing complex data at scale.',
+    heroSubtitle: 'Creating a repeatable system for finding bugs, verifying requirements, and improving code quality.',
     sections: [
       {
         heading: 'Problem',

@@ -4,6 +4,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import Navbar from './Navbar'
 import CaseStudyMetricChart from './CaseStudyMetricChart'
 import CaseStudyWorkflowVisual from './CaseStudyWorkflowVisual'
+import StrengthStats from './StrengthStats'
 import { caseStudies } from '../data/caseStudies'
 import type { CaseStudySection as CaseStudySectionData } from '../types/content'
 
@@ -191,7 +192,18 @@ export default function SelectedWork() {
 
       <div className="case-study-page-frame">
         <article className="case-study-page-article">
-          {caseStudy.workflowVisual && <CaseStudyWorkflowVisual data={caseStudy.workflowVisual} />}
+          {caseStudy.intro && <p className="case-study-page-intro">{caseStudy.intro}</p>}
+
+          {caseStudy.stats && <StrengthStats stats={caseStudy.stats} />}
+
+          {caseStudy.diagramImage && (
+            <div className="case-study-images case-study-diagram-image">
+              <figure>
+                <img src={caseStudy.diagramImage.src} alt={caseStudy.diagramImage.alt} />
+                {caseStudy.diagramImage.caption && <figcaption>{caseStudy.diagramImage.caption}</figcaption>}
+              </figure>
+            </div>
+          )}
 
           <h2 className="section-label case-study-page-overview-label">Overview</h2>
 
@@ -200,6 +212,8 @@ export default function SelectedWork() {
               <CaseStudySection key={section.heading} section={section} />
             ))}
           </div>
+
+          {caseStudy.workflowVisual && <CaseStudyWorkflowVisual data={caseStudy.workflowVisual} />}
         </article>
 
         <Link to={`/work/${nextCaseStudy.slug}`} className="case-study-page-next">
