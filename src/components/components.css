@@ -15,6 +15,11 @@
      defaults these inherited from index.css. */
   --accent-bg: color-mix(in srgb, var(--accent) 14%, transparent);
   --accent-border: color-mix(in srgb, var(--accent) 50%, transparent);
+  --hero-photo-tint: #111825;
+  /* Overrides index.css's --text-h, which flips on the OS's
+     prefers-color-scheme instead of this site's own theme toggle - that
+     mismatch is what let stark-white headers show up in light mode. */
+  --text-h: var(--text);
   transition: background-color 280ms ease, color 280ms ease, border-color 280ms ease,
     box-shadow 280ms ease, fill 280ms ease, stroke 280ms ease;
 }
@@ -32,18 +37,23 @@
   --shadow: rgba(0, 0, 0, 0.35);
   --chip-bg: #1b263b;
   --button-secondary-bg: #1b263b;
+  --text-h: var(--text);
 }
 
 :root[data-theme='light'] {
+  --hero-photo-tint: #263b52;
+  --text-h: var(--text);
   --bg: #cbd2d9;
-  --surface: #698aab;
-  --surface-secondary: #8aa3b8;
-  --surface-muted: #a0b1c4;
+  /* Blue-grey rather than the fully saturated blue hex: same hue, muted with
+     a little neutral grey mixed in. */
+  --surface: color-mix(in srgb, #698aab 75%, gray 25%);
+  --surface-secondary: color-mix(in srgb, #8aa3b8 75%, gray 25%);
+  --surface-muted: color-mix(in srgb, #a0b1c4 75%, gray 25%);
   --text: #1b263b;
   --text-muted: #3b4c64;
   --accent: #a8623c;
   --accent-soft: #d2b6a1;
-  --border: #b4c7d8;
+  --border: color-mix(in srgb, #b4c7d8 75%, gray 25%);
   --shadow: rgba(27, 38, 59, 0.14);
   --chip-bg: #f9f5f1;
   --button-secondary-bg: #eaf2fa;
@@ -226,6 +236,12 @@ main {
   text-decoration: none;
   font-size: 0.95rem;
   white-space: nowrap;
+}
+
+/* The nav only shows pre-scroll, floating over the hero photo, which is now
+   dark in both themes - light mode's dark --text-muted was unreadable there. */
+:root[data-theme='light'] .nav a {
+  color: #f6f5f1;
 }
 
 .nav a:hover {
@@ -428,7 +444,9 @@ main {
   content: '';
   position: absolute;
   inset: 0;
-  background: color-mix(in srgb, var(--bg) 65%, transparent);
+  /* Stays dark in both themes so the photo doesn't wash out under light
+     mode's pale --bg. */
+  background: color-mix(in srgb, var(--hero-photo-tint) 65%, transparent);
   pointer-events: none;
 }
 
@@ -524,7 +542,7 @@ main {
   font-size: clamp(1.75rem, 2vw, 4rem);
   line-height: 0.96;
   letter-spacing: 0.04em;
-  color: var(--text);
+  color: #f6f5f1;
 }
 
 .hero-copy-block {
@@ -586,7 +604,7 @@ main {
 .hero-copy {
   font-size: clamp(1.2rem, 2vw, 1.6rem);
   line-height: 1.75;
-  color: var(--text-muted);
+  color: #aab7af;
   max-width: 720px;
 }
 
@@ -991,6 +1009,16 @@ main {
   border-bottom: 1px solid var(--border);
 }
 
+/* Light mode's --border was too close in lightness to the About section's
+   blue-grey background to read as a line - use the accent brown instead. */
+:root[data-theme='light'] .stat-card {
+  border-top-color: var(--accent);
+}
+
+:root[data-theme='light'] .stat-card:last-child {
+  border-bottom-color: var(--accent);
+}
+
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 32px var(--shadow);
@@ -1217,8 +1245,27 @@ main {
   transition: box-shadow 260ms ease;
 }
 
+/* A solid lighter blue (this component's own --accent-soft override) instead
+   of the gradient, so the bars read as a distinct blue rather than blending
+   into the --surface-secondary square behind them. Dark title text keeps
+   contrast solid against this lighter fill. */
+:root[data-theme='light'] .project-accordion .project-card {
+  background: var(--accent-soft);
+  border-color: transparent;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+  color: var(--text);
+}
+
+:root[data-theme='light'] .project-card-sub {
+  color: var(--text-muted);
+}
+
 .project-accordion .project-card:hover {
   box-shadow: 0 16px 32px var(--shadow);
+}
+
+:root[data-theme='light'] .project-accordion .project-card:hover {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
 }
 
 .project-card-shadow {
@@ -1398,6 +1445,12 @@ main {
   font-size: 0.8rem;
 }
 
+/* The translucent fill's rounded edge reads as a pale halo against light
+   mode's lighter accordion card - pin it to a real, darker stroke instead. */
+:root[data-theme='light'] .tag {
+  border: 1px solid rgba(0, 0, 0, 0.22);
+}
+
 @media (max-width: 800px) {
   .experience-identity {
     grid-template-columns: 1fr;
@@ -1516,7 +1569,9 @@ main {
   content: '';
   position: absolute;
   inset: 0;
-  background: color-mix(in srgb, var(--bg) 65%, transparent);
+  /* The photo overlay stays dark in both themes so the hero image doesn't
+     wash out under light mode's pale --bg. */
+  background: color-mix(in srgb, var(--hero-photo-tint) 65%, transparent);
   pointer-events: none;
 }
 
@@ -1581,7 +1636,7 @@ main {
 
 .case-study-hero-photo-content p {
   margin: 0 auto;
-  color: var(--text);
+  color: #f6f5f1;
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   line-height: 1.6;
   max-width: 560px;
