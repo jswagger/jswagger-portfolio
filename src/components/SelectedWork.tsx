@@ -40,21 +40,18 @@ export default function SelectedWork() {
         <div className="case-study-hero-photo-content">
           <h1>{caseStudy.title}</h1>
           {caseStudy.heroSubtitle && <p>{caseStudy.heroSubtitle}</p>}
+          <div className="case-study-page-tags">
+            {caseStudy.tags.map((tag) => (
+              <span key={tag} className="case-study-page-tag">
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
       <div className="case-study-page-frame">
         <article className="case-study-page-article">
-          <div className="case-study-page-header">
-            <div className="case-study-page-tags">
-              {caseStudy.tags.map((tag) => (
-                <span key={tag} className="case-study-page-tag">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
           {caseStudy.workflowVisual && <CaseStudyWorkflowVisual data={caseStudy.workflowVisual} />}
 
           <div className="case-study-page-body">

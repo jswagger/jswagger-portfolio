@@ -1494,7 +1494,7 @@ main {
 
 .case-study-hero {
   position: relative;
-  min-height: 70vh;
+  min-height: 88vh;
   overflow: hidden;
   isolation: isolate;
   animation: hero-clip-reveal 1.1s cubic-bezier(0.29, 0.8, 0.8, 0.98) both;
@@ -1524,7 +1524,7 @@ main {
   position: relative;
   z-index: 1;
   max-width: 1000px;
-  padding: 0 clamp(24px, 5vw, 64px);
+  padding: clamp(32px, 6vh, 64px) clamp(24px, 5vw, 64px);
   text-align: center;
   opacity: 0;
   animation: hero-content-fade 0.75s 0.9s linear forwards;
@@ -1647,10 +1647,6 @@ main {
   transform: translateX(4px);
 }
 
-.case-study-page-header {
-  margin-bottom: 28px;
-}
-
 .case-study-page-tagline {
   margin: 0 0 8px;
   color: var(--accent);
@@ -1660,17 +1656,12 @@ main {
   font-size: 0.85rem;
 }
 
-.case-study-page-header h1 {
-  margin: 0 0 16px;
-  font-size: clamp(1.8rem, 4vw, 2.75rem);
-  line-height: 1.15;
-  color: var(--text-h);
-}
-
 .case-study-page-tags {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
+  margin-top: 20px;
 }
 
 .case-study-page-tag {
@@ -1678,6 +1669,8 @@ main {
   border-radius: 999px;
   border: 1px solid var(--accent-border);
   background: var(--accent-bg);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
   color: var(--accent);
   font-size: 0.8rem;
   font-weight: 600;
@@ -1752,7 +1745,7 @@ main {
    sequence: step nodes, then the connecting line, then their systems, then
    the architecture callout, then the outcome metric. */
 .workflow-visual {
-  margin: 8px 0 12px;
+  margin: 8px 0 48px;
   padding: clamp(28px, 4vw, 48px) clamp(20px, 4vw, 40px);
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -1868,6 +1861,28 @@ main {
   font-size: 0.72rem;
   font-weight: 500;
   white-space: nowrap;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+
+.system-node:hover {
+  border-color: var(--accent-border);
+  color: var(--text-h);
+}
+
+.workflow-step-node {
+  transition: transform 200ms ease;
+}
+
+.workflow-step:hover .workflow-step-node {
+  transform: translateY(-2px);
+}
+
+.workflow-step:hover .workflow-step-dot {
+  box-shadow: 0 0 0 6px var(--accent-bg);
+}
+
+.workflow-step-dot {
+  transition: box-shadow 200ms ease;
 }
 
 .architecture-callout {
@@ -2050,7 +2065,7 @@ main {
   }
 
   .case-study-hero {
-    min-height: 40vh;
+    min-height: 55vh;
   }
 
   .case-study-page-back {
