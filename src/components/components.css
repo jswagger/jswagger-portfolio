@@ -1590,7 +1590,7 @@ main {
 .case-study-page-frame {
   width: min(1100px, 100%);
   margin: 0 auto;
-  padding: clamp(32px, 5vw, 56px) clamp(20px, 4vw, 40px) 0;
+  padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 40px) 0;
 }
 
 .case-study-page-back {
@@ -1676,10 +1676,22 @@ main {
   font-weight: 600;
 }
 
+.case-study-page-overview-label {
+  margin-top: 32px;
+}
+
 .case-study-page-body {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+}
+
+.case-study-page-section {
+  padding-block: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.case-study-page-section:last-child {
+  border-bottom: 1px solid var(--border);
 }
 
 .case-study-page-section h2 {
@@ -1698,15 +1710,60 @@ main {
   margin-bottom: 0;
 }
 
-.case-study-page-section ul {
+.case-study-page-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin: 10px 0 0;
-  padding-left: 20px;
-  color: var(--text);
-  line-height: 1.7;
+  padding: 0;
+  list-style: none;
 }
 
-.case-study-page-section li + li {
-  margin-top: 6px;
+.case-study-page-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.case-study-page-check-icon {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.case-study-page-section-split {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 8px clamp(24px, 4vw, 56px);
+}
+
+.case-study-page-section-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.case-study-page-section-label h2 {
+  margin: 0;
+}
+
+.case-study-page-section-icon {
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .case-study-page-section-split {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }
 
 .case-study-metrics {
@@ -1745,7 +1802,7 @@ main {
    sequence: step nodes, then the connecting line, then their systems, then
    the architecture callout, then the outcome metric. */
 .workflow-visual {
-  margin: 8px 0 48px;
+  margin: 32px 0 80px;
   padding: clamp(28px, 4vw, 48px) clamp(20px, 4vw, 40px);
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -2073,7 +2130,7 @@ main {
   }
 
   .case-study-page-frame {
-    padding: 28px 16px 0;
+    padding: 48px 16px 0;
   }
 
   .case-study-hero-photo-content h1 {
