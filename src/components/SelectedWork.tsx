@@ -5,6 +5,8 @@ import Navbar from './Navbar'
 import CaseStudyMetricChart from './CaseStudyMetricChart'
 import CaseStudyWorkflowVisual from './CaseStudyWorkflowVisual'
 import StrengthStats from './StrengthStats'
+import Reveal from './Reveal'
+import agvanceLogo from '../assets/AgvanceLogo.png'
 import { caseStudies } from '../data/caseStudies'
 import type { CaseStudySection as CaseStudySectionData } from '../types/content'
 
@@ -192,29 +194,49 @@ export default function SelectedWork() {
 
       <div className="case-study-page-frame">
         <article className="case-study-page-article">
-          {caseStudy.intro && <p className="case-study-page-intro">{caseStudy.intro}</p>}
+          {caseStudy.intro && (
+            <Reveal>
+              <p className="case-study-page-intro">{caseStudy.intro}</p>
+            </Reveal>
+          )}
 
-          {caseStudy.stats && <StrengthStats stats={caseStudy.stats} />}
+          {caseStudy.stats && (
+            <Reveal>
+              <StrengthStats stats={caseStudy.stats} />
+            </Reveal>
+          )}
 
           {caseStudy.diagramImage && (
-            <div className="case-study-images case-study-diagram-image">
+            <Reveal className="case-study-images case-study-diagram-image">
               <figure>
                 <img src={caseStudy.diagramImage.src} alt={caseStudy.diagramImage.alt} />
                 {caseStudy.diagramImage.caption && <figcaption>{caseStudy.diagramImage.caption}</figcaption>}
               </figure>
-            </div>
+            </Reveal>
           )}
 
-          <h2 className="section-label case-study-page-overview-label">Overview</h2>
+          <Reveal>
+            <h2 className="section-label case-study-page-overview-label">Overview</h2>
+          </Reveal>
 
           <div className="case-study-page-body">
             {caseStudy.sections.map((section) => (
-              <CaseStudySection key={section.heading} section={section} />
+              <Reveal key={section.heading}>
+                <CaseStudySection section={section} />
+              </Reveal>
             ))}
           </div>
 
-          {caseStudy.workflowVisual && <CaseStudyWorkflowVisual data={caseStudy.workflowVisual} />}
+          {caseStudy.workflowVisual && (
+            <Reveal>
+              <CaseStudyWorkflowVisual data={caseStudy.workflowVisual} />
+            </Reveal>
+          )}
         </article>
+
+        <Reveal className="case-study-page-partner">
+          <img src={agvanceLogo} alt="Agvance" />
+        </Reveal>
 
         <Link to={`/work/${nextCaseStudy.slug}`} className="case-study-page-next">
           Next project →

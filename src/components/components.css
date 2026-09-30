@@ -98,6 +98,15 @@ body * {
   animation: fade-up 720ms ease both;
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.reveal[data-reveal='true'] {
+  animation: fade-up 720ms ease both;
+}
+
 .info-card:nth-child(2),
 .project-card:nth-child(2) {
   animation-delay: 90ms;
@@ -1537,8 +1546,33 @@ main {
 }
 
 .case-study-page {
+  position: relative;
+  isolation: isolate;
   min-height: 100vh;
   padding-bottom: 96px;
+  --case-study-navy: var(--surface);
+  --case-study-slate: color-mix(in srgb, var(--surface-muted) 45%, var(--surface));
+}
+
+:root[data-theme='light'] .case-study-page {
+  --case-study-navy: color-mix(in srgb, var(--surface) 55%, var(--bg));
+  --case-study-slate: color-mix(in srgb, var(--surface-muted) 55%, var(--bg));
+}
+
+/* Full-bleed band behind the page, matching the About section's animated gradient. */
+.case-study-page::before {
+  content: '';
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
+  background: linear-gradient(-45deg, var(--bg), var(--case-study-navy), var(--case-study-slate), var(--bg));
+  background-size: 300% 300%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .case-study-page::before {
+    animation: about-gradient 15s ease infinite;
+  }
 }
 
 .case-study-hero {
@@ -1690,6 +1724,17 @@ main {
   transform: translateX(-4px);
 }
 
+.case-study-page-partner {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+.case-study-page-partner img {
+  height: 96px;
+  width: auto;
+}
+
 .case-study-page-next {
   display: flex;
   width: fit-content;
@@ -1749,10 +1794,6 @@ main {
 .case-study-page-section {
   padding-block: 28px;
   border-top: 1px solid var(--border);
-}
-
-.case-study-page-section:last-child {
-  border-bottom: 1px solid var(--border);
 }
 
 .case-study-page-section h2 {
@@ -1883,6 +1924,7 @@ main {
   letter-spacing: 0.01em;
   line-height: 1.3;
   text-transform: uppercase;
+  white-space: pre-line;
 }
 
 .workflow-visual-flow {

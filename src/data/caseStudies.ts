@@ -116,7 +116,7 @@ export const caseStudies: CaseStudyDetail[] = [
     intro:
       'AI360 previously had no formal process for managing customer enrollment and agreement acceptance. I helped design and implement a multi-step workflow that introduced identity verification, agreement acceptance, and enrollment state into the existing platform; creating a foundation that downstream features could reliably depend on.',
     workflowVisual: {
-      headline: 'One simple experience. Multiple systems.',
+      headline: 'A workflow, built to scale',
       steps: [
         { label: 'Enroll', systems: ['React'] },
         { label: 'Verify', systems: ['AWS Cognito', 'SMS Verification'] },
