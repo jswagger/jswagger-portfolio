@@ -154,32 +154,41 @@ export const caseStudies: CaseStudyDetail[] = [
       {
         heading: 'Problem',
         paragraphs: [
-          'AI360 needed a formal way to enroll customers in an agreement governing data sharing. Before this workflow existed, there was no system process for tracking enrollment status. The solution needed to guide customers through verification and agreement acceptance while giving administrators a clear way to initiate and track the process.',
-          'Because enrollment status would ultimately control access to multiple existing workflows, the solution had to integrate cleanly with the broader application rather than operate as an isolated form.'
+          'AI360 needed a formal process for enrolling customers in an agreement governing data sharing. Before this workflow was introduced, there was no system-level process for tracking enrollment status.',
+          'The solution needed to guide customers through authentication, verification, and agreement acceptance while giving administrators a reliable way to initiate and track enrollment. Because enrollment status would also determine access to multiple downstream workflows, the solution needed to integrate into the existing application rather than function as an isolated experience.'
         ]
       },
       {
         heading: 'Approach',
         paragraphs: [
-          'Since this was a feature that did not immediately benefit users enrolling, we needed this to be a simple, painless process, to maximize adoption. So keeping a clean user experience was paramount.'
+          'As the primary engineer, I translated the provided business requirements into an end-to-end technical solution spanning the front end, back end, authentication, and application workflows.',
+          'I designed and built the React enrollment experience, backend APIs, business logic, and integrations needed to move a customer from administrator-initiated enrollment through verified agreement acceptance.',
+          'The workflow connected email-based enrollment, Amazon Cognito authentication, SMS verification, agreement acceptance, and enrollment-state persistence into a cohesive experience.'
         ]
       },
       {
         heading: 'Strategy',
         paragraphs: [
-          'This is a workflow that includes many areas, including UI interaction, verification in AWS Cognito, SMS verification, and email interaction. So I took it piece by piece, and incrementally created, tested, and integrated each section. New React components were created and connected to our login process, in order to utilize app authentication. Next I created a specific user pool in Cognito to house the users outside of the app, to allow approvals by leadership individuals, who might have different access to the app than the original customer. Once that was in place, I began testing Cognito’s SMS verification process, and adjusted the configuration to meet our needs. Afterwards, it was time for email verification, and I utilized an existing app API endpoint and supporting functions to send prompt emails to targeted decision makers. Lastly, I created a new Enrollment table in our SQL Server database to track responses.'
+          "I designed the enrollment state as a durable part of the application's business logic rather than treating enrollment as a one-time transaction.",
+          'The workflow established a clear progression:',
+          'Administrator initiates → Customer receives invitation → Identity is verified → Agreement is presented → Customer accepts → Enrollment state is recorded',
+          'That state could then be consumed by existing and future features to determine whether a customer was eligible to access workflows requiring enrollment.',
+          'This approach allowed the new capability to fit into the existing enterprise system while creating a foundation that other parts of the application could build upon.'
         ]
       },
       {
         heading: 'Result',
         paragraphs: [
-          'Users were able to successfully enroll in data sharing, allowing improved visibility for analytics. Since this feature was built with intentionality and quality-driven focus, very few changes have been required in over 5 years.'
+          'The enrollment process became an established part of the AI360 platform and has remained in production for more than six years.',
+          'Thousands of customers have completed the enrollment process, and approximately 15 downstream features reference the enrollment state to control access to related workflows.',
+          'Each enrollment coordinates approximately 8 API calls, 1 email, and 1 SMS message across the application and supporting services.'
         ]
       },
       {
         heading: 'Value Added',
         paragraphs: [
-          'This is now an important gate check for multiple pieces of functionality that require customers to reach this legal agreement.'
+          'The project introduced a formal, trackable enrollment process where none previously existed, enabling the product to support data sharing under the required agreement.',
+          'More importantly, it established a reliable application-level enrollment state that could be used across the broader platform. What began as a new customer workflow became foundational infrastructure for other product capabilities.'
         ]
       }
     ]
