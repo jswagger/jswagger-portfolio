@@ -1,19 +1,23 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import App from '../src/App'
-import { describe, it, expect } from 'vitest'
+import { afterEach, describe, it, expect, vi } from 'vitest'
 
 describe('App', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
   it('renders the hero heading for the landing page', () => {
     render(<App />, { wrapper: MemoryRouter })
-    expect(screen.getByText(/Building dependable software with clarity, context, and craft/i)).toBeTruthy()
+    expect(screen.getByText(/Thoughtful Engineering, Reliable Software/i)).toBeTruthy()
   })
 
   it('renders a Strengths section with the expected tagline', () => {
     render(<App />, { wrapper: MemoryRouter })
 
     expect(screen.getAllByText(/Strengths/i).length).toBeGreaterThan(0)
-    expect(screen.getAllByText(/What I bring to the table/i).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/Where experience makes a difference/i).length).toBeGreaterThan(0)
   })
 
   it('adds a compact header state after scrolling', async () => {
@@ -34,15 +38,21 @@ describe('App', () => {
     })
   })
 
-  it('applies a parallax transform when the hero image is moved', () => {
+  it('activates the hero spotlight when the pointer enters the hero section', () => {
+    // jsdom has no requestAnimationFrame; the spotlight hook only needs it to
+    // schedule, not fire, so a no-op stub is enough for this assertion.
+    vi.stubGlobal('requestAnimationFrame', () => 0)
+    vi.stubGlobal('cancelAnimationFrame', () => {})
+
     const { container } = render(<App />, { wrapper: MemoryRouter })
-    const heroPhotoCard = container.querySelector('.hero-photo-card')
+    const heroSection = container.querySelector('#top')
 
-    expect(heroPhotoCard).not.toBeNull()
+    expect(heroSection).not.toBeNull()
+    expect(heroSection?.classList.contains('hero-spotlight-active')).toBe(false)
 
-    fireEvent.mouseEnter(heroPhotoCard as Element)
-    fireEvent.mouseMove(heroPhotoCard as Element, { clientX: 120, clientY: 60 })
+    fireEvent.mouseEnter(heroSection as Element)
+    fireEvent.mouseMove(heroSection as Element, { clientX: 120, clientY: 60 })
 
-    expect(heroPhotoCard?.classList.contains('is-hovered')).toBe(true)
+    expect(heroSection?.classList.contains('hero-spotlight-active')).toBe(true)
   })
 })
