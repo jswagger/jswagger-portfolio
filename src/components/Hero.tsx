@@ -18,11 +18,18 @@ export default function Hero() {
     >
       <div className="hero-content">
         <div className="hero-copy-block">
+          <p className="hero-eyebrow">Senior Software Engineer</p>
           <h1 className="section-label">Jeremy Swagger</h1>
-          <h3>Thoughtful Engineering, Reliable Software</h3>
-          <p className="hero-copy">
-            Senior Software Engineer solving complex problems and building software that lasts.
-          </p>
+          <h3>Thoughtfully engineering reliable software to solve complex problems and build systems designed to last.</h3>
+          <p className="hero-proof-line">10+ years · React &amp; TypeScript · Enterprise systems</p>
+          <div className="hero-cta-group">
+            <a href="#case-studies" className="hero-cta hero-cta-primary">
+              View my work
+            </a>
+            <a href="#contact" className="hero-cta hero-cta-secondary">
+              Get in touch
+            </a>
+          </div>
         </div>
       </div>
 

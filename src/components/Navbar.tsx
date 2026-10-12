@@ -72,12 +72,12 @@ export default function Navbar({ showBrand = true }: NavbarProps) {
 <Link className="brand" to="/#top" aria-label="Go to home">
 
 <svg className="brand-mark" viewBox="0 0 32 32" style={{ width: '32px', height: '32px' }}>
-  <rect width="32" height="32" rx="6" fill="#111825" />
+  <rect width="32" height="32" rx="6" fill="#d4935f" />
   <g fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5">
     {/* Corrected Left-Hooking J */}
-    <path d="M15 9H11M15 9V20C15 22.2 13.2 24 11 24C8.8 24 7 22.2 7 20" stroke="#324b5f" />
+    <path d="M15 9H11M15 9V20C15 22.2 13.2 24 11 24C8.8 24 7 22.2 7 20" stroke="#0d1321" />
     {/* Full Standalone S */}
-    <path d="M25 11.5C25 10.1 23.9 9 22.5 9H20.5C19.1 9 18 10.1 18 11.5C18 12.9 19.1 14 20.5 14H22.5C23.9 14 25 15.1 25 16.5C25 17.9 23.9 19 22.5 19H20.5C19.1 19 18 17.9 18 16.5" stroke="#966844" />
+    <path d="M25 11.5C25 10.1 23.9 9 22.5 9H20.5C19.1 9 18 10.1 18 11.5C18 12.9 19.1 14 20.5 14H22.5C23.9 14 25 15.1 25 16.5C25 17.9 23.9 19 22.5 19H20.5C19.1 19 18 17.9 18 16.5" stroke="#0d1321" />
   </g>
 </svg>
 

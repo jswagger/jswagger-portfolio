@@ -1,21 +1,23 @@
 :root {
-  --bg: #111825;
-  --surface: #1b263b;
-  --surface-secondary: #232d41;
-  --surface-muted: #415a77;
-  --text: #f6f5f1;
-  --text-muted: #aab7af;
-  --accent: #966844;
-  --accent-soft: #324b5f;
-  --border: #415a77;
+  /* "Dark Seas" palette: rich black #0D1321, oxford blue #1D2D44,
+     chambray #3E5C76, silver lake blue #748CAB, platinum #E0E1DD. */
+  --bg: #0d1321;
+  --surface: color-mix(in srgb, #1d2d44 70%, #0d1321);
+  --surface-secondary: color-mix(in srgb, #1d2d44 85%, #0d1321);
+  --surface-muted: #3e5c76;
+  --text: #e0e1dd;
+  --text-muted: #748cab;
+  --accent: #d4935e;
+  --accent-soft: color-mix(in srgb, #d4935e 30%, #0d1321);
+  --border: color-mix(in srgb, #3e5c76 35%, #0d1321);
   --shadow: rgba(0, 0, 0, 0.35);
-  --chip-bg: #1b263b;
-  --button-secondary-bg: #1b263b;
+  --chip-bg: #0d1321;
+  --button-secondary-bg: #0d1321;
   /* Derived from --accent so they follow each theme; replaces the purple
      defaults these inherited from index.css. */
   --accent-bg: color-mix(in srgb, var(--accent) 14%, transparent);
   --accent-border: color-mix(in srgb, var(--accent) 50%, transparent);
-  --hero-photo-tint: #111825;
+  --hero-photo-tint: #0d1321;
   /* Overrides index.css's --text-h, which flips on the OS's
      prefers-color-scheme instead of this site's own theme toggle - that
      mismatch is what let stark-white headers show up in light mode. */
@@ -25,38 +27,39 @@
 }
 
 :root[data-theme='dark'] {
-  --bg: #111825;
-  --surface: #1b263b;
-  --surface-secondary: #232d41;
-  --surface-muted: #415a77;
-  --text: #f6f5f1;
-  --text-muted: #aab7af;
-  --accent: #966844;
-  --accent-soft: #324b5f;
-  --border: #415a77;
+  --bg: #0d1321;
+  --surface: color-mix(in srgb, #1d2d44 70%, #0d1321);
+  --surface-secondary: color-mix(in srgb, #1d2d44 85%, #0d1321);
+  --surface-muted: #3e5c76;
+  --text: #e0e1dd;
+  --text-muted: #748cab;
+  --accent: #d4935e;
+  --accent-soft: color-mix(in srgb, #d4935e 30%, #0d1321);
+  --border: color-mix(in srgb, #3e5c76 35%, #0d1321);
   --shadow: rgba(0, 0, 0, 0.35);
-  --chip-bg: #1b263b;
-  --button-secondary-bg: #1b263b;
+  --chip-bg: #0d1321;
+  --button-secondary-bg: #0d1321;
   --text-h: var(--text);
 }
 
 :root[data-theme='light'] {
-  --hero-photo-tint: #263b52;
+  --hero-photo-tint: #0d1321;
   --text-h: var(--text);
-  --bg: #cbd2d9;
-  /* Blue-grey rather than the fully saturated blue hex: same hue, muted with
-     a little neutral grey mixed in. */
-  --surface: color-mix(in srgb, #698aab 75%, gray 25%);
-  --surface-secondary: color-mix(in srgb, #8aa3b8 75%, gray 25%);
-  --surface-muted: color-mix(in srgb, #a0b1c4 75%, gray 25%);
-  --text: #1b263b;
-  --text-muted: #3b4c64;
-  --accent: #a8623c;
-  --accent-soft: #d2b6a1;
-  --border: color-mix(in srgb, #b4c7d8 75%, gray 25%);
-  --shadow: rgba(27, 38, 59, 0.14);
-  --chip-bg: #f9f5f1;
-  --button-secondary-bg: #eaf2fa;
+  --bg: #e0e1dd;
+  --surface: color-mix(in srgb, #748cab 40%, white);
+  --surface-secondary: color-mix(in srgb, #748cab 50%, white);
+  --surface-muted: color-mix(in srgb, #748cab 60%, white);
+  --text: #0d1321;
+  --text-muted: #1d2d44;
+  /* Darkened from the raw copper (#D4935E) - that value only reads at ~2:1
+     contrast against this light bg, below even the large-text threshold;
+     this mix clears 5:1 while staying clearly copper. */
+  --accent: color-mix(in srgb, #d4935e 55%, #0d1321);
+  --accent-soft: color-mix(in srgb, #d4935e 30%, white);
+  --border: color-mix(in srgb, #748cab 40%, white);
+  --shadow: rgba(13, 19, 33, 0.14);
+  --chip-bg: color-mix(in srgb, #e0e1dd 90%, white);
+  --button-secondary-bg: color-mix(in srgb, #748cab 30%, white);
 }
 
 body {
@@ -248,9 +251,14 @@ main {
 }
 
 /* The nav only shows pre-scroll, floating over the hero photo, which is now
-   dark in both themes - light mode's dark --text-muted was unreadable there. */
+   dark in both themes - light mode's dark --text-muted was unreadable there,
+   and dark mode's blue --text-muted blended into the dark photo too. */
 :root[data-theme='light'] .nav a {
-  color: #f6f5f1;
+  color: #e0e1dd;
+}
+
+:root[data-theme='dark'] .nav a {
+  color: #ffffff;
 }
 
 .nav a:hover {
@@ -440,10 +448,11 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-position: center;
+  background-position: 75% center;
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 0;
+  padding-bottom: clamp(48px, 8vh, 96px);
   max-width: 1320px;
   min-height: 80vh;
   margin: 0 auto;
@@ -453,10 +462,22 @@ main {
   content: '';
   position: absolute;
   inset: 0;
-  /* Stays dark in both themes so the photo doesn't wash out under light
-     mode's pale --bg. */
-  background: color-mix(in srgb, var(--hero-photo-tint) 65%, transparent);
+  /* Left-to-right fade so the text column (left) has a dark, readable base
+     while the right side - where the photo's subject now sits - stays
+     visible. A flat low-opacity tint underneath keeps the whole photo from
+     washing out under light mode's pale --bg, same as before. */
+  background:
+    linear-gradient(to right, color-mix(in srgb, var(--hero-photo-tint) 85%, transparent) 0%, transparent 60%),
+    color-mix(in srgb, var(--hero-photo-tint) 25%, transparent);
   pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .hero-section::before {
+    /* No room for a left/right split on narrow screens - go back to a flat,
+       darker tint across the whole photo so text stays readable. */
+    background: color-mix(in srgb, var(--hero-photo-tint) 70%, transparent);
+  }
 }
 
 .hero-section::after {
@@ -546,16 +567,91 @@ main {
 
 .hero-content h3 {
   font-family: var(--heading);
-  font-weight: 500;
+  font-weight: 400;
   margin: 0 0 20px;
-  font-size: clamp(1.75rem, 2vw, 4rem);
-  line-height: 0.96;
+  font-size: clamp(1.1rem, 1.4vw, 1.6rem);
+  line-height: 1.4;
   letter-spacing: 0.04em;
-  color: #f6f5f1;
+  color: #e0e1dd;
 }
 
 .hero-copy-block {
-  max-width: 760px;
+  max-width: 640px;
+}
+
+.hero-copy-block .section-label {
+  font-size: clamp(3.5rem, 3vw, 7.5rem);
+  /* Fixed rather than var(--accent): the hero photo overlay stays dark in
+     both themes, but light mode's --accent is darkened for light page
+     backgrounds, which read as low-contrast here. */
+  color: #d4935f;
+}
+
+.hero-eyebrow {
+  margin: 0 0 14px;
+  color: #d4935f;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hero-proof-line {
+  margin: 4px 0 28px;
+  color: #aab0b8;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+.hero-cta-primary {
+  background: #d4935f;
+  color: #0d1321;
+  border: 1px solid #d4935f;
+}
+
+.hero-cta-primary:hover {
+  background: #e3aa7a;
+  border-color: #e3aa7a;
+}
+
+.hero-cta-secondary {
+  background: transparent;
+  color: #d4935f;
+  border: 1px solid #d4935f;
+}
+
+.hero-cta-secondary:hover {
+  background: color-mix(in srgb, #d4935f 15%, transparent);
+}
+
+.hero-cta:focus-visible {
+  outline: 2px solid #d4935f;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .hero-visual {
@@ -606,14 +702,14 @@ main {
 .section-heading p {
   font-size: 1.05rem;
   line-height: 1.75;
-  color: var(--text-muted);
+  color: var(--text);
   max-width: 720px;
 }
 
 .hero-copy {
   font-size: clamp(1.2rem, 2vw, 1.6rem);
   line-height: 1.75;
-  color: #aab7af;
+  color: #e0e1dd;
   max-width: 720px;
 }
 
@@ -798,7 +894,7 @@ main {
 }
 
 .section-muted {
-  background: linear-gradient(180deg, rgba(134, 167, 196, 0.18), rgba(134, 167, 196, 0.1));
+  background: linear-gradient(180deg, rgba(146, 162, 167, 0.18), rgba(146, 162, 167, 0.1));
   border-block: 1px solid var(--border);
 }
 
@@ -1055,7 +1151,7 @@ main {
 }
 
 .info-card {
-  --info-card-highlight: #8fb8de;
+  --info-card-highlight: #748cab;
   position: relative;
   display: flex;
   align-items: flex-start;
@@ -1096,7 +1192,7 @@ main {
   inset: 0;
   background:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) 55%),
-    color-mix(in srgb, #111825 45%, transparent);
+    color-mix(in srgb, #0d1321 45%, transparent);
   pointer-events: none;
 }
 
@@ -1160,12 +1256,12 @@ main {
 /* The canyon overlay stays dark in both themes, so keep the intro light. */
 #work .section-heading h3 {
   margin-bottom: 40px;
-  color: #f6f5f1;
+  color: #e0e1dd;
 }
 
 .experience-container {
-    --accent: #8fb8de;
-    --accent-soft: #324b5f;
+    --accent: #748cab;
+    --accent-soft: #3e5c76;
     box-sizing: border-box;
     background: var(--surface-secondary);
     border-radius: 20px;
@@ -1177,8 +1273,8 @@ main {
 }
 
 :root[data-theme='light'] .experience-container {
-  --accent: #1f4570;
-  --accent-soft: #415a77;
+  --accent: #0d1321;
+  --accent-soft: #3e5c76;
 }
 
 .experience-container h2 {
@@ -1590,7 +1686,7 @@ main {
   background-position: center 88%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #111825;
+  background-color: #0d1321;
   animation: hero-bg-zoom 4s 0.2s cubic-bezier(0, 0.71, 0.4, 0.97) both;
   will-change: transform;
 }
@@ -1601,7 +1697,7 @@ main {
   inset: 0;
   /* The photo overlay stays dark in both themes so the hero image doesn't
      wash out under light mode's pale --bg. */
-  background: color-mix(in srgb, var(--hero-photo-tint) 65%, transparent);
+  background: color-mix(in srgb, var(--hero-photo-tint) 50%, transparent);
   pointer-events: none;
 }
 
@@ -1661,15 +1757,22 @@ main {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   line-height: 1.05;
-  white-space: nowrap;
 }
 
 .case-study-hero-photo-content p {
   margin: 0 auto;
-  color: #f6f5f1;
+  color: #e0e1dd;
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   line-height: 1.6;
   max-width: 560px;
+}
+
+/* The accent blue reads too close to the dark navy hero backgrounds -
+   keep hero text white in dark mode specifically. */
+:root[data-theme='dark'] .hero-copy-block .section-label,
+:root[data-theme='dark'] .case-study-hero-photo-content h1,
+:root[data-theme='dark'] .case-study-page-tag {
+  color: #ffffff;
 }
 
 .case-study-page-frame {
@@ -1703,7 +1806,7 @@ main {
   backdrop-filter: blur(14px) saturate(160%);
   -webkit-backdrop-filter: blur(14px) saturate(160%);
   box-shadow: 0 8px 20px rgba(17, 24, 37, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  color: #111825;
+  color: #0d1321;
   font-weight: 600;
   font-size: 1.1rem;
   text-decoration: none;
@@ -1766,20 +1869,22 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   margin-top: 20px;
 }
 
 .case-study-page-tag {
-  padding: 4px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--accent-border);
-  background: var(--accent-bg);
-  backdrop-filter: blur(8px) saturate(140%);
-  -webkit-backdrop-filter: blur(8px) saturate(140%);
   color: var(--accent);
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.case-study-page-tag:not(:last-child)::after {
+  content: '·';
+  margin-left: 10px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .case-study-page-overview-label {
@@ -1792,8 +1897,13 @@ main {
 }
 
 .case-study-page-section {
-  padding-block: 28px;
+  padding-block: 48px;
   border-top: 1px solid var(--border);
+}
+
+.case-study-page-body > .reveal:first-child .case-study-page-section {
+  border-top: none;
+  padding-top: 64px;
 }
 
 .case-study-page-section h2 {
@@ -1805,6 +1915,7 @@ main {
 .case-study-page-section p {
   margin: 0 0 10px;
   color: var(--text);
+  font-size: 1rem;
   line-height: 1.7;
 }
 
@@ -1839,33 +1950,59 @@ main {
 
 .case-study-page-section-split {
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 8px clamp(24px, 4vw, 56px);
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  gap: 12px clamp(24px, 4vw, 56px);
+}
+
+.case-study-page-section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .case-study-page-section-label {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
 }
 
 .case-study-page-section-label h2 {
   margin: 0;
+  color: var(--accent);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .case-study-page-section-icon {
-  width: 22px;
-  height: 22px;
-  margin-top: 1px;
+  width: 24px;
+  height: 24px;
   color: var(--accent);
   flex-shrink: 0;
+}
+
+.case-study-page-section p.case-study-page-section-subtitle {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--heading);
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  max-width: none;
 }
 
 @media (max-width: 640px) {
   .case-study-page-section-split {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 16px;
   }
+}
+
+.case-study-page-section-content {
+  width: 100%;
 }
 
 .case-study-metrics {
@@ -2220,8 +2357,8 @@ main {
 }
 
 .case-study-diagram-image {
-  max-width: 720px;
-  margin: -64px auto 32px;
+  max-width: 560px;
+  margin: 32px auto 0;
 }
 
 .case-study-diagram-image img {
@@ -2299,7 +2436,7 @@ main {
 }
 
 .section-indicator {
-  --indicator-color: #8fb8de;
+  --indicator-color: #748cab;
   position: fixed;
   top: 50%;
   right: 20px;
@@ -2308,7 +2445,7 @@ main {
 }
 
 :root[data-theme='light'] .section-indicator {
-  --indicator-color: #1f4570;
+  --indicator-color: #0d1321;
 }
 
 .section-indicator ul {

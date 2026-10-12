@@ -104,7 +104,7 @@ export const caseStudies: CaseStudyDetail[] = [
     ]
   },
   {
-    title: 'AI360 Enrollment Process',
+    title: 'Customer Enrollment Workflow',
     slug: 'enterprise-enrollment-process',
     tagline: 'Managing Legal Customer Licensing',
     summary: 'Creating a clean, painless workflow for managing legal customer licensing and data enrollment.',
@@ -152,14 +152,16 @@ export const caseStudies: CaseStudyDetail[] = [
     },
     sections: [
       {
-        heading: 'Problem',
+        heading: 'The Challenge',
+        subtitle: "A critical customer workflow didn't exist.",
         paragraphs: [
           'AI360 needed a formal process for enrolling customers in an agreement governing data sharing. Before this workflow was introduced, there was no system-level process for tracking enrollment status.',
           'The solution needed to guide customers through authentication, verification, and agreement acceptance while giving administrators a reliable way to initiate and track enrollment. Because enrollment status would also determine access to multiple downstream workflows, the solution needed to integrate into the existing application rather than function as an isolated experience.'
         ]
       },
       {
-        heading: 'Approach',
+        heading: 'The Approach',
+        subtitle: 'Turning a business requirement into an end-to-end workflow.',
         paragraphs: [
           'As the primary engineer, I translated the provided business requirements into an end-to-end technical solution spanning the front end, back end, authentication, and application workflows.',
           'I designed and built the React enrollment experience, backend APIs, business logic, and integrations needed to move a customer from administrator-initiated enrollment through verified agreement acceptance.',
@@ -167,7 +169,8 @@ export const caseStudies: CaseStudyDetail[] = [
         ]
       },
       {
-        heading: 'Strategy',
+        heading: 'The Strategy',
+        subtitle: 'Establishing enrollment as application-level state.',
         paragraphs: [
           "I designed the enrollment state as a durable part of the application's business logic rather than treating enrollment as a one-time transaction.",
           'The workflow established a clear progression:',
@@ -177,7 +180,8 @@ export const caseStudies: CaseStudyDetail[] = [
         ]
       },
       {
-        heading: 'Result',
+        heading: 'The Outcome',
+        subtitle: '10,000+ customers enrolled',
         paragraphs: [
           'The enrollment process became an established part of the AI360 platform and has remained in production for more than six years.',
           'Thousands of customers have completed the enrollment process, and approximately 15 downstream features reference the enrollment state to control access to related workflows.',
@@ -185,7 +189,8 @@ export const caseStudies: CaseStudyDetail[] = [
         ]
       },
       {
-        heading: 'Value Added',
+        heading: 'The Value',
+        subtitle: 'Turning a critical business need into a lasting platform capability.',
         paragraphs: [
           'The project introduced a formal, trackable enrollment process where none previously existed, enabling the product to support data sharing under the required agreement.',
           'More importantly, it established a reliable application-level enrollment state that could be used across the broader platform. What began as a new customer workflow became foundational infrastructure for other product capabilities.'

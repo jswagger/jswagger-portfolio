@@ -11,21 +11,21 @@ import { caseStudies } from '../data/caseStudies'
 import type { CaseStudySection as CaseStudySectionData } from '../types/content'
 
 const SECTION_ICON_PATHS: Record<string, ReactNode> = {
-  Problem: (
+  'The Challenge': (
     <>
       <circle cx="12" cy="12" r="9" />
       <path d="M12 7.5v6" />
       <path d="M12 16.5h.01" />
     </>
   ),
-  Approach: (
+  'The Approach': (
     <>
       <circle cx="12" cy="12" r="9" />
       <circle cx="12" cy="12" r="5" />
       <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
     </>
   ),
-  Strategy: (
+  'The Strategy': (
     <>
       <circle cx="6" cy="6" r="2.25" />
       <circle cx="6" cy="18" r="2.25" />
@@ -34,7 +34,7 @@ const SECTION_ICON_PATHS: Record<string, ReactNode> = {
       <path d="m8.1 16.9 7.8 -3.8" />
     </>
   ),
-  Result: (
+  'The Outcome': (
     <>
       <path d="M4 19h16" />
       <path d="M7 19v-5" />
@@ -42,7 +42,7 @@ const SECTION_ICON_PATHS: Record<string, ReactNode> = {
       <path d="M17 19v-13" />
     </>
   ),
-  'Value Added': (
+  'The Value': (
     <>
       <path d="M12 3v4" />
       <path d="M12 17v4" />
@@ -130,9 +130,12 @@ function CaseStudySection({ section }: { section: CaseStudySectionData }) {
   if (SPLIT_LAYOUT_HEADINGS.has(section.heading)) {
     return (
       <section className="case-study-page-section case-study-page-section-split">
-        <div className="case-study-page-section-label">
-          <SectionIcon heading={section.heading} />
-          <h2>{section.heading}</h2>
+        <div className="case-study-page-section-heading">
+          <div className="case-study-page-section-label">
+            <SectionIcon heading={section.heading} />
+            <h2>{section.heading}</h2>
+          </div>
+          {section.subtitle && <p className="case-study-page-section-subtitle">{section.subtitle}</p>}
         </div>
         <div className="case-study-page-section-content">{content}</div>
       </section>
@@ -142,6 +145,7 @@ function CaseStudySection({ section }: { section: CaseStudySectionData }) {
   return (
     <section className="case-study-page-section">
       <h2>{section.heading}</h2>
+      {section.subtitle && <p className="case-study-page-section-subtitle">{section.subtitle}</p>}
       {content}
     </section>
   )
@@ -206,18 +210,11 @@ export default function SelectedWork() {
             </Reveal>
           )}
 
-          {caseStudy.diagramImage && (
-            <Reveal className="case-study-images case-study-diagram-image">
-              <figure>
-                <img src={caseStudy.diagramImage.src} alt={caseStudy.diagramImage.alt} />
-                {caseStudy.diagramImage.caption && <figcaption>{caseStudy.diagramImage.caption}</figcaption>}
-              </figure>
+          {caseStudy.workflowVisual && (
+            <Reveal>
+              <CaseStudyWorkflowVisual data={caseStudy.workflowVisual} />
             </Reveal>
           )}
-
-          <Reveal>
-            <h2 className="section-label case-study-page-overview-label">Overview</h2>
-          </Reveal>
 
           <div className="case-study-page-body">
             {caseStudy.sections.map((section) => (
@@ -227,9 +224,12 @@ export default function SelectedWork() {
             ))}
           </div>
 
-          {caseStudy.workflowVisual && (
-            <Reveal>
-              <CaseStudyWorkflowVisual data={caseStudy.workflowVisual} />
+          {caseStudy.diagramImage && (
+            <Reveal className="case-study-images case-study-diagram-image">
+              <figure>
+                <img src={caseStudy.diagramImage.src} alt={caseStudy.diagramImage.alt} />
+                {caseStudy.diagramImage.caption && <figcaption>{caseStudy.diagramImage.caption}</figcaption>}
+              </figure>
             </Reveal>
           )}
         </article>

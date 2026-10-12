@@ -53,6 +53,7 @@ export interface CaseStudyImage {
 
 export interface CaseStudySection {
   heading: string
+  subtitle?: string
   paragraphs?: string[]
   bullets?: string[]
   metrics?: CaseStudyMetric[]
