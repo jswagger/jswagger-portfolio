@@ -212,11 +212,11 @@ export const caseStudies: CaseStudyDetail[] = [
     slug: 'code-quality-automation',
     tagline: 'Improving logic quality before pull requests',
     summary: 'Building AI-driven review skills that hunt bugs and enforce quality before pull requests are opened.',
-    tags: ['Claude AI', 'Git', 'Automation'],
+    tags: ['Claude Code', 'Git', 'Automation'],
     image: codeQualityCardImage,
     heroImage: mappingHeroImage,
     heroPosition: 'center 20%',
-    heroSubtitle: 'Creating a repeatable system for finding bugs, verifying requirements, and improving code quality.',
+    heroSubtitle: 'Creating a repeatable system for finding bugs, verifying security, and improving code quality.',
     sections: [
       {
         heading: 'The Challenge',
@@ -236,20 +236,19 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Strategy',
         subtitle: 'Repeatable, observable, and focused on what changed.',
         paragraphs: [
-          "Once I defined my areas of focus, I started working with Claude AI to create skills that specifically targeted these areas. I needed these skills to be repeatable, observable, and configurable, so that I could run them against different repositories and look for different things. I also needed to limit the scope, so I utilized the `git diff` of my feature branches, in order to keep the review agents focused on the code that had changed, and how it could directly impact surrounding areas."
+          "Once I defined my areas of focus, I started working with Claude Code to create skills that specifically targeted these areas. I needed these skills to be repeatable, observable, and configurable, so that I could run them against different repositories and look for different things. I also needed to limit the scope, so I utilized the `git diff` of my feature branches, in order to keep the review agents focused on the code that had changed, and how it could directly impact surrounding areas."
         ]
       },
       {
         heading: 'The Outcome',
-        subtitle: 'A toolkit of review agents for hunting bugs.',
+        subtitle: 'A toolkit of review skills',
         paragraphs: [
-          'I now have multiple review agents, skills, helper scripts, and configuration files in my arsenal to hunt bugs and keep things clean in my solutions, before I create my pull requests:'
+          'I now have multiple review skills, helper scripts, and configuration files in my arsenal to hunt bugs and keep things clean in my solutions, before I create my pull requests:'
         ],
         bullets: [
-          'Regression Inspector — Reads code changes, analyzes their effect, reads surrounding code, and reports likely bugs and changes that pose high risk of hitting edge cases.',
-          'Requirements Verification — Checks ticket acceptance criteria to be sure that all expected functionality has been completed.',
-          'Efficiency Inspector — Analyzes structures and strategies like for loops, to identify areas with opportunity to increase performance.',
-          'Code Cleanliness Inspector — Looks for adherence to SOLID principles, avoidance of deep nesting, and general complexity of functions.'
+          'Bug Hunter — Reads code changes, analyzes their effect, reads surrounding code, and reports likely bugs and changes that pose high risk of hitting edge cases.',
+          'Security Auditor — Evaluates security patterns and looks for vulnerabilities.',
+          'Code Sweeper — Looks for adherence to SOLID principles, avoidance of deep nesting, and general complexity of functions.'
         ]
       },
       {
