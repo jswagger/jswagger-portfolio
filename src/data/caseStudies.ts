@@ -36,7 +36,7 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Approach',
         subtitle: 'Building a test pool to make AI results dependable.',
         paragraphs: [
-          "Since reports can hold many different types of data, and utilize many different layouts, I knew that we needed to establish a large test pool to try out many different combinations. So I worked with Claude AI to carefully create some temporary scripts in Python to run specific reports through Bedrock, and compare against a direct analysis. This allowed me to isolate specific problematic cases, and establish intentional dynamic context, so that the Bedrock model would consistently return desired results."
+          "Since reports can hold many different types of data, and utilize many different layouts, I knew that we needed to establish a large test pool to try out many different combinations. So I worked with Claude Code to carefully create some temporary scripts in Python to run specific reports through Bedrock, and compare against a direct analysis. This allowed me to isolate specific problematic cases, and establish intentional dynamic context, so that the Bedrock model would consistently return desired results."
         ]
       },
       {
@@ -137,11 +137,10 @@ export const caseStudies: CaseStudyDetail[] = [
         bullets: [
           'Upgraded from React version 16 to version 18',
           'Migrated from Webpack to Vite, increasing build times by 60-80%',
-          'Meaningfully increased our TypeScript file usage across the codebase',
+          'Increased our TypeScript file usage by over 350 files',
           'Switched from using React Class components to exclusively Functional components',
           'Increased our usage of React hooks by over 100%',
-          'Trimmed over 100 existing UNSAFE functions through careful refactoring',
-          'Cut our occurrence of undefined object and property types by over 50%'
+          'Trimmed over 140 existing UNSAFE functions through careful refactoring'
         ]
       },
       {
@@ -305,7 +304,7 @@ export const caseStudies: CaseStudyDetail[] = [
     title: 'Performance Overhaul',
     slug: 'farm-editing-performance-overhaul',
     tagline: 'Cutting load times by 75% and eliminating race conditions',
-    summary: 'Overhauling event and rec editing performance by taming IOT messaging, cutting load times by ~75%, and eliminating status race conditions.',
+    summary: 'Overhauling event editing performance by taming IOT messaging, cutting load times by ~75%, and eliminating status race conditions.',
     tags: ['React', 'IOT Messaging', 'Performance'],
     image: geospatialCardImage,
     heroImage: performanceOverhaulHeroImage,
@@ -331,8 +330,8 @@ export const caseStudies: CaseStudyDetail[] = [
         subtitle: 'Fewer calls and no more competing updates.',
         paragraphs: [
           'I removed the redundant Event Summary call and improved handling of the Event Changed and Event Status Changed messaging streams so they no longer competed for the same UI state.',
-          'I introduced logic to collapse duplicate updates for the same Event or Rec: when Processing Surfaces and Complete messages land in the same debounce grouping, only the most recent update is applied, so an outdated status can no longer overwrite a newer one.',
-          "I also sped up how the Event Info and Rec Info panels close after saving, so the UI can depend on the IOT messaging itself to reflect status, rather than waiting on a separate confirmation round-trip."
+          'I introduced logic to collapse duplicate updates for the same Event: when Processing and Complete messages land in the same debounce grouping, only the most recent update is applied, so an outdated status can no longer overwrite a newer one.',
+          "I also sped up how the Event Information panels close after saving, so the UI can depend on the IOT messaging itself to reflect status, rather than waiting on a separate confirmation round-trip."
         ]
       },
       {
@@ -370,11 +369,11 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Value',
         subtitle: 'A UI that keeps up under load.',
         paragraphs: [
-          'CPU usage during Rec Changed and Event Changed messaging previously plateaued at 100% under load; spikes are now substantially lower, letting the UI process incoming messages more consistently instead of stalling.'
+          'CPU usage during Event Changed messaging previously plateaued at 100% under load; spikes are now substantially lower, letting the UI process incoming messages more consistently instead of stalling.'
         ],
         images: [
-          { src: recChangedCpuOriginal, alt: 'CPU usage during Rec Changed messaging, original version, plateauing at 100%', caption: 'Rec Changed Messaging (Original)' },
-          { src: recChangedCpuNew, alt: 'CPU usage during Rec Changed messaging, new version, with lower spikes', caption: 'Rec Changed Messaging (New)' }
+          { src: recChangedCpuOriginal, alt: 'CPU usage during Event Changed messaging, original version, plateauing at 100%', caption: 'Event Changed Messaging (Original)' },
+          { src: recChangedCpuNew, alt: 'CPU usage during Event Changed messaging, new version, with lower spikes', caption: 'Event Changed Messaging (New)' }
         ]
       }
     ]
