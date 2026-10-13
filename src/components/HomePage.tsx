@@ -31,8 +31,8 @@ export default function HomePage() {
       <SectionIndicator />
       <main id="home">
         <Hero />
-        <ScrollWords lead="I can" words={capabilityWords} />
         <CaseStudies />
+        <ScrollWords lead="I can" words={capabilityWords} />
         <Services />
         <About />
         <Experience />

@@ -26,15 +26,23 @@ export default function Navbar({ showBrand = true }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.scrollY > 24
+      // On the home page the header stays expanded until the hero has scrolled
+      // up under it; elsewhere it collapses after a short scroll.
+      const hero = document.getElementById('top')
+      const threshold = hero ? Math.max(24, hero.offsetHeight - (headerRef.current?.offsetHeight ?? 0)) : 24
+      const scrolled = window.scrollY > threshold
       setIsScrolled(scrolled)
       if (!scrolled) setIsMenuOpen(false)
     }
 
     handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleScroll)
 
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
   }, [])
 
   useEffect(() => {

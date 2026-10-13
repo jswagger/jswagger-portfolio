@@ -584,11 +584,12 @@ main {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.9fr);
-  gap: clamp(28px, 4vw, 64px);
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
   max-width: 1280px;
   margin: 0 auto;
+  /* The hero is vertically centered, so this shifts the text down by half. */
+  padding-top: 48px;
 }
 
 .hero-content h3 {
@@ -602,7 +603,9 @@ main {
 }
 
 .hero-copy-block {
-  max-width: 640px;
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .hero-copy-block .section-label {
@@ -1143,6 +1146,13 @@ main {
 
 .card-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* The grid itself ignores the pointer so :hover on it only matches while a
+     card is hovered, not the gaps between cards. */
+  pointer-events: none;
+}
+
+.card-grid > .info-card {
+  pointer-events: auto;
 }
 
 .info-card {
@@ -1388,7 +1398,7 @@ main {
   color: #fff;
   box-shadow: 0 8px 24px var(--shadow);
   cursor: pointer;
-  transition: box-shadow 260ms ease;
+  transition: box-shadow 260ms ease, translate 260ms ease;
 }
 
 /* A solid darker slate blue (this component's own --accent-soft override)
@@ -1404,6 +1414,32 @@ main {
 
 .project-accordion .project-card:hover {
   box-shadow: 0 16px 32px var(--shadow);
+  /* `translate`, not `transform`: the fade-up entrance animation's fill pins
+     `transform` and would swallow the lift. */
+  translate: 0 -2px;
+}
+
+/* Nudge the title toward the open direction on hover to hint it's clickable. */
+.project-accordion .project-card-label {
+  transition: transform 260ms ease, filter 260ms ease;
+}
+
+.project-accordion .project-card:hover .project-card-label {
+  filter: brightness(0.88);
+}
+
+.project-accordion .project-card:not(.is-active):hover .project-card-label {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-accordion .project-card:hover {
+    translate: none;
+  }
+
+  .project-accordion .project-card:not(.is-active):hover .project-card-label {
+    transform: none;
+  }
 }
 
 :root[data-theme='light'] .project-accordion .project-card:hover {
@@ -2695,23 +2731,36 @@ main {
   border-width: 0;
 }
 
-/* Sticky "I can" word list, adapted from Jhey Tompkins' "you can scroll" demo */
-.scroll-words-section {
+/* "I can ..." word window: the track is tall so the stage pins while
+   ScrollWords.tsx rolls the list; only the previous, current and next word
+   show, the rest are clipped. */
+.scroll-words-track {
+  height: calc(50vh + (var(--word-count, 8) - 1) * 40vh);
+}
+
+.scroll-words-stage {
+  position: sticky;
+  /* Half of the remaining viewport, so the shorter stage pins centered. */
+  top: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
   padding-inline: clamp(20px, 3vw, 48px);
 }
 
 .scroll-words {
+  --line: 1.25em;
   --words-lightness: 76%;
   --words-chroma: 0.07;
   --words-hue-start: 235;
   --words-hue-end: 260;
   display: flex;
-  max-width: 900px;
-  margin: 0 auto;
-  padding-block: 12vh;
+  align-items: center;
+  justify-content: center;
   font-size: clamp(1.75rem, 6vw, 4.75rem);
   font-weight: 600;
-  line-height: 1.25;
+  line-height: var(--line);
   letter-spacing: -0.01em;
 }
 
@@ -2720,10 +2769,14 @@ main {
 }
 
 .scroll-words-lead {
-  position: sticky;
-  top: calc(50% - 0.5lh);
-  height: fit-content;
   margin: 0;
+  color: var(--text);
+}
+
+.scroll-words-window {
+  height: calc(var(--line) * 3);
+  overflow: hidden;
+  mask-image: linear-gradient(transparent, #000 33%, #000 67%, transparent);
 }
 
 .scroll-words ul {
@@ -2731,56 +2784,21 @@ main {
   margin: 0;
   padding: 0;
   list-style: none;
+  transform: translateY(var(--line));
 }
 
-.scroll-words li:not(:last-child) {
+.scroll-words li {
+  height: var(--line);
   color: oklch(
     var(--words-lightness) var(--words-chroma)
       calc(var(--words-hue-start) + var(--step) * var(--i))
   );
+  opacity: 0.25;
 }
 
-.scroll-words-lead,
+/* The final word settles into the same color as the lead. */
 .scroll-words li:last-child {
-  background: linear-gradient(var(--text) 50%, color-mix(in oklch, var(--bg), var(--text) 25%));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-@keyframes scroll-words-brighten {
-  0% {
-    opacity: var(--start-opacity, 0.2);
-  }
-
-  50% {
-    opacity: 1;
-    filter: brightness(var(--brightness, 1.2));
-  }
-
-  100% {
-    opacity: var(--end-opacity, 0.2);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) and (animation-range: 0% 100%) {
-    .scroll-words li {
-      opacity: 0.2;
-      animation: scroll-words-brighten linear both;
-      animation-timeline: view();
-      animation-range: cover calc(50% - 1lh) calc(50% + 1lh);
-    }
-
-    .scroll-words li:first-child {
-      --start-opacity: 1;
-    }
-
-    .scroll-words li:last-child {
-      --brightness: 1;
-      --end-opacity: 1;
-    }
-  }
+  color: var(--text);
 }
 
 .strength-stats {
