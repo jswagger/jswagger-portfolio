@@ -1941,6 +1941,53 @@ main {
   width: 100%;
 }
 
+.case-study-code-snippets {
+  padding-block: 32px 48px;
+  border-top: 1px solid color-mix(in srgb, var(--text) 50%, var(--bg));
+}
+
+.case-study-code-snippets h2 {
+  margin: 0 0 16px;
+  color: var(--text-h);
+  font-size: 1.05rem;
+}
+
+.case-study-code-snippets-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 16px;
+}
+
+.case-study-code-snippet {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--accent-border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.case-study-code-snippet figcaption {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--accent-border);
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.case-study-code-snippet pre {
+  overflow-x: auto;
+  margin: 0;
+  padding: 16px;
+  color: var(--text);
+  font-family: var(--mono, monospace);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.case-study-code-snippet code {
+  font-family: inherit;
+}
+
 .case-study-metrics {
   display: flex;
   flex-wrap: wrap;

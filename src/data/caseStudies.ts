@@ -63,6 +63,19 @@ export const caseStudies: CaseStudyDetail[] = [
     tagline: 'Lifting the codebase',
     summary: 'Lifting a legacy codebase with thoughtful React patterns and a more maintainable interface.',
     tags: ['React', 'TypeScript', 'Vite'],
+    codeSnippets: [
+      [
+        'UNSAFE_componentWillReceiveProps(nextProps) {',
+        '    if (nextProps.records) {',
+        '        for (const item of nextProps.records) formatText(item);',
+        '    }',
+        '}',
+      ].join('\n'),
+      [
+        'getFormattedRecords = memoizeFormattedRecords(formatDetailText);',
+        'render() { ... records={this.getFormattedRecords(this.props.records)} ... }',
+      ].join('\n'),
+    ],
     image: uiCardImage,
     heroImage: uiModernizationHeroImage,
     heroPosition: 'center 55%',
