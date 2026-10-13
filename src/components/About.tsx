@@ -56,6 +56,7 @@ export default function About() {
             My curiosity drives everything I do; I enjoy understanding how things fit together,
             asking thoughtful questions, and finding ways to improve things.
           </p>
+          <p>All photos on this website were taken by me during my travels.</p>
         </div>
         <div className="stats-list">
           {highlights.map((item) => (
