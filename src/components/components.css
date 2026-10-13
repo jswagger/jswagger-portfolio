@@ -157,7 +157,7 @@ main {
 }
 
 .site-header.is-scrolled {
-  padding-block: 2px;
+  padding-block: 4px;
 }
 
 .brand {
@@ -181,7 +181,7 @@ main {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin: 0;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -223,7 +223,7 @@ main {
 .nav-group {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 20px;
 }
 
 .nav {
@@ -274,7 +274,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 4px;
   width: 36px;
   height: 36px;
   padding: 0;
@@ -358,7 +358,7 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px;
+  padding: 8px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface);
@@ -393,7 +393,7 @@ main {
 /* Menu row version of the theme toggle; must follow .theme-toggle to override it */
 .theme-toggle-dropdown {
   justify-content: flex-start;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
   height: auto;
   padding: 8px 12px;
@@ -463,21 +463,47 @@ main {
   position: absolute;
   inset: 0;
   /* Left-to-right fade so the text column (left) has a dark, readable base
-     while the right side - where the photo's subject now sits - stays
-     visible. A flat low-opacity tint underneath keeps the whole photo from
-     washing out under light mode's pale --bg, same as before. */
-  background:
-    linear-gradient(to right, color-mix(in srgb, var(--hero-photo-tint) 85%, transparent) 0%, transparent 60%),
-    color-mix(in srgb, var(--hero-photo-tint) 25%, transparent);
+     while the right side - where the photo's subject sits - stays visible.
+     --hero-photo-tint is the same navy in both themes, so light mode's pale
+     --bg never washes the photo out. */
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--hero-photo-tint) 75%, transparent) 0%,
+    color-mix(in srgb, var(--hero-photo-tint) 42%, transparent) 45%,
+    color-mix(in srgb, var(--hero-photo-tint) 10%, transparent) 100%
+  );
   pointer-events: none;
 }
 
-@media (max-width: 640px) {
+.hero-content h1,
+.hero-content h3,
+.hero-copy-block .section-label {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
   .hero-section::before {
-    /* No room for a left/right split on narrow screens - go back to a flat,
-       darker tint across the whole photo so text stays readable. */
-    background: color-mix(in srgb, var(--hero-photo-tint) 70%, transparent);
+    /* Text spans the full width on narrow screens - use a flat, darker tint
+       across the whole photo so text stays readable. */
+    background: color-mix(in srgb, var(--hero-photo-tint) 75%, transparent);
   }
+}
+
+.hero-photo-credit {
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  margin: 0;
+  color: #e0e1dd;
+  font-size: 0.65rem;
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .hero-section::after {
@@ -527,14 +553,14 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 12px;
   padding: clamp(20px, 3vw, 40px);
 }
 
 .hero-banner-pill {
   display: inline-flex;
   align-self: flex-start;
-  padding: 7px 12px;
+  padding: 8px 12px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.16);
   border: 1px solid rgba(255, 255, 255, 0.24);
@@ -719,7 +745,7 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 18px;
+  padding: 12px 20px;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
@@ -785,7 +811,7 @@ main {
 .chip-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   margin-top: 28px;
 }
 
@@ -927,14 +953,39 @@ main {
   /* Overhang the card by 2px (padding compensates) so the overlay reaches the
      card's scaled, fractional-pixel edge instead of stopping a pixel short. */
   inset: auto -2px -2px;
-  padding: 14px 18px 16px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.4));
-  backdrop-filter: blur(3px);
+  isolation: isolate;
+  padding: 16px 20px 16px;
   color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.3;
   text-align: center;
+}
+
+/* Title sits at the bottom: navy fades up from the card edge, clearing
+   roughly halfway up the card. */
+.case-carousel-banner::before {
+  content: '';
+  position: absolute;
+  inset: -140px 0 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--hero-photo-tint) 70%, transparent) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .case-carousel-banner::before {
+    background: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--hero-photo-tint) 85%, transparent) 0%,
+      color-mix(in srgb, var(--hero-photo-tint) 55%, transparent) 100%
+    );
+  }
 }
 
 .case-carousel-nav {
@@ -1039,7 +1090,7 @@ main {
 }
 
 .stat-card {
-  padding-block: 22px;
+  padding-block: 24px;
   /* --border is too faint against the About section's gradient in both
      themes. --text is cream in dark mode and navy in light mode, both of
      which clear 3:1 against it. */
@@ -1060,7 +1111,7 @@ main {
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--text-muted);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .stat-card strong {
@@ -1082,7 +1133,7 @@ main {
   display: flex;
   align-items: flex-start;
   aspect-ratio: 3 / 4;
-  padding: 22px;
+  padding: 24px;
   overflow: hidden;
   container-type: inline-size;
   border-radius: 24px;
@@ -1116,10 +1167,35 @@ main {
 .info-card-glow {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) 55%),
-    color-mix(in srgb, #0d1321 45%, transparent);
+  /* Title sits at the top: navy fades from the top edge to clear by half
+     the card height. */
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--hero-photo-tint) 70%, transparent) 0%,
+    transparent 50%
+  );
   pointer-events: none;
+}
+
+/* The hover description opens below the title, past the gradient, so a
+   second layer fades in with it to keep that text readable. */
+.info-card-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--hero-photo-tint) 50%, transparent);
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.info-card:hover .info-card-glow::after {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .info-card-glow {
+    background: color-mix(in srgb, var(--hero-photo-tint) 65%, transparent);
+  }
 }
 
 .info-card-body {
@@ -1153,13 +1229,14 @@ main {
   white-space: nowrap;
   text-align: center;
   color: #fff;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .info-card p.info-card-description {
   margin: 0;
   max-height: 0;
   color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   line-height: 1.6;
   opacity: 0;
   overflow: hidden;
@@ -1168,20 +1245,39 @@ main {
 }
 
 .info-card:hover .info-card-description {
-  margin-top: 10px;
+  margin-top: 12px;
   max-height: 340px;
   opacity: 1;
   transform: translateY(0);
 }
 
 #work {
+  /* Darkest behind the section heading at the top, easing off below where
+     the photo is only decoration around the experience card. */
   background:
-    linear-gradient(rgba(17, 24, 37, 0.6), rgba(17, 24, 37, 0.6)),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--hero-photo-tint) 70%, transparent) 0%,
+      color-mix(in srgb, var(--hero-photo-tint) 45%, transparent) 25%,
+      color-mix(in srgb, var(--hero-photo-tint) 25%, transparent) 100%
+    ),
     url('../assets/experience-canyon.jpg') center / cover no-repeat;
+}
+
+@media (max-width: 768px) {
+  #work {
+    background:
+      linear-gradient(
+        color-mix(in srgb, var(--hero-photo-tint) 70%, transparent),
+        color-mix(in srgb, var(--hero-photo-tint) 70%, transparent)
+      ),
+      url('../assets/experience-canyon.jpg') center / cover no-repeat;
+  }
 }
 
 /* The canyon overlay stays dark in both themes, so keep the intro light. */
 #work .section-heading h3 {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   margin-bottom: 40px;
   color: #e0e1dd;
 }
@@ -1205,13 +1301,13 @@ main {
 }
 
 .experience-container h2 {
-    margin: 0 0 5px;
+    margin: 0 0 4px;
     font-size: 1.35rem;
     color: var(--text);
 }
 
 .experience-container h4 {
-    margin: 0 0 5px;
+    margin: 0 0 4px;
     font-size: 1rem;
     color: var(--text-muted);
 }
@@ -1227,7 +1323,7 @@ main {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 18px;
-  padding: 18px 20px;
+  padding: 20px 20px;
   box-shadow: 0 8px 24px var(--shadow);
 }
 
@@ -1262,7 +1358,7 @@ main {
 .project-accordion {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .project-accordion .project-card {
@@ -1320,7 +1416,7 @@ main {
   text-align: left;
   cursor: pointer;
   font: inherit;
-  padding: 14px 20px;
+  padding: 16px 20px;
   transition: padding 500ms cubic-bezier(0.05, 0.61, 0.41, 0.95);
 }
 
@@ -1449,24 +1545,24 @@ main {
 
 .project-section ul {
   margin: 0;
-  padding-left: 18px;
+  padding-left: 20px;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.6;
 }
 
 .project-section li + li {
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .tag-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 18px;
+  margin-top: 20px;
 }
 
 .tag {
-  padding: 6px 10px;
+  padding: 8px 12px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.16);
   color: #fff;
@@ -1527,7 +1623,7 @@ main {
   }
 
   .info-card p.info-card-description {
-    margin-top: 10px;
+    margin-top: 12px;
     max-height: none;
     opacity: 1;
     transform: none;
@@ -1545,7 +1641,7 @@ main {
   }
 
   .site-header .container {
-    padding: 14px 20px;
+    padding: 16px 20px;
   }
 
   .nav {
@@ -1622,10 +1718,42 @@ main {
   content: '';
   position: absolute;
   inset: 0;
-  /* The photo overlay stays dark in both themes so the hero image doesn't
-     wash out under light mode's pale --bg. */
-  background: color-mix(in srgb, var(--hero-photo-tint) 35%, transparent);
+  /* Radial pool of navy centered behind the (vertically offset) title and
+     subtitle, easing off toward the edges so the photo stays visible. The
+     tint is the same navy in both themes. */
+  background: radial-gradient(
+    ellipse farthest-corner at 50% 58%,
+    color-mix(in srgb, var(--hero-photo-tint) 60%, transparent) 0%,
+    color-mix(in srgb, var(--hero-photo-tint) 20%, transparent) 100%
+  );
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .case-study-hero-photo::before {
+    background: color-mix(in srgb, var(--hero-photo-tint) 65%, transparent);
+  }
+}
+
+/* The hero element itself ends its zoom animation at scale(1.1) about its
+   center, so the right inset adds 5.5% to keep the label inside the
+   viewport. The bottom edge needs no extra: the zoomed photo's bottom edge
+   is the visible one, and the label scales outward toward it. */
+.case-study-hero-photo-credit {
+  position: absolute;
+  right: calc(5.5% + 16px);
+  bottom: 12px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  margin: 0;
+  color: #e0e1dd;
+  font-size: 0.65rem;
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .case-study-hero-photo-content {
@@ -1687,10 +1815,12 @@ main {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   line-height: 1.05;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .case-study-hero-photo-content p {
   margin: 0 auto;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   color: #e0e1dd;
   font-family: var(--heading);
   font-weight: 400;
@@ -1756,13 +1886,13 @@ main {
   color: var(--accent);
   background: rgba(255, 255, 255, 0.32);
   box-shadow: 0 10px 24px rgba(17, 24, 37, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  transform: translateX(-4px);
+  transform: translateY(-2px);
 }
 
 .case-study-page-partner {
   display: flex;
   justify-content: center;
-  margin-top: 48px;
+  margin-bottom: clamp(24px, 4vw, 32px);
 }
 
 .case-study-page-partner img {
@@ -1770,12 +1900,21 @@ main {
   width: auto;
 }
 
+.case-study-page-pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+  margin-top: 32px;
+}
+
 .case-study-page-next {
   display: flex;
   width: fit-content;
   align-items: center;
-  gap: 6px;
-  margin: 32px 0 0 auto;
+  gap: 8px;
+  margin-left: auto;
   color: var(--text);
   font-weight: 600;
   font-size: 0.9rem;
@@ -1786,6 +1925,15 @@ main {
 .case-study-page-next:hover {
   color: var(--accent);
   transform: translateX(4px);
+}
+
+.case-study-page-prev {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.case-study-page-prev:hover {
+  transform: translateX(-4px);
 }
 
 .case-study-page-tagline {
@@ -1801,7 +1949,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   margin-top: 20px;
 }
 
@@ -1817,7 +1965,7 @@ main {
 
 .case-study-page-tag:not(:last-child)::after {
   content: '·';
-  margin-left: 10px;
+  margin-left: 12px;
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -1843,13 +1991,13 @@ main {
 }
 
 .case-study-page-section h2 {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   color: var(--text-h);
   font-size: 1.05rem;
 }
 
 .case-study-page-section p {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   color: var(--text);
   font-size: 1rem;
   line-height: 1.7;
@@ -1862,8 +2010,8 @@ main {
 .case-study-page-checklist {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin: 10px 0 0;
+  gap: 12px;
+  margin: 12px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -1871,7 +2019,7 @@ main {
 .case-study-page-checklist li {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 12px;
   color: var(--text);
   line-height: 1.6;
 }
@@ -1879,7 +2027,7 @@ main {
 .case-study-page-check-icon {
   width: 18px;
   height: 18px;
-  margin-top: 2px;
+  margin-top: 4px;
   color: var(--accent);
   flex-shrink: 0;
 }
@@ -1899,7 +2047,7 @@ main {
 .case-study-page-section-label {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .case-study-page-section-label h2 {
@@ -1951,7 +2099,7 @@ main {
 .case-study-metric-chart {
   min-width: 220px;
   flex: 1 1 260px;
-  padding: 12px 14px;
+  padding: 12px 16px;
   border: 1px solid var(--accent-border);
   border-radius: 12px;
 }
@@ -1976,12 +2124,35 @@ main {
 /* Conceptual workflow visual (CaseStudyWorkflowVisual). Reveal is staged in
    sequence: step nodes, then the connecting line, then their systems, then
    the architecture callout, then the outcome metric. */
+/* Local palette: the shared --surface/--text-muted tokens sit too close to
+   the animated page gradient here, so this block owns its own contrast.
+   Text pairs are all >= 7:1 against their backgrounds. */
+.workflow-visual {
+  --wv-panel: color-mix(in srgb, #1d2d44 20%, #0d1321);
+  --wv-inner: color-mix(in srgb, #1d2d44 80%, #0d1321);
+  --wv-border: color-mix(in srgb, #748cab 50%, #0d1321);
+  --wv-heading: #f4f4f1;
+  --wv-text: #e0e1dd;
+  --wv-muted: #b4c0d0;
+  --wv-accent: color-mix(in srgb, #d4935e 85%, #e0e1dd);
+}
+
+:root[data-theme='light'] .workflow-visual {
+  --wv-panel: color-mix(in srgb, white 85%, #e0e1dd);
+  --wv-inner: color-mix(in srgb, #748cab 14%, white);
+  --wv-border: color-mix(in srgb, #748cab 65%, white);
+  --wv-heading: #0d1321;
+  --wv-text: #0d1321;
+  --wv-muted: #1d2d44;
+  --wv-accent: color-mix(in srgb, #d4935e 35%, #0d1321);
+}
+
 .workflow-visual {
   margin: 32px 0 80px;
   padding: clamp(28px, 4vw, 48px) clamp(20px, 4vw, 40px);
-  border: 1px solid var(--border);
+  border: 1px solid var(--wv-border);
   border-radius: 20px;
-  background: var(--surface);
+  background: var(--wv-panel);
   display: flex;
   flex-direction: column;
   gap: clamp(32px, 5vw, 48px);
@@ -1990,7 +2161,7 @@ main {
 .workflow-visual-headline {
   margin: 0;
   max-width: 640px;
-  color: var(--text-h);
+  color: var(--wv-heading);
   font-family: var(--heading);
   font-weight: 600;
   font-size: clamp(1.1rem, 2.4vw, 1.6rem);
@@ -2010,11 +2181,11 @@ main {
 
 .workflow-visual-line {
   position: absolute;
-  top: 7px;
+  top: 8px;
   left: 10%;
   right: 10%;
   height: 2px;
-  background: var(--border);
+  background: var(--wv-border);
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 650ms cubic-bezier(0.29, 0.8, 0.8, 0.98);
@@ -2032,7 +2203,7 @@ main {
   flex: 1 1 0;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   text-align: center;
   opacity: 0;
   transform: translateY(10px);
@@ -2053,11 +2224,11 @@ main {
 }
 
 .workflow-step-dot {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-bg);
+  background: var(--wv-accent);
+  box-shadow: 0 0 0 4px var(--wv-border);
 }
 
 .workflow-step-label {
@@ -2066,14 +2237,14 @@ main {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: 0.85rem;
-  color: var(--text-h);
+  color: var(--wv-heading);
 }
 
 .workflow-step-systems {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 450ms ease, transform 450ms ease;
@@ -2088,18 +2259,18 @@ main {
 .system-node {
   padding: 4px 12px;
   border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--surface-secondary);
-  color: var(--text-muted);
-  font-size: 0.72rem;
+  border: 1px solid var(--wv-border);
+  background: var(--wv-inner);
+  color: var(--wv-text);
+  font-size: 0.78rem;
   font-weight: 500;
   white-space: nowrap;
   transition: border-color 200ms ease, color 200ms ease;
 }
 
 .system-node:hover {
-  border-color: var(--accent-border);
-  color: var(--text-h);
+  border-color: var(--wv-accent);
+  color: var(--wv-heading);
 }
 
 .workflow-step-node {
@@ -2111,7 +2282,7 @@ main {
 }
 
 .workflow-step:hover .workflow-step-dot {
-  box-shadow: 0 0 0 6px var(--accent-bg);
+  box-shadow: 0 0 0 6px var(--wv-border);
 }
 
 .workflow-step-dot {
@@ -2120,9 +2291,9 @@ main {
 
 .architecture-callout {
   padding: clamp(20px, 3vw, 28px);
-  border: 1px solid var(--border);
+  border: 1px solid var(--wv-border);
   border-radius: 16px;
-  background: var(--surface-secondary);
+  background: var(--wv-inner);
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 550ms ease, transform 550ms ease;
@@ -2136,7 +2307,7 @@ main {
 
 .architecture-callout-question {
   margin: 0 0 8px;
-  color: var(--accent);
+  color: var(--wv-accent);
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -2146,7 +2317,7 @@ main {
 .architecture-callout-explanation {
   margin: 0 0 20px;
   max-width: 640px;
-  color: var(--text);
+  color: var(--wv-text);
   line-height: 1.6;
 }
 
@@ -2160,7 +2331,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
+  gap: 8px;
 }
 
 .architecture-branch-label {
@@ -2169,24 +2340,24 @@ main {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   font-size: 0.78rem;
-  color: var(--text-h);
+  color: var(--wv-heading);
 }
 
 .architecture-branch-system {
   display: flex;
   align-items: center;
-  gap: 6px;
-  color: var(--text-muted);
-  font-size: 0.85rem;
+  gap: 8px;
+  color: var(--wv-muted);
+  font-size: 0.9rem;
 }
 
 .architecture-branch-arrow {
-  color: var(--text-muted);
+  color: var(--wv-accent);
 }
 
 .outcome-metric {
   padding-top: clamp(8px, 2vw, 16px);
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--wv-border);
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 550ms ease, transform 550ms ease;
@@ -2202,26 +2373,26 @@ main {
   font-family: var(--heading);
   font-weight: 700;
   font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--accent);
+  color: var(--wv-accent);
   line-height: 1.1;
 }
 
 .outcome-metric-label {
   margin-top: 4px;
-  color: var(--text-h);
+  color: var(--wv-heading);
   font-weight: 600;
 }
 
 .outcome-metric-description {
-  margin: 6px 0 0;
-  color: var(--text-muted);
-  font-size: 0.9rem;
+  margin: 8px 0 0;
+  color: var(--wv-muted);
+  font-size: 0.95rem;
 }
 
 .workflow-visual-caption {
   margin: 0;
-  color: var(--text-muted);
-  font-size: 0.78rem;
+  color: var(--wv-muted);
+  font-size: 0.82rem;
   font-style: italic;
 }
 
@@ -2233,8 +2404,8 @@ main {
   }
 
   .workflow-visual-line {
-    top: 7px;
-    bottom: 7px;
+    top: 8px;
+    bottom: 8px;
     left: 50%;
     right: auto;
     width: 2px;
@@ -2286,7 +2457,7 @@ main {
 }
 
 .case-study-images figcaption {
-  margin-top: 6px;
+  margin-top: 8px;
   font-size: 0.85rem;
   color: var(--text-muted, var(--text));
   text-align: center;
@@ -2387,7 +2558,7 @@ main {
 .section-indicator ul {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -2419,7 +2590,7 @@ main {
   position: absolute;
   top: 50%;
   right: calc(100% + 12px);
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 999px;
   background: var(--surface);
   color: var(--text);
@@ -2561,7 +2732,7 @@ main {
 }
 
 .strength-stat-title {
-  margin-top: 10px;
+  margin-top: 12px;
   color: var(--text-muted);
 }
 

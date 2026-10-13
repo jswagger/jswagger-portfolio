@@ -23,6 +23,11 @@ export default function Hero() {
         </div>
       </div>
 
+      <p className="hero-photo-credit">
+        <span>Jeremy working remotely in Romania</span>
+        <span>Photo: Stephanie Swagger</span>
+      </p>
+
       <a href="#case-studies" className="hero-scroll-indicator" aria-label="Scroll to selected work">
         <svg viewBox="0 0 40 64" width="40" height="64" fill="none" aria-hidden="true">
           <rect x="1.5" y="1.5" width="37" height="61" rx="18.5" className="hero-scroll-indicator-pill" />

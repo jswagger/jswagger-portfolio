@@ -101,6 +101,7 @@ export interface CaseStudyDetail {
   heroImage?: string
   heroSubtitle?: string
   heroPosition?: string
+  heroPhotoLocation?: string
   intro?: string
   workflowVisual?: WorkflowVisualData
   stats?: StrengthStat[]

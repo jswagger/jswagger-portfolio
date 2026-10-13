@@ -6,6 +6,7 @@ import uiModernizationHeroImage from '../assets/UIModernizationHeroImage.jpg'
 import enrollmentCardImage from '../assets/EnrollmentCardImage.png'
 import enrollmentHeroImage from '../assets/EnrollmentHeroImage.jpg'
 import enrollmentArchitectureDiagram from '../assets/EnrollmentArchitectureDiagram.png'
+import enrollmentWorkflowDiagram from '../assets/EnrollmentWorkflowDiagram.webp'
 import codeQualityCardImage from '../assets/CodeQualityCardImage.png'
 import mappingHeroImage from '../assets/MappingHeroImage.jpg'
 import geospatialCardImage from '../assets/GeospatialCardImage.png'
@@ -22,6 +23,7 @@ export const caseStudies: CaseStudyDetail[] = [
     tags: ['AWS Bedrock', 'Python', 'React', 'Amazon S3'],
     image: aiCardImage,
     heroImage: reportingHeroImage,
+    heroPhotoLocation: 'Cappadocia, Türkiye',
     heroPosition: 'center 55%',
     heroSubtitle: 'Applying AI to turn dense reports into clear, useful insights.',
     sections: [
@@ -65,6 +67,7 @@ export const caseStudies: CaseStudyDetail[] = [
     tags: ['React', 'TypeScript', 'Vite'],
     image: uiCardImage,
     heroImage: uiModernizationHeroImage,
+    heroPhotoLocation: 'Patagonia, Chile',
     heroPosition: 'center 55%',
     heroSubtitle: 'Bringing a legacy interface forward without disrupting the workflows behind it.',
     sections: [
@@ -120,10 +123,11 @@ export const caseStudies: CaseStudyDetail[] = [
     tags: ['React', '.NET APIs', 'AWS Cognito', 'SQL Server'],
     image: enrollmentCardImage,
     heroImage: enrollmentHeroImage,
+    heroPhotoLocation: 'Grand Tetons, Wyoming',
     heroPosition: 'center 78%',
     heroSubtitle: 'Building a secure, end-to-end customer enrollment workflow that became a foundational part of the AI360 platform.',
     intro:
-      'AI360 previously had no formal process for managing customer enrollment and agreement acceptance. I helped design and implement a multi-step workflow that introduced identity verification, agreement acceptance, and enrollment state into the existing platform; creating a foundation that downstream features could reliably depend on.',
+      'AI360, the data-sharing platform within the Agvance agribusiness software suite, previously lacked a formal process for managing customer enrollment and agreement acceptance. As primary engineer, I designed and implemented a multi-step workflow that introduced identity verification, agreement acceptance, and enrollment state into the existing platform, creating a foundation that downstream features could reliably depend on.',
     workflowVisual: {
       headline: 'A workflow, built to scale',
       steps: [
@@ -150,10 +154,10 @@ export const caseStudies: CaseStudyDetail[] = [
       caption: 'Conceptual representation of the workflow and supporting systems.',
     },
     stats: [
-      { value: 6, suffix: '+', emphasis: 'Years', label: 'In production' },
+      { value: 6, suffix: '+', emphasis: '', label: 'Years in production' },
       { value: 10000, suffix: '+', emphasis: '', label: 'Customers enrolled' },
-      { value: 15, suffix: '+', emphasis: '', label: 'Downstream features dependent on enrollment state' },
-      { value: 8, suffix: '', emphasis: '', label: 'API calls per enrollment' },
+      { value: 15, suffix: '+', emphasis: '', label: 'Dependant features' },
+      { value: 5, suffix: '', emphasis: '', label: 'Repositories' },
     ],
     diagramImage: {
       src: enrollmentArchitectureDiagram,
@@ -186,6 +190,12 @@ export const caseStudies: CaseStudyDetail[] = [
           'Administrator initiates → Customer receives invitation → Identity is verified → Agreement is presented → Customer accepts → Enrollment state is recorded',
           'That state could then be consumed by existing and future features to determine whether a customer was eligible to access workflows requiring enrollment.',
           'This approach allowed the new capability to fit into the existing enterprise system while creating a foundation that other parts of the application could build upon.'
+        ],
+        images: [
+          {
+            src: enrollmentWorkflowDiagram,
+            alt: 'Swimlane diagram of the enrollment workflow: an administrator initiates enrollment in React, the customer receives an email invitation, the system verifies identity with Cognito and SMS, presents the agreement in React, the customer accepts via a .NET API, and the system records enrollment state in SQL Server, which 15+ downstream features read.'
+          }
         ]
       },
       {
@@ -193,7 +203,7 @@ export const caseStudies: CaseStudyDetail[] = [
         subtitle: '10,000+ customers enrolled',
         paragraphs: [
           'The enrollment process became an established part of the AI360 platform and has remained in production for more than six years.',
-          'Thousands of customers have completed the enrollment process, and approximately 15 downstream features reference the enrollment state to control access to related workflows.',
+          'Over 10,000 customers have completed the enrollment process, and approximately 15+ downstream features reference the enrollment state to control access to related workflows.',
           'Each enrollment coordinates approximately 8 API calls, 1 email, and 1 SMS message across the application and supporting services.'
         ]
       },
@@ -215,6 +225,7 @@ export const caseStudies: CaseStudyDetail[] = [
     tags: ['Claude AI', 'Git', 'Automation'],
     image: codeQualityCardImage,
     heroImage: mappingHeroImage,
+    heroPhotoLocation: 'Rockaway Beach, Oregon',
     heroPosition: 'center 20%',
     heroSubtitle: 'Creating a repeatable system for finding bugs, verifying requirements, and improving code quality.',
     sections: [
@@ -269,6 +280,7 @@ export const caseStudies: CaseStudyDetail[] = [
     tags: ['React', 'IOT Messaging', 'Performance'],
     image: geospatialCardImage,
     heroImage: performanceOverhaulHeroImage,
+    heroPhotoLocation: 'BLM Land, Utah',
     heroPosition: 'center 55%',
     heroSubtitle: 'Identifying and eliminating performance bottlenecks across a demanding editing workflow.',
     sections: [

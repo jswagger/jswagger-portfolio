@@ -156,6 +156,7 @@ export default function SelectedWork() {
   const caseStudyIndex = caseStudies.findIndex((study) => study.slug === slug)
   const caseStudy = caseStudies[caseStudyIndex]
   const nextCaseStudy = caseStudies[(caseStudyIndex + 1) % caseStudies.length]
+  const prevCaseStudy = caseStudies[(caseStudyIndex - 1 + caseStudies.length) % caseStudies.length]
 
   useEffect(() => {
     if (!caseStudy) return
@@ -169,11 +170,24 @@ export default function SelectedWork() {
     <main className="case-study-page">
       <Navbar showBrand={false} />
       <Link
-        to="/#case-studies"
+        to="/"
         className="case-study-page-back case-study-page-back-header"
-        aria-label="Back to selected work"
+        aria-label="Home"
       >
-        ←
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M3 10.5 12 3l9 7.5" />
+          <path d="M5 9.5V21h5v-6h4v6h5V9.5" />
+        </svg>
       </Link>
 
       <div
@@ -194,10 +208,20 @@ export default function SelectedWork() {
             ))}
           </div>
         </div>
+        {caseStudy.heroPhotoLocation && (
+          <p className="case-study-hero-photo-credit">
+            <span>{caseStudy.heroPhotoLocation}</span>
+            <span>Photo: Jeremy Swagger</span>
+          </p>
+        )}
       </div>
 
       <div className="case-study-page-frame">
         <article className="case-study-page-article">
+          <Reveal className="case-study-page-partner">
+            <img src={agvanceLogo} alt="Agvance" />
+          </Reveal>
+
           {caseStudy.intro && (
             <Reveal>
               <p className="case-study-page-intro">{caseStudy.intro}</p>
@@ -234,13 +258,14 @@ export default function SelectedWork() {
           )}
         </article>
 
-        <Reveal className="case-study-page-partner">
-          <img src={agvanceLogo} alt="Agvance" />
-        </Reveal>
-
-        <Link to={`/work/${nextCaseStudy.slug}`} className="case-study-page-next">
-          Next project →
-        </Link>
+        <nav className="case-study-page-pager" aria-label="More projects">
+          <Link to={`/work/${prevCaseStudy.slug}`} className="case-study-page-next case-study-page-prev">
+            ← {prevCaseStudy.title}
+          </Link>
+          <Link to={`/work/${nextCaseStudy.slug}`} className="case-study-page-next">
+            {nextCaseStudy.title} →
+          </Link>
+        </nav>
       </div>
     </main>
   )
