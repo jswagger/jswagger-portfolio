@@ -950,29 +950,47 @@ main {
 
 .case-carousel-banner {
   position: absolute;
-  /* Overhang the card by 2px (padding compensates) so the overlay reaches the
-     card's scaled, fractional-pixel edge instead of stopping a pixel short. */
-  inset: auto -2px -2px;
+  inset: 0;
   isolation: isolate;
-  padding: 16px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 24px;
   color: #fff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-  font-size: 1rem;
-  font-weight: 600;
   line-height: 1.3;
   text-align: center;
 }
 
-/* Title sits at the bottom: navy fades up from the card edge, clearing
-   roughly halfway up the card. */
+.case-carousel-icon {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  margin-bottom: 4px;
+}
+
+.case-carousel-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.case-carousel-subtitle {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Title is centered on the card: a navy glow sits behind the text only. */
 .case-carousel-banner::before {
   content: '';
   position: absolute;
-  inset: -140px 0 0;
+  inset: 0;
   z-index: -1;
-  background: linear-gradient(
-    to top,
-    color-mix(in srgb, var(--hero-photo-tint) 70%, transparent) 0%,
+  background: radial-gradient(
+    ellipse 90% 45% at center,
+    color-mix(in srgb, var(--hero-photo-tint) 75%, transparent) 0%,
     transparent 100%
   );
   pointer-events: none;
@@ -980,10 +998,10 @@ main {
 
 @media (max-width: 768px) {
   .case-carousel-banner::before {
-    background: linear-gradient(
-      to top,
+    background: radial-gradient(
+      ellipse 100% 50% at center,
       color-mix(in srgb, var(--hero-photo-tint) 85%, transparent) 0%,
-      color-mix(in srgb, var(--hero-photo-tint) 55%, transparent) 100%
+      transparent 100%
     );
   }
 }
@@ -2488,6 +2506,10 @@ main {
   flex-wrap: wrap;
   gap: 16px;
   margin-top: 12px;
+}
+
+.case-study-images + p {
+  margin-top: 32px;
 }
 
 .case-study-images figure {

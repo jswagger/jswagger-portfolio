@@ -58,6 +58,7 @@ export interface CaseStudySection {
   bullets?: string[]
   metrics?: CaseStudyMetric[]
   images?: CaseStudyImage[]
+  imagesAfterParagraph?: number
 }
 
 export interface WorkflowVisualStep {
@@ -90,6 +91,8 @@ export interface WorkflowVisualData {
   caption: string
 }
 
+export type CaseStudyCardIcon = 'sparkles' | 'layout' | 'user-check' | 'shield-check' | 'bolt'
+
 export interface CaseStudyDetail {
   title: string
   slug: string
@@ -98,6 +101,8 @@ export interface CaseStudyDetail {
   tags: string[]
   sections: CaseStudySection[]
   image?: string
+  cardIcon?: CaseStudyCardIcon
+  cardSubtitle?: string
   heroImage?: string
   heroSubtitle?: string
   heroPosition?: string

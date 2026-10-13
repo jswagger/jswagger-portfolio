@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import CaseStudyCarousel from './CaseStudyCarousel'
 import { caseStudies } from '../data/caseStudies'
 
-const caseStudySummaries = caseStudies.map(({ title, summary, image, slug }) => ({
+const caseStudySummaries = caseStudies.map(({ title, summary, image, cardIcon, cardSubtitle, slug }) => ({
   title,
   description: summary,
   image,
+  icon: cardIcon,
+  subtitle: cardSubtitle,
   href: `/work/${slug}`,
 }))
 

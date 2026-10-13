@@ -1,15 +1,15 @@
 import type { CaseStudyDetail } from '../types/content'
-import aiCardImage from '../assets/AIcardimage.png'
+import aiCardImage from '../assets/AICardImage.jpg'
 import reportingHeroImage from '../assets/ReportingHeroImage.jpg'
-import uiCardImage from '../assets/UICardImage3.png'
+import uiCardImage from '../assets/UICardImage.jpg'
 import uiModernizationHeroImage from '../assets/UIModernizationHeroImage.jpg'
-import enrollmentCardImage from '../assets/EnrollmentCardImage.png'
+import enrollmentCardImage from '../assets/EnrollmentCardImage.jpg'
 import enrollmentHeroImage from '../assets/EnrollmentHeroImage.jpg'
 import enrollmentArchitectureDiagram from '../assets/EnrollmentArchitectureDiagram.png'
 import enrollmentWorkflowDiagram from '../assets/EnrollmentWorkflowDiagram.webp'
-import codeQualityCardImage from '../assets/CodeQualityCardImage.png'
+import codeQualityCardImage from '../assets/CodeQualityCardImage.jpg'
 import mappingHeroImage from '../assets/MappingHeroImage.jpg'
-import geospatialCardImage from '../assets/GeospatialCardImage.png'
+import geospatialCardImage from '../assets/GeospatialCardImage.jpg'
 import performanceOverhaulHeroImage from '../assets/PerformanceOverhaulHeroImage.jpg'
 import recChangedCpuOriginal from '../assets/RecChangedCPU-Original.png'
 import recChangedCpuNew from '../assets/RecChangedCPU.png'
@@ -22,6 +22,8 @@ export const caseStudies: CaseStudyDetail[] = [
     summary: 'Integrating the power of AWS Bedrock to turn complex reports into clear, useful summaries.',
     tags: ['AWS Bedrock', 'Python', 'React', 'Amazon S3'],
     image: aiCardImage,
+    cardIcon: 'sparkles',
+    cardSubtitle: '75% decrease token consumption',
     heroImage: reportingHeroImage,
     heroPhotoLocation: 'Cappadocia, Türkiye',
     heroPosition: 'center 55%',
@@ -107,6 +109,8 @@ export const caseStudies: CaseStudyDetail[] = [
       ].join('\n'),
     ],
     image: uiCardImage,
+    cardIcon: 'layout',
+    cardSubtitle: '350+ files converted to TypeScript',
     heroImage: uiModernizationHeroImage,
     heroPhotoLocation: 'Patagonia, Chile',
     heroPosition: 'center 55%',
@@ -162,6 +166,8 @@ export const caseStudies: CaseStudyDetail[] = [
     summary: 'Creating a clean, painless workflow for managing legal customer licensing and data enrollment.',
     tags: ['React', '.NET APIs', 'AWS Cognito', 'SQL Server'],
     image: enrollmentCardImage,
+    cardIcon: 'user-check',
+    cardSubtitle: '10,000+ customers enrolled',
     heroImage: enrollmentHeroImage,
     heroPhotoLocation: 'Grand Tetons, Wyoming',
     heroPosition: 'center 78%',
@@ -227,10 +233,11 @@ export const caseStudies: CaseStudyDetail[] = [
         paragraphs: [
           "I designed the enrollment state as a durable part of the application's business logic rather than treating enrollment as a one-time transaction.",
           'The workflow established a clear progression:',
-          'Administrator initiates → Customer receives invitation → Identity is verified → Agreement is presented → Customer accepts → Enrollment state is recorded',
+          
           'That state could then be consumed by existing and future features to determine whether a customer was eligible to access workflows requiring enrollment.',
           'This approach allowed the new capability to fit into the existing enterprise system while creating a foundation that other parts of the application could build upon.'
         ],
+        imagesAfterParagraph: 1,
         images: [
           {
             src: enrollmentWorkflowDiagram,
@@ -264,6 +271,8 @@ export const caseStudies: CaseStudyDetail[] = [
     summary: 'Building AI-driven review skills that hunt bugs and enforce quality before pull requests are opened.',
     tags: ['Claude Code', 'Git', 'Automation'],
     image: codeQualityCardImage,
+    cardIcon: 'shield-check',
+    cardSubtitle: 'Still in progress',
     heroImage: mappingHeroImage,
     heroPhotoLocation: 'Rockaway Beach, Oregon',
     heroPosition: 'center 20%',
@@ -318,6 +327,8 @@ export const caseStudies: CaseStudyDetail[] = [
     summary: 'Overhauling event editing performance by taming IOT messaging, cutting load times by ~75%, and eliminating status race conditions.',
     tags: ['React', 'IOT Messaging', 'Performance'],
     image: geospatialCardImage,
+    cardIcon: 'bolt',
+    cardSubtitle: '95% fewer API calls',
     heroImage: performanceOverhaulHeroImage,
     heroPhotoLocation: 'BLM Land, Utah',
     heroPosition: 'center 55%',

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import Navbar from './Navbar'
 import CaseStudyMetricChart from './CaseStudyMetricChart'
@@ -94,9 +94,26 @@ function BulletCheckIcon() {
 }
 
 function CaseStudySection({ section }: { section: CaseStudySectionData }) {
+  const images = section.images && (
+    <div className="case-study-images">
+      {section.images.map((image) => (
+        <figure key={image.src}>
+          <img src={image.src} alt={image.alt} />
+          {image.caption && <figcaption>{image.caption}</figcaption>}
+        </figure>
+      ))}
+    </div>
+  )
+  const imagesIndex = section.imagesAfterParagraph
+
   const content = (
     <>
-      {section.paragraphs?.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+      {section.paragraphs?.map((paragraph, index) => (
+        <Fragment key={index}>
+          <p>{paragraph}</p>
+          {index === imagesIndex && images}
+        </Fragment>
+      ))}
       {section.bullets && (
         <ul className="case-study-page-checklist">
           {section.bullets.map((bullet, index) => (
@@ -114,16 +131,7 @@ function CaseStudySection({ section }: { section: CaseStudySectionData }) {
           ))}
         </div>
       )}
-      {section.images && (
-        <div className="case-study-images">
-          {section.images.map((image) => (
-            <figure key={image.src}>
-              <img src={image.src} alt={image.alt} />
-              {image.caption && <figcaption>{image.caption}</figcaption>}
-            </figure>
-          ))}
-        </div>
-      )}
+      {imagesIndex === undefined && images}
     </>
   )
 

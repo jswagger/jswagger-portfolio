@@ -1,15 +1,51 @@
-import { useState, type CSSProperties } from 'react'
+import { useState, type CSSProperties, type ReactNode } from 'react'
+import type { CaseStudyCardIcon } from '../types/content'
 
 interface CaseStudyCarouselItem {
   title: string
   description: string
   href?: string
   image?: string
+  icon?: CaseStudyCardIcon
+  subtitle?: string
 }
 
 interface CaseStudyCarouselProps {
   items: CaseStudyCarouselItem[]
   onSelect: (item: CaseStudyCarouselItem) => void
+}
+
+const CARD_ICON_PATHS: Record<CaseStudyCardIcon, ReactNode> = {
+  sparkles: (
+    <>
+      <path d="M10 4l1.8 4.7L16.5 10.5l-4.7 1.8L10 17l-1.8-4.7L3.5 10.5l4.7-1.8z" />
+      <path d="M18 3v4" />
+      <path d="M16 5h4" />
+      <path d="M18 17v4" />
+      <path d="M16 19h4" />
+    </>
+  ),
+  layout: (
+    <>
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M3 9h18" />
+      <path d="M9 9v11" />
+    </>
+  ),
+  'user-check': (
+    <>
+      <circle cx="9" cy="8" r="4" />
+      <path d="M2.5 20a6.5 6.5 0 0 1 13 0" />
+      <path d="m16 11 2 2 4-4" />
+    </>
+  ),
+  'shield-check': (
+    <>
+      <path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z" />
+      <path d="m8.5 12 2.5 2.5L15.5 10" />
+    </>
+  ),
+  bolt: <path d="M13 3 5 13.5h6L10 21l8-10.5h-6z" />,
 }
 
 interface CarouselSlot {
@@ -98,7 +134,24 @@ function CarouselCard({ slot, onActivate, onSelect }: CarouselCardProps) {
         }
       }}
     >
-      <span className="case-carousel-banner">{slot.item.title}</span>
+      <span className="case-carousel-banner">
+        {slot.item.icon && (
+          <svg
+            className="case-carousel-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            {CARD_ICON_PATHS[slot.item.icon]}
+          </svg>
+        )}
+        <span className="case-carousel-title">{slot.item.title}</span>
+        {slot.item.subtitle && <span className="case-carousel-subtitle">{slot.item.subtitle}</span>}
+      </span>
     </a>
   )
 }
