@@ -106,6 +106,7 @@ export interface CaseStudyDetail {
   workflowVisual?: WorkflowVisualData
   stats?: StrengthStat[]
   diagramImage?: CaseStudyImage
+  codeSnippets?: string[]
 }
 
 // Condensed, single-accordion view of a company's experience. The full

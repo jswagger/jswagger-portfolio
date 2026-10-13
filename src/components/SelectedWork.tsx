@@ -248,6 +248,22 @@ export default function SelectedWork() {
             ))}
           </div>
 
+          {caseStudy.codeSnippets && (
+            <Reveal className="case-study-code-snippets">
+              <h2>Code before and after</h2>
+              <div className="case-study-code-snippets-list">
+                {caseStudy.codeSnippets.map((snippet, index) => (
+                  <figure className="case-study-code-snippet" key={index}>
+                    <figcaption>{index === 0 ? 'Before' : index === 1 ? 'After' : `Code snippet ${index + 1}`}</figcaption>
+                    <pre>
+                      <code>{snippet}</code>
+                    </pre>
+                  </figure>
+                ))}
+              </div>
+            </Reveal>
+          )}
+
           {caseStudy.diagramImage && (
             <Reveal className="case-study-images case-study-diagram-image">
               <figure>
