@@ -26,19 +26,22 @@ export const caseStudies: CaseStudyDetail[] = [
     heroSubtitle: 'Applying AI to turn dense reports into clear, useful insights.',
     sections: [
       {
-        heading: 'Problem',
+        heading: 'The Challenge',
+        subtitle: 'There was no easy way to see across multiple reports.',
         paragraphs: [
           'Users run many reports that give specific analysis about different aspects of their data. But there was no way to summarize or draw correlations easily from multiple documents.'
         ]
       },
       {
-        heading: 'Approach',
+        heading: 'The Approach',
+        subtitle: 'Building a test pool to make AI results dependable.',
         paragraphs: [
           "Since reports can hold many different types of data, and utilize many different layouts, I knew that we needed to establish a large test pool to try out many different combinations. So I worked with Claude AI to carefully create some temporary scripts in Python to run specific reports through Bedrock, and compare against a direct analysis. This allowed me to isolate specific problematic cases, and establish intentional dynamic context, so that the Bedrock model would consistently return desired results."
         ]
       },
       {
-        heading: 'Strategy',
+        heading: 'The Strategy',
+        subtitle: 'Cutting token use by 75% while keeping the insight.',
         paragraphs: [
           'We wanted a clean and simple UI element, so I designed a new React component to house a modal that took in basic markdown information returned from an API call, and displayed nicely formatted text to the user.',
           'On the backend, I utilized our AWS Bedrock connection in Python. There I built a new class that received a list of report IDs, retrieved them from Amazon S3, did some processing, then sent a request to Bedrock.',
@@ -46,7 +49,8 @@ export const caseStudies: CaseStudyDetail[] = [
         ]
       },
       {
-        heading: 'Result',
+        heading: 'The Outcome',
+        subtitle: 'Clear summaries in a single click.',
         paragraphs: [
           'Selecting multiple reports and clicking "Summarize" now allows users to get a high-level view quickly and automatically. Token consumption is well-managed, and users are able to receive accurate perceptions of their data.'
         ]
@@ -65,25 +69,29 @@ export const caseStudies: CaseStudyDetail[] = [
     heroSubtitle: 'Bringing a legacy interface forward without disrupting the workflows behind it.',
     sections: [
       {
-        heading: 'Problem',
+        heading: 'The Challenge',
+        subtitle: 'A stale codebase was hiding bugs and slowing the team down.',
         paragraphs: [
           'Over time, the UI codebase became stale, filled with legacy structures and strategies, stuck on old library definitions, and scattered with undefined object types. On a day-to-day basis, this resulted in old coding practices, random bugs, and limited debug visibility.'
         ]
       },
       {
-        heading: 'Approach',
+        heading: 'The Approach',
+        subtitle: 'Turning a legacy codebase into measurable goals.',
         paragraphs: [
           'When I became the UI Focus Group Leader, I set to work establishing a plan to incrementally improve the codebase over time. I looked at key metrics, such as TypeScript usage, React UNSAFE function occurrence, areas with low type definition, and blockers to upgrading our React version, and started tracking the numbers.'
         ]
       },
       {
-        heading: 'Strategy',
+        heading: 'The Strategy',
+        subtitle: 'Steady progress, one refactor at a time.',
         paragraphs: [
           'Through monthly meetings, I highlighted our progress on each area of concern, and encouraged the team to take a two-pronged approach: intentionally focusing on refactoring specific areas, and cleaning up while working on feature tickets that touched targeted areas.'
         ]
       },
       {
-        heading: 'Result',
+        heading: 'The Outcome',
+        subtitle: 'Three years of compounding improvements.',
         paragraphs: ['Over the course of 3 years, we achieved the following results:'],
         bullets: [
           'Upgraded from React version 16 to version 18',
@@ -96,7 +104,8 @@ export const caseStudies: CaseStudyDetail[] = [
         ]
       },
       {
-        heading: 'Value Added',
+        heading: 'The Value',
+        subtitle: 'Safer, faster, more confident development.',
         paragraphs: [
           'These improvements and modernizations have resulted in improved developer visibility and confidence, prevention of bugs, replacement of old coding habits and strategies with modern recommended practices, and more efficient coding in general.'
         ]
@@ -210,25 +219,29 @@ export const caseStudies: CaseStudyDetail[] = [
     heroSubtitle: 'Creating a repeatable system for finding bugs, verifying requirements, and improving code quality.',
     sections: [
       {
-        heading: 'Problem',
+        heading: 'The Challenge',
+        subtitle: 'Catching issues before a pull request is ever opened.',
         paragraphs: [
           'As a software engineer, I care deeply about the quality of the solutions that I create. And while I value the input and reviews from peers, I often desire to catch inconsistencies and opportunities to improve my solutions before I create pull requests.'
         ]
       },
       {
-        heading: 'Approach',
+        heading: 'The Approach',
+        subtitle: 'Putting AI agents to work on the frustrating parts.',
         paragraphs: [
           'With the addition of AI agents into my daily workflow, I realized that I could leverage their ability to analyze my code in an automated way. So I started strategizing on the areas that frustrated me the most.'
         ]
       },
       {
-        heading: 'Strategy',
+        heading: 'The Strategy',
+        subtitle: 'Repeatable, observable, and focused on what changed.',
         paragraphs: [
           "Once I defined my areas of focus, I started working with Claude AI to create skills that specifically targeted these areas. I needed these skills to be repeatable, observable, and configurable, so that I could run them against different repositories and look for different things. I also needed to limit the scope, so I utilized the `git diff` of my feature branches, in order to keep the review agents focused on the code that had changed, and how it could directly impact surrounding areas."
         ]
       },
       {
-        heading: 'Result',
+        heading: 'The Outcome',
+        subtitle: 'A toolkit of review agents for hunting bugs.',
         paragraphs: [
           'I now have multiple review agents, skills, helper scripts, and configuration files in my arsenal to hunt bugs and keep things clean in my solutions, before I create my pull requests:'
         ],
@@ -240,7 +253,8 @@ export const caseStudies: CaseStudyDetail[] = [
         ]
       },
       {
-        heading: 'Value Added',
+        heading: 'The Value',
+        subtitle: 'Higher quality code and a faster workflow.',
         paragraphs: [
           'This has resulted in an improvement of code quality, prevention of bugs, and a general performance increase in my development workflow.'
         ]
@@ -259,19 +273,22 @@ export const caseStudies: CaseStudyDetail[] = [
     heroSubtitle: 'Identifying and eliminating performance bottlenecks across a demanding editing workflow.',
     sections: [
       {
-        heading: 'Problem',
+        heading: 'The Challenge',
+        subtitle: 'Slow, unreliable event editing.',
         paragraphs: [
           "Farm event editing was slow and unreliable. Loading a batch of events took over a minute and a half, the UI called far more actions and API requests than it needed to, and competing IOT status messages (Event Changed, Event Status Changed) regularly raced each other, leaving stale or duplicate statuses visible in the UI."
         ]
       },
       {
-        heading: 'Approach',
+        heading: 'The Approach',
+        subtitle: 'Measuring first to find where time was going.',
         paragraphs: [
           'I profiled a batch of 100 events end-to-end to establish a real baseline for load time, actions called, and API requests, then worked through the messaging and state-update paths to find where redundant calls and competing updates were coming from.'
         ]
       },
       {
-        heading: 'Strategy',
+        heading: 'The Strategy',
+        subtitle: 'Fewer calls and no more competing updates.',
         paragraphs: [
           'I removed the redundant Event Summary call and improved handling of the Event Changed and Event Status Changed messaging streams so they no longer competed for the same UI state.',
           'I introduced logic to collapse duplicate updates for the same Event or Rec: when Processing Surfaces and Complete messages land in the same debounce grouping, only the most recent update is applied, so an outdated status can no longer overwrite a newer one.',
@@ -279,7 +296,8 @@ export const caseStudies: CaseStudyDetail[] = [
         ]
       },
       {
-        heading: 'Result',
+        heading: 'The Outcome',
+        subtitle: '~75% faster load times.',
         paragraphs: ['Re-running the same batch of 100 events after these changes showed a substantial, measurable improvement across every metric tracked:'],
         metrics: [
           {
@@ -309,7 +327,8 @@ export const caseStudies: CaseStudyDetail[] = [
         ]
       },
       {
-        heading: 'Value Added',
+        heading: 'The Value',
+        subtitle: 'A UI that keeps up under load.',
         paragraphs: [
           'CPU usage during Rec Changed and Event Changed messaging previously plateaued at 100% under load; spikes are now substantially lower, letting the UI process incoming messages more consistently instead of stalling.'
         ],

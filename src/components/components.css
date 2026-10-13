@@ -587,73 +587,6 @@ main {
   color: #d4935f;
 }
 
-.hero-eyebrow {
-  margin: 0 0 14px;
-  color: #d4935f;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.hero-proof-line {
-  margin: 4px 0 28px;
-  color: #aab0b8;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-}
-
-.hero-cta-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.hero-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 28px;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
-}
-
-.hero-cta-primary {
-  background: #d4935f;
-  color: #0d1321;
-  border: 1px solid #d4935f;
-}
-
-.hero-cta-primary:hover {
-  background: #e3aa7a;
-  border-color: #e3aa7a;
-}
-
-.hero-cta-secondary {
-  background: transparent;
-  color: #d4935f;
-  border: 1px solid #d4935f;
-}
-
-.hero-cta-secondary:hover {
-  background: color-mix(in srgb, #d4935f 15%, transparent);
-}
-
-.hero-cta:focus-visible {
-  outline: 2px solid #d4935f;
-  outline-offset: 3px;
-}
-
-@media (max-width: 600px) {
-  .hero-cta-group {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-
 .hero-visual {
   display: flex;
   justify-content: center;
@@ -1107,21 +1040,14 @@ main {
 
 .stat-card {
   padding-block: 22px;
-  border-top: 1px solid var(--border);
+  /* --border is too faint against the About section's gradient in both
+     themes. --text is cream in dark mode and navy in light mode, both of
+     which clear 3:1 against it. */
+  border-top: 1px solid var(--text);
 }
 
 .stat-card:last-child {
-  border-bottom: 1px solid var(--border);
-}
-
-/* Light mode's --border was too close in lightness to the About section's
-   blue-grey background to read as a line - use the accent brown instead. */
-:root[data-theme='light'] .stat-card {
-  border-top-color: var(--accent);
-}
-
-:root[data-theme='light'] .stat-card:last-child {
-  border-bottom-color: var(--accent);
+  border-bottom: 1px solid var(--text);
 }
 
 .project-card:hover {
@@ -1207,7 +1133,7 @@ main {
   place-items: center;
   width: 52px;
   height: 52px;
-  margin-bottom: 16px;
+  margin: 0 auto 16px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.35);
   background: rgba(255, 255, 255, 0.14);
@@ -1225,6 +1151,7 @@ main {
   font-size: min(8cqi, 1.9rem);
   line-height: 1.2;
   white-space: nowrap;
+  text-align: center;
   color: #fff;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
@@ -1697,7 +1624,7 @@ main {
   inset: 0;
   /* The photo overlay stays dark in both themes so the hero image doesn't
      wash out under light mode's pale --bg. */
-  background: color-mix(in srgb, var(--hero-photo-tint) 50%, transparent);
+  background: color-mix(in srgb, var(--hero-photo-tint) 35%, transparent);
   pointer-events: none;
 }
 
@@ -1705,6 +1632,9 @@ main {
   position: relative;
   z-index: 1;
   max-width: 1000px;
+  /* The hero is vertically centered, so extra top margin pushes the text
+     down by half of its value. */
+  margin-top: clamp(48px, 10vh, 120px);
   padding: clamp(32px, 6vh, 64px) clamp(24px, 5vw, 64px);
   text-align: center;
   opacity: 0;
@@ -1762,16 +1692,18 @@ main {
 .case-study-hero-photo-content p {
   margin: 0 auto;
   color: #e0e1dd;
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  line-height: 1.6;
+  font-family: var(--heading);
+  font-weight: 400;
+  font-size: clamp(1.1rem, 1.4vw, 1.6rem);
+  line-height: 1.4;
+  letter-spacing: 0.04em;
   max-width: 560px;
 }
 
 /* The accent blue reads too close to the dark navy hero backgrounds -
    keep hero text white in dark mode specifically. */
 :root[data-theme='dark'] .hero-copy-block .section-label,
-:root[data-theme='dark'] .case-study-hero-photo-content h1,
-:root[data-theme='dark'] .case-study-page-tag {
+:root[data-theme='dark'] .case-study-hero-photo-content h1 {
   color: #ffffff;
 }
 
@@ -1874,8 +1806,10 @@ main {
 }
 
 .case-study-page-tag {
-  color: var(--accent);
-  font-size: 0.8rem;
+  /* Fixed copper, same as the homepage hero name: the hero photo overlay
+     stays dark in both themes, so the theme accent doesn't apply here. */
+  color: #d4935f;
+  font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1898,7 +1832,9 @@ main {
 
 .case-study-page-section {
   padding-block: 48px;
-  border-top: 1px solid var(--border);
+  /* --border is too faint against the page background (under 3:1 contrast);
+     mixing toward the text color clears 3:1 in both themes. */
+  border-top: 1px solid color-mix(in srgb, var(--text) 50%, var(--bg));
 }
 
 .case-study-page-body > .reveal:first-child .case-study-page-section {
