@@ -10,7 +10,7 @@ describe('App', () => {
 
   it('renders the hero heading for the landing page', () => {
     render(<App />, { wrapper: MemoryRouter })
-    expect(screen.getByText(/Thoughtful Engineering, Reliable Software/i)).toBeTruthy()
+    expect(screen.getByText(/Thoughtfully engineering reliable software/i)).toBeTruthy()
   })
 
   it('renders a Strengths section with the expected tagline', () => {

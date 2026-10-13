@@ -254,7 +254,7 @@ export default function SelectedWork() {
               <div className="case-study-code-snippets-list">
                 {caseStudy.codeSnippets.map((snippet, index) => (
                   <figure className="case-study-code-snippet" key={index}>
-                    <figcaption>{index === 0 ? 'Before' : index === 1 ? 'After' : `Code snippet ${index + 1}`}</figcaption>
+                    <figcaption>{index % 2 === 0 ? 'Before' : 'After'}</figcaption>
                     <pre>
                       <code>{snippet}</code>
                     </pre>
