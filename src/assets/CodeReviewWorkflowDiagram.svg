@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 1030" role="img" aria-labelledby="rpm-title rpm-desc">
+  <title id="rpm-title">Catching bugs before review pipeline</title>
+  <desc id="rpm-desc">Changes on a feature branch are collected as a diff using git merge-base. Three review skills review the same diff. Bug Hunter, the public version of the internal Regression Inspector, gathers evidence, runs a two-pass review, and reports Probable bugs, Suspicious, and Clean findings. Code Sweeper scans patterns, runs an agent review, and reports Unclean, Dusty, and Clean findings. Security Auditor scans patterns, runs an agent review, and reports High risk, Suspicious, and Clean findings. The developer then fixes issues and opens a pull request. Scanner matches are candidates, not confirmed issues, and the agent checks each one in context.</desc>
+  <defs>
+    <style>
+      .rp { font-family: var(--font-sans, Inter, system-ui, -apple-system, "Segoe UI", sans-serif); }
+      .band { fill: var(--rp-band, rgba(148, 163, 184, 0.06)); stroke: var(--rp-band-stroke, rgba(148, 163, 184, 0.16)); }
+      .lane { fill: var(--rp-accent, #D4935F); font-size: 15px; font-weight: 700; }
+      .lane-sub { fill: var(--rp-muted, #94A3B8); font-size: 12px; }
+      .node { fill: var(--rp-accent, #D4935F); }
+      .node-ring { fill: none; stroke: var(--rp-accent, #D4935F); stroke-opacity: 0.35; stroke-width: 6; }
+      .step { fill: var(--rp-text, #E2E8F0); font-size: 15px; font-weight: 600; }
+      .mini { fill: var(--rp-text, #E2E8F0); font-size: 12px; font-weight: 600; }
+      .hint { fill: var(--rp-muted, #94A3B8); font-size: 12px; }
+      .pill { fill: var(--rp-pill, rgba(148, 163, 184, 0.14)); }
+      .tag { fill: var(--rp-tag, #CBD5E1); font-size: 12px; }
+      .t-high { fill: var(--rp-high-bg, rgba(224, 122, 107, 0.2)); }
+      .t-high-text { fill: var(--rp-high, #F0A396); font-size: 11px; font-weight: 600; }
+      .t-mid { fill: var(--rp-mid-bg, rgba(212, 147, 95, 0.2)); }
+      .t-mid-text { fill: var(--rp-mid, #E3AA7A); font-size: 11px; font-weight: 600; }
+      .t-ok { fill: var(--rp-ok-bg, rgba(143, 184, 160, 0.2)); }
+      .t-ok-text { fill: var(--rp-ok, #A9CDB8); font-size: 11px; font-weight: 600; }
+      .flow { fill: none; stroke: var(--rp-accent, #D4935F); stroke-width: 2; opacity: 0.75; }
+      .arrowhead { fill: var(--rp-accent, #D4935F); }
+      .note-box { fill: var(--rp-band, rgba(148, 163, 184, 0.06)); stroke: var(--rp-accent, #D4935F); stroke-opacity: 0.5; }
+      .note-label { fill: var(--rp-accent, #D4935F); font-size: 14px; font-weight: 700; }
+      .note-text { fill: var(--rp-text, #E2E8F0); font-size: 13px; }
+    </style>
+    <marker id="rpm-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+      <path class="arrowhead" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+
+  <!-- Rendered through <img>, so page theme variables don't reach it; the light-on-dark
+       fallbacks need their own dark surface to stay readable in the light theme. -->
+  <rect width="380" height="1030" rx="16" fill="#0d1321"/>
+
+  <g class="rp">
+    <!-- Feature branch -->
+    <circle class="node-ring" cx="190" cy="40" r="10"/>
+    <circle class="node" cx="190" cy="40" r="10"/>
+    <text class="step" x="190" y="72" text-anchor="middle">Feature branch</text>
+    <rect class="pill" x="135" y="84" width="110" height="22" rx="11"/>
+    <text class="tag" x="190" y="99" text-anchor="middle">Local + committed</text>
+    <path class="flow" d="M190,114 V144" marker-end="url(#rpm-arrow)"/>
+
+    <!-- Collect diff -->
+    <circle class="node" cx="190" cy="160" r="10"/>
+    <text class="step" x="190" y="192" text-anchor="middle">Collect diff</text>
+    <rect class="pill" x="142" y="204" width="96" height="22" rx="11"/>
+    <text class="tag" x="190" y="219" text-anchor="middle">git merge-base</text>
+    <path class="flow" d="M190,234 V264" marker-end="url(#rpm-arrow)"/>
+    <text class="hint" x="200" y="254">Same diff, three skills</text>
+
+    <!-- Bug Hunter -->
+    <rect class="band" x="16" y="270" width="348" height="170" rx="12"/>
+    <text class="lane" x="34" y="298">Bug Hunter</text>
+    <text class="lane-sub" x="34" y="316">Regressions and new bugs.</text>
+    <text class="lane-sub" x="34" y="332">Public version of the internal Regression Inspector.</text>
+    <line class="flow" x1="84" y1="362" x2="296" y2="362"/>
+    <circle class="node" cx="84" cy="362" r="7"/>
+    <circle class="node" cx="190" cy="362" r="7"/>
+    <circle class="node" cx="296" cy="362" r="7"/>
+    <text class="mini" x="84" y="386" text-anchor="middle">Evidence</text>
+    <text class="mini" x="190" y="386" text-anchor="middle">Two-pass review</text>
+    <text class="mini" x="296" y="386" text-anchor="middle">Report</text>
+    <rect class="t-high" x="73" y="404" width="92" height="20" rx="10"/>
+    <text class="t-high-text" x="119" y="418" text-anchor="middle">Probable bugs</text>
+    <rect class="t-mid" x="173" y="404" width="76" height="20" rx="10"/>
+    <text class="t-mid-text" x="211" y="418" text-anchor="middle">Suspicious</text>
+    <rect class="t-ok" x="257" y="404" width="50" height="20" rx="10"/>
+    <text class="t-ok-text" x="282" y="418" text-anchor="middle">Clean</text>
+
+    <!-- Code Sweeper -->
+    <rect class="band" x="16" y="456" width="348" height="150" rx="12"/>
+    <text class="lane" x="34" y="484">Code Sweeper</text>
+    <text class="lane-sub" x="34" y="502">Clean-code issues and low-value tests.</text>
+    <line class="flow" x1="84" y1="528" x2="296" y2="528"/>
+    <circle class="node" cx="84" cy="528" r="7"/>
+    <circle class="node" cx="190" cy="528" r="7"/>
+    <circle class="node" cx="296" cy="528" r="7"/>
+    <text class="mini" x="84" y="552" text-anchor="middle">Scan patterns</text>
+    <text class="mini" x="190" y="552" text-anchor="middle">Agent review</text>
+    <text class="mini" x="296" y="552" text-anchor="middle">Report</text>
+    <rect class="t-high" x="101" y="570" width="62" height="20" rx="10"/>
+    <text class="t-high-text" x="132" y="584" text-anchor="middle">Unclean</text>
+    <rect class="t-mid" x="171" y="570" width="50" height="20" rx="10"/>
+    <text class="t-mid-text" x="196" y="584" text-anchor="middle">Dusty</text>
+    <rect class="t-ok" x="229" y="570" width="50" height="20" rx="10"/>
+    <text class="t-ok-text" x="254" y="584" text-anchor="middle">Clean</text>
+
+    <!-- Security Auditor -->
+    <rect class="band" x="16" y="622" width="348" height="150" rx="12"/>
+    <text class="lane" x="34" y="650">Security Auditor</text>
+    <text class="lane-sub" x="34" y="668">Vulnerabilities and risky patterns.</text>
+    <line class="flow" x1="84" y1="694" x2="296" y2="694"/>
+    <circle class="node" cx="84" cy="694" r="7"/>
+    <circle class="node" cx="190" cy="694" r="7"/>
+    <circle class="node" cx="296" cy="694" r="7"/>
+    <text class="mini" x="84" y="718" text-anchor="middle">Scan patterns</text>
+    <text class="mini" x="190" y="718" text-anchor="middle">Agent review</text>
+    <text class="mini" x="296" y="718" text-anchor="middle">Report</text>
+    <rect class="t-high" x="84" y="736" width="70" height="20" rx="10"/>
+    <text class="t-high-text" x="119" y="750" text-anchor="middle">High risk</text>
+    <rect class="t-mid" x="162" y="736" width="76" height="20" rx="10"/>
+    <text class="t-mid-text" x="200" y="750" text-anchor="middle">Suspicious</text>
+    <rect class="t-ok" x="246" y="736" width="50" height="20" rx="10"/>
+    <text class="t-ok-text" x="271" y="750" text-anchor="middle">Clean</text>
+
+    <!-- Fix and open PR -->
+    <path class="flow" d="M190,776 V804" marker-end="url(#rpm-arrow)"/>
+    <circle class="node-ring" cx="190" cy="820" r="10"/>
+    <circle class="node" cx="190" cy="820" r="10"/>
+    <text class="step" x="190" y="852" text-anchor="middle">Fix and open PR</text>
+    <rect class="pill" x="130" y="864" width="120" height="22" rx="11"/>
+    <text class="tag" x="190" y="879" text-anchor="middle">Developer decides</text>
+
+    <!-- Key decision -->
+    <rect class="note-box" x="16" y="904" width="348" height="106" rx="12"/>
+    <text class="note-label" x="34" y="930">Key decision</text>
+    <text class="note-text" x="34" y="954">Scanner matches are candidates, not confirmed</text>
+    <text class="note-text" x="34" y="974">issues. The agent checks each one in context</text>
+    <text class="note-text" x="34" y="994">before it reaches the report.</text>
+  </g>
+</svg>

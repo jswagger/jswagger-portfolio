@@ -2630,7 +2630,10 @@ main {
 }
 
 .case-study-intro-image img {
-  min-width: 720px;
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
 }
 
 @media (max-width: 640px) {

@@ -8,7 +8,7 @@ import enrollmentHeroImage from '../assets/EnrollmentHeroImage.jpg'
 import enrollmentArchitectureDiagram from '../assets/EnrollmentArchitectureDiagram.png'
 import enrollmentWorkflowDiagram from '../assets/EnrollmentWorkflowDiagram.webp'
 import codeQualityCardImage from '../assets/CodeQualityCardImage.jpg'
-import codeReviewWorkflowDiagram from '../assets/CodeReviewWorkflowDiagram.webp'
+import codeReviewWorkflowDiagram from '../assets/CodeReviewWorkflowDiagram.svg'
 import bugHunterReport from '../assets/BugHunterReport.webp'
 import codeQualityHeroImage from '../assets/CodeQualityHeroImage.jpg'
 import geospatialCardImage from '../assets/GeospatialCardImage.jpg'
@@ -267,25 +267,25 @@ export const caseStudies: CaseStudyDetail[] = [
     ]
   },
   {
-    title: 'AI Assisted Code Review',
+    title: 'Catching Bugs Before Review',
     slug: 'code-quality-automation',
     tagline: 'Improving logic quality before pull requests',
     summary: 'Building AI-driven review skills that hunt bugs and enforce quality before pull requests are opened.',
     tags: ['Claude Code', 'Git', 'Automation'],
     image: codeQualityCardImage,
     cardIcon: 'shield-check',
-    cardSubtitle: 'Still in progress',
+    cardSubtitle: '18 bugs caught before review',
     heroImage: codeQualityHeroImage,
     heroPhotoLocation: 'Castle Combe, England',
     partnerLogo: 'github',
     heroPosition: 'center 50%',
     heroSubtitle: 'Creating a repeatable system for finding bugs, verifying security, and improving code quality.',
     intro:
-      'Regression Inspector, the internal version of Bug Hunter, now runs on every ticket I work on our enterprise platform. Across my last 10 tickets, spanning 7 repositories, it scanned 339 changed files, surfaced 73 suspicious findings, and flagged 22 probable bugs, roughly two per ticket, before a pull request was opened. Sixteen of those were confirmed as real bugs and fixed before a pull request was opened.',
+      'Regression Inspector, the internal version of Bug Hunter, now runs on every ticket I work on our enterprise platform. Across my last 10 tickets, spanning 7 repositories, it scanned 339 changed files, surfaced 73 suspicious findings, and flagged 22 probable bugs, roughly two per ticket, before a pull request was opened. Eighteen of those were confirmed as real bugs and fixed before a pull request was opened.',
     introLink: { label: 'View GitHub', href: 'https://github.com/jswagger/AI-Skills' },
     stats: [
-      { value: 16, suffix: '', emphasis: '', label: 'Bugs caught before review' },
-      { value: 73, suffix: '%', emphasis: '', label: 'Of flagged bugs confirmed' },
+      { value: 18, suffix: '', emphasis: '', label: 'Bugs caught before review' },
+      { value: 82, suffix: '%', emphasis: '', label: 'Of flagged bugs confirmed' },
       { value: 339, suffix: '', emphasis: '', label: 'Files scanned' },
       { value: 7, suffix: '', emphasis: '', label: 'Repositories' },
     ],
