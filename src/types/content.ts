@@ -107,6 +107,7 @@ export interface CaseStudyDetail {
   heroSubtitle?: string
   heroPosition?: string
   heroPhotoLocation?: string
+  partnerLogo?: 'agvance' | 'github'
   intro?: string
   workflowVisual?: WorkflowVisualData
   stats?: StrengthStat[]

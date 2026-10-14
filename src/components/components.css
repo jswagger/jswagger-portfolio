@@ -1956,6 +1956,12 @@ main {
   width: auto;
 }
 
+.case-study-page-partner svg {
+  height: 72px;
+  width: auto;
+  color: var(--text);
+}
+
 .case-study-page-pager {
   display: flex;
   flex-wrap: wrap;

@@ -41,12 +41,10 @@ export const services: ServiceItem[] = [
 // Verbs cycled through beside the sticky "I can" in the Experience section.
 export const capabilityWords: string[] = [
   'design.',
-  'build.',
   'modernize.',
-  'automate.',
   'optimize.',
+  'automate.',
   'mentor.',
-  'collaborate.',
   'deliver.',
 ]
 

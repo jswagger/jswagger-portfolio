@@ -8,7 +8,7 @@ import enrollmentHeroImage from '../assets/EnrollmentHeroImage.jpg'
 import enrollmentArchitectureDiagram from '../assets/EnrollmentArchitectureDiagram.png'
 import enrollmentWorkflowDiagram from '../assets/EnrollmentWorkflowDiagram.webp'
 import codeQualityCardImage from '../assets/CodeQualityCardImage.jpg'
-import mappingHeroImage from '../assets/MappingHeroImage.jpg'
+import codeQualityHeroImage from '../assets/CodeQualityHeroImage.jpg'
 import geospatialCardImage from '../assets/GeospatialCardImage.jpg'
 import performanceOverhaulHeroImage from '../assets/PerformanceOverhaulHeroImage.jpg'
 import recChangedCpuOriginal from '../assets/RecChangedCPU-Original.png'
@@ -273,9 +273,10 @@ export const caseStudies: CaseStudyDetail[] = [
     image: codeQualityCardImage,
     cardIcon: 'shield-check',
     cardSubtitle: 'Still in progress',
-    heroImage: mappingHeroImage,
-    heroPhotoLocation: 'Rockaway Beach, Oregon',
-    heroPosition: 'center 20%',
+    heroImage: codeQualityHeroImage,
+    heroPhotoLocation: 'Castle Combe, England',
+    partnerLogo: 'github',
+    heroPosition: 'center 50%',
     heroSubtitle: 'Creating a repeatable system for finding bugs, verifying security, and improving code quality.',
     sections: [
       {
