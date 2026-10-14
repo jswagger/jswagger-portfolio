@@ -959,7 +959,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
   padding: 16px 24px;
   color: #fff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
@@ -971,16 +971,18 @@ main {
   width: 32px;
   height: 32px;
   flex: none;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
 .case-carousel-title {
-  font-size: 1.125rem;
+  font-size: 1.75rem;
   font-weight: 700;
+  line-height: 1.2;
+  text-wrap: balance;
 }
 
 .case-carousel-subtitle {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.88);
 }
@@ -992,7 +994,7 @@ main {
   inset: 0;
   z-index: -1;
   background: radial-gradient(
-    ellipse 90% 45% at center,
+    ellipse 90% 55% at center,
     color-mix(in srgb, var(--hero-photo-tint) 75%, transparent) 0%,
     transparent 100%
   );
@@ -1002,7 +1004,7 @@ main {
 @media (max-width: 768px) {
   .case-carousel-banner::before {
     background: radial-gradient(
-      ellipse 100% 50% at center,
+      ellipse 100% 60% at center,
       color-mix(in srgb, var(--hero-photo-tint) 85%, transparent) 0%,
       transparent 100%
     );
