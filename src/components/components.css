@@ -1909,6 +1909,12 @@ main {
   line-height: 1.7;
 }
 
+.case-study-page-intro-link {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 clamp(48px, 7vw, 72px);
+}
+
 .case-study-page-back {
   position: absolute;
   top: 96px;
@@ -1968,7 +1974,7 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: 16px 24px;
-  margin-top: 32px;
+  margin-top: 64px;
 }
 
 .case-study-page-next {
@@ -2047,6 +2053,11 @@ main {
   border-top: 1px solid color-mix(in srgb, var(--text) 50%, var(--bg));
 }
 
+/* More breathing room between sections on the code review page. */
+[data-case-study='code-quality-automation'] .case-study-page-section {
+  padding-block: 72px;
+}
+
 .case-study-page-body > .reveal:first-child .case-study-page-section {
   border-top: none;
   padding-top: 64px;
@@ -2067,6 +2078,20 @@ main {
 
 .case-study-page-section p:last-child {
   margin-bottom: 0;
+}
+
+.case-study-page-quote {
+  margin: 0 0 24px;
+  padding: 24px;
+  border: 1px solid #d4915d;
+  border-radius: 12px;
+  background: #1e2b45;
+  color: #e8eefc;
+  font-family: var(--heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .case-study-page-checklist {
@@ -2569,6 +2594,15 @@ main {
   display: block;
 }
 
+.case-study-page-section .case-study-images {
+  margin-top: 32px;
+}
+
+.case-study-page-section .case-study-images figure {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
 .case-study-images figcaption {
   margin-top: 8px;
   font-size: 0.85rem;
@@ -2583,6 +2617,20 @@ main {
 
 .case-study-diagram-image img {
   border: none;
+}
+
+/* Wide diagram under the intro: scrolls sideways on narrow screens so its
+   small labels stay readable. */
+.case-study-intro-image {
+  margin: 0 auto clamp(32px, 5vw, 48px);
+}
+
+.case-study-intro-image figure {
+  overflow-x: auto;
+}
+
+.case-study-intro-image img {
+  min-width: 720px;
 }
 
 @media (max-width: 640px) {
@@ -2816,6 +2864,19 @@ main {
   padding-block: 88px;
   margin-bottom: 24px;
   text-align: center;
+}
+
+/* Stats with a source caption: pull the caption up under the numbers. */
+.strength-stats:has(+ .case-study-page-stats-caption) {
+  padding-bottom: 32px;
+  margin-bottom: 0;
+}
+
+.case-study-page-stats-caption {
+  margin: 0 0 clamp(48px, 7vw, 72px);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted, var(--text));
 }
 
 .strength-stat-number {

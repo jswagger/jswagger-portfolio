@@ -56,6 +56,7 @@ export interface CaseStudySection {
   subtitle?: string
   paragraphs?: string[]
   bullets?: string[]
+  quote?: string
   metrics?: CaseStudyMetric[]
   images?: CaseStudyImage[]
   imagesAfterParagraph?: number
@@ -111,6 +112,9 @@ export interface CaseStudyDetail {
   intro?: string
   workflowVisual?: WorkflowVisualData
   stats?: StrengthStat[]
+  statsCaption?: string
+  introLink?: { label: string; href: string }
+  introImage?: CaseStudyImage
   diagramImage?: CaseStudyImage
   codeSnippets?: string[]
 }

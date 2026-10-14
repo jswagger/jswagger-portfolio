@@ -8,6 +8,8 @@ import enrollmentHeroImage from '../assets/EnrollmentHeroImage.jpg'
 import enrollmentArchitectureDiagram from '../assets/EnrollmentArchitectureDiagram.png'
 import enrollmentWorkflowDiagram from '../assets/EnrollmentWorkflowDiagram.webp'
 import codeQualityCardImage from '../assets/CodeQualityCardImage.jpg'
+import codeReviewWorkflowDiagram from '../assets/CodeReviewWorkflowDiagram.webp'
+import bugHunterReport from '../assets/BugHunterReport.webp'
 import codeQualityHeroImage from '../assets/CodeQualityHeroImage.jpg'
 import geospatialCardImage from '../assets/GeospatialCardImage.jpg'
 import performanceOverhaulHeroImage from '../assets/PerformanceOverhaulHeroImage.jpg'
@@ -278,45 +280,65 @@ export const caseStudies: CaseStudyDetail[] = [
     partnerLogo: 'github',
     heroPosition: 'center 50%',
     heroSubtitle: 'Creating a repeatable system for finding bugs, verifying security, and improving code quality.',
+    intro:
+      'Regression Inspector, the internal version of Bug Hunter, now runs on every ticket I work on our enterprise platform. Across my last 10 tickets, spanning 7 repositories, it scanned 339 changed files, surfaced 73 suspicious findings, and flagged 22 probable bugs, roughly two per ticket, before a pull request was opened. Sixteen of those were confirmed as real bugs and fixed before a pull request was opened.',
+    introLink: { label: 'View GitHub', href: 'https://github.com/jswagger/AI-Skills' },
+    stats: [
+      { value: 16, suffix: '', emphasis: '', label: 'Bugs caught before review' },
+      { value: 73, suffix: '%', emphasis: '', label: 'Of flagged bugs confirmed' },
+      { value: 339, suffix: '', emphasis: '', label: 'Files scanned' },
+      { value: 7, suffix: '', emphasis: '', label: 'Repositories' },
+    ],
+    statsCaption: 'Regression Inspector, last 10 tickets',
+    introImage: {
+      src: codeReviewWorkflowDiagram,
+      alt: 'Workflow diagram: a feature branch feeds a git merge-base diff, which fans out to three review skills. Bug Hunter gathers evidence, runs a two-pass review and writes a tiered report. Code Sweeper and Security Auditor scan patterns, run an agent review and write tiered reports. All three lead to the developer, who decides what to fix before opening a PR.',
+    },
     sections: [
       {
         heading: 'The Challenge',
-        subtitle: 'Catching issues before a pull request is ever opened.',
+        subtitle: 'Problems surface too late.',
         paragraphs: [
-          'As a software engineer, I care deeply about the quality of the solutions that I create. And while I value the input and reviews from peers, I often desire to catch inconsistencies and opportunities to improve my solutions before I create pull requests.'
+          "Most issues that reach peer review could have been caught earlier: a guard removed during a refactor, a function signature that changed while a caller still relied on the old contract, a risky pattern that's easy to overlook, or tests that no longer test anything meaningful. Each one costs a review cycle, and some slip through to production. I wanted a consistent way to catch these myself, on every ticket, before anyone else had to."
         ]
       },
       {
         heading: 'The Approach',
-        subtitle: 'Putting AI agents to work on the frustrating parts.',
+        subtitle: 'Put AI agents to work on the parts humans miss.',
         paragraphs: [
-          'With the addition of AI agents into my daily workflow, I realized that I could leverage their ability to analyze my code in an automated way. So I started strategizing on the areas that frustrated me the most.'
+          'AI agents are good at reading code in context, but on their own they\'re inconsistent and prone to confident mistakes. Instead of asking an agent to "review my code," I split the work into three focused skills, each with one job: Bug Hunter looks for regressions and new bugs, Security Auditor looks for vulnerabilities, and Code Sweeper looks for clean-code issues and low-value tests. Each skill does its own job well and defers the others to their dedicated tool.'
         ]
       },
       {
         heading: 'The Strategy',
-        subtitle: 'Repeatable, observable, and focused on what changed.',
+        subtitle: 'Scripts gather evidence. Agents make judgments.',
         paragraphs: [
-          "Once I defined my areas of focus, I started working with Claude Code to create skills that specifically targeted these areas. I needed these skills to be repeatable, observable, and configurable, so that I could run them against different repositories and look for different things. I also needed to limit the scope, so I utilized the `git diff` of my feature branches, in order to keep the review agents focused on the code that had changed, and how it could directly impact surrounding areas."
-        ]
+          'Every skill follows the same pattern. First, Node.js scripts collect the diff using `git merge-base`, so reviews cover only what my branch changed. Then deterministic scanners flag candidates, such as removed guards, dropped awaits, changed signatures, or risky security patterns. Only after that does the agent review the evidence in context. Scanner matches are treated as candidates, not confirmed issues.',
+          "Bug Hunter goes furthest. It reads the ticket's acceptance criteria and turns them into edge cases to check, looks up callers when a signature changes, and ranks findings into compact risk packets so the agent reads the riskiest changes first. A fast model triages, then a stronger model performs a deep review. Every probable bug must include a concrete failure scenario, a specific input and the wrong result it produces, or the report rejects it. Auto-fixing is off by default, and I decide what changes."
+        ],
+        quote: 'Every probable bug needs a concrete failure scenario.'
       },
       {
         heading: 'The Outcome',
-        subtitle: 'A toolkit of review skills',
+        subtitle: 'A proven, open-source review toolkit.',
         paragraphs: [
-          'I now have multiple review skills, helper scripts, and configuration files in my arsenal to hunt bugs and keep things clean in my solutions, before I create my pull requests:'
+          'Regression Inspector, the internal version of Bug Hunter, now runs on every ticket I work on our enterprise platform. Across my last 10 tickets, spanning 7 repositories, it scanned 339 changed files, surfaced 73 suspicious findings, and flagged 22 probable bugs, roughly two per ticket, before a pull request was opened.',
+          "Bug Hunter, Code Sweeper, and Security Auditor are available in my open-source AI-Skills repository. They're configurable per project, unit tested, and built on Node.js built-ins with no third-party dependencies."
         ],
-        bullets: [
-          'Bug Hunter — Reads code changes, analyzes their effect, reads surrounding code, and reports likely bugs and changes that pose high risk of hitting edge cases.',
-          'Security Auditor — Evaluates security patterns and looks for vulnerabilities.',
-          'Code Sweeper — Looks for adherence to SOLID principles, avoidance of deep nesting, and general complexity of functions.'
-        ]
+        images: [
+          {
+            src: bugHunterReport,
+            alt: 'Sample Bug Hunter report for a feature branch, showing one probable bug with its failing scenario and fix, two suspicious findings to check, two clean areas, and one dismissed finding.',
+            caption: 'Illustrative Bug Hunter report. Example code is generic.',
+          },
+        ],
+        imagesAfterParagraph: 1
       },
       {
         heading: 'The Value',
-        subtitle: 'Higher quality code and a faster workflow.',
+        subtitle: 'Better code before review, not after.',
         paragraphs: [
-          'This has resulted in an improvement of code quality, prevention of bugs, and a general performance increase in my development workflow.'
+          "Catching issues before a pull request means fewer review cycles, fewer regressions reaching production, and reviewers who can focus on architecture and intent instead of hunting for bugs. Just as importantly, the toolkit is built to be trustworthy: it shows its evidence, separates likely problems from things worth a second look, and leaves the final call to the developer. AI makes the review faster, while accountability for the code stays with the engineer."
         ]
       }
     ]

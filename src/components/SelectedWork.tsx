@@ -108,6 +108,7 @@ function CaseStudySection({ section }: { section: CaseStudySectionData }) {
 
   const content = (
     <>
+      {section.quote && <blockquote className="case-study-page-quote">{section.quote}</blockquote>}
       {section.paragraphs?.map((paragraph, index) => (
         <Fragment key={index}>
           <p>{paragraph}</p>
@@ -175,7 +176,7 @@ export default function SelectedWork() {
   if (!caseStudy) return <Navigate to="/" replace />
 
   return (
-    <main className="case-study-page">
+    <main className="case-study-page" data-case-study={caseStudy.slug}>
       <Navbar showBrand={false} />
       <Link
         to="/"
@@ -242,9 +243,32 @@ export default function SelectedWork() {
             </Reveal>
           )}
 
+          {caseStudy.introLink && (
+            <Reveal className="case-study-page-intro-link">
+              <a
+                className="button button-primary"
+                href={caseStudy.introLink.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {caseStudy.introLink.label}
+              </a>
+            </Reveal>
+          )}
+
           {caseStudy.stats && (
             <Reveal>
               <StrengthStats stats={caseStudy.stats} />
+              {caseStudy.statsCaption && <p className="case-study-page-stats-caption">{caseStudy.statsCaption}</p>}
+            </Reveal>
+          )}
+
+          {caseStudy.introImage && (
+            <Reveal className="case-study-images case-study-intro-image">
+              <figure>
+                <img src={caseStudy.introImage.src} alt={caseStudy.introImage.alt} />
+                {caseStudy.introImage.caption && <figcaption>{caseStudy.introImage.caption}</figcaption>}
+              </figure>
             </Reveal>
           )}
 
