@@ -2223,38 +2223,6 @@ main {
   font-family: inherit;
 }
 
-.case-study-metrics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 12px;
-}
-
-.case-study-metric-chart {
-  min-width: 220px;
-  flex: 1 1 260px;
-  padding: 12px 16px;
-  border: 1px solid var(--accent-border);
-  border-radius: 12px;
-}
-
-.case-study-metric-chart-label {
-  margin: 0 0 8px;
-  font-weight: 600;
-  color: var(--text-h, var(--text));
-}
-
-.case-study-metric-chart-canvas {
-  height: 140px;
-}
-
-.case-study-metric-chart-improvement {
-  margin: 8px 0 0;
-  font-weight: 600;
-  color: var(--accent);
-  font-size: 0.9rem;
-}
-
 /* Conceptual workflow visual (CaseStudyWorkflowVisual). Reveal is staged in
    sequence: step nodes, then the connecting line, then their systems, then
    the architecture callout, then the outcome metric. */
@@ -2608,6 +2576,30 @@ main {
   font-size: 0.85rem;
   color: var(--text-muted, var(--text));
   text-align: center;
+}
+
+.case-study-page-section .case-study-images--card {
+  flex-direction: column;
+  width: fit-content;
+  max-width: 360px;
+  gap: 12px;
+  padding: 16px 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+}
+
+.case-study-images-title {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.case-study-page-section .case-study-images--card figure {
+  flex: none;
+  width: 100%;
 }
 
 .case-study-diagram-image {

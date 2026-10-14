@@ -1,3 +1,5 @@
+import type { MetricComparison } from './metricComparison'
+
 export interface Highlight {
   label: string
   value: string
@@ -33,18 +35,6 @@ export interface ProjectItem {
   tags: string[]
 }
 
-export interface CaseStudyMetricRow {
-  version: string
-  value: string
-  numericValue: number
-}
-
-export interface CaseStudyMetric {
-  label: string
-  rows: CaseStudyMetricRow[]
-  improvement: string
-}
-
 export interface CaseStudyImage {
   src: string
   alt: string
@@ -57,9 +47,11 @@ export interface CaseStudySection {
   paragraphs?: string[]
   bullets?: string[]
   quote?: string
-  metrics?: CaseStudyMetric[]
+  metrics?: MetricComparison[]
   images?: CaseStudyImage[]
   imagesAfterParagraph?: number
+  imagesInCard?: boolean
+  imagesTitle?: string
 }
 
 export interface WorkflowVisualStep {

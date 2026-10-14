@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import { Fragment, useEffect } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import Navbar from './Navbar'
-import CaseStudyMetricChart from './CaseStudyMetricChart'
+import { MetricComparisonCharts } from './MetricComparisonCharts'
 import CaseStudyWorkflowVisual from './CaseStudyWorkflowVisual'
 import StrengthStats from './StrengthStats'
 import Reveal from './Reveal'
@@ -95,7 +95,8 @@ function BulletCheckIcon() {
 
 function CaseStudySection({ section }: { section: CaseStudySectionData }) {
   const images = section.images && (
-    <div className="case-study-images">
+    <div className={`case-study-images${section.imagesInCard ? ' case-study-images--card' : ''}`}>
+      {section.imagesTitle && <h3 className="case-study-images-title">{section.imagesTitle}</h3>}
       {section.images.map((image) => (
         <figure key={image.src}>
           <img src={image.src} alt={image.alt} />
@@ -126,11 +127,7 @@ function CaseStudySection({ section }: { section: CaseStudySectionData }) {
         </ul>
       )}
       {section.metrics && (
-        <div className="case-study-metrics">
-          {section.metrics.map((metric) => (
-            <CaseStudyMetricChart key={metric.label} metric={metric} />
-          ))}
-        </div>
+        <MetricComparisonCharts metrics={section.metrics} />
       )}
       {imagesIndex === undefined && images}
     </>

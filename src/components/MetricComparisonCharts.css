@@ -1,0 +1,101 @@
+/* Card tokens map onto the site's theme variables so light/dark both work.
+   Shared with the image card (.case-study-images--card). */
+.metric-grid,
+.case-study-images--card {
+  --card-bg: var(--surface);
+  --card-border: color-mix(in srgb, var(--text-muted) 55%, transparent);
+  --card-border-strong: var(--accent-border);
+  --bar-original: var(--accent-soft);
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+:root[data-theme='light'] .metric-grid,
+:root[data-theme='light'] .case-study-images--card {
+  --card-bg: color-mix(in srgb, white 75%, var(--bg));
+  --card-border: color-mix(in srgb, var(--text-muted) 50%, var(--bg));
+  --bar-original: color-mix(in srgb, var(--text-muted) 45%, var(--bg));
+}
+
+.metric-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+}
+
+.metric-title {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.metric-hero {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.metric-hero strong {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.metric-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 10px;
+  border-left: 1px solid var(--card-border-strong);
+}
+
+.metric-row-label {
+  margin-bottom: 3px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.metric-row-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.metric-bar {
+  height: 20px;
+  min-width: 4px;
+  border-radius: 0 4px 4px 0;
+}
+
+.metric-bar--original {
+  background: var(--bar-original);
+}
+
+.metric-bar--updated {
+  background: var(--accent);
+}
+
+.metric-row-value {
+  font-weight: 500;
+  color: var(--text);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.metric-footer {
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--card-border);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}

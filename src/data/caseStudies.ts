@@ -15,6 +15,7 @@ import geospatialCardImage from '../assets/GeospatialCardImage.jpg'
 import performanceOverhaulHeroImage from '../assets/PerformanceOverhaulHeroImage.jpg'
 import recChangedCpuOriginal from '../assets/RecChangedCPU-Original.png'
 import recChangedCpuNew from '../assets/RecChangedCPU.png'
+import { performanceOverhaulMetrics } from './performanceOverhaulMetrics'
 
 export const caseStudies: CaseStudyDetail[] = [
   {
@@ -356,6 +357,8 @@ export const caseStudies: CaseStudyDetail[] = [
     heroPhotoLocation: 'BLM Land, Utah',
     heroPosition: 'center 55%',
     heroSubtitle: 'Identifying and eliminating performance bottlenecks across a demanding editing workflow.',
+    intro:
+      'Editing farm events had become slow and unreliable: a batch took over a minute and a half to load, and competing real-time status updates left stale or duplicate statuses on screen. I measured first, then cut the redundant calls and stopped the messaging streams from overwriting each other. The result was load times down about 75% and a UI that keeps up under load.',
     sections: [
       {
         heading: 'The Challenge',
@@ -384,32 +387,7 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Outcome',
         subtitle: '~75% faster load times.',
         paragraphs: ['Re-running the same batch of 100 events after these changes showed a substantial, measurable improvement across every metric tracked:'],
-        metrics: [
-          {
-            label: '⏱️ Load Times',
-            rows: [
-              { version: 'Original', value: '1:35', numericValue: 95 },
-              { version: 'New', value: '0:24', numericValue: 24 }
-            ],
-            improvement: '~75% Faster'
-          },
-          {
-            label: '⚡ Actions Called',
-            rows: [
-              { version: 'Original', value: '3,492', numericValue: 3492 },
-              { version: 'New', value: '1,074', numericValue: 1074 }
-            ],
-            improvement: '~69% Fewer'
-          },
-          {
-            label: '🌐 API Requests',
-            rows: [
-              { version: 'Original', value: '167', numericValue: 167 },
-              { version: 'New', value: '8', numericValue: 8 }
-            ],
-            improvement: '~95% Fewer'
-          }
-        ]
+        metrics: performanceOverhaulMetrics
       },
       {
         heading: 'The Value',
@@ -417,9 +395,11 @@ export const caseStudies: CaseStudyDetail[] = [
         paragraphs: [
           'CPU usage during Event Changed messaging previously plateaued at 100% under load; spikes are now substantially lower, letting the UI process incoming messages more consistently instead of stalling.'
         ],
+        imagesInCard: true,
+        imagesTitle: 'Event Changed',
         images: [
-          { src: recChangedCpuOriginal, alt: 'CPU usage during Event Changed messaging, original version, plateauing at 100%', caption: 'Event Changed Messaging (Original)' },
-          { src: recChangedCpuNew, alt: 'CPU usage during Event Changed messaging, new version, with lower spikes', caption: 'Event Changed Messaging (New)' }
+          { src: recChangedCpuNew, alt: 'CPU usage during Event Changed messaging, original version, plateauing at 100%', caption: 'Before' },
+          { src: recChangedCpuOriginal, alt: 'CPU usage during Event Changed messaging, new version, with lower spikes', caption: 'After' }
         ]
       }
     ]
