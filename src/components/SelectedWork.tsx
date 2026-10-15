@@ -261,7 +261,13 @@ export default function SelectedWork() {
           )}
 
           {caseStudy.introImage && (
-            <Reveal className={`case-study-images case-study-intro-image${caseStudy.introImage.wide ? ' case-study-intro-image--wide' : ''}`}>
+            <Reveal className={`case-study-images case-study-intro-image${caseStudy.introImage.wide ? ' case-study-intro-image--wide' : ''}${caseStudy.introImage.compact ? ' case-study-intro-image--compact' : ''}`}>
+              {caseStudy.introImage.title && (
+                <div className="case-study-intro-image-heading">
+                  <h2>{caseStudy.introImage.title}</h2>
+                  {caseStudy.introImage.subtitle && <p>{caseStudy.introImage.subtitle}</p>}
+                </div>
+              )}
               <figure>
                 <img src={caseStudy.introImage.src} alt={caseStudy.introImage.alt} />
                 {caseStudy.introImage.caption && <figcaption>{caseStudy.introImage.caption}</figcaption>}
@@ -283,19 +289,19 @@ export default function SelectedWork() {
             ))}
           </div>
 
-          {caseStudy.codeSnippets && (
+          {caseStudy.codeImage && (
             <Reveal className="case-study-code-snippets">
-              <h2>Code before and after</h2>
-              <div className="case-study-code-snippets-list">
-                {caseStudy.codeSnippets.map((snippet, index) => (
-                  <figure className="case-study-code-snippet" key={index}>
-                    <figcaption>{index % 2 === 0 ? 'Before' : 'After'}</figcaption>
-                    <pre>
-                      <code>{snippet}</code>
-                    </pre>
-                  </figure>
-                ))}
+              <div className="case-study-page-section-heading">
+                <div className="case-study-page-section-label">
+                  <h2>{caseStudy.codeImage.title}</h2>
+                </div>
+                {caseStudy.codeImage.subtitle && (
+                  <p className="case-study-page-section-subtitle">{caseStudy.codeImage.subtitle}</p>
+                )}
               </div>
+              <figure>
+                <img src={caseStudy.codeImage.src} alt={caseStudy.codeImage.alt} />
+              </figure>
             </Reveal>
           )}
 

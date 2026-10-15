@@ -2155,7 +2155,8 @@ main {
   flex-shrink: 0;
 }
 
-.case-study-page-section p.case-study-page-section-subtitle {
+.case-study-page-section p.case-study-page-section-subtitle,
+.case-study-code-snippets p.case-study-page-section-subtitle {
   margin: 0;
   color: var(--text);
   font-family: var(--heading);
@@ -2178,50 +2179,27 @@ main {
 }
 
 .case-study-code-snippets {
-  padding-block: 32px 48px;
+  padding-block: 48px;
   border-top: 1px solid color-mix(in srgb, var(--text) 50%, var(--bg));
 }
 
-.case-study-code-snippets h2 {
-  margin: 0 0 16px;
-  color: var(--text-h);
-  font-size: 1.05rem;
-}
-
-.case-study-code-snippets-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  gap: 16px;
-}
-
-.case-study-code-snippet {
-  min-width: 0;
-  margin: 0;
-  overflow: hidden;
-  border: 1px solid var(--accent-border);
-  border-radius: 12px;
-  background: var(--surface);
-}
-
-.case-study-code-snippet figcaption {
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--accent-border);
-  color: var(--text-h);
-  font-weight: 600;
-}
-
-.case-study-code-snippet pre {
+.case-study-code-snippets figure {
+  margin: 24px 0 0;
   overflow-x: auto;
-  margin: 0;
-  padding: 16px;
-  color: var(--text);
-  font-family: var(--mono, monospace);
-  font-size: 0.875rem;
-  line-height: 1.6;
 }
 
-.case-study-code-snippet code {
-  font-family: inherit;
+.case-study-code-snippets img {
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  .case-study-code-snippets img {
+    min-width: 640px;
+  }
 }
 
 /* Conceptual workflow visual (CaseStudyWorkflowVisual). Reveal is staged in
@@ -2649,7 +2627,52 @@ main {
   border-radius: 0;
 }
 
+/* Heading above the diagram, aligned to the page content column; fixed light colours since the band is dark in both themes. */
+.case-study-intro-image-heading {
+  box-sizing: border-box;
+  max-width: 1100px;
+  margin: 0 auto clamp(20px, 3vw, 32px);
+  padding-inline: clamp(20px, 4vw, 40px);
+  text-align: left;
+}
+
+.case-study-intro-image-heading h2 {
+  margin: 0 0 8px;
+  color: #cf8f55;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.case-study-intro-image-heading p {
+  margin: 0;
+  color: #e9eef6;
+  font-family: var(--heading);
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+
+/* More breathing room above the heading and below the diagram. */
+.case-study-intro-image--compact {
+  padding-block: clamp(40px, 6vw, 80px);
+}
+
+/* Smaller diagram inside the full-bleed band (~35% narrower on desktop). */
+@media (min-width: 641px) {
+  .case-study-intro-image--compact img {
+    width: 65%;
+  }
+}
+
 @media (max-width: 640px) {
+  .case-study-intro-image-heading {
+    padding-inline: 16px;
+  }
+
   .case-study-intro-image--wide img {
     min-width: 640px;
   }

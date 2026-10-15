@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="760" height="340" role="img" aria-labelledby="out-title out-desc" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title id="out-title">Three years of results</title>
+  <desc id="out-desc">React upgraded from 16 to 18; builds 60 to 80 percent faster with Vite; 478 TypeScript files added; 305 functional components added; over 140 UNSAFE functions trimmed; 1,092 any types removed.</desc>
+
+  <rect x="0.5" y="0.5" width="759" height="339" rx="14" fill="#13233f" stroke="#2b4166"/>
+
+  <!-- Dividers -->
+  <line x1="253.33" y1="28" x2="253.33" y2="312" stroke="#2b4166"/>
+  <line x1="506.67" y1="28" x2="506.67" y2="312" stroke="#2b4166"/>
+  <line x1="28" y1="170" x2="732" y2="170" stroke="#2b4166"/>
+
+  <!-- Row 1 -->
+  <g>
+    <text x="32" y="92" font-size="40" font-weight="700" fill="#cf8f55">16 → 18</text>
+    <text x="32" y="124" font-size="15" font-weight="600" fill="#e9eef6">React</text>
+    <text x="32" y="145" font-size="13" fill="#a9b7cc">version upgrade</text>
+  </g>
+  <g>
+    <text x="285" y="92" font-size="40" font-weight="700" fill="#cf8f55">60–80%</text>
+    <text x="285" y="124" font-size="15" font-weight="600" fill="#e9eef6">Faster builds</text>
+    <text x="285" y="145" font-size="13" fill="#a9b7cc">Webpack to Vite</text>
+  </g>
+  <g>
+    <text x="538" y="92" font-size="40" font-weight="700" fill="#cf8f55">+478</text>
+    <text x="538" y="124" font-size="15" font-weight="600" fill="#e9eef6">TypeScript files</text>
+    <text x="538" y="145" font-size="13" fill="#a9b7cc">now 64.5% of the codebase</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g>
+    <text x="32" y="262" font-size="40" font-weight="700" fill="#cf8f55">+305</text>
+    <text x="32" y="294" font-size="15" font-weight="600" fill="#e9eef6">Functional components</text>
+    <text x="32" y="315" font-size="13" fill="#a9b7cc">standard for new code</text>
+  </g>
+  <g>
+    <text x="285" y="262" font-size="40" font-weight="700" fill="#cf8f55">140+</text>
+    <text x="285" y="294" font-size="15" font-weight="600" fill="#e9eef6">UNSAFE functions</text>
+    <text x="285" y="315" font-size="13" fill="#a9b7cc">trimmed by refactoring</text>
+  </g>
+  <g>
+    <text x="538" y="262" font-size="40" font-weight="700" fill="#cf8f55">−1,092</text>
+    <text x="538" y="294" font-size="15" font-weight="600" fill="#e9eef6">any types</text>
+    <text x="538" y="315" font-size="13" fill="#a9b7cc">cut in half</text>
+  </g>
+</svg>

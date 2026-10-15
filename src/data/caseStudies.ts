@@ -3,6 +3,10 @@ import aiCardImage from '../assets/AICardImage.jpg'
 import reportingHeroImage from '../assets/ReportingHeroImage.jpg'
 import uiCardImage from '../assets/UICardImage.jpg'
 import uiModernizationHeroImage from '../assets/UIModernizationHeroImage.jpg'
+import legacyUIOutcomes from '../assets/LegacyUIOutcomes.svg'
+import legacyUITypeScriptShare from '../assets/LegacyUITypeScriptShare.svg'
+import legacyUIFunctionalComponents from '../assets/LegacyUIFunctionalComponents.svg'
+import legacyUICodeBeforeAfter from '../assets/LegacyUICodeBeforeAfter.svg'
 import enrollmentCardImage from '../assets/EnrollmentCardImage.jpg'
 import enrollmentHeroImage from '../assets/EnrollmentHeroImage.jpg'
 import enrollmentArchitectureDiagram from '../assets/EnrollmentArchitectureDiagram.png'
@@ -69,47 +73,12 @@ export const caseStudies: CaseStudyDetail[] = [
     tagline: 'Lifting the codebase',
     summary: 'Lifting a legacy codebase with thoughtful React patterns and a more maintainable interface.',
     tags: ['React', 'TypeScript', 'Vite'],
-    codeSnippets: [
-      [
-        'UNSAFE_componentWillReceiveProps(nextProps) {',
-        '    if (nextProps.records) {',
-        '        for (const item of nextProps.records) formatText(item);',
-        '    }',
-        '}',
-      ].join('\n'),
-      [
-        'getFormattedRecords = memoizeFormattedRecords(formatDetailText);',
-        'render() { ... records={this.getFormattedRecords(this.props.records)} ... }',
-      ].join('\n'),
-      [
-        'UNSAFE_componentWillReceiveProps(nextProps) {',
-        '    this.initializePlantType(nextProps);',
-        '    this.initializePlantLife(nextProps);',
-        '    this.initializePlantStage(nextProps);',
-        '    // ...plus 2 more, and the same shape repeated in 8 panels',
-        '}',
-        '',
-        'initializePlantType = (nextProps) => {',
-        '    if (nextProps[PICKLIST_PLANT_TYPE]) {          // bare truthiness',
-        '        this.setState({',
-        '            [PICKLIST_PLANT_TYPE]: prepareSelectableOptions(',
-        '                nextProps[LIST_PLANT_TYPE],',
-        '                { guid: LIST_GUID, label: VALUE, id: ID }',
-        '            ),',
-        '        });',
-        '    }',
-        '};',
-        '// render: options={this.state[LIST_PLANT_TYPE]}',
-      ].join('\n'),
-      [
-        'getPlantTypeOptions = memoizeSelectableOptions((options) =>',
-        '    prepareSelectableOptions(options, { guid: LIST_GUID, label: VALUE, id: ID })',
-        ');',
-        '',
-        '// render:',
-        'options={this.getPlantTypeOptions(this.props[LIST_PLANT_TYPE])}',
-      ].join('\n'),
-    ],
+    codeImage: {
+      src: legacyUICodeBeforeAfter,
+      title: 'Modernization in Practice',
+      subtitle: 'Applying modern React patterns and stronger type safety to an evolving codebase.',
+      alt: 'Two refactors shown as before and after pairs. In each, an UNSAFE_componentWillReceiveProps lifecycle method is replaced by a memoized getter or selector that is used in render: a lifecycle loop becomes a memoized getter, and state copied from props becomes a memoized selector.',
+    },
     image: uiCardImage,
     cardIcon: 'layout',
     cardSubtitle: '350+ files converted to TypeScript',
@@ -117,32 +86,48 @@ export const caseStudies: CaseStudyDetail[] = [
     heroPhotoLocation: 'Patagonia, Chile',
     heroPosition: 'center 55%',
     heroSubtitle: 'Bringing a legacy interface forward without disrupting the workflows behind it.',
+    intro:
+      'As an established enterprise application continued to grow and evolve, opportunities emerged to modernize its technical foundation and improve developer efficiency. As UI Focus Group Leader, I helped guide a three-year initiative focused on adopting modern React practices, strengthening type safety, and improving maintainability. Through steady, incremental improvements, we made the codebase faster and easier to work with while preserving the stability and functionality customers depend on.',
+    introImage: {
+      src: legacyUIOutcomes,
+      wide: true,
+      compact: true,
+      title: 'Modernization at a Glance',
+      subtitle: 'Tracking progress in type safety, React modernization, and development tooling.',
+      alt: 'Three years of results: React upgraded from 16 to 18; builds 60 to 80 percent faster after moving from Webpack to Vite; 478 TypeScript files added, now 64.5 percent of the codebase; 305 functional components added; over 140 UNSAFE functions trimmed; 1,092 any types removed, cutting them in half.',
+    },
     sections: [
       {
         heading: 'The Challenge',
-        subtitle: 'A stale codebase was hiding bugs and slowing the team down.',
+        subtitle: 'Legacy patterns were slowing development.',
         paragraphs: [
-          'Over time, the UI codebase became stale, filled with legacy structures and strategies, stuck on old library definitions, and scattered with undefined object types. On a day-to-day basis, this resulted in old coding practices, random bugs, and limited debug visibility.'
+          'Due to years of continuous development, the UI codebase had come to include outdated libraries, obsolete React patterns, and only limited use of TypeScript. The any type was used in more than 2,000 cases, which reduced the safety of types, and deprecated functions together with inconsistent coding practices had made debugging and maintenance more and more difficult.',
+          'It was necessary to modernize, but this had to be done without disrupting the existing enterprise application or slowing down the delivery of new features.'
         ]
       },
       {
         heading: 'The Approach',
-        subtitle: 'Turning a legacy codebase into measurable goals.',
+        subtitle: 'Establishing a roadmap for incremental improvement.',
         paragraphs: [
-          'When I became the UI Focus Group Leader, I set to work establishing a plan to incrementally improve the codebase over time. I looked at key metrics, such as TypeScript usage, React UNSAFE function occurrence, areas with low type definition, and blockers to upgrading our React version, and started tracking the numbers.'
+          'In my capacity as UI Focus Group Leader, I set up a long-term modernization initiative aimed at enhancing code quality, maintainability, and developer efficiency.',
+          'The first step was to determine the areas where improvements could be measured, such as the use of TypeScript, the presence of deprecated React functions, component patterns, and dependencies that were hindering upgrades of the framework. By monitoring these metrics, clear priorities were established and a reliable method of assessing progress over time was created.'
         ]
       },
       {
         heading: 'The Strategy',
-        subtitle: 'Steady progress, one refactor at a time.',
+        subtitle: 'Making modernization part of everyday development.',
         paragraphs: [
-          'Through monthly meetings, I highlighted our progress on each area of concern, and encouraged the team to take a two-pronged approach: intentionally focusing on refactoring specific areas, and cleaning up while working on feature tickets that touched targeted areas.'
+          'Instead of attempting a radical overhaul, I helped set up an incremental method which combined modernization with the continued development of features.',
+          'To deal with technical debt the team carried out focused refactoring activities and at the same time improved the legacy code that they came across while carrying out regular feature work. The monthly UI Focus Group meetings gave the opportunity to review progress, discuss the problems encountered and reinforce modern development practices, together with annual presentations which highlighted the measurable improvements.',
+          'This method turned modernization into something that required the combined effort of a team rather than treating it as a one-off project.'
         ]
       },
       {
         heading: 'The Outcome',
-        subtitle: 'Three years of compounding improvements.',
-        paragraphs: ['Over the course of 3 years, we achieved the following results:'],
+        subtitle: 'Three years of measurable progress.',
+        paragraphs: [
+          "Over a period of three years the step-by-step method resulted in significant improvements to the application's technical base, the upgrades to the framework and the tools speeding up the development processes and the greater use of TypeScript together with modern React practices enhancing the consistency, maintainability and type safety of the codebase."
+        ],
         bullets: [
           'Upgraded from React version 16 to version 18',
           'Migrated from Webpack to Vite, increasing build times by 60-80%',
@@ -150,13 +135,24 @@ export const caseStudies: CaseStudyDetail[] = [
           'Switched from using React Class components to exclusively Functional components',
           'Increased our usage of React hooks by over 100%',
           'Trimmed over 140 existing UNSAFE functions through careful refactoring'
+        ],
+        images: [
+          {
+            src: legacyUITypeScriptShare,
+            alt: 'Stacked bars showing TypeScript rising from 49.3 percent of the codebase in 2024 to 57.3 percent in 2025 and 64.5 percent in 2026, with JavaScript making up the rest.',
+          },
+          {
+            src: legacyUIFunctionalComponents,
+            alt: 'Two bars comparing 56 functional components three years ago with 361 today, a gain of 305.',
+          },
         ]
       },
       {
         heading: 'The Value',
-        subtitle: 'Safer, faster, more confident development.',
+        subtitle: 'A healthier codebase built for the future.',
         paragraphs: [
-          'These improvements and modernizations have resulted in improved developer visibility and confidence, prevention of bugs, replacement of old coding habits and strategies with modern recommended practices, and more efficient coding in general.'
+          'The outcome is that the codebase becomes easier to maintain and the development process is more efficient since faster builds mean less time is spent waiting, better typing helps in detecting problems earlier on, and consistent use of React practices makes the application simpler to understand, debug, and extend.',
+          'Just as importantly, the initiative set up a sustainable method for modernization; the team achieves a continual reduction of technical debt by incorporating improvements into regular development and at the same time delivering new functionality while keeping the stability of the existing enterprise application.'
         ]
       }
     ]

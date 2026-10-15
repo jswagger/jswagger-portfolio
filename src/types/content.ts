@@ -106,9 +106,9 @@ export interface CaseStudyDetail {
   stats?: StrengthStat[]
   statsCaption?: string
   introLink?: { label: string; href: string }
-  introImage?: CaseStudyImage & { wide?: boolean }
+  introImage?: CaseStudyImage & { wide?: boolean; compact?: boolean; title?: string; subtitle?: string }
   diagramImage?: CaseStudyImage
-  codeSnippets?: string[]
+  codeImage?: CaseStudyImage & { title: string; subtitle?: string }
 }
 
 // Condensed, single-accordion view of a company's experience. The full

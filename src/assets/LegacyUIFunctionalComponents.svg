@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 290" width="760" height="290" role="img" aria-labelledby="fc-title fc-desc" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title id="fc-title">Functional components, three years ago versus today</title>
+  <desc id="fc-desc">Two bars comparing 56 functional components three years ago with 361 today, a gain of 305.</desc>
+
+  <rect x="0.5" y="0.5" width="759" height="289" rx="14" fill="#13233f" stroke="#2b4166"/>
+
+  <text x="32" y="46" font-size="20" font-weight="600" fill="#e9eef6">Functional components</text>
+  <text x="32" y="72" font-size="14" fill="#a9b7cc">Now the standard for all new code.</text>
+
+  <!-- Three years ago -->
+  <text x="32" y="136" font-size="15" fill="#a9b7cc">3 years ago</text>
+  <rect x="150" y="108" width="89.66" height="44" rx="8" fill="#3d5a85"/>
+  <text x="252" y="137" font-size="20" font-weight="600" fill="#e9eef6">56</text>
+
+  <!-- Today -->
+  <text x="32" y="200" font-size="15" font-weight="600" fill="#e9eef6">Today</text>
+  <rect x="150" y="172" width="578" height="44" rx="8" fill="#cf8f55"/>
+  <text x="714" y="201" font-size="20" font-weight="700" text-anchor="end" fill="#0f1d33">361</text>
+
+  <!-- Gain bracket -->
+  <path d="M239.66 228 V236 H728 V228" fill="none" stroke="#cf8f55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="483.83" y="266" font-size="16" font-weight="600" text-anchor="middle" fill="#cf8f55">+305 added</text>
+</svg>

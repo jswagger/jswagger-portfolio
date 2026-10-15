@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 328" width="760" height="328" role="img" aria-labelledby="ts-title ts-desc" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title id="ts-title">TypeScript share of the codebase, 2024 to 2026</title>
+  <desc id="ts-desc">Stacked bars showing TypeScript rising from 49.3 percent of the codebase in 2024 to 57.3 percent in 2025 and 64.5 percent in 2026, with JavaScript making up the rest.</desc>
+
+  <rect x="0.5" y="0.5" width="759" height="327" rx="14" fill="#13233f" stroke="#2b4166"/>
+
+  <text x="32" y="46" font-size="20" font-weight="600" fill="#e9eef6">TypeScript share of the codebase</text>
+  <text x="32" y="72" font-size="14" fill="#a9b7cc">Up from 49.3% in 2024 to 64.5% in 2026.</text>
+
+  <!-- 2024 -->
+  <text x="32" y="138" font-size="15" fill="#a9b7cc">2024</text>
+  <rect x="104" y="112" width="624" height="40" rx="8" fill="#3d5a85"/>
+  <path d="M112 112 H411.63 V152 H112 A8 8 0 0 1 104 144 V120 A8 8 0 0 1 112 112 Z" fill="#cf8f55"/>
+  <text x="118" y="138" font-size="15" font-weight="600" fill="#0f1d33">49.3%</text>
+  <text x="714" y="138" font-size="15" text-anchor="end" fill="#e9eef6">50.7%</text>
+
+  <!-- 2025 -->
+  <text x="32" y="196" font-size="15" fill="#a9b7cc">2025</text>
+  <rect x="104" y="170" width="624" height="40" rx="8" fill="#3d5a85"/>
+  <path d="M112 170 H461.55 V210 H112 A8 8 0 0 1 104 202 V178 A8 8 0 0 1 112 170 Z" fill="#cf8f55"/>
+  <text x="118" y="196" font-size="15" font-weight="600" fill="#0f1d33">57.3%</text>
+  <text x="714" y="196" font-size="15" text-anchor="end" fill="#e9eef6">42.7%</text>
+
+  <!-- 2026 -->
+  <text x="32" y="254" font-size="15" font-weight="600" fill="#e9eef6">2026</text>
+  <rect x="104" y="228" width="624" height="40" rx="8" fill="#3d5a85"/>
+  <path d="M112 228 H506.48 V268 H112 A8 8 0 0 1 104 260 V236 A8 8 0 0 1 112 228 Z" fill="#cf8f55"/>
+  <text x="118" y="254" font-size="15" font-weight="700" fill="#0f1d33">64.5%</text>
+  <text x="714" y="254" font-size="15" text-anchor="end" fill="#e9eef6">35.5%</text>
+
+  <!-- 50% reference -->
+  <line x1="416" y1="102" x2="416" y2="278" stroke="#e9eef6" stroke-opacity="0.35" stroke-dasharray="4 4"/>
+  <text x="416" y="96" font-size="12" text-anchor="middle" fill="#a9b7cc">50%</text>
+
+  <!-- Legend -->
+  <rect x="32" y="298" width="12" height="12" rx="3" fill="#cf8f55"/>
+  <text x="52" y="309" font-size="13" fill="#a9b7cc">TypeScript</text>
+  <rect x="142" y="298" width="12" height="12" rx="3" fill="#3d5a85"/>
+  <text x="162" y="309" font-size="13" fill="#a9b7cc">JavaScript</text>
+</svg>
