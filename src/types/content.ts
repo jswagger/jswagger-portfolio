@@ -106,7 +106,7 @@ export interface CaseStudyDetail {
   stats?: StrengthStat[]
   statsCaption?: string
   introLink?: { label: string; href: string }
-  introImage?: CaseStudyImage
+  introImage?: CaseStudyImage & { wide?: boolean }
   diagramImage?: CaseStudyImage
   codeSnippets?: string[]
 }

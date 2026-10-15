@@ -261,7 +261,7 @@ export default function SelectedWork() {
           )}
 
           {caseStudy.introImage && (
-            <Reveal className="case-study-images case-study-intro-image">
+            <Reveal className={`case-study-images case-study-intro-image${caseStudy.introImage.wide ? ' case-study-intro-image--wide' : ''}`}>
               <figure>
                 <img src={caseStudy.introImage.src} alt={caseStudy.introImage.alt} />
                 {caseStudy.introImage.caption && <figcaption>{caseStudy.introImage.caption}</figcaption>}

@@ -13,8 +13,7 @@ import bugHunterReport from '../assets/BugHunterReport.webp'
 import codeQualityHeroImage from '../assets/CodeQualityHeroImage.jpg'
 import geospatialCardImage from '../assets/GeospatialCardImage.jpg'
 import performanceOverhaulHeroImage from '../assets/PerformanceOverhaulHeroImage.jpg'
-import recChangedCpuOriginal from '../assets/RecChangedCPU-Original.png'
-import recChangedCpuNew from '../assets/RecChangedCPU.png'
+import apiRequestsDiagram from '../assets/ApiRequestsDiagram.png'
 import { performanceOverhaulMetrics } from './performanceOverhaulMetrics'
 
 export const caseStudies: CaseStudyDetail[] = [
@@ -358,48 +357,54 @@ export const caseStudies: CaseStudyDetail[] = [
     heroPosition: 'center 55%',
     heroSubtitle: 'Identifying and eliminating performance bottlenecks across a demanding editing workflow.',
     intro:
-      'Editing farm events had become slow and unreliable: a batch took over a minute and a half to load, and competing real-time status updates left stale or duplicate statuses on screen. I measured first, then cut the redundant calls and stopped the messaging streams from overwriting each other. The result was load times down about 75% and a UI that keeps up under load.',
+      'Editing farm events had become a frustrating experience, with long load times, excessive API requests, and conflicting real-time updates affecting application responsiveness and reliability. By identifying performance bottlenecks and improving how the application processed requests and status updates, I reduced load times by approximately 75%, significantly decreased unnecessary operations, and delivered a faster, more dependable user experience.',
+    introImage: {
+      src: apiRequestsDiagram,
+      wide: true,
+      alt: 'Dot diagram comparing API requests for the same 100-event batch: the original version made 167 requests, shown as 167 dots, and the new version makes 8, shown as 8 dots. That is about 21 times fewer, 159 fewer requests per batch, a reduction of roughly 95%.',
+    },
     sections: [
       {
         heading: 'The Challenge',
-        subtitle: 'Slow, unreliable event editing.',
+        subtitle: "Slow performance. Unreliable updates.",
         paragraphs: [
-          "Farm event editing was slow and unreliable. Loading a batch of events took over a minute and a half, the UI called far more actions and API requests than it needed to, and competing IOT status messages (Event Changed, Event Status Changed) regularly raced each other, leaving stale or duplicate statuses visible in the UI."
+          "Editing large batches of farm events had become increasingly inefficient. Loading 100 events took over 90 seconds, while excessive API requests and unnecessary UI actions added processing overhead.",
+          "Competing real-time messaging streams also caused inconsistent event statuses, occasionally displaying outdated or duplicate information. Together, these issues slowed everyday workflows and made the application less responsive and reliable for users."
         ]
       },
       {
         heading: 'The Approach',
-        subtitle: 'Measuring first to find where time was going.',
+        subtitle: "Measure first. Optimize with purpose.",
         paragraphs: [
-          'I profiled a batch of 100 events end-to-end to establish a real baseline for load time, actions called, and API requests, then worked through the messaging and state-update paths to find where redundant calls and competing updates were coming from.'
+          "I began by profiling a batch of 100 events to establish measurable baselines for load times, UI actions, and API requests.",
+          "Using those findings, I traced the application's messaging and state-management workflows to identify redundant operations, unnecessary network requests, and competing updates. This provided a clear path toward targeted improvements without introducing unnecessary complexity."
         ]
       },
       {
         heading: 'The Strategy',
-        subtitle: 'Fewer calls and no more competing updates.',
+        subtitle: "Reduce overhead. Restore consistency.",
         paragraphs: [
-          'I removed the redundant Event Summary call and improved handling of the Event Changed and Event Status Changed messaging streams so they no longer competed for the same UI state.',
-          'I introduced logic to collapse duplicate updates for the same Event: when Processing and Complete messages land in the same debounce grouping, only the most recent update is applied, so an outdated status can no longer overwrite a newer one.',
-          "I also sped up how the Event Information panels close after saving, so the UI can depend on the IOT messaging itself to reflect status, rather than waiting on a separate confirmation round-trip."
+          "I eliminated redundant Event Summary API requests and refined how the application processed its two real-time messaging streams: Event Changed and Event Status Changed.",
+          "To prevent conflicting updates, I introduced logic that consolidates duplicate messages and prioritizes the most recent event status. This ensures outdated processing states cannot overwrite newer information displayed in the UI.",
+          "I also optimized how Event Information panels close after saving, allowing the interface to respond immediately while relying on existing real-time messaging to reflect updated statuses rather than waiting for additional confirmation requests.",
+          "Together, these changes reduced unnecessary processing, improved state consistency, and made the application noticeably more responsive."
         ]
       },
       {
         heading: 'The Outcome',
-        subtitle: '~75% faster load times.',
-        paragraphs: ['Re-running the same batch of 100 events after these changes showed a substantial, measurable improvement across every metric tracked:'],
+        subtitle: "Measurable improvements across the board.",
+        paragraphs: [
+          "Re-profiling the same batch of 100 events confirmed substantial improvements across every measured metric. Load times dropped from 95 seconds to just 24 seconds, while UI actions and API requests decreased dramatically.",
+          "These improvements translated directly into faster interactions, reduced processing overhead, and a more responsive experience for users working with large batches of events."
+        ],
         metrics: performanceOverhaulMetrics
       },
       {
         heading: 'The Value',
-        subtitle: 'A UI that keeps up under load.',
+        subtitle: "Faster workflows. A more reliable experience.",
         paragraphs: [
-          'CPU usage during Event Changed messaging previously plateaued at 100% under load; spikes are now substantially lower, letting the UI process incoming messages more consistently instead of stalling.'
-        ],
-        imagesInCard: true,
-        imagesTitle: 'Event Changed',
-        images: [
-          { src: recChangedCpuNew, alt: 'CPU usage during Event Changed messaging, original version, plateauing at 100%', caption: 'Before' },
-          { src: recChangedCpuOriginal, alt: 'CPU usage during Event Changed messaging, new version, with lower spikes', caption: 'After' }
+          "Beyond faster load times, the improvements made everyday interactions more responsive and predictable. CPU usage, which previously reached sustained 100% utilization during heavy messaging activity, was substantially reduced, allowing the application to process incoming updates without the same performance bottlenecks.",
+          "For users, the difference was immediate: less waiting, more consistent status information, and a smoother experience when editing large batches of events."
         ]
       }
     ]
