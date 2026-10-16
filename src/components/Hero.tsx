@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import heroImage from '../assets/PortfolioBanner.PNG'
 import portraitImage from '../assets/profile-2026.png'
+import useHeroIntroOnce from '../hooks/useHeroIntroOnce'
 import useHeroSpotlight from '../hooks/useHeroSpotlight'
 
 const skills = ['JavaScript/React', 'Python', 'C#', 'AWS', 'Node.js', 'SQL']
@@ -8,6 +9,7 @@ const skills = ['JavaScript/React', 'Python', 'C#', 'AWS', 'Node.js', 'SQL']
 export default function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null)
   useHeroSpotlight(sectionRef)
+  useHeroIntroOnce()
 
   return (
     <section
@@ -18,8 +20,18 @@ export default function Hero() {
     >
       <div className="hero-content">
         <div className="hero-copy-block">
-          <h1 className="section-label">Jeremy Swagger</h1>
-          <h3>Thoughtfully engineering reliable software to solve complex problems and build systems designed to last.</h3>
+          <p className="hero-intro-small hero-intro-small-top">Senior Software Engineer</p>
+          <div className="hero-intro-main">
+            <span className="hero-intro-circle" aria-hidden="true" />
+            <span className="hero-intro-line hero-intro-line-left" aria-hidden="true" />
+            <span className="hero-intro-line hero-intro-line-right" aria-hidden="true" />
+            <span className="hero-intro-bracket hero-intro-bracket-left" aria-hidden="true" />
+            <span className="hero-intro-bracket hero-intro-bracket-right" aria-hidden="true" />
+            <h1 className="section-label">Jeremy Swagger</h1>
+          </div>
+          <h3 className="hero-intro-small hero-intro-small-bottom">
+            Thoughtfully engineering reliable software to solve complex problems and build systems designed to last.
+          </h3>
         </div>
       </div>
 

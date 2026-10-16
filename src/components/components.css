@@ -603,7 +603,7 @@ main {
 }
 
 .hero-copy-block {
-  max-width: 720px;
+  max-width: 800px;
   margin-inline: auto;
   text-align: center;
 }
@@ -1822,8 +1822,6 @@ main {
   margin-top: clamp(48px, 10vh, 120px);
   padding: clamp(32px, 6vh, 64px) clamp(24px, 5vw, 64px);
   text-align: center;
-  opacity: 0;
-  animation: hero-content-fade 0.75s 0.9s linear forwards;
 }
 
 @keyframes hero-clip-reveal {
@@ -1841,15 +1839,6 @@ main {
   }
   to {
     transform: scale(1.1);
-  }
-}
-
-@keyframes hero-content-fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 
@@ -1885,6 +1874,280 @@ main {
   line-height: 1.4;
   letter-spacing: 0.04em;
   max-width: 560px;
+}
+
+/* Hero intro: circle splits into lines, brackets frame the title, then the
+   tagline and subtitle slide in. The base styles are the finished state, so
+   reduced-motion users get the end frame (no circle or lines). Timings are
+   offset by --hero-intro-delay to start after the hero clip reveal. */
+.case-study-hero-photo-content {
+  --hero-intro-delay: 0.7s;
+}
+
+/* The homepage hero has no clip reveal to wait for. */
+.hero-copy-block {
+  --hero-intro-delay: 0.3s;
+}
+
+.hero-intro-main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 16px clamp(32px, 4vw, 48px);
+}
+
+.case-study-hero-photo-content .hero-intro-main h1,
+.hero-copy-block .hero-intro-main .section-label {
+  margin: 0;
+}
+
+.hero-intro-circle,
+.hero-intro-line,
+.hero-intro-bracket,
+.hero-intro-bracket::before,
+.hero-intro-bracket::after {
+  position: absolute;
+  background: #fff;
+}
+
+.hero-intro-circle {
+  inset: 0;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  border-radius: 50%;
+  transform: scale(0);
+}
+
+.hero-intro-line {
+  z-index: 1;
+  top: calc(50% - 2px);
+  width: 50%;
+  height: 4px;
+  transform: scaleX(0);
+}
+
+.hero-intro-line-left {
+  left: 0;
+  transform-origin: 100% 50%;
+}
+
+.hero-intro-line-right {
+  right: 0;
+  transform-origin: 0% 50%;
+}
+
+.hero-intro-bracket {
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.hero-intro-bracket::before,
+.hero-intro-bracket::after {
+  content: '';
+  width: 24px;
+  height: 4px;
+}
+
+.hero-intro-bracket::before {
+  top: 0;
+}
+
+.hero-intro-bracket::after {
+  bottom: 0;
+}
+
+.hero-intro-bracket-left {
+  left: 0;
+}
+
+.hero-intro-bracket-left::before,
+.hero-intro-bracket-left::after {
+  left: 0;
+  transform-origin: 0% 50%;
+}
+
+.hero-intro-bracket-right {
+  right: 0;
+}
+
+.hero-intro-bracket-right::before,
+.hero-intro-bracket-right::after {
+  right: 0;
+  transform-origin: 100% 50%;
+}
+
+.case-study-hero-photo-content .hero-intro-small,
+.hero-copy-block .hero-intro-small {
+  margin: 0 auto;
+  color: #e0e1dd;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.case-study-hero-photo-content .hero-intro-small-top,
+.hero-copy-block .hero-intro-small-top {
+  margin-bottom: 16px;
+  font-family: var(--heading);
+  font-size: clamp(0.875rem, 1.6vw, 1.1rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.case-study-hero-photo-content .hero-intro-small-bottom,
+.hero-copy-block .hero-intro-small-bottom {
+  margin-top: 16px;
+}
+
+.case-study-hero-photo-content .case-study-page-tags {
+  margin-top: 24px;
+}
+
+/* Plays once per session: the head script in index.html and
+   useHeroIntroOnce set data-hero-intro-seen on <html> for repeat views. */
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-hero-intro-seen]) .hero-intro-circle {
+    animation: hero-intro-circle 1s ease-in-out var(--hero-intro-delay) both;
+  }
+
+  :root:not([data-hero-intro-seen]) .hero-intro-line-left {
+    animation:
+      hero-intro-lines 1s ease-in-out calc(var(--hero-intro-delay) + 0.8s) both,
+      hero-intro-line-left 1s steps(1) calc(var(--hero-intro-delay) + 0.8s) both;
+  }
+
+  :root:not([data-hero-intro-seen]) .hero-intro-line-right {
+    animation:
+      hero-intro-lines 1s ease-in-out calc(var(--hero-intro-delay) + 0.8s) both,
+      hero-intro-line-right 1s steps(1) calc(var(--hero-intro-delay) + 0.8s) both;
+  }
+
+  :root:not([data-hero-intro-seen]) .hero-intro-main h1 {
+    animation: hero-intro-reveal 0.4s ease-out calc(var(--hero-intro-delay) + 1.7s) both;
+  }
+
+  :root:not([data-hero-intro-seen]) .hero-intro-bracket {
+    animation: hero-intro-bracket 0.4s ease-out calc(var(--hero-intro-delay) + 1.7s) both;
+  }
+
+  :root:not([data-hero-intro-seen]) .hero-intro-bracket::before,
+  :root:not([data-hero-intro-seen]) .hero-intro-bracket::after {
+    animation: hero-intro-bracket-arm 0.2s ease-out calc(var(--hero-intro-delay) + 2.1s) both;
+  }
+
+  :root:not([data-hero-intro-seen]) .hero-intro-small-top {
+    animation: hero-intro-slide-left 0.5s ease-out calc(var(--hero-intro-delay) + 2.2s) both;
+  }
+
+  :root:not([data-hero-intro-seen]) .hero-intro-small-bottom {
+    animation: hero-intro-slide-right 0.5s ease-out calc(var(--hero-intro-delay) + 2.2s) both;
+  }
+
+  :root:not([data-hero-intro-seen]) .case-study-hero-photo-content .case-study-page-tags {
+    animation: hero-intro-fade 0.5s ease-out calc(var(--hero-intro-delay) + 2.5s) both;
+  }
+}
+
+@keyframes hero-intro-circle {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  90%,
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes hero-intro-lines {
+  0%,
+  100% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes hero-intro-line-left {
+  0% {
+    transform-origin: 100% 50%;
+  }
+  50%,
+  100% {
+    transform-origin: 0% 50%;
+  }
+}
+
+@keyframes hero-intro-line-right {
+  0% {
+    transform-origin: 0% 50%;
+  }
+  50%,
+  100% {
+    transform-origin: 100% 50%;
+  }
+}
+
+@keyframes hero-intro-reveal {
+  from {
+    clip-path: inset(50% -0.2em);
+  }
+  to {
+    clip-path: inset(-0.2em);
+  }
+}
+
+@keyframes hero-intro-bracket {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes hero-intro-bracket-arm {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes hero-intro-slide-left {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes hero-intro-slide-right {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes hero-intro-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* The accent blue reads too close to the dark navy hero backgrounds -
@@ -2548,6 +2811,115 @@ main {
 .case-study-page-section .case-study-images figure {
   max-width: 720px;
   margin-inline: auto;
+}
+
+.case-study-page-section .case-study-images figure.case-study-image--narrow {
+  flex-basis: 100%;
+  max-width: 440px;
+}
+
+.zoomable-image-trigger {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  border-radius: 12px;
+  cursor: zoom-in;
+}
+
+.zoomable-image-trigger img {
+  transition: filter 200ms ease, transform 200ms ease;
+}
+
+.zoomable-image-icon {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* Dark-tinted glass: a clear or white-tinted background would lose the
+     white icon against the light areas of the screenshots. */
+  background: rgba(13, 19, 33, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  transition: background-color 200ms ease, transform 200ms ease;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .zoomable-image-trigger:hover img {
+    filter: brightness(1.04);
+    transform: scale(1.01);
+  }
+
+  .zoomable-image-trigger:hover .zoomable-image-icon {
+    background: rgba(13, 19, 33, 0.6);
+    transform: scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zoomable-image-trigger img,
+  .zoomable-image-icon {
+    transition: none;
+  }
+}
+
+.zoomable-image-trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.zoomable-image-dialog {
+  box-sizing: border-box;
+  width: min(1600px, 96vw);
+  max-width: none;
+  max-height: 96vh;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  overflow: auto;
+}
+
+.zoomable-image-dialog::backdrop {
+  background: rgba(7, 12, 22, 0.85);
+}
+
+.zoomable-image-dialog img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.zoomable-image-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #0d1321;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.zoomable-image-close:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .case-study-images figcaption {

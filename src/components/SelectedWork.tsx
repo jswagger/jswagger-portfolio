@@ -6,6 +6,8 @@ import { MetricComparisonCharts } from './MetricComparisonCharts'
 import CaseStudyWorkflowVisual from './CaseStudyWorkflowVisual'
 import StrengthStats from './StrengthStats'
 import Reveal from './Reveal'
+import ZoomableImage from './ZoomableImage'
+import useHeroIntroOnce from '../hooks/useHeroIntroOnce'
 import agvanceLogo from '../assets/AgvanceLogo.png'
 import { caseStudies } from '../data/caseStudies'
 import type { CaseStudySection as CaseStudySectionData } from '../types/content'
@@ -98,8 +100,12 @@ function CaseStudySection({ section }: { section: CaseStudySectionData }) {
     <div className={`case-study-images${section.imagesInCard ? ' case-study-images--card' : ''}`}>
       {section.imagesTitle && <h3 className="case-study-images-title">{section.imagesTitle}</h3>}
       {section.images.map((image) => (
-        <figure key={image.src}>
-          <img src={image.src} alt={image.alt} />
+        <figure key={image.src} className={image.narrow ? 'case-study-image--narrow' : undefined}>
+          {image.narrow ? (
+            <ZoomableImage src={image.src} alt={image.alt} />
+          ) : (
+            <img src={image.src} alt={image.alt} />
+          )}
           {image.caption && <figcaption>{image.caption}</figcaption>}
         </figure>
       ))}
@@ -159,6 +165,7 @@ function CaseStudySection({ section }: { section: CaseStudySectionData }) {
 
 export default function SelectedWork() {
   const { slug } = useParams()
+  useHeroIntroOnce()
   const caseStudyIndex = caseStudies.findIndex((study) => study.slug === slug)
   const caseStudy = caseStudies[caseStudyIndex]
   const nextCaseStudy = caseStudies[(caseStudyIndex + 1) % caseStudies.length]
@@ -204,8 +211,18 @@ export default function SelectedWork() {
         }}
       >
         <div className="case-study-hero-photo-content">
-          <h1>{caseStudy.title}</h1>
-          {caseStudy.heroSubtitle && <p>{caseStudy.heroSubtitle}</p>}
+          <p className="hero-intro-small hero-intro-small-top">{caseStudy.tagline}</p>
+          <div className="hero-intro-main">
+            <span className="hero-intro-circle" aria-hidden="true" />
+            <span className="hero-intro-line hero-intro-line-left" aria-hidden="true" />
+            <span className="hero-intro-line hero-intro-line-right" aria-hidden="true" />
+            <span className="hero-intro-bracket hero-intro-bracket-left" aria-hidden="true" />
+            <span className="hero-intro-bracket hero-intro-bracket-right" aria-hidden="true" />
+            <h1>{caseStudy.title}</h1>
+          </div>
+          {caseStudy.heroSubtitle && (
+            <p className="hero-intro-small hero-intro-small-bottom">{caseStudy.heroSubtitle}</p>
+          )}
           <div className="case-study-page-tags">
             {caseStudy.tags.map((tag) => (
               <span key={tag} className="case-study-page-tag">

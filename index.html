@@ -26,6 +26,13 @@
   
   <!-- Apple devices mobile home screen icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5" />
+  <script>
+    try {
+      if (sessionStorage.getItem('heroIntroSeen')) {
+        document.documentElement.setAttribute('data-hero-intro-seen', '')
+      }
+    } catch (e) {}
+  </script>
 </head>
   <body>
     <div id="root"></div>

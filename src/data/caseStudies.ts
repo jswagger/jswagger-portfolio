@@ -20,6 +20,7 @@ import performanceOverhaulHeroImage from '../assets/PerformanceOverhaulHeroImage
 import apiRequestsDiagram from '../assets/ApiRequestsDiagram.png'
 import summaryWorkflowDiagram from '../assets/SummaryWorkflowDiagram.png'
 import summaryModal from '../assets/SummaryModal.png'
+import summaryReportsView from '../assets/SummaryReportsView.png'
 import testPoolDiagram from '../assets/TestPoolDiagram.png'
 import { performanceOverhaulMetrics } from './performanceOverhaulMetrics'
 
@@ -85,6 +86,13 @@ export const caseStudies: CaseStudyDetail[] = [
             src: summaryModal,
             alt: 'The Summary modal for three selected reports, with an overview of corn yields across 12 fields, key highlights comparing North 80 and Creek Bottom, and a Worth a closer look note on Creek Bottom\'s later planting and lower yield.',
             caption: 'Illustrative summary with sample data.',
+            narrow: true,
+          },
+          {
+            src: summaryReportsView,
+            alt: 'The Reports view: a list of six reports with Spring Planting Summary, Fertilizer Applications, and Yield by Field checked and a Summarize button below. A Yield by field map of 12 fields shows North 80 mostly green for higher yield and Creek Bottom mostly orange and red for lower yield. A Summary panel for the 3 selected reports gives an overview, key highlights, and a Worth a closer look note.',
+            caption: 'Illustrative reports view with sample data.',
+            narrow: true,
           },
         ]
       }

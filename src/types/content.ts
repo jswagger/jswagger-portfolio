@@ -39,6 +39,7 @@ export interface CaseStudyImage {
   src: string
   alt: string
   caption?: string
+  narrow?: boolean
 }
 
 export interface CaseStudySection {
