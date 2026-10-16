@@ -2,6 +2,8 @@
 // so crawlers and link previews see the right title and meta tags. Runs before
 // prerender.mjs so these pages start from the empty app shell, not the
 // prerendered homepage (which would break hydration on /work/<slug>).
+// Also writes dist/404.html: Vercel serves it with a real 404 status for any
+// URL that has no file, and the client router renders the NotFound page.
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 
@@ -60,3 +62,13 @@ for (const study of caseStudyMeta) {
 }
 
 console.log(`Generated route heads for ${caseStudyMeta.length} case studies`)
+
+let notFound = template
+for (const pattern of REPLACED_TAGS) notFound = notFound.replace(pattern, '')
+notFound = notFound.replace(
+  '</head>',
+  `  <title>Page not found | Jeremy Swagger</title>\n  <meta name="robots" content="noindex" />\n</head>`,
+)
+await writeFile(`${rootDir}dist/404.html`, notFound)
+
+console.log('Generated 404.html')
