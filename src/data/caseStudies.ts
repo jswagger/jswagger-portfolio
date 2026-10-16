@@ -243,28 +243,21 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Challenge',
         subtitle: "A critical customer workflow didn't exist.",
         paragraphs: [
-          'AI360 needed a formal process for enrolling customers in an agreement governing data sharing. Before this workflow was introduced, there was no system-level process for tracking enrollment status.',
-          'The solution needed to guide customers through authentication, verification, and agreement acceptance while giving administrators a reliable way to initiate and track enrollment. Because enrollment status would also determine access to multiple downstream workflows, the solution needed to integrate into the existing application rather than function as an isolated experience.'
+          'We needed a formal process for enrolling customers in data-sharing agreements—something that didn’t exist before. AI360 required a way to track enrollment status while guiding customers through authentication, verification, and agreement acceptance.'
         ]
       },
       {
         heading: 'The Approach',
         subtitle: 'Turning a business requirement into an end-to-end workflow.',
         paragraphs: [
-          'As the primary engineer, I translated the provided business requirements into an end-to-end technical solution spanning the front end, back end, authentication, and application workflows.',
-          'I designed and built the React enrollment experience, backend APIs, business logic, and integrations needed to move a customer from administrator-initiated enrollment through verified agreement acceptance.',
-          'The workflow connected email-based enrollment, Amazon Cognito authentication, SMS verification, agreement acceptance, and enrollment-state persistence into a cohesive experience.'
+          'As the primary engineer, I transformed these business needs into a robust, end-to-end workflow. I developed a React-based enrollment experience and built backend APIs to facilitate the transition from initial enrollment to verified agreement acceptance—integrating email-based enrollment, Amazon Cognito authentication, SMS verification, and more into a seamless experience.'
         ]
       },
       {
         heading: 'The Strategy',
-        subtitle: 'Establishing enrollment as application-level state.',
+        subtitle: 'Building for more than the initial workflow.',
         paragraphs: [
-          "I designed the enrollment state as a durable part of the application's business logic rather than treating enrollment as a one-time transaction.",
-          'The workflow established a clear progression:',
-          
-          'That state could then be consumed by existing and future features to determine whether a customer was eligible to access workflows requiring enrollment.',
-          'This approach allowed the new capability to fit into the existing enterprise system while creating a foundation that other parts of the application could build upon.'
+          "I established enrollment as an ongoing part of our application's business logic rather than a one-time event. This allowed us to track customer eligibility for multiple workflows that require enrollment, ensuring that our new capability enhanced the existing system."
         ],
         imagesAfterParagraph: 1,
         images: [
@@ -278,17 +271,14 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Outcome',
         subtitle: '10,000+ customers enrolled',
         paragraphs: [
-          'The enrollment process became an established part of the AI360 platform and has remained in production for more than six years.',
-          'Over 10,000 customers have completed the enrollment process, and approximately 15+ downstream features reference the enrollment state to control access to related workflows.',
-          'Each enrollment coordinates approximately 8 API calls, 1 email, and 1 SMS message across the application and supporting services.'
+          'Over the past six years, more than 10,000 customers have successfully enrolled in the process, which now ties into over 15 downstream features across the platform. Each enrollment typically involves 8 API calls, along with an email and SMS message.'
         ]
       },
       {
         heading: 'The Value',
-        subtitle: 'Turning a critical business need into a lasting platform capability.',
+        subtitle: 'A lasting capability, not just another feature.',
         paragraphs: [
-          'The project introduced a formal, trackable enrollment process where none previously existed, enabling the product to support data sharing under the required agreement.',
-          'More importantly, it established a reliable application-level enrollment state that could be used across the broader platform. What began as a new customer workflow became foundational infrastructure for other product capabilities.'
+          'This project created a formal, trackable enrollment process where none existed, enabling effective data sharing under agreement. Ultimately, it established a durable enrollment state that supports numerous product capabilities—turning a critical business need into foundational infrastructure.'
         ]
       }
     ]
@@ -324,24 +314,23 @@ export const caseStudies: CaseStudyDetail[] = [
     sections: [
       {
         heading: 'The Challenge',
-        subtitle: 'Problems surface too late.',
+        subtitle: 'Catching problems before peer review.',
         paragraphs: [
-          "Most issues that reach peer review could have been caught earlier: a guard removed during a refactor, a function signature that changed while a caller still relied on the old contract, a risky pattern that's easy to overlook, or tests that no longer test anything meaningful. Each one costs a review cycle, and some slip through to production. I wanted a consistent way to catch these myself, on every ticket, before anyone else had to."
+          "Most code issues come to light too late, whether it's a missing guard post-refactor or a changed function signature wreaking havoc. I wanted a proactive approach to catch these problems before they reach peer review."
         ]
       },
       {
         heading: 'The Approach',
-        subtitle: 'Put AI agents to work on the parts humans miss.',
+        subtitle: 'Giving AI agents focused jobs.',
         paragraphs: [
-          'AI agents are good at reading code in context, but on their own they\'re inconsistent and prone to confident mistakes. Instead of asking an agent to "review my code," I split the work into three focused skills, each with one job: Bug Hunter looks for regressions and new bugs, Security Auditor looks for vulnerabilities, and Code Sweeper looks for clean-code issues and low-value tests. Each skill does its own job well and defers the others to their dedicated tool.'
+          'I harness AI to tackle what humans often miss. Instead of a blanket "review my code," I broke it down into three focused skills: Bug Hunter (for regressions and bugs), Security Auditor (for vulnerabilities), and Code Sweeper (for clean-code practices). Each skill excels in its area while referring to others for comprehensive insights.'
         ]
       },
       {
         heading: 'The Strategy',
         subtitle: 'Scripts gather evidence. Agents make judgments.',
         paragraphs: [
-          'Every skill follows the same pattern. First, Node.js scripts collect the diff using `git merge-base`, so reviews cover only what my branch changed. Then deterministic scanners flag candidates, such as removed guards, dropped awaits, changed signatures, or risky security patterns. Only after that does the agent review the evidence in context. Scanner matches are treated as candidates, not confirmed issues.',
-          "Bug Hunter goes furthest. It reads the ticket's acceptance criteria and turns them into edge cases to check, looks up callers when a signature changes, and ranks findings into compact risk packets so the agent reads the riskiest changes first. A fast model triages, then a stronger model performs a deep review. Every probable bug must include a concrete failure scenario, a specific input and the wrong result it produces, or the report rejects it. Auto-fixing is off by default, and I decide what changes."
+          'I developed scripts to gather evidence, allowing the agents to make informed judgments. Using Node.js, I collect diffs that reflect only my changes and let scanners highlight potential issues like removed guards or risky patterns. The agents then analyze this information, treating initial matches as candidates rather than confirmed problems. Bug Hunter takes it a step further by interpreting acceptance criteria and generating edge cases for checks. It ranks findings to prioritize the riskiest changes first, ensuring every probable bug includes a concrete failure scenario. I maintain control over decisions, with auto-fixing turned off.'
         ],
         quote: 'Every probable bug needs a concrete failure scenario.'
       },
@@ -349,8 +338,7 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Outcome',
         subtitle: 'A proven, open-source review toolkit.',
         paragraphs: [
-          'Regression Inspector, the internal version of Bug Hunter, now runs on every ticket I work on our enterprise platform. Across my last 10 tickets, spanning 7 repositories, it scanned 339 changed files, surfaced 73 suspicious findings, and flagged 22 probable bugs, roughly two per ticket, before a pull request was opened.',
-          "Bug Hunter, Code Sweeper, and Security Auditor are available in my open-source AI-Skills repository. They're configurable per project, unit tested, and built on Node.js built-ins with no third-party dependencies."
+          "My toolkit, including Regression Inspector (the internal Bug Hunter), has proven effective. In recent projects, it scanned 339 files, identified 73 suspicious findings, and flagged 22 probable bugs before pull requests were even opened. The skills are open-source, well-tested, and built on Node.js with no third-party dependencies."
         ],
         images: [
           {
@@ -365,7 +353,7 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Value',
         subtitle: 'Better code before review, not after.',
         paragraphs: [
-          "Catching issues before a pull request means fewer review cycles, fewer regressions reaching production, and reviewers who can focus on architecture and intent instead of hunting for bugs. Just as importantly, the toolkit is built to be trustworthy: it shows its evidence, separates likely problems from things worth a second look, and leaves the final call to the developer. AI makes the review faster, while accountability for the code stays with the engineer."
+          "Catching issues before they reach review means faster cycles, fewer regressions, and allowing reviewers to focus on broader architectural intent rather than nitty-gritty bugs. Plus, the toolkit is transparent; it shows its evidence, clarifies likely issues, and keeps developers accountable for their code. AI accelerates the review process while preserving human insight."
         ]
       }
     ]

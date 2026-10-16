@@ -1,13 +1,14 @@
-import type { ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import { Fragment, useEffect } from 'react'
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Navbar from './Navbar'
+import NotFound from './NotFound'
+import TypedText, { typedDuration } from './TypedText'
 import { MetricComparisonCharts } from './MetricComparisonCharts'
 import CaseStudyWorkflowVisual from './CaseStudyWorkflowVisual'
 import StrengthStats from './StrengthStats'
 import Reveal from './Reveal'
 import ZoomableImage from './ZoomableImage'
-import useHeroIntroOnce from '../hooks/useHeroIntroOnce'
 import agvanceLogo from '../assets/AgvanceLogo.png'
 import { caseStudies } from '../data/caseStudies'
 import type { CaseStudySection as CaseStudySectionData } from '../types/content'
@@ -165,7 +166,6 @@ function CaseStudySection({ section }: { section: CaseStudySectionData }) {
 
 export default function SelectedWork() {
   const { slug } = useParams()
-  useHeroIntroOnce()
   const caseStudyIndex = caseStudies.findIndex((study) => study.slug === slug)
   const caseStudy = caseStudies[caseStudyIndex]
   const nextCaseStudy = caseStudies[(caseStudyIndex + 1) % caseStudies.length]
@@ -177,7 +177,7 @@ export default function SelectedWork() {
     window.scrollTo(0, 0)
   }, [caseStudy])
 
-  if (!caseStudy) return <Navigate to="/" replace />
+  if (!caseStudy) return <NotFound />
 
   return (
     <main className="case-study-page" data-case-study={caseStudy.slug}>
@@ -211,17 +211,21 @@ export default function SelectedWork() {
         }}
       >
         <div className="case-study-hero-photo-content">
-          <p className="hero-intro-small hero-intro-small-top">{caseStudy.tagline}</p>
           <div className="hero-intro-main">
             <span className="hero-intro-circle" aria-hidden="true" />
             <span className="hero-intro-line hero-intro-line-left" aria-hidden="true" />
             <span className="hero-intro-line hero-intro-line-right" aria-hidden="true" />
-            <span className="hero-intro-bracket hero-intro-bracket-left" aria-hidden="true" />
-            <span className="hero-intro-bracket hero-intro-bracket-right" aria-hidden="true" />
-            <h1>{caseStudy.title}</h1>
+            <h1>
+              <TypedText text={caseStudy.title} startDelay={400} keepCaret />
+            </h1>
           </div>
           {caseStudy.heroSubtitle && (
-            <p className="hero-intro-small hero-intro-small-bottom">{caseStudy.heroSubtitle}</p>
+            <p
+              className="hero-intro-small hero-intro-small-bottom hero-subtitle-fade"
+              style={{ '--subtitle-delay': `${typedDuration(caseStudy.title, 400) + 200}ms` } as CSSProperties}
+            >
+              {caseStudy.heroSubtitle}
+            </p>
           )}
           <div className="case-study-page-tags">
             {caseStudy.tags.map((tag) => (

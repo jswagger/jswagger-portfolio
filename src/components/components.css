@@ -2007,45 +2007,41 @@ main {
 /* Plays once per session: the head script in index.html and
    useHeroIntroOnce set data-hero-intro-seen on <html> for repeat views. */
 @media (prefers-reduced-motion: no-preference) {
-  :root:not([data-hero-intro-seen]) .hero-intro-circle {
+  :root:not([data-hero-intro-seen]) .hero-copy-block .hero-intro-circle {
     animation: hero-intro-circle 1s ease-in-out var(--hero-intro-delay) both;
   }
 
-  :root:not([data-hero-intro-seen]) .hero-intro-line-left {
+  :root:not([data-hero-intro-seen]) .hero-copy-block .hero-intro-line-left {
     animation:
       hero-intro-lines 1s ease-in-out calc(var(--hero-intro-delay) + 0.8s) both,
       hero-intro-line-left 1s steps(1) calc(var(--hero-intro-delay) + 0.8s) both;
   }
 
-  :root:not([data-hero-intro-seen]) .hero-intro-line-right {
+  :root:not([data-hero-intro-seen]) .hero-copy-block .hero-intro-line-right {
     animation:
       hero-intro-lines 1s ease-in-out calc(var(--hero-intro-delay) + 0.8s) both,
       hero-intro-line-right 1s steps(1) calc(var(--hero-intro-delay) + 0.8s) both;
   }
 
-  :root:not([data-hero-intro-seen]) .hero-intro-main h1 {
+  :root:not([data-hero-intro-seen]) .hero-copy-block .hero-intro-main h1 {
     animation: hero-intro-reveal 0.4s ease-out calc(var(--hero-intro-delay) + 1.7s) both;
   }
 
-  :root:not([data-hero-intro-seen]) .hero-intro-bracket {
+  :root:not([data-hero-intro-seen]) .hero-copy-block .hero-intro-bracket {
     animation: hero-intro-bracket 0.4s ease-out calc(var(--hero-intro-delay) + 1.7s) both;
   }
 
-  :root:not([data-hero-intro-seen]) .hero-intro-bracket::before,
-  :root:not([data-hero-intro-seen]) .hero-intro-bracket::after {
+  :root:not([data-hero-intro-seen]) .hero-copy-block .hero-intro-bracket::before,
+  :root:not([data-hero-intro-seen]) .hero-copy-block .hero-intro-bracket::after {
     animation: hero-intro-bracket-arm 0.2s ease-out calc(var(--hero-intro-delay) + 2.1s) both;
   }
 
-  :root:not([data-hero-intro-seen]) .hero-intro-small-top {
+  :root:not([data-hero-intro-seen]) .hero-copy-block .hero-intro-small-top {
     animation: hero-intro-slide-left 0.5s ease-out calc(var(--hero-intro-delay) + 2.2s) both;
   }
 
-  :root:not([data-hero-intro-seen]) .hero-intro-small-bottom {
+  :root:not([data-hero-intro-seen]) .hero-copy-block .hero-intro-small-bottom {
     animation: hero-intro-slide-right 0.5s ease-out calc(var(--hero-intro-delay) + 2.2s) both;
-  }
-
-  :root:not([data-hero-intro-seen]) .case-study-hero-photo-content .case-study-page-tags {
-    animation: hero-intro-fade 0.5s ease-out calc(var(--hero-intro-delay) + 2.5s) both;
   }
 }
 
@@ -3324,5 +3320,164 @@ main {
   .strength-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: 32px;
+  }
+}
+
+.not-found {
+  --lamp-cable: clamp(64px, 14vh, 140px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: calc(var(--lamp-cable) + 176px) 24px 96px;
+  overflow: hidden;
+  text-align: center;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.not-found-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found-code {
+  margin: 0;
+  font-family: var(--heading);
+  font-size: clamp(5rem, 22vw, 10rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+  text-shadow: 0 0 48px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.not-found-title {
+  margin: 16px 0 8px;
+  font-family: var(--heading);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.not-found-message {
+  max-width: 44ch;
+  margin: 0 0 32px;
+  color: var(--text-muted);
+}
+
+/* Hanging lamp: the whole group swings from the top of the page. */
+.not-found-lamp {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 0;
+  transform-origin: top center;
+  pointer-events: none;
+}
+
+.not-found-lamp-cable {
+  width: 4px;
+  height: var(--lamp-cable);
+  background: linear-gradient(var(--surface-muted), var(--accent-soft));
+}
+
+.not-found-lamp-shade {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  width: 144px;
+  height: 56px;
+  background: var(--surface-muted);
+  border-radius: 72px 72px 0 0;
+}
+
+.not-found-lamp-bulb {
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 60%, white);
+  box-shadow:
+    0 0 24px 8px color-mix(in srgb, var(--accent) 80%, transparent),
+    0 0 64px 40px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.not-found-lamp-light {
+  position: absolute;
+  top: calc(var(--lamp-cable) + 56px);
+  left: 0;
+  width: clamp(320px, 80vw, 800px);
+  height: 90vh;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--accent) 34%, transparent),
+    transparent 90%
+  );
+  clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%);
+}
+
+.not-found-dust span {
+  position: absolute;
+  top: 100%;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.4;
+}
+
+/* Solid copper button. */
+.not-found-button {
+  padding: 12px 32px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.not-found-button:hover,
+.not-found-button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .not-found-lamp {
+    animation: not-found-swing 5s cubic-bezier(0.6, 0, 0.38, 1) infinite;
+  }
+
+  .not-found-dust span {
+    animation: not-found-rise linear infinite;
+  }
+}
+
+@keyframes not-found-swing {
+  0%,
+  100% {
+    transform: rotate(28deg);
+  }
+  50% {
+    transform: rotate(-28deg);
+  }
+}
+
+@keyframes not-found-rise {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-110vh);
   }
 }
