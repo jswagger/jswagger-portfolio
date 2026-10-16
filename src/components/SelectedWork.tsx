@@ -3,7 +3,6 @@ import { Fragment, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Navbar from './Navbar'
 import NotFound from './NotFound'
-import TypedText, { typedDuration } from './TypedText'
 import { MetricComparisonCharts } from './MetricComparisonCharts'
 import CaseStudyWorkflowVisual from './CaseStudyWorkflowVisual'
 import StrengthStats from './StrengthStats'
@@ -215,19 +214,19 @@ export default function SelectedWork() {
             <span className="hero-intro-circle" aria-hidden="true" />
             <span className="hero-intro-line hero-intro-line-left" aria-hidden="true" />
             <span className="hero-intro-line hero-intro-line-right" aria-hidden="true" />
-            <h1>
-              <TypedText text={caseStudy.title} startDelay={400} keepCaret />
+            <h1 className="hero-fade-up" style={{ '--fade-delay': '0.2s' } as CSSProperties}>
+              {caseStudy.title}
             </h1>
           </div>
           {caseStudy.heroSubtitle && (
             <p
-              className="hero-intro-small hero-intro-small-bottom hero-subtitle-fade"
-              style={{ '--subtitle-delay': `${typedDuration(caseStudy.title, 400) + 200}ms` } as CSSProperties}
+              className="hero-intro-small hero-intro-small-bottom hero-fade-up"
+              style={{ '--fade-delay': '0.5s' } as CSSProperties}
             >
               {caseStudy.heroSubtitle}
             </p>
           )}
-          <div className="case-study-page-tags">
+          <div className="case-study-page-tags hero-fade-up" style={{ '--fade-delay': '0.8s' } as CSSProperties}>
             {caseStudy.tags.map((tag) => (
               <span key={tag} className="case-study-page-tag">
                 {tag}
