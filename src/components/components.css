@@ -3481,3 +3481,80 @@ main {
     transform: translateY(-110vh);
   }
 }
+
+/* Case study subtitle fades in once the title has finished typing. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-subtitle-fade {
+    animation: hero-intro-fade 0.6s ease-out var(--subtitle-delay) both;
+  }
+}
+
+/* Typewriter text: characters appear one by one with a caret on the one
+   just typed. Without motion, the base styles show the finished text. */
+.typed-text-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.typed-char {
+  position: relative;
+}
+
+.typed-char::after {
+  content: '';
+  position: absolute;
+  top: 0.1em;
+  right: -0.04em;
+  bottom: 0.1em;
+  width: 0.06em;
+  background: currentColor;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .typed-char {
+    animation: typed-char-in 0s steps(1) both;
+    animation-delay: calc(var(--typed-start) + var(--i) * var(--typed-step));
+  }
+
+  .typed-char::after {
+    animation: typed-caret var(--typed-step) steps(1) both;
+    animation-delay: calc(var(--typed-start) + var(--i) * var(--typed-step));
+    animation-fill-mode: none;
+  }
+
+  /* The final caret fades out as soon as the last letter is typed. */
+  .typed-char-last::after {
+    animation: typed-caret-fade 0.6s ease-out forwards;
+    animation-delay: calc(var(--typed-start) + var(--i) * var(--typed-step));
+  }
+}
+
+@keyframes typed-caret-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes typed-char-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes typed-caret {
+  from,
+  to {
+    opacity: 1;
+  }
+}
