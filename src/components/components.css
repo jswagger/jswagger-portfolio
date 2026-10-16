@@ -2834,17 +2834,17 @@ main {
    ScrollWords.tsx rolls the list; only the previous, current and next word
    show, the rest are clipped. */
 .scroll-words-track {
-  height: calc(50vh + (var(--word-count, 8) - 1) * 40vh);
+  height: calc(36vh + (var(--word-count, 8) - 1) * 40vh);
 }
 
 .scroll-words-stage {
   position: sticky;
   /* Half of the remaining viewport, so the shorter stage pins centered. */
-  top: 25vh;
+  top: 32vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50vh;
+  height: 36vh;
   padding-inline: clamp(20px, 3vw, 48px);
 }
 

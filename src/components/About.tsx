@@ -38,25 +38,24 @@ export default function About() {
       <div className="about-grid">
         <div className="about-copy">
           <p>
-            I love to travel and explore new places, whether that involves hiking a new trail,
-            wandering through an unfamiliar town, or finding a beautiful spot to spend the day.
-            Having lived in Croatia and now calling Florida home, I have developed a strong
-            appreciation for both European charm and seaside life.
+            Coding the day away latte in hand along the shores of the Emerald Coast, FL. I love
+            simplifying complex problems and enhancing user experience. My rule of thumb? If my kids
+            can’t figure it out, let’s improve it.
           </p>
           <p>
-            Family is at the center of my life. Some of my favorite moments are the simple ones:
-            discovering new places together, enjoying the outdoors, and making the most of wherever
-            we are.
+            When I’m not coding, I’m exploring the outdoors, whether it’s hiking
+            a scenic trail, wandering around charming towns, or discovering off the beaten path
+            spots.
           </p>
           <p>
-            I’m also a big fan of green tea, engaging conversations, and learning something new
-            whenever I can.
+            Family is at the heart of my life. Raising teens alongside my wife means there’s never a
+            dull moment, from cheering at soccer games to answering endless questions and heading
+            out on camping adventures together.
           </p>
           <p>
-            My curiosity drives everything I do; I enjoy understanding how things fit together,
-            asking thoughtful questions, and finding ways to improve things.
+            I’m a big fan of dark chocolate, beach sunsets, and engaging conversations. My curiosity drives everything I do; I enjoy understanding how ideas connect, asking thoughtful questions, and finding better ways to solve problems.
           </p>
-          <p>All photos on this website were taken by me during my travels.</p>
+          <p>And yes, all the photos on this site are my own captures from our adventures!</p>
         </div>
         <div className="stats-list">
           {highlights.map((item) => (

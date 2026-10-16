@@ -18,6 +18,9 @@ import codeQualityHeroImage from '../assets/CodeQualityHeroImage.jpg'
 import geospatialCardImage from '../assets/GeospatialCardImage.jpg'
 import performanceOverhaulHeroImage from '../assets/PerformanceOverhaulHeroImage.jpg'
 import apiRequestsDiagram from '../assets/ApiRequestsDiagram.png'
+import summaryWorkflowDiagram from '../assets/SummaryWorkflowDiagram.png'
+import summaryModal from '../assets/SummaryModal.png'
+import testPoolDiagram from '../assets/TestPoolDiagram.png'
 import { performanceOverhaulMetrics } from './performanceOverhaulMetrics'
 
 export const caseStudies: CaseStudyDetail[] = [
@@ -34,6 +37,13 @@ export const caseStudies: CaseStudyDetail[] = [
     heroPhotoLocation: 'Cappadocia, Türkiye',
     heroPosition: 'center 55%',
     heroSubtitle: 'Applying AI to turn dense reports into clear, useful insights.',
+    intro:
+      'Analyzing data across multiple reports used to require users to manually compare findings and identify connections. I developed an AI-powered reporting feature that consolidates these insights into a single, accessible summary. By integrating AWS Bedrock with intelligent document preprocessing and systematic testing, I created a reliable solution that simplifies complex analysis and reduces AI token consumption by over 75%.',
+    introImage: {
+      src: summaryWorkflowDiagram,
+      wide: true,
+      alt: 'Workflow diagram: in the React UI, the user selects up to 20 reports of any mix of types. The Python backend fetches each PDF from S3 and detects its type from the filename. Text-only types send extracted text with no PDF, avoiding image tokens, while PDF types send the raw PDF plus table JSON and a color legend when found. Reports are batched at up to 5 reports and 100 images per batch. Up to 5 reports go in one call, streamed straight back; 6 to 20 reports use map-reduce, summarizing batches in parallel and then combining. The summary is rendered as markdown in a modal in the React UI.',
+    },
     sections: [
       {
         heading: 'The Challenge',
@@ -46,7 +56,13 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Approach',
         subtitle: 'Building a test pool to make AI results dependable.',
         paragraphs: [
-          "Since reports can hold many different types of data, and utilize many different layouts, I knew that we needed to establish a large test pool to try out many different combinations. So I worked with Claude Code to carefully create some temporary scripts in Python to run specific reports through Bedrock, and compare against a direct analysis. This allowed me to isolate specific problematic cases, and establish intentional dynamic context, so that the Bedrock model would consistently return desired results."
+          "Since reports can hold many different types of data, and utilize many different layouts, I knew that we needed to establish a large test pool to try out many different combinations. So I worked with Claude Code to carefully create some temporary scripts in Python to run specific reports through Bedrock, and compare against a direct analysis. This allowed me to isolate specific problematic cases, and establish intentional dynamic context, so that the Bedrock model would consistently return desired results.",
+        ],
+        images: [
+          {
+            src: testPoolDiagram,
+            alt: 'Diagram titled Building a test pool: a grid of 24 report tiles of varying layouts, with three highlighted in orange as problem cases to isolate, feeds a repeating loop. Run: send a specific report through Bedrock. Compare: check it against a direct analysis. Isolate: pull out the problem cases. Add context: guardrails per report type, color legends. The loop then repeats.',
+          },
         ]
       },
       {
@@ -63,6 +79,13 @@ export const caseStudies: CaseStudyDetail[] = [
         subtitle: 'Clear summaries in a single click.',
         paragraphs: [
           'Selecting multiple reports and clicking "Summarize" now allows users to get a high-level view quickly and automatically. Token consumption is well-managed, and users are able to receive accurate perceptions of their data.'
+        ],
+        images: [
+          {
+            src: summaryModal,
+            alt: 'The Summary modal for three selected reports, with an overview of corn yields across 12 fields, key highlights comparing North 80 and Creek Bottom, and a Worth a closer look note on Creek Bottom\'s later planting and lower yield.',
+            caption: 'Illustrative summary with sample data.',
+          },
         ]
       }
     ]

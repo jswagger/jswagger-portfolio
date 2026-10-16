@@ -24,7 +24,7 @@ export default function Hero() {
       </div>
 
       <p className="hero-photo-credit">
-        <span>Working Remotely in Romania</span>
+        <span>Jeremy Working Remotely</span>
       </p>
 
       <a href="#case-studies" className="hero-scroll-indicator" aria-label="Scroll to selected work">
