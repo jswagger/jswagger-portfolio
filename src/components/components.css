@@ -3249,7 +3249,7 @@ main {
    ScrollWords.tsx rolls the list; only the previous, current and next word
    show, the rest are clipped. */
 .scroll-words-track {
-  height: calc(36vh + (var(--word-count, 8) - 1) * 40vh);
+  height: calc(36vh + (var(--word-count, 8) - 1) * 24vh);
 }
 
 .scroll-words-stage {
@@ -3315,10 +3315,10 @@ main {
   color: var(--text);
 }
 
-/* Phones: shorter stage and less scroll per word (~114vh vs ~236vh). */
+/* Phones: shorter stage and less scroll per word (~108vh vs ~204vh). */
 @media (max-width: 640px) {
   .scroll-words-track {
-    height: calc(24vh + (var(--word-count, 8) - 1) * 18vh);
+    height: calc(24vh + (var(--word-count, 8) - 1) * 12vh);
   }
 
   .scroll-words-stage {
