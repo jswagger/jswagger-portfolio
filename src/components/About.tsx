@@ -38,7 +38,7 @@ export default function About() {
       <div className="about-grid">
         <div className="about-copy">
           <p>
-            Coding the day away latte in hand along the shores of the Emerald Coast, FL. I love
+            Coding the day away latte in hand along the shores of the Emerald Coast, Florida. I love
             simplifying complex problems and enhancing user experience. My rule of thumb? If my kids
             can’t figure it out, let’s improve it.
           </p>

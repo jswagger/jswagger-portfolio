@@ -206,7 +206,7 @@ export const caseStudies: CaseStudyDetail[] = [
     heroPosition: 'center 78%',
     heroSubtitle: 'Building a secure, end-to-end customer enrollment workflow that became a foundational part of the AI360 platform.',
     intro:
-      'AI360, the data-sharing platform within the Agvance agribusiness software suite, previously lacked a formal process for managing customer enrollment and agreement acceptance. As primary engineer, I designed and implemented a multi-step workflow that introduced identity verification, agreement acceptance, and enrollment state into the existing platform, creating a foundation that downstream features could reliably depend on.',
+      'AI360, the mapping platform within the Agvance agribusiness software suite, previously lacked a formal process for managing customer enrollment and agreement acceptance of data sharing. As the primary engineer, I designed and implemented a multi-step workflow that introduced identity verification, agreement acceptance, and enrollment state into the existing platform, creating a foundation that downstream features could reliably depend on.',
     workflowVisual: {
       headline: 'A workflow, built to scale',
       steps: [
@@ -303,7 +303,7 @@ export const caseStudies: CaseStudyDetail[] = [
     heroSubtitle: 'Creating a repeatable system for finding bugs, verifying security, and improving code quality.',
     intro:
       'Regression Inspector, the internal version of Bug Hunter, now runs on every ticket I work on our enterprise platform. Across my last 10 tickets, spanning 7 repositories, it scanned 339 changed files, surfaced 73 suspicious findings, and flagged 22 probable bugs, roughly two per ticket, before a pull request was opened. Eighteen of those were confirmed as real bugs and fixed before a pull request was opened.',
-    introLink: { label: 'View GitHub', href: 'https://github.com/jswagger/AI-Skills' },
+    introLink: { label: 'View Repository', href: 'https://github.com/jswagger/AI-Skills' },
     stats: [
       { value: 18, suffix: '', emphasis: '', label: 'Bugs caught before review' },
       { value: 82, suffix: '%', emphasis: '', label: 'Of flagged bugs confirmed' },
@@ -342,7 +342,7 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Outcome',
         subtitle: 'A proven, open-source review toolkit.',
         paragraphs: [
-          "My toolkit, including Regression Inspector (the internal Bug Hunter), has proven effective. In recent projects, it scanned 339 files, identified 73 suspicious findings, and flagged 22 probable bugs before pull requests were even opened. The skills are open-source, well-tested, and built on Node.js with no third-party dependencies."
+          "My toolkit, including Regression Inspector (the internal Bug Hunter), has proven effective. In recent projects, it scanned 339 files, identified 73 suspicious findings, and flagged 22 probable bugs before pull requests were even opened. The skills are open-source, well-tested, and built on Node.js."
         ],
         images: [
           {

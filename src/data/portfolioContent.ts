@@ -4,7 +4,7 @@ import strengthRiverImage from '../assets/strength-river.jpg'
 import type { CompanyExperience, Highlight, ProjectItem, ServiceItem, StrengthStat } from '../types/content'
 
 export const highlights: Highlight[] = [
-  { label: 'Experience', value: '10+ Years in Software' },
+  { label: 'Experience', value: '10+ Years Building Software' },
   { label: 'Home Base', value: 'Florida’s Emerald Coast' },
   { label: 'Off the Clock', value: 'Family, Travel & the Outdoors' },
   { label: 'Engineering Philosophy', value: 'Context First. Quality Always.' }
@@ -12,8 +12,8 @@ export const highlights: Highlight[] = [
 
 export const strengthStats: StrengthStat[] = [
   { value: 10, suffix: '+', emphasis: 'Years', label: 'of experience' },
-  { value: 350, suffix: '+', emphasis: 'Legacy files', label: 'modernized' },
-  { value: 95, suffix: '%', emphasis: 'Fewer', label: 'API calls' },
+  { value: 400, suffix: '+', emphasis: 'Legacy files', label: 'modernized' },
+  { value: 25000, suffix: '+', emphasis: 'Platform', label: 'users' },
   { value: 7, suffix: '+', emphasis: 'Engineers', label: 'mentored' },
 ]
 

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import ThemeIcon from './ThemeIcon'
 import { applyTheme, getInitialTheme, type ThemeMode } from '../theme'
 
 const navLinks = [
@@ -121,7 +122,7 @@ export default function Navbar({ showBrand = true }: NavbarProps) {
             onClick={() => setThemeMode(theme === 'dark' ? 'light' : 'dark')}
           >
             <span aria-hidden="true" className="theme-symbol">
-              {theme === 'dark' ? '☼' : '☾'}
+              <ThemeIcon theme={theme} />
             </span>
           </button>
         </div>
@@ -141,7 +142,7 @@ export default function Navbar({ showBrand = true }: NavbarProps) {
           onClick={() => setThemeMode(theme === 'dark' ? 'light' : 'dark')}
         >
           <span aria-hidden="true" className="theme-symbol">
-            {theme === 'dark' ? '☼' : '☾'}
+            <ThemeIcon theme={theme} />
           </span>
           <span>{theme === 'dark' ? 'Light mode' : 'Dark mode'}</span>
         </button>

@@ -369,16 +369,15 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   padding: 0;
   border: 0;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--surface) 55%, transparent);
-  backdrop-filter: blur(8px);
+  background: transparent;
   color: var(--accent);
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 1;
   transition: transform 180ms ease, color 180ms ease, opacity 220ms ease;
 }
@@ -673,23 +672,6 @@ main {
   line-height: 1.75;
   color: #e0e1dd;
   max-width: 720px;
-}
-
-.contact-card p.contact-email {
-  margin: 12px 0 0;
-}
-
-.contact-email a {
-  color: var(--text);
-  text-decoration: underline;
-  text-decoration-color: var(--border);
-  text-underline-offset: 4px;
-  transition: text-decoration-color 200ms ease;
-}
-
-.contact-email a:hover,
-.contact-email a:focus-visible {
-  text-decoration-color: currentColor;
 }
 
 .contact-actions {
@@ -1148,13 +1130,20 @@ main {
 
 .card-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  /* The grid itself ignores the pointer so :hover on it only matches while a
-     card is hovered, not the gaps between cards. */
-  pointer-events: none;
 }
 
-.card-grid > .info-card {
-  pointer-events: auto;
+/* Hover effects below are desktop only; phones and tablets show every photo
+   and description in full. */
+@media (min-width: 801px) and (hover: hover) {
+  /* The grid itself ignores the pointer so :hover on it only matches while a
+     card is hovered, not the gaps between cards. */
+  .card-grid {
+    pointer-events: none;
+  }
+
+  .card-grid > .info-card {
+    pointer-events: auto;
+  }
 }
 
 .info-card {
@@ -1172,10 +1161,6 @@ main {
   transition: box-shadow 200ms linear;
 }
 
-.info-card:hover {
-  box-shadow: 0 20px 45px var(--shadow), 0 0 0 1px var(--info-card-highlight);
-}
-
 .info-card-bg {
   position: absolute;
   inset: 0;
@@ -1184,14 +1169,6 @@ main {
   pointer-events: none;
   transform: scale(1) translateZ(0);
   transition: filter 200ms linear, transform 200ms linear;
-}
-
-.info-card:hover .info-card-bg {
-  transform: scale(1.05) translateZ(0);
-}
-
-.card-grid:hover > .info-card:not(:hover) .info-card-bg {
-  filter: brightness(0.5) saturate(0.5) contrast(1.2) blur(20px);
 }
 
 .info-card-glow {
@@ -1205,21 +1182,6 @@ main {
     transparent 50%
   );
   pointer-events: none;
-}
-
-/* The hover description opens below the title, past the gradient, so a
-   second layer fades in with it to keep that text readable. */
-.info-card-glow::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: color-mix(in srgb, var(--hero-photo-tint) 50%, transparent);
-  opacity: 0;
-  transition: opacity 400ms ease;
-}
-
-.info-card:hover .info-card-glow::after {
-  opacity: 1;
 }
 
 @media (max-width: 768px) {
@@ -1263,22 +1225,55 @@ main {
 }
 
 .info-card p.info-card-description {
-  margin: 0;
-  max-height: 0;
+  margin: 12px 0 0;
   color: rgba(255, 255, 255, 0.88);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   line-height: 1.6;
-  opacity: 0;
-  overflow: hidden;
-  transform: translateY(10px);
-  transition: max-height 500ms ease, opacity 400ms ease, transform 400ms ease, margin-top 400ms ease;
 }
 
-.info-card:hover .info-card-description {
-  margin-top: 12px;
-  max-height: 340px;
-  opacity: 1;
-  transform: translateY(0);
+@media (min-width: 801px) and (hover: hover) {
+  .info-card p.info-card-description {
+    margin-top: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(10px);
+    transition: max-height 500ms ease, opacity 400ms ease, transform 400ms ease, margin-top 400ms ease;
+  }
+
+  /* The hover description opens below the title, past the gradient, so a
+     second layer fades in with it to keep that text readable. */
+  .info-card-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--hero-photo-tint) 50%, transparent);
+    opacity: 0;
+    transition: opacity 400ms ease;
+  }
+
+  .info-card:hover {
+    box-shadow: 0 20px 45px var(--shadow), 0 0 0 1px var(--info-card-highlight);
+  }
+
+  .info-card:hover .info-card-bg {
+    transform: scale(1.05) translateZ(0);
+  }
+
+  .card-grid:hover > .info-card:not(:hover) .info-card-bg {
+    filter: brightness(0.5) saturate(0.5) contrast(1.2) blur(20px);
+  }
+
+  .info-card:hover .info-card-glow::after {
+    opacity: 1;
+  }
+
+  .info-card:hover .info-card-description {
+    margin-top: 12px;
+    max-height: 340px;
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #work {
@@ -1676,13 +1671,6 @@ main {
   .info-card {
     aspect-ratio: auto;
     min-height: 260px;
-  }
-
-  .info-card p.info-card-description {
-    margin-top: 12px;
-    max-height: none;
-    opacity: 1;
-    transform: none;
   }
 }
 
