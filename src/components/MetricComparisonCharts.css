@@ -99,3 +99,27 @@
   font-size: 0.75rem;
   color: var(--text-muted);
 }
+
+/* Phones: stacked cards, so trim their height. */
+@media (max-width: 640px) {
+  .metric-card {
+    gap: 10px;
+    padding: 12px 14px;
+  }
+
+  .metric-hero strong {
+    font-size: 1.5rem;
+  }
+
+  .metric-rows {
+    gap: 8px;
+  }
+
+  .metric-bar {
+    height: 16px;
+  }
+
+  .metric-footer {
+    padding-top: 8px;
+  }
+}

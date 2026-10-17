@@ -1807,6 +1807,7 @@ main {
   gap: 4px;
   margin: 0;
   color: #e0e1dd;
+  opacity: 0.8;
   font-size: 0.65rem;
   line-height: 1.3;
   letter-spacing: 0.03em;
@@ -1822,6 +1823,34 @@ main {
   margin-top: clamp(48px, 10vh, 120px);
   padding: clamp(32px, 6vh, 64px) clamp(24px, 5vw, 64px);
   text-align: center;
+}
+
+@media (max-width: 640px) {
+  .case-study-hero-photo-content .hero-intro-small-bottom {
+    display: none;
+  }
+
+  .case-study-hero-photo-credit {
+    font-size: 0.5rem;
+    gap: 2px;
+  }
+
+  /* Keep all tags on one line; the longest set (.NET APIs · AWS Cognito ·
+     SQL Server · React) fits a 360px viewport at this size. */
+  .case-study-hero-photo-content .case-study-page-tags {
+    flex-wrap: nowrap;
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  .case-study-hero-photo-content .case-study-page-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+  }
+
+  .case-study-hero-photo-content .case-study-page-tag:not(:last-child)::after {
+    margin-left: 8px;
+  }
 }
 
 @keyframes hero-clip-reveal {
@@ -2455,12 +2484,6 @@ main {
   margin-inline: auto;
 }
 
-@media (max-width: 640px) {
-  .case-study-code-snippets img {
-    min-width: 640px;
-  }
-}
-
 /* Conceptual workflow visual (CaseStudyWorkflowVisual). Reveal is staged in
    sequence: step nodes, then the connecting line, then their systems, then
    the architecture callout, then the outcome metric. */
@@ -3041,8 +3064,32 @@ main {
     padding-inline: 16px;
   }
 
+  /* Click-to-enlarge screenshots: thumbnails stay small so the modal
+     (full viewport width) is a real step up. */
+  .case-study-page-section .case-study-images figure.case-study-image--narrow {
+    max-width: 220px;
+  }
+
+  .zoomable-image-icon {
+    right: 8px;
+    bottom: 8px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .zoomable-image-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
   .case-study-intro-image--wide img {
     min-width: 640px;
+  }
+
+  /* Dot-style diagrams read fine scaled down, so skip the sideways scroll. */
+  .case-study-intro-image--wide.case-study-intro-image--fit-mobile img {
+    min-width: 0;
+    width: 100%;
   }
 
   .case-study-page {
@@ -3266,6 +3313,18 @@ main {
 /* The final word settles into the same color as the lead. */
 .scroll-words li:last-child {
   color: var(--text);
+}
+
+/* Phones: shorter stage and less scroll per word (~114vh vs ~236vh). */
+@media (max-width: 640px) {
+  .scroll-words-track {
+    height: calc(24vh + (var(--word-count, 8) - 1) * 18vh);
+  }
+
+  .scroll-words-stage {
+    top: 38vh;
+    height: 24vh;
+  }
 }
 
 .strength-stats {

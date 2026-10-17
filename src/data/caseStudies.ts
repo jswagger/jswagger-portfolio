@@ -4,6 +4,7 @@ import reportingHeroImage from '../assets/ReportingHeroImage.jpg'
 import uiCardImage from '../assets/UICardImage.jpg'
 import uiModernizationHeroImage from '../assets/UIModernizationHeroImage.jpg'
 import legacyUIOutcomes from '../assets/LegacyUIOutcomes.svg'
+import legacyUIOutcomesMobile from '../assets/LegacyUIOutcomesMobile.svg'
 import legacyUITypeScriptShare from '../assets/LegacyUITypeScriptShare.svg'
 import legacyUIFunctionalComponents from '../assets/LegacyUIFunctionalComponents.svg'
 import legacyUICodeBeforeAfter from '../assets/LegacyUICodeBeforeAfter.svg'
@@ -43,6 +44,7 @@ export const caseStudies: CaseStudyDetail[] = [
     introImage: {
       src: summaryWorkflowDiagram,
       wide: true,
+      fitMobile: true,
       alt: 'Workflow diagram: in the React UI, the user selects up to 20 reports of any mix of types. The Python backend fetches each PDF from S3 and detects its type from the filename. Text-only types send extracted text with no PDF, avoiding image tokens, while PDF types send the raw PDF plus table JSON and a color legend when found. Reports are batched at up to 5 reports and 100 images per batch. Up to 5 reports go in one call, streamed straight back; 6 to 20 reports use map-reduce, summarizing batches in parallel and then combining. The summary is rendered as markdown in a modal in the React UI.',
     },
     sections: [
@@ -121,8 +123,10 @@ export const caseStudies: CaseStudyDetail[] = [
       'As an established enterprise application continued to grow and evolve, opportunities emerged to modernize its technical foundation and improve developer efficiency. As UI Focus Group Leader, I helped guide a three-year initiative focused on adopting modern React practices, strengthening type safety, and improving maintainability. Through steady, incremental improvements, we made the codebase faster and easier to work with while preserving the stability and functionality customers depend on.',
     introImage: {
       src: legacyUIOutcomes,
+      mobileSrc: legacyUIOutcomesMobile,
       wide: true,
       compact: true,
+      fitMobile: true,
       title: 'Modernization at a Glance',
       subtitle: 'Tracking progress in type safety, React modernization, and development tooling.',
       alt: 'Three years of results: React upgraded from 16 to 18; builds 60 to 80 percent faster after moving from Webpack to Vite; 478 TypeScript files added, now 64.5 percent of the codebase; 305 functional components added; over 140 UNSAFE functions trimmed; 1,092 any types removed, cutting them in half.',
@@ -376,6 +380,7 @@ export const caseStudies: CaseStudyDetail[] = [
     introImage: {
       src: apiRequestsDiagram,
       wide: true,
+      fitMobile: true,
       alt: 'Dot diagram comparing API requests for the same 100-event batch: the original version made 167 requests, shown as 167 dots, and the new version makes 8, shown as 8 dots. That is about 21 times fewer, 159 fewer requests per batch, a reduction of roughly 95%.',
     },
     sections: [

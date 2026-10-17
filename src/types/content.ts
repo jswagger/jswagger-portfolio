@@ -107,7 +107,7 @@ export interface CaseStudyDetail {
   stats?: StrengthStat[]
   statsCaption?: string
   introLink?: { label: string; href: string }
-  introImage?: CaseStudyImage & { wide?: boolean; compact?: boolean; title?: string; subtitle?: string }
+  introImage?: CaseStudyImage & { wide?: boolean; compact?: boolean; fitMobile?: boolean; mobileSrc?: string; title?: string; subtitle?: string }
   diagramImage?: CaseStudyImage
   codeImage?: CaseStudyImage & { title: string; subtitle?: string }
 }

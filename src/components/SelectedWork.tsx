@@ -281,7 +281,7 @@ export default function SelectedWork() {
           )}
 
           {caseStudy.introImage && (
-            <Reveal className={`case-study-images case-study-intro-image${caseStudy.introImage.wide ? ' case-study-intro-image--wide' : ''}${caseStudy.introImage.compact ? ' case-study-intro-image--compact' : ''}`}>
+            <Reveal className={`case-study-images case-study-intro-image${caseStudy.introImage.wide ? ' case-study-intro-image--wide' : ''}${caseStudy.introImage.compact ? ' case-study-intro-image--compact' : ''}${caseStudy.introImage.fitMobile ? ' case-study-intro-image--fit-mobile' : ''}`}>
               {caseStudy.introImage.title && (
                 <div className="case-study-intro-image-heading">
                   <h2>{caseStudy.introImage.title}</h2>
@@ -289,7 +289,12 @@ export default function SelectedWork() {
                 </div>
               )}
               <figure>
-                <img src={caseStudy.introImage.src} alt={caseStudy.introImage.alt} />
+                <picture>
+                  {caseStudy.introImage.mobileSrc && (
+                    <source media="(max-width: 640px)" srcSet={caseStudy.introImage.mobileSrc} />
+                  )}
+                  <img src={caseStudy.introImage.src} alt={caseStudy.introImage.alt} />
+                </picture>
                 {caseStudy.introImage.caption && <figcaption>{caseStudy.introImage.caption}</figcaption>}
               </figure>
             </Reveal>
@@ -336,11 +341,19 @@ export default function SelectedWork() {
         </article>
 
         <nav className="case-study-page-pager" aria-label="More projects">
-          <Link to={`/work/${prevCaseStudy.slug}`} className="case-study-page-next case-study-page-prev">
-            ← {prevCaseStudy.title}
+          <Link
+            to={`/work/${prevCaseStudy.slug}`}
+            className="case-study-page-next case-study-page-prev"
+            aria-label={`Previous: ${prevCaseStudy.title}`}
+          >
+            ← Previous
           </Link>
-          <Link to={`/work/${nextCaseStudy.slug}`} className="case-study-page-next">
-            {nextCaseStudy.title} →
+          <Link
+            to={`/work/${nextCaseStudy.slug}`}
+            className="case-study-page-next"
+            aria-label={`Next: ${nextCaseStudy.title}`}
+          >
+            Next →
           </Link>
         </nav>
       </div>
