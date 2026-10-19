@@ -2825,6 +2825,11 @@ main {
   max-width: 440px;
 }
 
+.case-study-page-section .case-study-images figure.case-study-image--zoomable {
+  flex-basis: 100%;
+  max-width: 560px;
+}
+
 .zoomable-image-trigger {
   position: relative;
   display: block;
@@ -2852,10 +2857,10 @@ main {
   border-radius: 50%;
   /* Dark-tinted glass: a clear or white-tinted background would lose the
      white icon against the light areas of the screenshots. */
-  background: rgba(13, 19, 33, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(13, 19, 33, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(8px);
-  color: #fff;
+  color: rgba(255, 255, 255, 0.75);
   transition: background-color 200ms ease, transform 200ms ease;
   pointer-events: none;
 }
@@ -2867,7 +2872,7 @@ main {
   }
 
   .zoomable-image-trigger:hover .zoomable-image-icon {
-    background: rgba(13, 19, 33, 0.6);
+    background: rgba(13, 19, 33, 0.78);
     transform: scale(1.1);
   }
 }
@@ -2886,15 +2891,22 @@ main {
 
 .zoomable-image-dialog {
   box-sizing: border-box;
-  width: min(1600px, 96vw);
+  width: min(1200px, 90vw);
   max-width: none;
-  max-height: 96vh;
   margin: auto;
   padding: 0;
   border: 0;
   border-radius: 12px;
   background: transparent;
+  /* Visible so the close button can sit on the corner; the image scrolls
+     inside .zoomable-image-scroll instead. */
+  overflow: visible;
+}
+
+.zoomable-image-scroll {
+  max-height: 88vh;
   overflow: auto;
+  border-radius: 12px;
 }
 
 .zoomable-image-dialog::backdrop {
@@ -2909,12 +2921,12 @@ main {
 }
 
 .zoomable-image-close {
-  position: fixed;
-  top: 16px;
-  right: 16px;
+  position: absolute;
+  top: -16px;
+  right: -16px;
   z-index: 1;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border: 0;
   border-radius: 50%;
   background: #fff;
@@ -2992,6 +3004,9 @@ main {
   margin: clamp(48px, 7vw, 80px) calc(50% - 50vw) clamp(56px, 8vw, 96px);
   padding-block: clamp(24px, 4vw, 48px);
   background: #1a2438;
+  /* Stack heading above diagram; the base .case-study-images flex row put
+     them side by side on wide screens. */
+  display: block;
 }
 
 .case-study-intro-image--wide figure {
@@ -3040,10 +3055,12 @@ main {
   padding-block: clamp(40px, 6vw, 80px);
 }
 
-/* Smaller diagram inside the full-bleed band (~35% narrower on desktop). */
+/* Diagram inside the full-bleed band, capped to line up with the heading. */
 @media (min-width: 641px) {
   .case-study-intro-image--compact img {
-    width: 65%;
+    width: 100%;
+    /* Matches the heading's text width (1100px column minus padding). */
+    max-width: 1020px;
   }
 }
 

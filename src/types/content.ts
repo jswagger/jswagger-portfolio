@@ -40,6 +40,7 @@ export interface CaseStudyImage {
   alt: string
   caption?: string
   narrow?: boolean
+  zoomable?: boolean
 }
 
 export interface CaseStudySection {

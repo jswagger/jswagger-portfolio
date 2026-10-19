@@ -65,6 +65,7 @@ export const caseStudies: CaseStudyDetail[] = [
           {
             src: testPoolDiagram,
             alt: 'Diagram titled Building a test pool: a grid of 24 report tiles of varying layouts, with three highlighted in orange as problem cases to isolate, feeds a repeating loop. Run: send a specific report through Bedrock. Compare: check it against a direct analysis. Isolate: pull out the problem cases. Add context: guardrails per report type, color legends. The loop then repeats.',
+            zoomable: true,
           },
         ]
       },
@@ -175,10 +176,12 @@ export const caseStudies: CaseStudyDetail[] = [
           {
             src: legacyUITypeScriptShare,
             alt: 'Stacked bars showing TypeScript rising from 49.3 percent of the codebase in 2024 to 57.3 percent in 2025 and 64.5 percent in 2026, with JavaScript making up the rest.',
+            zoomable: true,
           },
           {
             src: legacyUIFunctionalComponents,
             alt: 'Two bars comparing 56 functional components three years ago with 361 today, a gain of 305.',
+            zoomable: true,
           },
         ]
       },

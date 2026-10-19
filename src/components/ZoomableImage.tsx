@@ -51,7 +51,9 @@ export default function ZoomableImage({ src, alt }: ZoomableImageProps) {
         >
           ×
         </button>
-        <img src={src} alt={alt} />
+        <div className="zoomable-image-scroll">
+          <img src={src} alt={alt} />
+        </div>
       </dialog>
     </>
   )

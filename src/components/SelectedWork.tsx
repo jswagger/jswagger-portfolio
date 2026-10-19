@@ -100,8 +100,8 @@ function CaseStudySection({ section }: { section: CaseStudySectionData }) {
     <div className={`case-study-images${section.imagesInCard ? ' case-study-images--card' : ''}`}>
       {section.imagesTitle && <h3 className="case-study-images-title">{section.imagesTitle}</h3>}
       {section.images.map((image) => (
-        <figure key={image.src} className={image.narrow ? 'case-study-image--narrow' : undefined}>
-          {image.narrow ? (
+        <figure key={image.src} className={image.narrow ? 'case-study-image--narrow' : image.zoomable ? 'case-study-image--zoomable' : undefined}>
+          {image.narrow || image.zoomable ? (
             <ZoomableImage src={image.src} alt={image.alt} />
           ) : (
             <img src={image.src} alt={image.alt} />
