@@ -314,19 +314,31 @@ export default function SelectedWork() {
             ))}
           </div>
 
-          {caseStudy.codeImage && (
+          {caseStudy.codeExamples && (
             <Reveal className="case-study-code-snippets">
               <div className="case-study-page-section-heading">
                 <div className="case-study-page-section-label">
-                  <h2>{caseStudy.codeImage.title}</h2>
+                  <h2>{caseStudy.codeExamples.title}</h2>
                 </div>
-                {caseStudy.codeImage.subtitle && (
-                  <p className="case-study-page-section-subtitle">{caseStudy.codeImage.subtitle}</p>
+                {caseStudy.codeExamples.subtitle && (
+                  <p className="case-study-page-section-subtitle">{caseStudy.codeExamples.subtitle}</p>
                 )}
               </div>
-              <figure>
-                <img src={caseStudy.codeImage.src} alt={caseStudy.codeImage.alt} />
-              </figure>
+              {caseStudy.codeExamples.examples.map((example) => (
+                <section className="code-example" key={example.title} aria-label={example.title}>
+                  <h3>{example.title}</h3>
+                  <div className="code-example-pair">
+                    {(['Before', 'After'] as const).map((label, index) => (
+                      <figure className={`code-example-panel code-example-panel--${label.toLowerCase()}`} key={label}>
+                        <figcaption>{label}</figcaption>
+                        <pre tabIndex={0}>
+                          <code>{example.codeSnippets[index]}</code>
+                        </pre>
+                      </figure>
+                    ))}
+                  </div>
+                </section>
+              ))}
             </Reveal>
           )}
 

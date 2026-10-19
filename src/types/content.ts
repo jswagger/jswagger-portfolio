@@ -88,6 +88,18 @@ export interface WorkflowVisualData {
 
 export type CaseStudyCardIcon = 'sparkles' | 'layout' | 'user-check' | 'shield-check' | 'bolt'
 
+export interface CodeExample {
+  title: string
+  /** [before, after] source, shown side by side. */
+  codeSnippets: [string, string]
+}
+
+export interface CodeExamples {
+  title: string
+  subtitle?: string
+  examples: CodeExample[]
+}
+
 export interface CaseStudyDetail {
   title: string
   slug: string
@@ -110,7 +122,7 @@ export interface CaseStudyDetail {
   introLink?: { label: string; href: string }
   introImage?: CaseStudyImage & { wide?: boolean; compact?: boolean; fitMobile?: boolean; mobileSrc?: string; title?: string; subtitle?: string }
   diagramImage?: CaseStudyImage
-  codeImage?: CaseStudyImage & { title: string; subtitle?: string }
+  codeExamples?: CodeExamples
 }
 
 // Condensed, single-accordion view of a company's experience. The full

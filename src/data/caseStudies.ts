@@ -7,7 +7,6 @@ import legacyUIOutcomes from '../assets/LegacyUIOutcomes.svg'
 import legacyUIOutcomesMobile from '../assets/LegacyUIOutcomesMobile.svg'
 import legacyUITypeScriptShare from '../assets/LegacyUITypeScriptShare.svg'
 import legacyUIFunctionalComponents from '../assets/LegacyUIFunctionalComponents.svg'
-import legacyUICodeBeforeAfter from '../assets/LegacyUICodeBeforeAfter.svg'
 import enrollmentCardImage from '../assets/EnrollmentCardImage.jpg'
 import enrollmentHeroImage from '../assets/EnrollmentHeroImage.jpg'
 import enrollmentArchitectureDiagram from '../assets/EnrollmentArchitectureDiagram.png'
@@ -105,11 +104,60 @@ export const caseStudies: CaseStudyDetail[] = [
     tagline: 'Lifting the codebase',
     summary: 'Lifting a legacy codebase with thoughtful React patterns and a more maintainable interface.',
     tags: ['React', 'TypeScript', 'Vite'],
-    codeImage: {
-      src: legacyUICodeBeforeAfter,
+    codeExamples: {
       title: 'Modernization in Practice',
       subtitle: 'Applying modern React patterns and stronger type safety to an evolving codebase.',
-      alt: 'Two refactors shown as before and after pairs. In each, an UNSAFE_componentWillReceiveProps lifecycle method is replaced by a memoized getter or selector that is used in render: a lifecycle loop becomes a memoized getter, and state copied from props becomes a memoized selector.',
+      examples: [
+        {
+          title: 'Formatting records',
+          codeSnippets: [
+            [
+              'UNSAFE_componentWillReceiveProps(nextProps) {',
+              '    if (nextProps.records) {',
+              '        for (const item of nextProps.records) formatText(item);',
+              '    }',
+              '}',
+            ].join('\n'),
+            [
+              'getFormattedRecords = memoizeFormattedRecords(formatDetailText);',
+              'render() { ... records={this.getFormattedRecords(this.props.records)} ... }',
+            ].join('\n'),
+          ],
+        },
+        {
+          title: 'Building select options',
+          codeSnippets: [
+            [
+              'UNSAFE_componentWillReceiveProps(nextProps) {',
+              '    this.initializePlantType(nextProps);',
+              '    this.initializePlantLife(nextProps);',
+              '    this.initializePlantStage(nextProps);',
+              '    // ...plus 2 more, and the same shape repeated in 8 panels',
+              '}',
+              '',
+              'initializePlantType = (nextProps) => {',
+              '    if (nextProps[PICKLIST_PLANT_TYPE]) {          // bare truthiness',
+              '        this.setState({',
+              '            [PICKLIST_PLANT_TYPE]: prepareSelectableOptions(',
+              '                nextProps[LIST_PLANT_TYPE],',
+              '                { guid: LIST_GUID, label: VALUE, id: ID }',
+              '            ),',
+              '        });',
+              '    }',
+              '};',
+              '// render: options={this.state[LIST_PLANT_TYPE]}',
+            ].join('\n'),
+            [
+              'getPlantTypeOptions = memoizeSelectableOptions((options) =>',
+              '    prepareSelectableOptions(options, { guid: LIST_GUID, label: VALUE, id: ID })',
+              ');',
+              '',
+              '// render:',
+              'options={this.getPlantTypeOptions(this.props[LIST_PLANT_TYPE])}',
+            ].join('\n'),
+          ],
+        },
+      ],
     },
     image: uiCardImage,
     cardIcon: 'layout',

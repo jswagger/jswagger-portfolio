@@ -2459,17 +2459,82 @@ main {
   border-top: 1px solid color-mix(in srgb, var(--text) 50%, var(--bg));
 }
 
-.case-study-code-snippets figure {
-  margin: 24px 0 0;
-  overflow-x: auto;
+.code-example {
+  margin-top: 32px;
+  padding: 24px;
+  /* --surface sits too close to the case study page's gradient; lift it with
+     the muted blue and give the card a real edge and shadow. */
+  border: 1px solid var(--surface-muted);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface-muted) 55%, var(--bg));
+  box-shadow: 0 12px 28px var(--shadow);
 }
 
-.case-study-code-snippets img {
+.code-example h3 {
+  margin: 0 0 16px;
+  font-family: var(--heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.code-example-pair {
+  display: grid;
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .code-example {
+    padding: 16px;
+  }
+}
+
+.code-example-panel {
+  margin: 0;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.code-example-panel--after {
+  border-color: var(--accent);
+}
+
+.code-example-panel figcaption {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.code-example-panel--after figcaption {
+  border-bottom-color: var(--accent);
+}
+
+.code-example-panel pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.code-example-panel code {
   display: block;
-  width: 100%;
-  max-width: 680px;
-  height: auto;
-  margin-inline: auto;
+  padding: 0;
+  background: none;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  white-space: pre;
 }
 
 /* Conceptual workflow visual (CaseStudyWorkflowVisual). Reveal is staged in
