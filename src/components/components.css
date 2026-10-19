@@ -3563,3 +3563,64 @@ main {
     transform: translateY(0);
   }
 }
+
+/* Languages and technologies: one horizontal row of icon badges below the hero. */
+.language-strip {
+  box-sizing: border-box;
+  max-width: 1368px;
+  margin: 0 auto;
+  /* Same side padding as the Strengths card so the title lines up with the
+     other sections' left edge. */
+  padding: clamp(64px, 10vw, 128px) clamp(20px, 5vw, 80px) clamp(40px, 6vw, 72px);
+}
+
+.language-strip-title {
+  margin: 0 0 clamp(32px, 5vw, 56px);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.language-strip-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(8px, 3vw, 48px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.language-strip-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(8px, 1.5vw, 16px);
+}
+
+.language-strip-badge {
+  display: grid;
+  place-items: center;
+  width: clamp(48px, 9vw, 112px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  /* Translucent tint of the brand color so the badges sit quietly on the
+     site's navy palette instead of competing with it. */
+  background: color-mix(in srgb, var(--badge-color) 28%, transparent);
+  border: 1px solid color-mix(in srgb, var(--badge-color) 60%, transparent);
+  color: var(--text);
+}
+
+.language-strip-badge svg {
+  width: 52%;
+  height: 52%;
+}
+
+.language-strip-name {
+  font-family: var(--mono);
+  font-size: clamp(0.7rem, 1.6vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}

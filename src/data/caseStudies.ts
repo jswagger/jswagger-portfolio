@@ -52,14 +52,14 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Challenge',
         subtitle: 'There was no easy way to see across multiple reports.',
         paragraphs: [
-          'Users run many reports that give specific analysis about different aspects of their data. But there was no way to summarize or draw correlations easily from multiple documents.'
+          'Accessing insights across multiple reports was a cumbersome task for users. They had to manually compare different documents to spot trends and connections, which was time-consuming and inefficient.'
         ]
       },
       {
         heading: 'The Approach',
         subtitle: 'Building a test pool to make AI results dependable.',
         paragraphs: [
-          "Since reports can hold many different types of data, and utilize many different layouts, I knew that we needed to establish a large test pool to try out many different combinations. So I worked with Claude Code to carefully create some temporary scripts in Python to run specific reports through Bedrock, and compare against a direct analysis. This allowed me to isolate specific problematic cases, and establish intentional dynamic context, so that the Bedrock model would consistently return desired results.",
+          "To tackle the variability in report formats, I implemented a thorough testing process to assess the performance of different report combinations. Utilizing Claude Code, I created Python scripts that processed these reports via AWS Bedrock. This enabled us to compare AI-generated summaries with direct analyses, helping to refine inputs and enhance consistency.",
         ],
         images: [
           {
@@ -73,16 +73,14 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Strategy',
         subtitle: 'Cutting token use by 75% while keeping the insight.',
         paragraphs: [
-          'We wanted a clean and simple UI element, so I designed a new React component to house a modal that took in basic markdown information returned from an API call, and displayed nicely formatted text to the user.',
-          'On the backend, I utilized our AWS Bedrock connection in Python. There I built a new class that received a list of report IDs, retrieved them from Amazon S3, did some processing, then sent a request to Bedrock.',
-          'Token consumption was another large concern, since images can consume tokens at a much higher rate than text. So I established a dynamic system of text extraction and image pre-processing in Python, so that our codebase could handle as much of the structural contextual work as possible, and only pass through valuable and helpful information to Bedrock. This decreased token consumption by over 75% and allowed the Bedrock model to mostly focus on smartly summarizing data, as it was intended to do, resulting in lower token consumption and higher success probability.'
+          'I designed a streamlined React interface, allowing users to easily select multiple reports and view AI-generated summaries in a user-friendly format. On the backend, I crafted a Python class that pulls selected reports from Amazon S3, optimizing content for AI processing. A key achievement was reducing token consumption by over 75% through a dynamic preprocessing system that combined text extraction and image optimization, ensuring efficient and effective summaries.'
         ]
       },
       {
         heading: 'The Outcome',
         subtitle: 'Clear summaries in a single click.',
         paragraphs: [
-          'Selecting multiple reports and clicking "Summarize" now allows users to get a high-level view quickly and automatically. Token consumption is well-managed, and users are able to receive accurate perceptions of their data.'
+          'Users can now generate consolidated summaries with just one click, significantly simplifying the process of identifying trends and key findings across reports. This approach not only enhances cross-report analysis but also maintains high token efficiency, ensuring more reliable AI-generated insights.'
         ],
         images: [
           {
@@ -137,40 +135,36 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Challenge',
         subtitle: 'Legacy patterns were slowing development.',
         paragraphs: [
-          'Due to years of continuous development, the UI codebase had come to include outdated libraries, obsolete React patterns, and only limited use of TypeScript. The any type was used in more than 2,000 cases, which reduced the safety of types, and deprecated functions together with inconsistent coding practices had made debugging and maintenance more and more difficult.',
-          'It was necessary to modernize, but this had to be done without disrupting the existing enterprise application or slowing down the delivery of new features.'
+          "Our development was hindered by outdated dependencies and inconsistent coding practices within a well-established enterprise application. With over 2,000 instances of TypeScript's any type, we faced significant challenges in type safety, debugging, and maintenance. It was clear that modernization was essential, but we needed to achieve this without disrupting existing functionality or delaying new feature delivery."
         ]
       },
       {
         heading: 'The Approach',
         subtitle: 'Establishing a roadmap for incremental improvement.',
         paragraphs: [
-          'In my capacity as UI Focus Group Leader, I set up a long-term modernization initiative aimed at enhancing code quality, maintainability, and developer efficiency.',
-          'The first step was to determine the areas where improvements could be measured, such as the use of TypeScript, the presence of deprecated React functions, component patterns, and dependencies that were hindering upgrades of the framework. By monitoring these metrics, clear priorities were established and a reliable method of assessing progress over time was created.'
+          'As the UI Focus Group Leader, I spearheaded a long-term modernization initiative aimed at enhancing code quality and developer efficiency. We pinpointed key indicators of technical debt, such as TypeScript adoption rates, deprecated React functions, and legacy component patterns. By tracking these metrics, we established clear priorities and a transparent way to measure our progress.'
         ]
       },
       {
         heading: 'The Strategy',
         subtitle: 'Making modernization part of everyday development.',
         paragraphs: [
-          'Instead of attempting a radical overhaul, I helped set up an incremental method which combined modernization with the continued development of features.',
-          'To deal with technical debt the team carried out focused refactoring activities and at the same time improved the legacy code that they came across while carrying out regular feature work. The monthly UI Focus Group meetings gave the opportunity to review progress, discuss the problems encountered and reinforce modern development practices, together with annual presentations which highlighted the measurable improvements.',
-          'This method turned modernization into something that required the combined effort of a team rather than treating it as a one-off project.'
+          'Instead of opting for a disruptive rewrite, we adopted an incremental approach that seamlessly integrated modernization into our ongoing feature development. Targeted refactoring was combined with improvements to legacy code encountered during regular work. Monthly UI Focus Group meetings allowed us to review our progress and tackle challenges, while annual presentations showcased our measurable advancements, maintaining team motivation. This approach turned modernization into a shared, ongoing responsibility.'
         ]
       },
       {
         heading: 'The Outcome',
         subtitle: 'Three years of measurable progress.',
         paragraphs: [
-          "Over a period of three years the step-by-step method resulted in significant improvements to the application's technical base, the upgrades to the framework and the tools speeding up the development processes and the greater use of TypeScript together with modern React practices enhancing the consistency, maintainability and type safety of the codebase."
+          'Over three years, our initiative led to significant improvements in the technical foundation of our application. Key milestones included:'
         ],
         bullets: [
-          'Upgraded from React version 16 to version 18',
-          'Migrated from Webpack to Vite, increasing build times by 60-80%',
-          'Increased our TypeScript file usage by over 350 files',
-          'Switched from using React Class components to exclusively Functional components',
-          'Increased our usage of React hooks by over 100%',
-          'Trimmed over 140 existing UNSAFE functions through careful refactoring'
+          'Upgrading from React 16 to 18',
+          'Transitioning from Webpack to Vite, resulting in 60-80% faster builds',
+          'Expanding TypeScript adoption with over 350 additional files',
+          'Shifting to modern component patterns, with a jump to 361 functional components',
+          'More than doubling the use of React Hooks',
+          'Removing 140+ instances of deprecated lifecycle methods'
         ],
         images: [
           {
@@ -189,8 +183,7 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Value',
         subtitle: 'A healthier codebase built for the future.',
         paragraphs: [
-          'The outcome is that the codebase becomes easier to maintain and the development process is more efficient since faster builds mean less time is spent waiting, better typing helps in detecting problems earlier on, and consistent use of React practices makes the application simpler to understand, debug, and extend.',
-          'Just as importantly, the initiative set up a sustainable method for modernization; the team achieves a continual reduction of technical debt by incorporating improvements into regular development and at the same time delivering new functionality while keeping the stability of the existing enterprise application.'
+          'The result? A healthier, more maintainable codebase and a streamlined development process. Faster builds reduce overhead, better type safety helps catch errors early, and consistent React patterns make the code easier to manage. Importantly, we’ve established a sustainable approach to modernization—continuously reducing technical debt while delivering new features and ensuring stability in our enterprise platform.'
         ]
       }
     ]

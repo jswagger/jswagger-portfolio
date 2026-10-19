@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import SectionIndicator from './SectionIndicator'
 import Hero from './Hero'
 import ScrollWords from './ScrollWords'
+import LanguageStrip from './LanguageStrip'
 import CaseStudies from './CaseStudies'
 import About from './About'
 import Services from './Services'
@@ -31,6 +32,7 @@ export default function HomePage() {
       <SectionIndicator />
       <main id="home">
         <Hero />
+        <LanguageStrip />
         <CaseStudies />
         <ScrollWords lead="I can" words={capabilityWords} />
         <Services />
