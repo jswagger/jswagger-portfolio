@@ -1,5 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react'
-import NotFound from './NotFound'
+import NotFound from '../pages/NotFound'
 
 interface ErrorBoundaryState {
   hasError: boolean

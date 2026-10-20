@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
 import './components/components.css'
-import HomePage from './components/HomePage'
-import SelectedWork from './components/SelectedWork'
-import NotFound from './components/NotFound'
+import HomePage from './pages/HomePage'
+import CaseStudyPage from './pages/CaseStudyPage'
+import NotFound from './pages/NotFound'
 import ErrorBoundary from './components/ErrorBoundary'
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <ErrorBoundary>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/work/:slug" element={<SelectedWork />} />
+        <Route path="/work/:slug" element={<CaseStudyPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </ErrorBoundary>

@@ -4,6 +4,6 @@ export default defineConfig({
   assetsInclude: ['**/*.png', '**/*.PNG', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg'],
   test: {
     environment: 'jsdom',
-    setupFiles: ['./tests/setup.ts']
+    setupFiles: ['./src/test/setup.ts']
   }
 })

@@ -1,0 +1,271 @@
+// Role-by-role project detail, removed from the site bundle (unused by any page).
+// Reference only: not compiled. Types: ProjectItem / ProjectSection (see git history of src/types/content.ts).
+
+// Full role-by-role detail behind each company above, kept for reference
+// and possible future use (e.g. a detail view or resume export).
+export const projects: ProjectItem[] = [
+  {
+    title: 'Front End Engineering',
+    roleType: 'Development',
+    roleSummary: 'Building full-stack features with focus on performance optimization and modern UI architecture',
+    leadershipItems: [], 
+    sections: [
+      {
+        label: 'UI Development',
+        items: [
+          'Building new React components, boosting throughput efficiency by over 50% via agentic workflows',
+          'Overhauling batch-editing engines, slashing React actions by 69% and API calls by 95%',
+          'Designing UI patterns and workflows while maintaining type definitions and robust unit tests'
+        ]
+      },
+    ],
+    tags: ['React', 'TypeScript', 'CSS', 'Agentic Engineering']
+  },
+  {
+    title: 'Back End Engineering',
+    roleType: 'Development',
+    roleSummary: 'Building full-stack features and high-performance server-side data flows',
+    leadershipItems: [], 
+    sections: [
+      {
+        label: 'Back-end Development',
+        items: [
+          'Creating spatial processing methods and designing new RESTful API endpoints and workflows',
+          'Adjusting database structure, procedures, and schema to drive data retrieval efficiencies',
+          'AWS Lambda function development, maintenance, and cloud service integration'
+        ]
+      }
+    ],
+    tags: ['Python', 'AWS', 'GIS', 'SQL', 'C#', '.NET']
+  },
+  {
+    title: 'UI Focus Group Leader',
+    roleType: 'Leadership',
+    roleSummary: 'Led UI modernization initiatives across the engineering team to dramatically reduce technical debt',
+    leadershipItems: [ 
+      'Organize monthly focus group meetings to align codebase goals and frontend best practices',
+      'Drive React framework upgrades and scale strict TypeScript implementation across 500+ file repository'
+    ],
+    sections: [
+      {
+        label: 'Monthly Meetings',
+        items: [
+          'Review progress on major initiatives and establish context boundaries for agentic development workflows',
+          'Discuss strategies for solving difficult problems related to UI codebase and front end practices',
+          'Encourage collaboration, teamwork, and collective code ownership across development pods'
+        ]
+      },
+      {
+        label: 'Modernization Initiatives',
+        items: [
+          'React upgraded from version 16 to 18, slashing overall deprecated function usage by over 40%',
+          'Led initiative in file conversions, resulting in over 350 conversions to TypeScript',
+          'Refactoring legacy component structure to fit modern standards and enforce complete type safety'
+        ]
+      }
+    ],
+    tags: ['UI Leadership', 'React', 'Modernization', 'Technical Debt']    
+  },
+  {
+    title: 'Mentorship',
+    roleType: 'Development',
+    roleSummary: 'Mentor engineers through proactive code reviews and architectural pair programming loops',
+    leadershipItems: [
+      'Guided 7+ junior developers over career tenure, elevating team velocity and code quality standards'
+    ],
+    sections: [
+      {
+        label: 'Pair Programming',
+        items: [
+          'Always available to discuss topics and walk through complex system components to explain data flow',
+          'Discussing structural trade-offs and macro/micro ROI balances between alternative software solutions',
+          'Incorporating industry-accepted clean coding principles and SOLID architectural design throughout'
+        ]
+      }
+    ],
+    tags: ['Mentorship', 'Code Reviews', 'Pair Programming', 'Engineering Culture']
+  },
+  {
+    title: 'QA Liason',
+    roleType: 'Development',
+    roleSummary: 'Collaborate with the Quality Assurance team to mitigate regression risk across the platform',
+    leadershipItems: [],
+    sections: [
+      {
+        label: 'Testing Integration',
+        items: [
+          'Discuss automated testing patterns, driving production regression rates toward zero',
+          'Assist with manual and automated test execution using custom markdown testing histories',
+          'Implement targeted code adjustments and structural changes to support improved test framework injection'
+        ]
+      }
+    ],
+    tags: ['Quality Assurance', 'Teamwork', 'Test Automation', 'Risk Mitigation']
+  }
+]
+
+export const projectsGIS: ProjectItem[] = [
+    {
+    title: 'Front End Enginering',
+    roleType: 'Development',
+    roleSummary: 'Created and configured spatial components', // Add this
+    leadershipItems: [], // Empty for dev-focused role
+    sections: [
+      {
+        label: 'Front-end Development',
+        items: [
+          'Utilized ESRI ArcGIS API for JavaScript',
+          'Designed geospatial editing workflows',
+          'Built mapping interactions'
+        ]
+      }
+    ],
+    tags: ['React', 'GIS', 'ArcGIS API for JavaScript']
+    },
+    {
+    title: 'Backend enginering',
+    roleType: 'Development',
+    roleSummary: 'Created and configured spatial components', // Add this
+    leadershipItems: [], // Empty for dev-focused role
+    sections: [
+      {
+        label: 'Back-end Development',
+        items: [
+          'Utilized Python libraries to manipulate spatial data',
+          'Added new spatial processing methods',
+          'Initiated improvement of test coverage for geospatial workflows',
+        ]
+      }
+    ],
+    tags: ['Python', 'GIS', 'SQL']
+    },
+    {
+    title: 'Unit Test Educator',
+    roleType: 'Development',
+    roleSummary: 'Brought focus and initiation of consistent testing', // Add this
+    leadershipItems: [], // Empty for dev-focused role
+    sections: [
+      {
+        label: 'Unit Test Management',
+        items: [
+          'Created and organized unit tests suites across Python classes',
+          'Added new sets of test to cover existing React components',
+          'Initiated a focus and best practice of including unit test creation with ticket work',
+        ]
+      }
+    ],
+    tags: ['Python', 'React']
+    }
+]
+
+
+export const projectsLSC: ProjectItem[] = [
+    {
+    title: 'GIS Data and Deliverable Management',
+    roleType: 'Leadership',
+    roleSummary: 'Led a team of GIS analysts in providing geospatial deliverables', // Add this
+    leadershipItems: [], // Empty for dev-focused role
+    sections: [
+      {
+        label: 'Front-end Development',
+        items: [
+          'Utilized ESRI ArcGIS API for JavaScript',
+          'Designed geospatial editing workflows',
+          'Built mapping interactions'
+        ]
+      },
+      {
+        label: 'Back-end Development',
+        items: [
+          'Utilized Python libraries to manipulate spatial data',
+          'Added new spatial processing methods',
+          'Initiated improvement of test coverage for geospatial workflows',
+        ]
+      }
+    ],
+    tags: ['React', 'Python', 'GIS', 'SQL', 'ArcGIS API for JavaScript']
+    }
+]
+
+
+// export const projects: ProjectItem[] = [
+//     {
+//     title: 'Engineering Solutions',
+//     sections: [
+//       {
+//         label: 'Front-end Development',
+//         items: [
+//           'Building new React components',
+//           'Designing UI patterns and workflows',
+//           'Creating and maintaining type definitions and unit tests'
+//         ]
+//       },
+//       {
+//         label: 'Back-end Development',
+//         items: [
+//           'Creating spatial processing methods',
+//           'Designing new API endpoints and workflows',
+//           'Adjusting database structure, procedures, and schema',
+//           'AWS Lambda function development and maintenance'
+//         ]
+//       }
+//     ],
+//     tags: ['React', 'Python', 'AWS', 'GIS', 'SQL', 'C#']
+//     },
+
+//     {
+//     title: 'UI Focus Group Leader',
+//     sections: [
+//       {
+//         label: 'Monthly Meetings',
+//         items: [
+//           'Review progress on major initiatives',
+//           'Celebrate wins',
+//           'Discuss strategies for solving difficult problems related to UI codebase and front end practices',
+//           'Encourage collaboration and teamwork',
+//           'Assign actions items - tackle initiatives as a team'
+//         ]
+//       },
+//       {
+//         label: 'Technical Debt Cleanup',
+//         items: [
+//           'Removing legacy React functions',
+//           'Refactoring React Class components to Functional components'
+//         ]
+//       },
+//       {
+//         label: 'Modernization Initiatives',
+//         items: [
+//           'React version upgrade',
+//           'File conversions from JavaScript to TypeScript',
+//           'Adding type definitions',
+//           'Refactoring old component structure to fit modern recommendations'
+//         ]
+//       }
+//     ],
+//     tags: ['UI Leadership', 'React', 'Modernization']
+//   },
+//   {
+//     title: 'Mentorship',
+//     sections: [
+//       {
+//         label: 'Code Reviews',
+//         items: [
+//           'Review Pull Requests in a timely manner',
+//           'Always pair positive encouragement with constructive criticism',
+//           'Provide examples to explain concepts'
+//         ]
+//       },
+//       {
+//         label: 'Pair Programming',
+//         items: [
+//           'Always available to discuss topics',
+//           'Walking through components and explaining the flow',
+//           'Discussing options between different solutions',
+//           'Incorporating best practices throughout'
+//         ]
+//       }
+//     ],
+//     tags: ['Mentorship', 'Code Reviews', 'Pair Programming']
+//   },
+// ]

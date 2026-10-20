@@ -21,20 +21,6 @@ export interface ServiceItem {
   image: string
 }
 
-export interface ProjectSection {
-  label: string
-  items: string[]
-}
-
-export interface ProjectItem {
-  title: string
-  roleType: 'Development' | 'Leadership'
-  roleSummary: string
-  leadershipItems: string[]
-  sections: ProjectSection[]
-  tags: string[]
-}
-
 export interface CaseStudyImage {
   src: string
   alt: string
@@ -105,9 +91,7 @@ export interface CaseStudyDetail {
   codeExamples?: CodeExamples
 }
 
-// Condensed, single-accordion view of a company's experience. The full
-// role-by-role detail this summarizes lives in ProjectItem[] (see
-// `projects`, `projectsGIS`, `projectsLSC` in portfolioContent.ts).
+// Condensed, single-accordion view of a company's experience.
 export interface CompanyExperience {
   company: string
   dateRange: string
