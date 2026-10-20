@@ -4,8 +4,9 @@ import ThemeIcon from './ThemeIcon'
 import { applyTheme, getInitialTheme, type ThemeMode } from '../theme'
 
 const navLinks = [
+  { href: '/#case-studies', label: 'Work' },
   { href: '/#about', label: 'About' },
-  { href: '/#work', label: 'Work' },
+  { href: '/#experience', label: 'Experience' },
   { href: '/#contact', label: 'Contact' },
 ]
 

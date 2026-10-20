@@ -43,6 +43,14 @@ export default function Contact() {
             Get in touch
           </a>
           <a
+            className="button button-primary"
+            href="/Jeremy-Swagger-Resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View Resume
+          </a>
+          <a
             className="social-icon-link"
             href="https://github.com/jswagger"
             target="_blank"

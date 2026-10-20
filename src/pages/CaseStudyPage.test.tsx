@@ -35,6 +35,12 @@ describe('CaseStudyPage', () => {
     expect(document.title).toBe(`${study.title} | Jeremy Swagger`)
   })
 
+  it('sends the Home button back to the Selected Work section, not wherever the scroll position was', () => {
+    renderAt(`/work/${caseStudies[0].slug}`)
+
+    expect(screen.getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/#case-studies')
+  })
+
   it('pages through case studies and wraps around at both ends', () => {
     const first = caseStudies[0]
     const last = caseStudies[caseStudies.length - 1]

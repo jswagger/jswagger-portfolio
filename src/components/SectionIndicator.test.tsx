@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it } from 'vitest'
 import SectionIndicator from './SectionIndicator'
 import { installMockIntersectionObserver } from '../test/intersectionObserver'
 
-const SECTION_IDS = ['top', 'case-studies', 'strengths', 'about', 'work', 'contact']
+const SECTION_IDS = ['top', 'case-studies', 'strengths', 'about', 'experience', 'contact']
 
 function mountSections() {
   SECTION_IDS.forEach((id) => {

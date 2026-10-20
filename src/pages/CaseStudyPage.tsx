@@ -182,7 +182,7 @@ export default function CaseStudyPage() {
     <main className="case-study-page" data-case-study={caseStudy.slug}>
       <Navbar showBrand={false} />
       <Link
-        to="/"
+        to="/#case-studies"
         className="case-study-page-back case-study-page-back-header"
         aria-label="Home"
       >

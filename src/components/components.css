@@ -206,7 +206,8 @@ main {
   display: flex;
   gap: 16px;
   overflow: hidden;
-  max-width: 280px;
+  /* Collapses to 0 once scrolled; must be wider than the links combined. */
+  max-width: 400px;
   opacity: 1;
   transform: translateX(0);
   transition: max-width 320ms ease, opacity 240ms ease, transform 320ms ease;
@@ -623,7 +624,7 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 20px;
+  padding: 9px 16px;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
@@ -1145,7 +1146,7 @@ main {
   }
 }
 
-#work {
+#experience {
   /* Darkest behind the section heading at the top, easing off below where
      the photo is only decoration around the experience card. */
   background:
@@ -1159,7 +1160,7 @@ main {
 }
 
 @media (max-width: 768px) {
-  #work {
+  #experience {
     background:
       linear-gradient(
         color-mix(in srgb, var(--hero-photo-tint) 70%, transparent),
@@ -1170,7 +1171,7 @@ main {
 }
 
 /* The canyon overlay stays dark in both themes, so keep the intro light. */
-#work .section-heading h3 {
+#experience .section-heading h3 {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   margin-bottom: 40px;
   color: #e0e1dd;

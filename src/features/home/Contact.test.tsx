@@ -37,4 +37,13 @@ describe('Contact', () => {
 
     expect(container.querySelector('a[href="mailto:jeremy.swagger@gmail.com"]')).not.toBeNull()
   })
+
+  it('links the View Resume button to the résumé PDF in a new tab', () => {
+    installMockIntersectionObserver()
+    const { getByRole } = render(<Contact />)
+    const link = getByRole('link', { name: 'View Resume' })
+
+    expect(link).toHaveAttribute('href', '/Jeremy-Swagger-Resume.pdf')
+    expect(link).toHaveAttribute('target', '_blank')
+  })
 })

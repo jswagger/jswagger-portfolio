@@ -10,7 +10,7 @@ const SECTIONS: IndicatorSection[] = [
   { id: 'case-studies', label: 'Selected Work' },
   { id: 'strengths', label: 'Strengths' },
   { id: 'about', label: 'About' },
-  { id: 'work', label: 'Experience' },
+  { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
 ]
 
