@@ -3,9 +3,9 @@ import { StaticRouter } from 'react-router'
 import App from './App'
 import { caseStudies } from './data/caseStudies'
 
-export function render() {
+export function render(location = '/') {
   return renderToString(
-    <StaticRouter location="/">
+    <StaticRouter location={location}>
       <App />
     </StaticRouter>,
   )

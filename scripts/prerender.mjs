@@ -5,13 +5,23 @@ const rootDir = fileURLToPath(new URL('..', import.meta.url))
 const distIndexPath = `${rootDir}dist/index.html`
 const ssrEntryPath = `${rootDir}dist-ssr/entry-server.js`
 
-const { render } = await import(ssrEntryPath)
-const appHtml = render()
+const { render, caseStudyMeta } = await import(ssrEntryPath)
 
-const template = await readFile(distIndexPath, 'utf-8')
-const html = template.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`)
+// Each case study page already has its own <head> from generate-route-heads.mjs;
+// inject the rendered body so crawlers that don't run JS see the full content.
+const pages = [
+  { path: distIndexPath, location: '/' },
+  ...caseStudyMeta.map(({ slug }) => ({
+    path: `${rootDir}dist/work/${slug}/index.html`,
+    location: `/work/${slug}`,
+  })),
+]
 
-await writeFile(distIndexPath, html)
+for (const { path, location } of pages) {
+  const template = await readFile(path, 'utf-8')
+  const html = template.replace('<div id="root"></div>', () => `<div id="root">${render(location)}</div>`)
+  await writeFile(path, html)
+}
 await rm(`${rootDir}dist-ssr`, { recursive: true, force: true })
 
-console.log('Prerendered content injected into dist/index.html')
+console.log(`Prerendered ${pages.length} pages (home + case studies)`)

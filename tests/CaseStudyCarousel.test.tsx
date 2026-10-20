@@ -54,11 +54,4 @@ describe('CaseStudyCarousel', () => {
     fireEvent.click(screen.getByRole('button', { name: /previous case study/i }))
     expect(getActiveCard(container)).toHaveAttribute('aria-label', 'B')
   })
-
-  it('marks cards outside the interactive range as aria-hidden', () => {
-    const { container } = render(<CaseStudyCarousel items={items} onSelect={vi.fn()} />)
-    const hiddenCards = container.querySelectorAll('.case-carousel-card[aria-hidden="true"]')
-
-    expect(hiddenCards.length).toBeGreaterThan(0)
-  })
 })

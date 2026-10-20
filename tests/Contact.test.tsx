@@ -33,9 +33,8 @@ describe('Contact', () => {
 
   it('renders the contact email as a mailto link', () => {
     installMockIntersectionObserver()
-    const { getAllByText } = render(<Contact />)
+    const { container } = render(<Contact />)
 
-    const emailLinks = getAllByText(/jeremy\.swagger@gmail\.com/i)
-    expect(emailLinks.some((node) => node.closest('a')?.getAttribute('href') === 'mailto:jeremy.swagger@gmail.com')).toBe(true)
+    expect(container.querySelector('a[href="mailto:jeremy.swagger@gmail.com"]')).not.toBeNull()
   })
 })
