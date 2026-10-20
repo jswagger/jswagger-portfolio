@@ -1,10 +1,7 @@
 import { useRef } from 'react'
 import heroImage from '../assets/PortfolioBanner.PNG'
-import portraitImage from '../assets/profile-2026.png'
 import useHeroIntroOnce from '../hooks/useHeroIntroOnce'
 import useHeroSpotlight from '../hooks/useHeroSpotlight'
-
-const skills = ['JavaScript/React', 'Python', 'C#', 'AWS', 'Node.js', 'SQL']
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null)

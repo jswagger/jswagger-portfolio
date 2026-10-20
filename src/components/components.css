@@ -196,30 +196,6 @@ main {
   object-fit: contain;
 }
 
-.brand-icon-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  box-shadow: 0 8px 20px var(--shadow);
-  transition: transform 200ms ease, box-shadow 200ms ease;
-}
-
-.brand-icon-link:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 24px var(--shadow);
-}
-
-.brand-icon-link img {
-  width: 20px;
-  height: 20px;
-  display: block;
-}
-
 .nav-group {
   display: flex;
   align-items: center;
@@ -352,17 +328,6 @@ main {
 .nav-dropdown a:hover {
   background: var(--accent-bg);
   color: var(--accent);
-}
-
-.theme-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--surface);
-  box-shadow: 0 6px 16px var(--shadow);
 }
 
 .theme-toggle {
@@ -523,62 +488,6 @@ main {
   --spot-size: 315px;
 }
 
-.hero-banner {
-  position: relative;
-  margin-bottom: 24px;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.hero-banner::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(7, 17, 12, 0.72) 0%, rgba(7, 17, 12, 0.16) 55%, rgba(7, 17, 12, 0.38) 100%);
-  pointer-events: none;
-}
-
-.hero-banner-image {
-  display: block;
-  width: 100%;
-  height: clamp(220px, 25vw, 420px);
-  object-fit: cover;
-}
-
-.hero-banner-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 12px;
-  padding: clamp(20px, 3vw, 40px);
-}
-
-.hero-banner-pill {
-  display: inline-flex;
-  align-self: flex-start;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  color: white;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  backdrop-filter: blur(10px);
-}
-
-.hero-banner-overlay h2 {
-  margin: 0;
-  max-width: 480px;
-  font-size: clamp(1.2rem, 2vw, 1.8rem);
-  line-height: 1.2;
-  color: white;
-}
-
 .hero-content {
   position: relative;
   z-index: 1;
@@ -615,22 +524,6 @@ main {
   color: #d4935f;
 }
 
-.hero-visual {
-  display: flex;
-  justify-content: center;
-}
-
-.hero-portrait {
-  display: block;
-  width: min(100%, 320px);
-  object-fit: cover;
-  aspect-ratio: 1;
-  object-position: center;
-  border-radius: 50%;
-  box-shadow: 0 16px 32px rgba(20, 34, 26, 0.14);
-}
-
-.hero-badge,
 .section-label {
   display: inline-block;
   margin-bottom: 24px;
@@ -791,30 +684,6 @@ main {
   width: 26px;
   height: 26px;
   display: block;
-}
-
-.chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 28px;
-}
-
-.chip {
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: var(--chip-bg);
-  color: var(--text-muted);
-  border: 1px solid var(--border);
-  font-size: 0.9rem;
-  animation: chip-pop 420ms ease both;
-  transition: transform 220ms ease, border-color 220ms ease, color 220ms ease;
-}
-
-.chip:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent);
-  color: var(--accent);
 }
 
 @keyframes chip-pop {
@@ -1337,21 +1206,6 @@ main {
     color: var(--text-muted);
 }
 
-.experience-identity {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0px;
-  margin-bottom: 20px;
-}
-
-.identity-block {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 20px 20px;
-  box-shadow: 0 8px 24px var(--shadow);
-}
-
 .identity-label {
   display: block;
   margin-bottom: 8px;
@@ -1360,20 +1214,6 @@ main {
   text-transform: uppercase;
   color: var(--accent);
   font-weight: 700;
-}
-
-.identity-block h3,
-.identity-block h4 {
-  margin: 0;
-  color: var(--text);
-}
-
-.identity-block h3 {
-  font-size: clamp(1.2rem, 2vw, 1.75rem);
-}
-
-.identity-block h4 {
-  font-size: clamp(1rem, 1.6vw, 1.35rem);
 }
 
 .role-header {
@@ -1627,9 +1467,6 @@ main {
 }
 
 @media (max-width: 800px) {
-  .experience-identity {
-    grid-template-columns: 1fr;
-  }
 }
 
 .contact-card {
@@ -1651,10 +1488,6 @@ main {
 @media (max-width: 900px) {
   .hero-content {
     grid-template-columns: 1fr;
-  }
-
-  .hero-visual {
-    order: -1;
   }
 }
 
@@ -2281,15 +2114,6 @@ main {
   transform: translateX(-4px);
 }
 
-.case-study-page-tagline {
-  margin: 0 0 8px;
-  color: var(--accent);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-}
-
 .case-study-page-tags {
   display: flex;
   flex-wrap: wrap;
@@ -2312,10 +2136,6 @@ main {
   content: '·';
   margin-left: 12px;
   color: rgba(255, 255, 255, 0.5);
-}
-
-.case-study-page-overview-label {
-  margin-top: 32px;
 }
 
 .case-study-page-body {
@@ -2805,13 +2625,6 @@ main {
   font-size: 0.95rem;
 }
 
-.workflow-visual-caption {
-  margin: 0;
-  color: var(--wv-muted);
-  font-size: 0.82rem;
-  font-style: italic;
-}
-
 @media (max-width: 640px) {
   .workflow-visual-flow {
     flex-direction: column;
@@ -3182,7 +2995,6 @@ main {
     white-space: normal;
   }
 }
-
 
 /* Scroll-driven zoom reveal, adapted from a scroll-snapping demo's zoom-scroll
    effect. Browsers without view() timelines keep the IntersectionObserver

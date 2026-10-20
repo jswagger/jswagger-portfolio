@@ -61,29 +61,9 @@ export interface WorkflowVisualStep {
   systems: string[]
 }
 
-export interface WorkflowVisualBranch {
-  label: string
-  systems: string[]
-}
-
-export interface WorkflowVisualArchitecture {
-  question: string
-  explanation: string
-  branches: WorkflowVisualBranch[]
-}
-
-export interface WorkflowVisualOutcome {
-  value: string
-  label: string
-  description: string
-}
-
 export interface WorkflowVisualData {
   headline: string
   steps: WorkflowVisualStep[]
-  architecture: WorkflowVisualArchitecture
-  outcome: WorkflowVisualOutcome
-  caption: string
 }
 
 export type CaseStudyCardIcon = 'sparkles' | 'layout' | 'user-check' | 'shield-check' | 'bolt'

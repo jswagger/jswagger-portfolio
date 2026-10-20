@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { experience } from '../data/portfolioContent'
 import ExperienceAccordion from './ExperienceAccordion'
 

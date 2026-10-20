@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { services, strengthStats } from '../data/portfolioContent'
 import InfoCard from './InfoCard'
 import StrengthStats from './StrengthStats'

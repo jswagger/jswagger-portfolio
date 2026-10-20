@@ -260,21 +260,6 @@ export const caseStudies: CaseStudyDetail[] = [
         { label: 'Approve', systems: ['Leadership Review'] },
         { label: 'Share', systems: ['SQL Server'] },
       ],
-      architecture: {
-        question: 'Why a separate user pool?',
-        explanation:
-          "Enrollment users needed to be verified and approved independently from the application's existing user population.",
-        branches: [
-          { label: 'Application Users', systems: ['AWS Cognito'] },
-          { label: 'Enrollment Users', systems: ['Separate User Pool', 'Leadership Review'] },
-        ],
-      },
-      outcome: {
-        value: '5+ Years',
-        label: 'Reliable, low-maintenance operation',
-        description: 'Very few changes have been required since implementation.',
-      },
-      caption: 'Conceptual representation of the workflow and supporting systems.',
     },
     stats: [
       { value: 6, suffix: '+', emphasis: '', label: 'Years in production' },
