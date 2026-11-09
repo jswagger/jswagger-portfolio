@@ -12,7 +12,7 @@ export const highlights: Highlight[] = [
 
 export const strengthStats: StrengthStat[] = [
   { value: 10, suffix: '+', emphasis: 'Years', label: 'of experience' },
-  { value: 400, suffix: '+', emphasis: 'Legacy files', label: 'modernized' },
+  { value: 350, suffix: '+', emphasis: 'Legacy files', label: 'modernized' },
   { value: 25000, suffix: '+', emphasis: 'Platform', label: 'users' },
   { value: 7, suffix: '+', emphasis: 'Engineers', label: 'mentored' },
 ]
