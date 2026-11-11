@@ -39,7 +39,7 @@ export const caseStudies: CaseStudyDetail[] = [
     heroPosition: 'center 55%',
     heroSubtitle: 'Applying AI to turn dense reports into clear, useful insights.',
     intro:
-      'Analyzing data across multiple reports used to require users to manually compare findings and identify connections. I developed an AI-powered reporting feature that consolidates these insights into a single, accessible summary. By integrating AWS Bedrock with intelligent document preprocessing and systematic testing, I created a reliable solution that simplifies complex analysis and reduces AI token consumption by over 75%.',
+      'Analyzing data across multiple reports used to require users to manually compare findings and identify connections. I developed an AI-powered reporting feature that consolidates these insights into a single, accessible summary. By integrating AWS Bedrock with intelligent document preprocessing and systematic testing, I created a reliable solution that simplifies complex analysis and reduces AI token consumption by about 75%.',
     introImage: {
       src: summaryWorkflowDiagram,
       wide: true,
@@ -72,7 +72,7 @@ export const caseStudies: CaseStudyDetail[] = [
         heading: 'The Strategy',
         subtitle: 'Cutting token use by 75% while keeping the insight.',
         paragraphs: [
-          'I designed a streamlined React interface, allowing users to easily select multiple reports and view AI-generated summaries in a user-friendly format. On the backend, I crafted a Python class that pulls selected reports from Amazon S3, optimizing content for AI processing. A key achievement was reducing token consumption by over 75% through a dynamic preprocessing system that combined text extraction and image optimization, ensuring efficient and effective summaries.'
+          'I designed a streamlined React interface, allowing users to easily select multiple reports and view AI-generated summaries in a user-friendly format. On the backend, I crafted a Python class that pulls selected reports from Amazon S3, optimizing content for AI processing. A key achievement was reducing token consumption by about 75% through a dynamic preprocessing system that combined text extraction and image optimization, ensuring efficient and effective summaries.'
         ]
       },
       {
